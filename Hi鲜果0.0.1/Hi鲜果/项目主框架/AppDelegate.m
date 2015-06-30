@@ -22,7 +22,7 @@
     //ok
     //ok
     //ok
-//JGHJJJH
+//JGHJJJHGHH
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
     [Framework controllers].window = self.window;
