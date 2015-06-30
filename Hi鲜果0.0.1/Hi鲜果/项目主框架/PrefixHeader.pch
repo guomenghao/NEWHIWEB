@@ -1,0 +1,41 @@
+//
+//  PrefixHeader.pch
+//  Hi鲜果
+//
+//  Created by 李波 on 15/6/25.
+//  Copyright (c) 2015年 Hi fruit. All rights reserved.
+//
+
+#import "BasicViewController.h"
+#import "FlexibleFrame.h"
+#import "UIView+Flexible.h"
+#import "User.h"
+#import "Framework.h"
+#import "GlobalMethod.h"
+#import "CustomSeparator.h"
+#ifndef Hi___PrefixHeader_pch
+#define Hi___PrefixHeader_pch
+
+/**
+ *  imageWithContentsOfFile
+ */
+#define ImageWithName(name) [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForAuxiliaryExecutable:name]]
+/**
+ *  定义RGB颜色
+ */
+#define RGBAColor(Red,Green,Blue,Alpha) [UIColor colorWithRed:Red/255.0 green:Green/255.0 blue:Blue/255.0 alpha:Alpha];
+/**
+ *  按钮的主题背景色
+ */
+#define BtnBkColor [UIColor orangeColor]
+/**
+ *  屏幕尺寸
+ */
+#define Screen_bounds [UIScreen mainScreen].bounds
+#define Screen_height [UIScreen mainScreen].bounds.size.height
+#define Screen_width [UIScreen mainScreen].bounds.size.width
+
+
+
+
+#endif
