@@ -24,6 +24,7 @@
     //ok
     
     //2121212
+    //121212
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
     [Framework controllers].window = self.window;
