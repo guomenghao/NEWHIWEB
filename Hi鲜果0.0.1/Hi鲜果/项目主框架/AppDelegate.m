@@ -36,8 +36,7 @@
 //    /sjahdas
 //sgdgsdg
     // lym
-    // q1e12312
-    NSLog(@"1111");
+//1111
     
     // q1e12312
     NSLog(@"1111");
