@@ -19,17 +19,6 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-//asdfasdf
-    //76547456745687845
-    
-    NSLog(@"hello");
-    //11111111111
-    NSLog(@"1111");
-    
-    // lym
-    // lym
-    // 00000
-    //2121212
 
     //tryguuyh78
 //    /sjahdas
