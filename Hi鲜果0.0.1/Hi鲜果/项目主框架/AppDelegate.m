@@ -31,6 +31,8 @@
     //tryguuyh78
     //tryguuyh78
     //tryguuyh78
+//    /sjahdas
+    //adsdf
     // lym
     // q1e12312
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
