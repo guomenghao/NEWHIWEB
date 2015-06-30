@@ -17,6 +17,11 @@
 @end
 
 @implementation SettingController
+
+- (void)dealloc {
+    
+    NSLog(@"%s", __FUNCTION__);
+}
 #pragma mark - 初始化方法
 - (instancetype)init
 {

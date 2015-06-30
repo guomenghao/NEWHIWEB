@@ -87,6 +87,8 @@
 		09FFE2C21B41230B007066C3 /* CategoryDetailsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09FFE2C11B41230B007066C3 /* CategoryDetailsController.m */; };
 		09FFE2CF1B413450007066C3 /* CategoryDetailsTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 09FFE2CE1B413450007066C3 /* CategoryDetailsTableView.m */; };
 		09FFE2D21B413753007066C3 /* CategoryDetailsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 09FFE2D11B413753007066C3 /* CategoryDetailsCell.m */; };
+		2456A2831B427C5000F49906 /* Fruit.m in Sources */ = {isa = PBXBuildFile; fileRef = 2456A2821B427C5000F49906 /* Fruit.m */; };
+		2456A2851B4292FD00F49906 /* placeholder.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2456A2841B4292FD00F49906 /* placeholder.jpg */; };
 		388C74741B3EE7490078AE32 /* bill_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 388C746D1B3EE7490078AE32 /* bill_normal.png */; };
 		388C74751B3EE7490078AE32 /* bill_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 388C746E1B3EE7490078AE32 /* bill_normal@2x.png */; };
 		388C74761B3EE7490078AE32 /* bkImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 388C746F1B3EE7490078AE32 /* bkImage.jpg */; };
@@ -263,6 +265,9 @@
 		09FFE2CE1B413450007066C3 /* CategoryDetailsTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryDetailsTableView.m; sourceTree = "<group>"; };
 		09FFE2D01B413753007066C3 /* CategoryDetailsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryDetailsCell.h; sourceTree = "<group>"; };
 		09FFE2D11B413753007066C3 /* CategoryDetailsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryDetailsCell.m; sourceTree = "<group>"; };
+		2456A2811B427C5000F49906 /* Fruit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Fruit.h; sourceTree = "<group>"; };
+		2456A2821B427C5000F49906 /* Fruit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Fruit.m; sourceTree = "<group>"; };
+		2456A2841B4292FD00F49906 /* placeholder.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = placeholder.jpg; sourceTree = "<group>"; };
 		388C746D1B3EE7490078AE32 /* bill_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bill_normal.png; sourceTree = "<group>"; };
 		388C746E1B3EE7490078AE32 /* bill_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bill_normal@2x.png"; sourceTree = "<group>"; };
 		388C746F1B3EE7490078AE32 /* bkImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bkImage.jpg; sourceTree = "<group>"; };
@@ -513,6 +518,8 @@
 			children = (
 				097A0EE41B42251900E860B9 /* CartModel.h */,
 				097A0EE51B42251900E860B9 /* CartModel.m */,
+				2456A2811B427C5000F49906 /* Fruit.h */,
+				2456A2821B427C5000F49906 /* Fruit.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -618,6 +625,7 @@
 				097A82521B3C05AF00D59370 /* 1.jpg */,
 				097A82531B3C05AF00D59370 /* 2.jpg */,
 				097A82541B3C05AF00D59370 /* 3.jpg */,
+				2456A2841B4292FD00F49906 /* placeholder.jpg */,
 			);
 			path = Resoure;
 			sourceTree = "<group>";
@@ -926,6 +934,7 @@
 				388C74741B3EE7490078AE32 /* bill_normal.png in Resources */,
 				388C74771B3EE7490078AE32 /* logo_default.png in Resources */,
 				097A82571B3C05AF00D59370 /* 3.jpg in Resources */,
+				2456A2851B4292FD00F49906 /* placeholder.jpg in Resources */,
 				096DA87B1B3E4B8E00925F62 /* fruit_jian.png in Resources */,
 				092AA7831B3B918D00B88F23 /* Images.xcassets in Resources */,
 				096DA8591B3E327B00925F62 /* star_2.png in Resources */,
@@ -949,6 +958,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2456A2831B427C5000F49906 /* Fruit.m in Sources */,
 				097A0E791B414B5D00E860B9 /* AFURLSessionManager.m in Sources */,
 				097A0ED41B41502B00E860B9 /* CategoryModel.m in Sources */,
 				092AA7781B3B918D00B88F23 /* main.m in Sources */,

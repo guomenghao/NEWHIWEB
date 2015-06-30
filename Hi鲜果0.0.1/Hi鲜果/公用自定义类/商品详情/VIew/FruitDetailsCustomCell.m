@@ -61,8 +61,6 @@
 {
     DetailsScrollView *scrollView = [[DetailsScrollView alloc] init];
     [self.contentView addSubview:scrollView];
-    
-    
 }
 
 

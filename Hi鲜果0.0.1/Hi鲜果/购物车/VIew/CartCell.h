@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "Fruit.h"
 @interface CartCell : UITableViewCell
-
+@property (strong, nonatomic) Fruit * fruit;
 @end
