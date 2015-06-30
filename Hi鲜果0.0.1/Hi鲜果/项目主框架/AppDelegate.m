@@ -46,6 +46,7 @@
     356735673567
     2355q34532452
     uh8uj/asdas///
+    //d/as/dasdas
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
     [Framework controllers].window = self.window;
