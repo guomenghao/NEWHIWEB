@@ -12,4 +12,6 @@
 
 @property (nonatomic, assign) NSInteger fruitsNum;
 
+- (instancetype)initWithPoint:(CGPoint)point;
+
 @end

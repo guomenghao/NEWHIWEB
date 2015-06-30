@@ -70,8 +70,7 @@
 {
     [self.fruitNameAndPrice geiFruitInfo:nil];
     [self.contentView addSubview:self.fruitNameAndPrice];
-    
-    FruitNumberPicker *fruitNumpicker = [[FruitNumberPicker alloc] init];
+    FruitNumberPicker *fruitNumpicker = [[FruitNumberPicker alloc] initWithPoint:CGPointMake(Screen_width * 0.65 - 5, Screen_height * 0.15 * 0.55)];
     [self.contentView addSubview:fruitNumpicker];
     
     self.separator.frame = CGRectMake(0, Screen_height * 0.15 - 0.5, Screen_width, 0.5);
