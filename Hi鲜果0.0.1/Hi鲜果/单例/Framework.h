@@ -15,7 +15,7 @@
 #import "SettingController.h"
 #import "PersonalController.h"
 #import "CategoryDetailsController.h"
-
+#import "RegisterController.h"
 @interface Framework : NSObject
 /**主页*/
 @property (nonatomic, weak) HomePageController * homePageVC;
@@ -23,6 +23,8 @@
 @property (nonatomic, weak) CategoryController * categoryVC;
 /**登录*/
 @property (nonatomic, weak) LoginController * loginVC;
+/**注册*/
+@property (nonatomic, weak) RegisterController * registerVC;
 /**设置*/
 @property (nonatomic, weak) SettingController * settingVC;
 /**个人信息*/

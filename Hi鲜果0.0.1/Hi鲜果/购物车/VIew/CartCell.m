@@ -34,6 +34,7 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         
+        self.fruit = [[Fruit alloc] init];
         [self.contentView addSubview:self.picView];
         [self.contentView addSubview:self.titleLabel];
         [self.contentView addSubview:self.unitLable];
@@ -46,6 +47,8 @@
     
     if (_picView == nil) {
         _picView = [[UIImageView alloc] initWithiPhone5Frame:CGRectMake(16, 23, 120, 120)];
+        _picView.contentMode = UIViewContentModeScaleAspectFill;
+        _picView.clipsToBounds = YES;
     }
     return _picView;
 }
@@ -85,14 +88,15 @@
 
 - (void)updateUI {
 
-    NSURL * url = [NSURL URLWithString:[Base_Url stringByAppendingPathComponent:self.fruit.pic]];
-    [self.picView sd_setImageWithURL:url
-                    placeholderImage:ImageWithName(@"placeholder.jpg")
-                           completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-                           }];
+//    NSURL * url = [NSURL URLWithString:[Base_Url stringByAppendingPathComponent:self.fruit.pic]];
+//    [self.picView sd_setImageWithURL:url
+//                    placeholderImage:ImageWithName(@"placeholder.jpg")
+//                           completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+//                           }];
+    self.picView.image = ImageWithName(@"placeholder.jpg");
     self.titleLabel.text = self.fruit.name;
     self.unitLable.text = self.fruit.unit;
-    self.discountPriceLabel.text = self.fruit.discountPrice;
+    self.discountPriceLabel.text = [NSString stringWithFormat:@"￥%@", self.fruit.discountPrice];
 }
 
 @end

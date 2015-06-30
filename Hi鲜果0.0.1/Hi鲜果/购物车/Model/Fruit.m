@@ -14,24 +14,29 @@
     self = [super init];
     if (self) {
         
-        self.info = _info;//调用setter方法
+        self.info = info;//调用setter方法
     }
     return self;
 }
 
 #pragma mark - getter
 
-- (NSString *)fruitID {
+- (NSString *)pic {
+    
+    return _info[@"pic"];
+}
+
+- (NSString *)ID {
     
     return _info[@"ID"];
 }
 
-- (NSString *)fruitName {
+- (NSString *)name {
     
     return _info[@"name"];
 }
 
-- (NSString *)fruitUnit {
+- (NSString *)unit {
     
     return _info[@"unit"];
 }

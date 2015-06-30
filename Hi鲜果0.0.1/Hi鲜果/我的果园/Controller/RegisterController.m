@@ -1,19 +1,19 @@
 //
-//  LoginController.m
+//  RegisterController.m
 //  Hi鲜果
 //
-//  Created by 吕玉梅 on 15/6/26.
+//  Created by rimi on 15/6/30.
 //  Copyright (c) 2015年 Hi fruit. All rights reserved.
 //
 
-#import "LoginController.h"
+#import "RegisterController.h"
 #define Margin 50*[FlexibleFrame ratios].height
 #define MiddleFont ([UIFont systemFontOfSize:15*[FlexibleFrame ratios].height])
-@interface LoginController () <UITextFieldDelegate>
+@interface RegisterController () <UITextFieldDelegate>
 
 @end
 
-@implementation LoginController
+@implementation RegisterController
 
 - (void)dealloc {
     
@@ -24,19 +24,30 @@
 {
     self = [super init];
     if (self) {
-        self.title = @"登录";
+        self.title = @"注册";
         self.controllerType = UIViewControllerNavigationTransluct;
-        [Framework controllers].loginVC = self;
+        [Framework controllers].registerVC = self;
     }
     return self;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self initializeDataSource];
+    [self initializeUserInterface];
+}
+
+- (void)initializeDataSource {
+    
+    
+}
+
+- (void)initializeUserInterface {
+    
     /**设置背景图片*/
     self.view.layer.contents = (__bridge id)ImageWithName(@"bkImage.jpg").CGImage;
     /**添加控件*/
-    UITextField * accountField = ({
+    UITextField * phoneField = ({
         UITextField * textField = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, 222 * [FlexibleFrame ratios].width, 30 * [FlexibleFrame ratios].height)];
         [textField setFont:MiddleFont];
         textField.center = CGPointMake(self.view.bounds.size.width / 2, 230 * [FlexibleFrame ratios].height);
@@ -49,19 +60,19 @@
         [textField setReturnKeyType:UIReturnKeyDone];
         textField;
     });
-    [self.view addSubview:accountField];
+    [self.view addSubview:phoneField];
     
     UILabel * accountLabel = ({
-        UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(accountField.frame.origin.x, accountField.frame.origin.y - 30, 80, 30)];
+        UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(phoneField.frame.origin.x, phoneField.frame.origin.y - 30, 80, 30)];
         [label setFont:MiddleFont];
         label.textColor = [UIColor orangeColor];
-        label.text = @"账号：";
+        label.text = @"请输入邮箱：";
         label;
     });
     [self.view addSubview:accountLabel];
     
     UILabel * passwordLabel = ({
-        UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(accountField.frame.origin.x, CGRectGetMaxY(accountField.frame) + Margin, 80, 30)];
+        UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(phoneField.frame.origin.x, CGRectGetMaxY(phoneField.frame) + Margin, 80, 30)];
         [label setFont:MiddleFont];
         label.textColor = [UIColor orangeColor];
         label.text = @"密码：";
@@ -71,7 +82,7 @@
     [self.view addSubview:passwordLabel];
     
     UITextField * passwordField = ({
-        UITextField * textField = [[UITextField alloc] initWithFrame:CGRectMake(accountField.frame.origin.x, CGRectGetMaxY(passwordLabel.frame), accountField.bounds.size.width, 30 * [FlexibleFrame ratios].height)];
+        UITextField * textField = [[UITextField alloc] initWithFrame:CGRectMake(phoneField.frame.origin.x, CGRectGetMaxY(passwordLabel.frame), phoneField.bounds.size.width, 30 * [FlexibleFrame ratios].height)];
         [textField setFont:MiddleFont];
         textField.autocapitalizationType = UITextAutocapitalizationTypeNone;
         textField.autocorrectionType = UITextAutocorrectionTypeNo;
@@ -86,7 +97,7 @@
     
     // 登录和注册按钮
     UIButton * loginButton = ({
-        UIButton * button = [[UIButton alloc] initWithFrame:CGRectMake(accountField.frame.origin.x, CGRectGetMaxY(passwordField.frame) + Margin, accountField.bounds.size.width, 30 * [FlexibleFrame ratios].height)];
+        UIButton * button = [[UIButton alloc] initWithFrame:CGRectMake(phoneField.frame.origin.x, CGRectGetMaxY(passwordField.frame) + Margin, phoneField.bounds.size.width, 30 * [FlexibleFrame ratios].height)];
         [button setTitle:@"登 录" forState:UIControlStateNormal];
         [button setBackgroundColor:BtnBkColor];
         [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
@@ -98,7 +109,7 @@
     [self.view addSubview:loginButton];
     
     UIButton * registerButton = ({
-        UIButton * button = [[UIButton alloc] initWithFrame:CGRectMake(accountField.frame.origin.x, CGRectGetMaxY(loginButton.frame) + 10 * [FlexibleFrame ratios].height, accountField.bounds.size.width, 30 * [FlexibleFrame ratios].height)];
+        UIButton * button = [[UIButton alloc] initWithFrame:CGRectMake(phoneField.frame.origin.x, CGRectGetMaxY(loginButton.frame) + 10 * [FlexibleFrame ratios].height, phoneField.bounds.size.width, 30 * [FlexibleFrame ratios].height)];
         [button setTitle:@"注 册" forState:UIControlStateNormal];
         [button setBackgroundColor:[UIColor whiteColor]];
         [button setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
@@ -114,13 +125,10 @@
     
     if ([sender.currentTitle isEqualToString:@"登 录"]) {
         
-        NSLog(@"点击登录，登录成功");
-        // 验证成功
-        // 修改loginUser的登录标记
-        [User loginUser].isLogin = YES;
+
     } else if ([sender.currentTitle isEqualToString:@"注 册"]) {
         
-        [self.navigationController pushViewController:[[RegisterController alloc] init] animated:YES];
+       
     }
 }
 
@@ -135,4 +143,6 @@
     [textField resignFirstResponder];
     return YES;
 }
+
+
 @end
