@@ -35,6 +35,9 @@
     // lym
     // q1e12312
     NSLog(@"1111");
+    
+    // q1e12312
+    NSLog(@"1111");
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
     [Framework controllers].window = self.window;
