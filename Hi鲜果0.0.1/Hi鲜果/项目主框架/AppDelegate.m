@@ -41,6 +41,7 @@
     NSLog(@"1111");
     ////////
     jhuihuh8yu
+    uh8uj
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
     [Framework controllers].window = self.window;
