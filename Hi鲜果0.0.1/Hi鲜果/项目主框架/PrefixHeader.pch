@@ -13,6 +13,9 @@
 #import "Framework.h"
 #import "GlobalMethod.h"
 #import "CustomSeparator.h"
+#import "AFNetworking.h"
+#import "URLDefine.h"
+#import "UIImageView+WebCache.h"
 #ifndef Hi___PrefixHeader_pch
 #define Hi___PrefixHeader_pch
 

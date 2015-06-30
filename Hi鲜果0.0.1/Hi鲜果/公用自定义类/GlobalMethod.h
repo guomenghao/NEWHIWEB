@@ -18,4 +18,6 @@
  */
 + (void)removeAllSubViews:(UIView *)superView;
 
++ (void)serviceWithMothedName:(NSString *)mothedName parmeter:(id)parmeter success:(void (^)(id responseObject))succeedBlock fail:(void (^)(NSError *error))failBlock;
+
 @end

@@ -10,8 +10,7 @@
 #import "AppDelegate.h"
 #import "MyGardenCell.h"
 #import "SettingController.h"
-
-
+#import "PersonalController.h"
 @interface MyGardenView () <UITableViewDelegate, UITableViewDataSource>
 /**记录自身视图动画状态，是否是打开*/
 @property (assign, nonatomic) BOOL open;
@@ -45,6 +44,8 @@
 - (void)settingButtonPressed:(UIButton *)sender;
 /**退出登录按钮点击事件*/
 - (void)logoutButtonPressed:(UIButton *)sender;
+/**点击头像事件,查看可编辑个人信息*/
+- (void)logoImageViewTapped:(UITapGestureRecognizer *)tap;
 /**推送登录控制器*/
 - (void)pushLoginViewController;
 /**显示已登录的界面*/
@@ -115,6 +116,11 @@ static MyGardenView * gardenView;
         imageView.layer.cornerRadius = imageView.bounds.size.width / 2;
         imageView;
     });
+    
+    // 添加tap手势
+    UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(logoImageViewTapped:)];
+    self.logoImageView.userInteractionEnabled = YES;
+    [self.logoImageView addGestureRecognizer:tap];
     [self.headerView addSubview:self.logoImageView];
     
     // 添加tableView
@@ -153,8 +159,10 @@ static MyGardenView * gardenView;
 }
 
 - (void)showLoginUserInterface {
+    
     // 显示用户头像
     self.logoImageView.image = ImageWithName(@"user_button_normal.png");
+    
     // 添加“退出登录”按钮
     self.logoutButton = ({
         CGFloat margin = 32 * [FlexibleFrame ratios].width;
@@ -220,7 +228,6 @@ static MyGardenView * gardenView;
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     if ([User loginUser].isLogin == NO) {//直接推送至登录页面
-#warning 具体推送的控制器可能不同
         [self pushLoginViewController];
     } else {
         
@@ -308,10 +315,6 @@ static MyGardenView * gardenView;
     [self pushLoginViewController];
 }
 
-
-/**
- *  推送到设置页面
- */
 - (void)settingButtonPressed:(UIButton *)sender {
     
     SettingController * settingVC = [[SettingController alloc] init];
@@ -328,5 +331,16 @@ static MyGardenView * gardenView;
 - (void)handleTapRootView:(UITapGestureRecognizer *)sender {
     
     [self closeGardenAnimation];
+}
+
+- (void)logoImageViewTapped:(UITapGestureRecognizer *)tap {
+    
+    if ([User loginUser].isLogin == YES) {
+        
+        PersonalController * personalVC = [[PersonalController alloc] init];
+        // 由主页控制器推送
+        [[Framework controllers].homePageVC.navigationController pushViewController:personalVC animated:NO];
+        [self closeGardenAnimation];
+    }
 }
 @end

@@ -35,18 +35,6 @@
             [self.navigationController.navigationBar setShadowImage:[[UIImage alloc] init]];
         }
     }
-
-    
-
-    
-    /**
-     *  toolBar 用于购物车等
-     */
-//    [self.navigationController setToolbarHidden:NO animated:NO];
-//    self.navigationController.toolbar.barTintColor = [UIColor colorWithWhite:0.000 alpha:0.500];
-    
-    
-    
 }
 
 - (void)initializeDataSource
@@ -55,6 +43,11 @@
 }
 
 - (void)initializeUserInterface
+{
+    
+}
+
+- (void)getNetWork:(NSString *)classId
 {
     
 }

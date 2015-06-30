@@ -20,5 +20,5 @@ typedef NS_ENUM (NSUInteger, UIViewControllerType) {
 @property(nonatomic, assign) UIViewControllerType controllerType;
 - (void)initializeDataSource;
 - (void)initializeUserInterface;
-
+- (void)getNetWork:(NSString *)classId;
 @end

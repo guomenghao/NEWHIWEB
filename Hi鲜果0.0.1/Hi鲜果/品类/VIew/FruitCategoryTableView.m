@@ -9,6 +9,7 @@
 #import "FruitCategoryTableView.h"
 #import "FruitCategoryCell.h"
 #import "CategoryDetailsController.h"
+#import "CategoryModel.h"
 
 @interface FruitCategoryTableView () <UITableViewDelegate,UITableViewDataSource>
 
@@ -68,7 +69,11 @@
  */
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [[Framework controllers].categoryVC.navigationController pushViewController:[[CategoryDetailsController alloc] init] animated:YES];
+    CategoryDetailsController *cdVC = [[CategoryDetailsController alloc] init];
+    
+    [cdVC getNetWork:[NSString stringWithFormat:@"%ld", (long)indexPath.row + 1]];
+    
+    [[Framework controllers].categoryVC.navigationController pushViewController:cdVC animated:YES];
 }
 
 

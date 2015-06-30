@@ -35,6 +35,11 @@
 
 - (void)initializeDataSource
 {
+    
+}
+
+- (void)initializeUserInterface
+{
     /**
      *  自动适应边距
      */
@@ -43,12 +48,13 @@
     [self.view addSubview:tableView];
 }
 
-- (void)initializeUserInterface
+- (void)viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:NO];
+    [self.tabBarController.tabBar setHidden:NO];
     
 }
-
-
 
 
 

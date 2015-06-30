@@ -67,7 +67,15 @@
     [hoverButton initializeUserInterfaceWithLike:YES controller:self];
     [self.view addSubview:hoverButton];
     
-    
+}
+
+- (void)getNetWork:(NSString *)classId
+{
+    [GlobalMethod serviceWithMothedName:GetNewsContent_Url parmeter:nil success:^(id responseObject) {
+        NSLog(@"%@",responseObject);
+    } fail:^(NSError *error) {
+        
+    }];
 }
 
 
