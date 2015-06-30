@@ -30,7 +30,8 @@
     //tryguuyh78
     //tryguuyh78
     //tryguuyh78
-//    /sjahdas 
+//    /sjahdas
+    //adsdf
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
     [Framework controllers].window = self.window;
