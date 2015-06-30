@@ -28,6 +28,20 @@
     
     // lym
     //dasdasdasd
+    // lym
+    // 00000
+    //2121212
+    //guomenghao
+    //tryguuyh78
+//    /sjahdas
+//sgdgsdg
+    // lym
+    // q1e12312
+    NSLog(@"1111");
+    
+    // q1e12312
+    NSLog(@"1111");
+    //saiudhsih
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
     [Framework controllers].window = self.window;
