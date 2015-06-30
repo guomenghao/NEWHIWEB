@@ -632,6 +632,9 @@
 				097A82531B3C05AF00D59370 /* 2.jpg */,
 				097A82541B3C05AF00D59370 /* 3.jpg */,
 				2456A2841B4292FD00F49906 /* placeholder.jpg */,
+				094E16291B4272B600C05CB2 /* guowai.png */,
+				094E162A1B4272B600C05CB2 /* guonei.png */,
+				094E162F1B42731900C05CB2 /* quanbu.png */,
 			);
 			path = Resoure;
 			sourceTree = "<group>";

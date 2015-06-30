@@ -68,8 +68,7 @@
 
 - (void)getScrollViewCell
 {
-    DetailsScrollView *scrollView = [[DetailsScrollView alloc] init];
-    [self.contentView addSubview:scrollView];
+    [self.contentView addSubview:self.detailsScrollView];
 }
 
 

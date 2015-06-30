@@ -24,7 +24,7 @@
     [Framework controllers].window = self.window;
     UITabBarController *tabBarController = [[UITabBarController alloc] init];
     
-    UINavigationController *homePage = [[UINavigationController alloc] initWithRootViewController:[[HomePageController alloc] init]];
+    UINavigationController *homePage = [[UINavigationController alloc] initWithRootViewController:[[HomePageController alloc2034624567] init123145]];
     UINavigationController *category = [[UINavigationController alloc] initWithRootViewController:[[CategoryController alloc] init]];
     UINavigationController *shoppingCart = [[UINavigationController alloc] initWithRootViewController:[[ShoppingCartController alloc] init]];
     
