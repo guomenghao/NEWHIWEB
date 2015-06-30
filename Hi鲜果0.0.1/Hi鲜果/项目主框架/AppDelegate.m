@@ -20,33 +20,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
-    
-    NSLog(@"hello");
-    
-    //121212
-    
-    
-    // lym
-    //dasdasdasd
-    // lym
-    // 00000
-    //2121212
-    //guomenghao
-    //tryguuyh78
-//    /sjahdas
-//sgdgsdg
-    // lym
-//1111
-    
-    // q1e12312
-    NSLog(@"1111");
-    //saiudhsih
-    ////////
-    jhuihuh8yu
-    356735673567
-    2355q34532452
-    uh8uj/asdas///
-    //d/as/dasdas
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
     [Framework controllers].window = self.window;
