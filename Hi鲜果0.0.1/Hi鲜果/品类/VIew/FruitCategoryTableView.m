@@ -11,7 +11,9 @@
 #import "CategoryDetailsController.h"
 #import "CategoryModel.h"
 
-@interface FruitCategoryTableView () <UITableViewDelegate,UITableViewDataSource>
+@interface FruitCategoryTableView () <UITableViewDelegate,UITableViewDataSource> {
+    NSArray *_dataSource;
+}
 
 @end
 
@@ -25,6 +27,13 @@
         self.separatorStyle = UITableViewCellSeparatorStyleNone;
         self.delegate = self;
         self.dataSource = self;
+        _dataSource = @[@{@"fruitname" : @"所有蔬果",
+                          @"title" : @"好吃的水果",
+                          @"pic" : @""}, @{@"fruitname" : @"国外蔬果",
+                                           @"title" : @"好吃的水果",
+                                           @"pic" : @""}, @{@"fruitname" : @"国内蔬果",
+                                                            @"title" : @"好吃的水果",
+                                                            @"pic" : @""}];
     }
     return self;
 }
@@ -34,7 +43,7 @@
  */
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 3;
+    return [_dataSource count];
 }
 
 /**
@@ -57,7 +66,7 @@
     }
     
     [GlobalMethod removeAllSubViews:cell.contentView];
-    [cell getFruitCategoryCell];
+    [cell getFruitCategoryCellData:_dataSource[indexPath.row]];
     [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
     
     cell.selectionStyle = UITableViewCellSelectionStyleNone;

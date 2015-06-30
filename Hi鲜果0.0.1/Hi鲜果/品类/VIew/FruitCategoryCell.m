@@ -11,7 +11,7 @@
 
 @implementation FruitCategoryCell
 
-- (void)getFruitCategoryCell
+- (void)getFruitCategoryCellData:(NSDictionary *)data
 {
     
     UIImageView *categoryImageView = [[UIImageView alloc] initWithFrame:CGRectMake(5, 5, Screen_height / 7 - 10, Screen_height / 7 - 10)];
@@ -20,12 +20,12 @@
     [self.contentView addSubview:categoryImageView];
     
     UILabel *category = [[UILabel alloc] initWithFrame:CGRectMake(Screen_height / 7, Screen_height / 7 / 5, Screen_width - Screen_height / 7 - 10, Screen_height / 7 / 5)];
-    category.text = @"九转金丹";
+    category.text = data[@"fruitname"];
     category.font = [UIFont systemFontOfSize:Screen_height / 35];
     [self.contentView addSubview:category];
     
     UILabel *categoryInfo = [[UILabel alloc] initWithFrame:CGRectMake(Screen_height / 7, Screen_height / 7 / 5 * 3, Screen_width - Screen_height / 7 - 10, Screen_height / 7 / 6)];
-    categoryInfo.text = @"九转金丹,服用后可自动领悟神通-九转天功";
+    categoryInfo.text = data[@"title"];
     categoryInfo.textColor = [UIColor lightGrayColor];
     categoryInfo.font = [UIFont systemFontOfSize:Screen_height / 45];
     [self.contentView addSubview:categoryInfo];

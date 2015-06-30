@@ -10,6 +10,6 @@
 
 @interface FruitCategoryCell : UITableViewCell
 
-- (void)getFruitCategoryCell;
+- (void)getFruitCategoryCellData:(NSDictionary *)data;
 
 @end
