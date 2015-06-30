@@ -27,7 +27,7 @@
     
     // 00000
     //2121212
-    //trygu
+    //tryguuyh78
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
     [Framework controllers].window = self.window;
