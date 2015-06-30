@@ -17,7 +17,6 @@
 
 @implementation AppDelegate
 
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
@@ -32,11 +31,6 @@
     tabBarController.viewControllers = @[homePage, category, shoppingCart];
     [self.window setRootViewController:tabBarController];
     [self.window makeKeyAndVisible];
-    
-    
-    
-    
-    
     return YES;
 }
 
