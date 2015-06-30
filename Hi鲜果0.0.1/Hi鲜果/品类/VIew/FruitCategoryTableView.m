@@ -27,12 +27,12 @@
         self.separatorStyle = UITableViewCellSeparatorStyleNone;
         self.delegate = self;
         self.dataSource = self;
-        _dataSource = @[@{@"fruitname" : @"所有蔬果",
-                          @"title" : @"好吃的水果",
+        _dataSource = @[@{@"fruitname" : @"全部蔬果",
+                          @"title" : @"各国美味享不停",
                           @"pic" : @""}, @{@"fruitname" : @"国外蔬果",
-                                           @"title" : @"好吃的水果",
+                                           @"title" : @"不出门就能品尝到异域风情的鲜果",
                                            @"pic" : @""}, @{@"fruitname" : @"国内蔬果",
-                                                            @"title" : @"好吃的水果",
+                                                            @"title" : @"中国好蔬果",
                                                             @"pic" : @""}];
     }
     return self;
