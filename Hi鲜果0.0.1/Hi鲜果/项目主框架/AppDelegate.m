@@ -19,9 +19,10 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    //ok
-    //ok
-    //ok
+
+    
+    
+    
     
     //121212
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
