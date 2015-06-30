@@ -9,8 +9,10 @@
 #import "RegisterController.h"
 #define Margin 50*[FlexibleFrame ratios].height
 #define MiddleFont ([UIFont systemFontOfSize:15*[FlexibleFrame ratios].height])
+#define NUMBERS @"0123456789"
 @interface RegisterController () <UITextFieldDelegate>
-
+@property (strong, nonatomic) UITextField * phoneField;
+@property (strong, nonatomic) UIButton * sendCode;
 @end
 
 @implementation RegisterController
@@ -47,69 +49,61 @@
     /**设置背景图片*/
     self.view.layer.contents = (__bridge id)ImageWithName(@"bkImage.jpg").CGImage;
     /**添加控件*/
-    UITextField * phoneField = ({
-        UITextField * textField = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, 222 * [FlexibleFrame ratios].width, 30 * [FlexibleFrame ratios].height)];
+    self.phoneField = ({
+        UITextField * textField = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, 220*[FlexibleFrame ratios].width, 30 * [FlexibleFrame ratios].height)];
+        textField.center = CGPointMake(self.view.bounds.size.width / 2, 230*[FlexibleFrame ratios].height);
         [textField setFont:MiddleFont];
-        textField.center = CGPointMake(self.view.bounds.size.width / 2, 230 * [FlexibleFrame ratios].height);
         textField.autocapitalizationType = UITextAutocapitalizationTypeNone;
         textField.autocorrectionType = UITextAutocorrectionTypeNo;
         textField.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
-        textField.placeholder = @"请输入手机号";
-        textField.borderStyle = UITextBorderStyleRoundedRect;
+        textField.placeholder = @"请输入11位手机号";
+        textField.backgroundColor = [UIColor whiteColor];
         textField.delegate = self;
+        //发送验证码按钮
+        self.sendCode = ({
+            UIButton * sendCode = [UIButton buttonWithType:UIButtonTypeCustom];
+            sendCode.frame = CGRectMake(0, 0, 80 * [FlexibleFrame ratios].width, 30);
+            sendCode.titleLabel.font = MiddleFont;
+            [sendCode setTitle:@"发送验证码" forState:UIControlStateNormal];
+            [sendCode setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+            [sendCode addTarget:self action:@selector(sendVerificationCode:) forControlEvents:UIControlEventTouchUpInside ];
+            sendCode;
+        });
+        [self setSendVerificationCodeButtonWithSelected:NO];
+        textField.rightView = self.sendCode;
+        textField.rightViewMode = UITextFieldViewModeAlways;
         [textField setReturnKeyType:UIReturnKeyDone];
         textField;
     });
-    [self.view addSubview:phoneField];
+    [self.view addSubview:self.phoneField];
     
-    UILabel * accountLabel = ({
-        UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(phoneField.frame.origin.x, phoneField.frame.origin.y - 30, 80, 30)];
-        [label setFont:MiddleFont];
-        label.textColor = [UIColor orangeColor];
-        label.text = @"请输入邮箱：";
-        label;
-    });
-    [self.view addSubview:accountLabel];
+    UIImageView * phoneIcon = [[UIImageView alloc] initWithFrame:CGRectMake(CGRectGetMinX(self.phoneField.frame) - self.phoneField.bounds.size.height - 5, self.phoneField.frame.origin.y, self.phoneField.bounds.size.height, self.self.phoneField.bounds.size.height)];
+    phoneIcon.contentMode = UIViewContentModeScaleAspectFill;
+    phoneIcon.image = ImageWithName(@"icon-phone.png");
+    [self.view addSubview:phoneIcon];
     
-    UILabel * passwordLabel = ({
-        UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(phoneField.frame.origin.x, CGRectGetMaxY(phoneField.frame) + Margin, 80, 30)];
-        [label setFont:MiddleFont];
-        label.textColor = [UIColor orangeColor];
-        label.text = @"密码：";
-        label.textAlignment = NSTextAlignmentLeft;
-        label;
-    });
-    [self.view addSubview:passwordLabel];
+    UIImageView * emailIcon = [[UIImageView alloc] initWithFrame:CGRectMake(phoneIcon.frame.origin.x, Margin + CGRectGetMaxY(phoneIcon.frame), phoneIcon.bounds.size.width, phoneIcon.bounds.size.height)];
+    emailIcon.contentMode = UIViewContentModeScaleAspectFill;
+    emailIcon.image = ImageWithName(@"icon-email.png");
+    [self.view addSubview:emailIcon];
     
-    UITextField * passwordField = ({
-        UITextField * textField = [[UITextField alloc] initWithFrame:CGRectMake(phoneField.frame.origin.x, CGRectGetMaxY(passwordLabel.frame), phoneField.bounds.size.width, 30 * [FlexibleFrame ratios].height)];
+    UITextField * emailField = ({
+        UITextField * textField = [[UITextField alloc] initWithFrame:CGRectMake(self.phoneField.frame.origin.x, emailIcon.frame.origin.y, self.phoneField.bounds.size.width, self.phoneField.bounds.size.height)];
         [textField setFont:MiddleFont];
         textField.autocapitalizationType = UITextAutocapitalizationTypeNone;
         textField.autocorrectionType = UITextAutocorrectionTypeNo;
         textField.keyboardType = UIKeyboardTypeASCIICapable;
         textField.secureTextEntry = YES;
-        textField.borderStyle = UITextBorderStyleRoundedRect;
+        textField.placeholder = @"请输入完整邮箱";
+        textField.backgroundColor = [UIColor whiteColor];
         textField.delegate = self;
         [textField setReturnKeyType:UIReturnKeyDone];
         textField;
     });
-    [self.view addSubview:passwordField];
-    
-    // 登录和注册按钮
-    UIButton * loginButton = ({
-        UIButton * button = [[UIButton alloc] initWithFrame:CGRectMake(phoneField.frame.origin.x, CGRectGetMaxY(passwordField.frame) + Margin, phoneField.bounds.size.width, 30 * [FlexibleFrame ratios].height)];
-        [button setTitle:@"登 录" forState:UIControlStateNormal];
-        [button setBackgroundColor:BtnBkColor];
-        [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        [button.titleLabel setFont:MiddleFont];
-        button.layer.cornerRadius = button.bounds.size.width / 32;
-        [button addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
-        button;
-    });
-    [self.view addSubview:loginButton];
+    [self.view addSubview:emailField];
     
     UIButton * registerButton = ({
-        UIButton * button = [[UIButton alloc] initWithFrame:CGRectMake(phoneField.frame.origin.x, CGRectGetMaxY(loginButton.frame) + 10 * [FlexibleFrame ratios].height, phoneField.bounds.size.width, 30 * [FlexibleFrame ratios].height)];
+        UIButton * button = [[UIButton alloc] initWithFrame:CGRectMake(self.phoneField.frame.origin.x, CGRectGetMaxY(emailField.frame) + Margin, self.phoneField.bounds.size.width, 30 * [FlexibleFrame ratios].height)];
         [button setTitle:@"注 册" forState:UIControlStateNormal];
         [button setBackgroundColor:[UIColor whiteColor]];
         [button setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
@@ -119,6 +113,28 @@
         button;
     });
     [self.view addSubview:registerButton];
+}
+/**
+ *  发送验证码按钮点击事件
+ *
+ *  @param sender 发送验证码按钮
+ */
+- (void)sendVerificationCode:(UIButton *)sender {
+    
+    if (sender.selected == YES) {
+        NSLog(@"发送验证码");
+        [self setSendVerificationCodeButtonWithSelected:YES];
+    }
+}
+
+- (void)setSendVerificationCodeButtonWithSelected:(BOOL)selected {
+    
+    self.sendCode.selected = selected;
+    if (self.sendCode.selected == NO) {
+        [self.sendCode setBackgroundColor:[UIColor grayColor]];
+    } else {
+        [self.sendCode setBackgroundColor:[UIColor orangeColor]];
+    }
 }
 
 - (void)buttonPressed:(UIButton *)sender {
@@ -144,5 +160,30 @@
     return YES;
 }
 
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    //string == @""时为删除键
+    NSLog(@"range.loc = %ld", range.location);
+    NSLog(@"text.lenght = %ld", textField.text.length);
+    if (textField == self.phoneField) {
+        if (range.location == 10 && textField.text.length == 10) {
+            [self setSendVerificationCodeButtonWithSelected:YES];
+        } else if (range.location < 11) {
+            [self setSendVerificationCodeButtonWithSelected:NO];
+        }
+        
+        if (range.location == 11){
+            return NO;
+        }
+        NSCharacterSet * cs;
+        cs = [[NSCharacterSet characterSetWithCharactersInString:NUMBERS] invertedSet];
+        NSString * filtered = [[string componentsSeparatedByCharactersInSet:cs] componentsJoinedByString:@""];
+        BOOL basicTest = [string isEqualToString:filtered];
+        if(!basicTest) {
+            return NO;
+        }
+        return YES;
+    }
+    return YES;
+}
 
 @end
