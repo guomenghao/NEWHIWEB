@@ -20,6 +20,17 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
+    
+    NSLog(@"hello");
+    
+    //121212
+    
+    
+    // lym
+    // lym
+    // 00000
+    //2121212
+    //guomenghao
     //tryguuyh78
 //    /sjahdas
 
