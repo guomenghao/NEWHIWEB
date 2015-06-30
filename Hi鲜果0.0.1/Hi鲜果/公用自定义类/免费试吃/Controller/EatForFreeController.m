@@ -56,8 +56,9 @@
      */
     self.automaticallyAdjustsScrollViewInsets = NO;
     
-    DetailsScrollView *scrollView = [[DetailsScrollView alloc] init];
+    DetailsScrollView *scrollView = [[DetailsScrollView alloc] initWithArray:@[@"1.jpg", @"2.jpg", @"3.jpg"]];
     [self.view addSubview:scrollView];
+    
     
     /**
      *  水果信息

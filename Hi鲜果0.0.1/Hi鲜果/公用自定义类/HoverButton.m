@@ -55,6 +55,7 @@
 - (void)backView:(UIButton *)sender
 {
     [self.viewController.navigationController popViewControllerAnimated:YES];
+    self.viewController = nil;
 }
 
 - (void)buttonLike:(UIButton *)sender

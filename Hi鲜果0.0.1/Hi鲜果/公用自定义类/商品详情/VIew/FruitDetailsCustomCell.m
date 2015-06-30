@@ -17,6 +17,7 @@
 @property (nonatomic, strong) UIView *separator;
 @property (nonatomic, strong) EvaluateView *evaluateView;
 @property (nonatomic, strong) FruitNameAndPrice *fruitNameAndPrice;
+@property (nonatomic, strong) DetailsScrollView *detailsScrollView;
 
 @end
 
@@ -56,6 +57,14 @@
     return _fruitUnit;
 }
 
+- (DetailsScrollView *)detailsScrollView
+{
+    if (_detailsScrollView == nil) {
+        _detailsScrollView = [[DetailsScrollView alloc] initWithArray:@[@"1.jpg", @"2.jpg", @"3.jpg"]];
+
+    }
+    return _detailsScrollView;
+}
 
 - (void)getScrollViewCell
 {

@@ -13,6 +13,6 @@
 
 + (GlobalControl *)myControl;
 
-@property (nonatomic, strong) UIPageControl *pageControl;
+@property (nonatomic, weak) UIPageControl *pageControl;
 
 @end

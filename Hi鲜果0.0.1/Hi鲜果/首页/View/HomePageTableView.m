@@ -10,7 +10,9 @@
 #import "HomePageCustomCell.h"
 #import "FruitDetailsController.h"
 
-@interface HomePageTableView () <UITableViewDelegate,UITableViewDataSource>
+@interface HomePageTableView () <UITableViewDelegate,UITableViewDataSource> {
+    BOOL _i;
+}
 
 @end
 
@@ -24,6 +26,7 @@
         self.separatorStyle = UITableViewCellSeparatorStyleNone;
         self.delegate = self;
         self.dataSource = self;
+        _i = NO;
     }
     return self;
 }
@@ -60,15 +63,21 @@
 {
     NSString *identifier = @"Cell";
     HomePageCustomCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    
+    
     if (!cell) {
         cell = [[HomePageCustomCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:identifier];
     }
     
     [GlobalMethod removeAllSubViews:cell.contentView];
-    
     if (indexPath.row == 0) {
-        [cell getCarouselCell];
+//        if (_i == NO) {
+            [cell getCarouselCell];
+//            _i = YES;
+//        }
     }
+    
+    
     if (indexPath.row == 1) {
         [cell getButtonViewCell];
     }
@@ -77,6 +86,9 @@
     }
     if (indexPath.row == 4) {
         [cell getTodaytitle];
+    }
+    if (indexPath.row > 4) {
+//        [cell getTodaytitle];
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;

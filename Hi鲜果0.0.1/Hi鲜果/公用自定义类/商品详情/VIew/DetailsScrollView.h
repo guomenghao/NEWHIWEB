@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface DetailsScrollView : UIScrollView
-- (void)initializeUserInterface;
+
+- (instancetype)initWithArray:(NSArray *)array;
 
 @end

@@ -21,7 +21,7 @@
 
 - (instancetype)initWithView:(UIView *)view
 {
-    self = [self initWithFrame:CGRectMake(0, CGRectGetHeight(view.bounds) - 1, CGRectGetWidth(view.bounds), 1)];
+    self = [super initWithFrame:CGRectMake(0, CGRectGetHeight(view.bounds) - 1, CGRectGetWidth(view.bounds), 1)];
     self.backgroundColor = [UIColor lightGrayColor];
     return self;
 }
