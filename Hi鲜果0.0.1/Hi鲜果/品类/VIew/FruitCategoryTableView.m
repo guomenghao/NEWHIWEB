@@ -29,11 +29,11 @@
         self.dataSource = self;
         _dataSource = @[@{@"fruitname" : @"全部蔬果",
                           @"title" : @"各国美味享不停",
-                          @"pic" : @""}, @{@"fruitname" : @"国外蔬果",
+                          @"pic" : @"quanbu.png"}, @{@"fruitname" : @"国外蔬果",
                                            @"title" : @"不出门就能品尝到异域风情的鲜果",
-                                           @"pic" : @""}, @{@"fruitname" : @"国内蔬果",
+                                           @"pic" : @"guowai.png"}, @{@"fruitname" : @"国内蔬果",
                                                             @"title" : @"中国好蔬果",
-                                                            @"pic" : @""}];
+                                                            @"pic" : @"guonei.png"}];
     }
     return self;
 }
@@ -79,7 +79,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     CategoryDetailsController *cdVC = [[CategoryDetailsController alloc] init];
-    
+    cdVC.title = _dataSource[indexPath.row][@"fruitname"];
     [cdVC getNetWork:[NSString stringWithFormat:@"%ld", (long)indexPath.row + 1]];
     
     [[Framework controllers].categoryVC.navigationController pushViewController:cdVC animated:YES];

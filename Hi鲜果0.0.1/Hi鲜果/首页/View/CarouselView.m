@@ -101,7 +101,7 @@
 }
 
 - (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView {
-    _timer = [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(updateCarousel) userInfo:nil repeats:YES];
+    [_timer setFireDate:[NSDate date]];
 }
 
 - (NSInteger)correctIndex:(NSInteger)currectIndex maxCount:(NSInteger)maxCount {

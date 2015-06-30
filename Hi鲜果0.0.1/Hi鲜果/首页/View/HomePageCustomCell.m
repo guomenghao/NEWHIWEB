@@ -11,6 +11,12 @@
 #import "CarouselView.h"
 #import "GlobalControl.h"
 
+@interface HomePageCustomCell ()
+
+@property (nonatomic, strong) CarouselView *carouselView;
+
+@end
+
 @implementation HomePageCustomCell
 
 /**
@@ -25,7 +31,7 @@
     return _headLine;
 }
 
-- (UIPageControl*)pageControl
+- (UIPageControl *)pageControl
 {
     if (_pageControl == nil) {
         //分页控件
@@ -38,13 +44,20 @@
     return _pageControl;
 }
 
+- (CarouselView *)carouselView
+{
+    if (_carouselView == nil) {
+        _carouselView = [[CarouselView alloc] init];
+    }
+    return _carouselView;
+}
+
 /**
  *  轮播图cell
  */
 - (void)getCarouselCell
 {
-    CarouselView *carouselView = [[CarouselView alloc] init];
-    [self.contentView addSubview:carouselView];
+    [self.contentView addSubview:self.carouselView];
     [self.contentView addSubview:self.pageControl];
 }
 
@@ -53,9 +66,6 @@
  */
 - (void)getButtonViewCell
 {
-//    for (UIView *view in self.contentView.subviews) {
-//        [view removeFromSuperview];
-//    }
     ButtonView *buttonView = [[ButtonView alloc] init];
     [self.contentView addSubview:buttonView];
     

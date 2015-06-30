@@ -22,8 +22,8 @@
 - (void)dealloc
 {
     [GlobalMethod removeAllSubViews:self.view];
-    NSLog(@"111");
 }
+
 
 - (ShopToolbar *)toolbar
 {
