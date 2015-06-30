@@ -10,6 +10,6 @@
 
 @interface FruitDetailsController : BasicViewController
 
-
+- (void)getNetWork:(NSDictionary *)classInfo;
 
 @end

@@ -65,7 +65,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     FruitDetailsController *fdVC = [[FruitDetailsController alloc] init];
-    [fdVC getNetWork:nil];
+    [fdVC getNetWork:self.dataSourceArray[indexPath.row]];
     [[Framework controllers].categoryVC.navigationController pushViewController:fdVC animated:YES];
 }
 

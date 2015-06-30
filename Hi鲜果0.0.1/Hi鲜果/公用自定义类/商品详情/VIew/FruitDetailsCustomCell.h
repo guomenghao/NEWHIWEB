@@ -13,9 +13,9 @@
 @property (nonatomic, strong) UILabel *fruitUnit;
 
 
-- (void)getScrollViewCell;
-- (void)getFruitInfoCell;
-- (void)getUnitCell;
-- (void)getEvaluateCell;
+- (void)getScrollViewCellData:(NSDictionary *)data;
+- (void)getFruitInfoCellData:(NSDictionary *)data;
+- (void)getUnitCellData:(NSDictionary *)data;
+- (void)getEvaluateCellData:(NSDictionary *)data;
 
 @end

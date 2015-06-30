@@ -36,6 +36,7 @@
     self = [self initWithFrame:CGRectMake(point.x, point.y, Screen_width * 0.3, Screen_height * 0.2 * 0.25)];
     self.backgroundColor = [UIColor lightGrayColor];
     self.layer.cornerRadius = Screen_height / 51;
+    [GlobalControl myControl].numPicker = self;
     [self initializeUserInterface];
     return self;
 }

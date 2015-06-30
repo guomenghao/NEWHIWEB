@@ -69,16 +69,16 @@
     [GlobalMethod removeAllSubViews:cell.contentView];
     
     if (indexPath.row == 0) {
-        [cell getScrollViewCell];
+        [cell getScrollViewCellData:self.dataSourceDic];
     }
     if (indexPath.row == 1) {
-        [cell getFruitInfoCell];
+        [cell getFruitInfoCellData:self.dataSourceDic];
     }
     if (indexPath.row == 2) {
-        [cell getUnitCell];
+        [cell getUnitCellData:self.dataSourceDic];
     }
     if (indexPath.row == 3) {
-        [cell getEvaluateCell];
+        [cell getEvaluateCellData:self.dataSourceDic];
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;

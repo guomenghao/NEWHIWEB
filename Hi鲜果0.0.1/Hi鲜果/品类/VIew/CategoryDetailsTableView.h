@@ -11,6 +11,7 @@
 @interface CategoryDetailsTableView : UITableView
 
 @property (nonatomic, strong) NSArray *dataSourceArray;
+
 - (instancetype)initWithView:(UIView *)view;
 
 @end
