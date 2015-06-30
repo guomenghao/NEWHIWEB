@@ -14,10 +14,7 @@
 - (void)getFruitCategoryCellData:(NSDictionary *)data
 {
     
-    UIImageView *categoryImageView = [[UIImageView alloc] initWithFrame:CGRectMake(5, 5, Screen_height / 7 - 10, Screen_height / 7 - 10)];
-    categoryImageView.contentMode = UIViewContentModeScaleAspectFill;
-    categoryImageView.image = ImageWithName(@"jiuzhuan.jpg");
-    [self.contentView addSubview:categoryImageView];
+    
     
     UILabel *category = [[UILabel alloc] initWithFrame:CGRectMake(Screen_height / 7, Screen_height / 7 / 5, Screen_width - Screen_height / 7 - 10, Screen_height / 7 / 5)];
     category.text = data[@"fruitname"];
