@@ -10,6 +10,6 @@
 
 @interface FruitDetailsTableView : UITableView
 
-@property (nonatomic, strong) NSArray *dataSourceArray;
+@property (nonatomic, strong) NSDictionary *dataSourceDic;
 
 @end

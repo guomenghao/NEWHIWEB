@@ -65,6 +65,13 @@
 
 - (void)buttonShare:(UIButton *)sender
 {
+    
     NSLog(@"分享");
+    [UMSocialSnsService presentSnsIconSheetView:[Framework controllers].homePageVC
+                                         appKey:@"559261b267e58e6cda001819"
+                                      shareText:@"你要分享的文字"
+                                     shareImage:[UIImage imageNamed:@"icon.png"]
+                                shareToSnsNames:[NSArray arrayWithObjects:UMShareToSina,UMShareToRenren,UMShareToDouban,UMShareToSms,UMShareToEmail,nil]
+                                       delegate:nil];
 }
 @end

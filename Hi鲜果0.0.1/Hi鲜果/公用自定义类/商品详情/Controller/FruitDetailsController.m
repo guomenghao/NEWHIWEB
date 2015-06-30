@@ -14,6 +14,7 @@
 @interface FruitDetailsController ()
 
 @property (nonatomic, strong) ShopToolbar *toolbar;
+@property (nonatomic, strong) FruitDetailsTableView *tableView;
 
 @end
 
@@ -24,6 +25,13 @@
     [GlobalMethod removeAllSubViews:self.view];
 }
 
+- (FruitDetailsTableView *)tableView
+{
+    if (_tableView == nil) {
+        _tableView = [[FruitDetailsTableView alloc] init];
+    }
+    return _tableView;
+}
 
 - (ShopToolbar *)toolbar
 {
@@ -55,8 +63,7 @@
      */
     self.automaticallyAdjustsScrollViewInsets = NO;
     
-    FruitDetailsTableView *tableView = [[FruitDetailsTableView alloc] init];
-    [self.view addSubview:tableView];
+    [self.view addSubview:self.tableView];
     
     
     
@@ -69,10 +76,11 @@
     
 }
 
-- (void)getNetWork:(NSString *)classId
+- (void)getNetWork:(NSDictionary *)classInfo
 {
-    [GlobalMethod serviceWithMothedName:GetNewsContent_Url parmeter:nil success:^(id responseObject) {
-        NSLog(@"%@",responseObject);
+    [GlobalMethod serviceWithMothedName:GetNewsContent_Url parmeter:@{@"classid" : classInfo[@"classid"], @"id" : classInfo[@"id"]} success:^(id responseObject) {
+        self.tableView.dataSourceDic = responseObject[@"data"][@"content"];
+        [self.tableView reloadData];
     } fail:^(NSError *error) {
         
     }];

@@ -64,7 +64,7 @@
      *  水果信息
      */
     UIView *fruitInfo = [[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(scrollView.bounds), CGRectGetWidth(self.view.bounds), Screen_height * 0.15)];
-    [self.fruitNameAndPrice geiFruitInfo:nil];
+    [self.fruitNameAndPrice getFruitInfo:nil];
     [fruitInfo addSubview:self.fruitNameAndPrice];
     
     /**

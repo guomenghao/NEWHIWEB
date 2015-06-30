@@ -68,7 +68,7 @@
     
     
     self.RMB.text = @"￥";
-    self.fruitPrice.text = @"999.90";
+    self.fruitPrice.text = data[@"price"];
     [self addSubview:self.RMB];
     [self addSubview:self.fruitPrice];
     
@@ -76,11 +76,13 @@
     /**
      *  如果info中有打折状态
      */
-    NSAttributedString *attstr = [[NSAttributedString alloc] initWithString:@"￥888.00" attributes:@{NSStrikethroughStyleAttributeName : @1}];
-    self.original.attributedText = attstr;
-    [self addSubview:self.original];
-    
-    CustomSeparator *separator = [[CustomSeparator alloc] initWithFrame:CGRectMake(0, Screen_height / 5 - 0.5, Screen_width, 0.5)];
-    [self.contentView addSubview:separator];
+    if (![data[@"price"] isEqual:data[@"tprice"]]) {
+        NSAttributedString *attstr = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"￥%@", data[@"tprice"]] attributes:@{NSStrikethroughStyleAttributeName : @1}];
+        self.original.attributedText = attstr;
+        [self addSubview:self.original];
+        
+        CustomSeparator *separator = [[CustomSeparator alloc] initWithFrame:CGRectMake(0, Screen_height / 5 - 0.5, Screen_width, 0.5)];
+        [self.contentView addSubview:separator];
+    }
 }
 @end

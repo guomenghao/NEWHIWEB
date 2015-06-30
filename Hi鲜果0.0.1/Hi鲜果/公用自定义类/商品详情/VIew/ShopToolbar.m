@@ -7,6 +7,7 @@
 //
 
 #import "ShopToolbar.h"
+#import "FruitNumberPicker.h"
 
 @interface ShopToolbar()
 
@@ -32,6 +33,7 @@
     UIButton *shopCar = [UIButton buttonWithType:UIButtonTypeCustom];
     shopCar.frame = CGRectMake(20, 5, 34, 34);
     shopCar.backgroundColor = [UIColor orangeColor];
+    [shopCar addTarget:self action:@selector(addShopCar:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:shopCar];
     
     
@@ -44,6 +46,11 @@
     
 }
 
+- (void)addShopCar:(UIButton *)sender
+{
+    
+    NSLog(@"%ld", (long)[GlobalControl myControl].numPicker.fruitsNum);
+}
 
 
 @end

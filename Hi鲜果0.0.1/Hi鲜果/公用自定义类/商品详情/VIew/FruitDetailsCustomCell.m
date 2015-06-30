@@ -66,15 +66,15 @@
     return _detailsScrollView;
 }
 
-- (void)getScrollViewCell
+- (void)getScrollViewCellData:(NSDictionary *)data
 {
     [self.contentView addSubview:self.detailsScrollView];
 }
 
 
-- (void)getFruitInfoCell
+- (void)getFruitInfoCellData:(NSDictionary *)data
 {
-    [self.fruitNameAndPrice geiFruitInfo:nil];
+    [self.fruitNameAndPrice getFruitInfo:data];
     [self.contentView addSubview:self.fruitNameAndPrice];
     FruitNumberPicker *fruitNumpicker = [[FruitNumberPicker alloc] initWithPoint:CGPointMake(Screen_width * 0.65 - 5, Screen_height * 0.15 * 0.55)];
     [self.contentView addSubview:fruitNumpicker];
@@ -83,7 +83,7 @@
     [self.contentView addSubview:self.separator];
 }
 
-- (void)getUnitCell
+- (void)getUnitCellData:(NSDictionary *)data
 {
     self.fruitUnit.text = [NSString stringWithFormat:@"规格：%@", @"个"];
     [self.contentView addSubview:self.fruitUnit];
@@ -92,7 +92,7 @@
 }
 
 
-- (void)getEvaluateCell
+- (void)getEvaluateCellData:(NSDictionary *)data
 {
     [self.contentView addSubview:self.evaluateView];
     [self.evaluateView getStarLevel:99];

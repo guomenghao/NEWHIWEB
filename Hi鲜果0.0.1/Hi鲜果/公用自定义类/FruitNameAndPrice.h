@@ -15,6 +15,6 @@
 @property (nonatomic, strong) UILabel *fruitPrice;
 @property (nonatomic, strong) UILabel *original;
 
-- (void)geiFruitInfo:(NSDictionary *)info;
+- (void)getFruitInfo:(NSDictionary *)info;
 
 @end

@@ -52,13 +52,13 @@
     return _original;
 }
 
-- (void)geiFruitInfo:(NSDictionary *)info
+- (void)getFruitInfo:(NSDictionary *)info
 {
     self.frame = CGRectMake(0, 0, Screen_width, Screen_height * 0.15);
     
-    self.fruitName.text = @"非洲食人花";
+    self.fruitName.text = info[@"title"];
     self.RMB.text = @"￥";
-    self.fruitPrice.text = @"9.90";
+    self.fruitPrice.text = info[@"price"];
     [self addSubview:self.RMB];
     [self addSubview:self.fruitName];
     [self addSubview:self.fruitPrice];
@@ -67,11 +67,12 @@
     /**
      *  如果info中有打折状态
      */
-    NSAttributedString *attstr = [[NSAttributedString alloc] initWithString:@"￥888.00" attributes:@{NSStrikethroughStyleAttributeName : @1}];
-    self.original.attributedText = attstr;
-    [self addSubview:self.original];
+    if (![info[@"price"] isEqual:info[@"tprice"]]) {
+        NSAttributedString *attstr = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"￥%@", info[@"tprice"]] attributes:@{NSStrikethroughStyleAttributeName : @1}];
+        self.original.attributedText = attstr;
+        [self addSubview:self.original];
     
-    
+    }
     
 }
 

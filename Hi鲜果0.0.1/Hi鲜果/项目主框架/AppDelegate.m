@@ -10,7 +10,6 @@
 #import "HomePageController.h"
 #import "CategoryController.h"
 #import "ShoppingCartController.h"
-
 @interface AppDelegate ()
 
 @end
@@ -31,6 +30,8 @@
     tabBarController.viewControllers = @[homePage, category, shoppingCart];
     [self.window setRootViewController:tabBarController];
     [self.window makeKeyAndVisible];
+    
+    [UMSocialData setAppKey:@"559261b267e58e6cda001819"];
     return YES;
 }
 

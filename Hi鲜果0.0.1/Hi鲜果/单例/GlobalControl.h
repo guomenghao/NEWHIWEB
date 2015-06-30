@@ -7,12 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "FruitNumberPicker.h"
 
 @interface GlobalControl : NSObject
 
 + (GlobalControl *)myControl;
 
 @property (nonatomic, weak) UIPageControl *pageControl;
+@property (nonatomic, weak) FruitNumberPicker *numPicker;
 
 @end
