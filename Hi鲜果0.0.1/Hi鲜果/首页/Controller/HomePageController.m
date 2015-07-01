@@ -55,7 +55,6 @@
      */
     SearchBox *searchBox = [[SearchBox alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds) * 0.66, 22)];
     searchBox.center = CGPointMake(CGRectGetWidth(self.view.bounds) / 2, 44);//修改mark：22->44
-    //[self.navigationController.view addSubview:searchBox];
     self.navigationItem.titleView = searchBox;//修改mark
     
     /**

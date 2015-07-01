@@ -22,7 +22,7 @@
 {
     if (_fruitNum == nil) {
         _fruitNum = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.bounds) * 0.33, CGRectGetHeight(self.bounds) - 2)];
-        _fruitNum.center = CGPointMake(CGRectGetWidth(self.bounds) / 2, CGRectGetHeight(self.bounds) / 2);
+        _fruitNum.center = CGPointMake(CGRectGetWidth(self.bounds) / 2, CGRectGetHeight(self.bounds) / 2 - 0.05);
         _fruitNum.textAlignment = NSTextAlignmentCenter;
         _fruitNum.textColor = [UIColor blackColor];
         _fruitNum.backgroundColor = [UIColor whiteColor];
@@ -34,7 +34,7 @@
 - (instancetype)initWithPoint:(CGPoint)point
 {
     self = [self initWithFrame:CGRectMake(point.x, point.y, Screen_width * 0.3, Screen_height * 0.2 * 0.25)];
-    self.backgroundColor = [UIColor lightGrayColor];
+    self.backgroundColor = [UIColor colorWithWhite:0.800 alpha:1.000];
     self.layer.cornerRadius = Screen_height / 51;
     [GlobalControl myControl].numPicker = self;
     [self initializeUserInterface];
@@ -47,8 +47,6 @@
     UIButton *numSub = [UIButton buttonWithType:UIButtonTypeCustom];
     numSub.frame = CGRectMake(0, 0, CGRectGetWidth(self.bounds) / 3, CGRectGetHeight(self.bounds));
     [numSub setImage:ImageWithName(@"fruit_jian.png") forState:UIControlStateNormal];
-//    numSub.backgroundColor = [UIColor blackColor];
-//    numSub.layer.cornerRadius = 10;
     
     [numSub addTarget:self action:@selector(numberSub:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:numSub];
@@ -57,8 +55,6 @@
     numAdd.frame = CGRectMake(CGRectGetWidth(self.bounds) - CGRectGetWidth(self.bounds) / 3, 0, CGRectGetWidth(self.bounds) / 3, CGRectGetHeight(self.bounds));
     [numAdd setImage:ImageWithName(@"fruit_jia.png") forState:UIControlStateNormal];
     [numAdd addTarget:self action:@selector(numberAdd:) forControlEvents:UIControlEventTouchUpInside];
-//    numAdd.backgroundColor = [UIColor blackColor];
-//    numAdd.layer.cornerRadius = 10;
     [self addSubview:numAdd];
     
     

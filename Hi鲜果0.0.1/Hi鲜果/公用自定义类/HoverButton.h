@@ -10,5 +10,4 @@
 
 @interface HoverButton : UIView
 - (void)initializeUserInterfaceWithLike:(BOOL)like controller:(UIViewController *)controller;
-
 @end

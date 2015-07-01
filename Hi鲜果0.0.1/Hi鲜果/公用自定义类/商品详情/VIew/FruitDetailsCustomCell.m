@@ -60,7 +60,7 @@
 - (DetailsScrollView *)detailsScrollView
 {
     if (_detailsScrollView == nil) {
-        _detailsScrollView = [[DetailsScrollView alloc] initWithArray:@[@"1.jpg", @"2.jpg", @"3.jpg"]];
+        _detailsScrollView = [[DetailsScrollView alloc] initWithArray:@[@"1.png", @"2.png", @"3.png"]];
 
     }
     return _detailsScrollView;

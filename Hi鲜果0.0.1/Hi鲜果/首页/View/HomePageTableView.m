@@ -10,9 +10,7 @@
 #import "HomePageCustomCell.h"
 #import "FruitDetailsController.h"
 
-@interface HomePageTableView () <UITableViewDelegate,UITableViewDataSource> {
-    BOOL _i;
-}
+@interface HomePageTableView () <UITableViewDelegate,UITableViewDataSource>
 
 @end
 
@@ -26,7 +24,6 @@
         self.separatorStyle = UITableViewCellSeparatorStyleNone;
         self.delegate = self;
         self.dataSource = self;
-        _i = NO;
     }
     return self;
 }
@@ -71,13 +68,8 @@
     
     [GlobalMethod removeAllSubViews:cell.contentView];
     if (indexPath.row == 0) {
-//        if (_i == NO) {
-            [cell getCarouselCell];
-//            _i = YES;
-//        }
+        [cell getCarouselCell];
     }
-    
-    
     if (indexPath.row == 1) {
         [cell getButtonViewCell];
     }

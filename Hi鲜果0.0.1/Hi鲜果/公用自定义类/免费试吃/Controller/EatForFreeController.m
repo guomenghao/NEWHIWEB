@@ -23,7 +23,7 @@
 
 - (void)dealloc
 {
-    [GlobalMethod removeAllSubViews:self.view];
+    NSLog(@"%s", __FUNCTION__);
 }
 
 - (FruitNameAndPrice *)fruitNameAndPrice
@@ -56,7 +56,7 @@
      */
     self.automaticallyAdjustsScrollViewInsets = NO;
     
-    DetailsScrollView *scrollView = [[DetailsScrollView alloc] initWithArray:@[@"1.jpg", @"2.jpg", @"3.jpg"]];
+    DetailsScrollView *scrollView = [[DetailsScrollView alloc] initWithArray:@[@"1.png", @"2.png", @"3.png"]];
     [self.view addSubview:scrollView];
     
     
