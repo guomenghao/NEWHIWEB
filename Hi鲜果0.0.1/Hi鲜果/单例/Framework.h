@@ -35,4 +35,6 @@
 @property (nonatomic, weak) CategoryDetailsController * CategoryDetailsVC;
 /**单例初始化*/
 + (Framework *)controllers;
+@property (nonatomic, weak) UITabBarController * rootViewController;
+
 @end

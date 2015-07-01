@@ -120,6 +120,28 @@
 		2456A2851B4292FD00F49906 /* placeholder.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2456A2841B4292FD00F49906 /* placeholder.jpg */; };
 		2456A2881B4298CC00F49906 /* CartTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2456A2871B4298CC00F49906 /* CartTableView.m */; };
 		2456A28B1B42AE9400F49906 /* RegisterController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2456A28A1B42AE9400F49906 /* RegisterController.m */; };
+		249955F41B4374650075B78A /* icon-password.png in Resources */ = {isa = PBXBuildFile; fileRef = 249955F21B4374650075B78A /* icon-password.png */; };
+		249955F51B4374650075B78A /* icon-password@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 249955F31B4374650075B78A /* icon-password@2x.png */; };
+		249955F81B4377B10075B78A /* icon-password2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 249955F61B4377B10075B78A /* icon-password2@2x.png */; };
+		249955F91B4377B10075B78A /* icon-password2.png in Resources */ = {isa = PBXBuildFile; fileRef = 249955F71B4377B10075B78A /* icon-password2.png */; };
+		249956001B4382FB0075B78A /* icon-verify.png in Resources */ = {isa = PBXBuildFile; fileRef = 249955FE1B4382FB0075B78A /* icon-verify.png */; };
+		249956011B4382FB0075B78A /* icon-verify@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 249955FF1B4382FB0075B78A /* icon-verify@2x.png */; };
+		249956041B4398C40075B78A /* icon-verify-right.png in Resources */ = {isa = PBXBuildFile; fileRef = 249956021B4398C40075B78A /* icon-verify-right.png */; };
+		249956051B4398C40075B78A /* icon-verify-right@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 249956031B4398C40075B78A /* icon-verify-right@2x.png */; };
+		249956081B439C010075B78A /* icon-verify-wrong.png in Resources */ = {isa = PBXBuildFile; fileRef = 249956061B439C010075B78A /* icon-verify-wrong.png */; };
+		249956091B439C010075B78A /* icon-verify-wrong@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 249956071B439C010075B78A /* icon-verify-wrong@2x.png */; };
+		249956271B43F50C0075B78A /* SMS_SDKLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 249956231B43F50C0075B78A /* SMS_SDKLocalizable.strings */; };
+		249956281B43F50C0075B78A /* SMS_SDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 249956251B43F50C0075B78A /* SMS_SDK.framework */; };
+		2499562C1B43F5450075B78A /* SMS_SDKLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2499562A1B43F5450075B78A /* SMS_SDKLocalizable.strings */; };
+		249956301B43F5520075B78A /* SMS_SDKLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2499562E1B43F5520075B78A /* SMS_SDKLocalizable.strings */; };
+		249956321B43F5B20075B78A /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 249956311B43F5B20075B78A /* libicucore.dylib */; };
+		249956341B43F5BE0075B78A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 249956331B43F5BE0075B78A /* libz.dylib */; };
+		249956361B43F5C70075B78A /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 249956351B43F5C70075B78A /* MessageUI.framework */; };
+		249956381B43F5D20075B78A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 249956371B43F5D20075B78A /* SystemConfiguration.framework */; };
+		3874C9851B42CFBA00BD83FF /* icon-email.png in Resources */ = {isa = PBXBuildFile; fileRef = 3874C9811B42CFBA00BD83FF /* icon-email.png */; };
+		3874C9861B42CFBA00BD83FF /* icon-email@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3874C9821B42CFBA00BD83FF /* icon-email@2x.png */; };
+		3874C9871B42CFBA00BD83FF /* icon-phone.png in Resources */ = {isa = PBXBuildFile; fileRef = 3874C9831B42CFBA00BD83FF /* icon-phone.png */; };
+		3874C9881B42CFBA00BD83FF /* icon-phone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3874C9841B42CFBA00BD83FF /* icon-phone@2x.png */; };
 		388C74741B3EE7490078AE32 /* bill_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 388C746D1B3EE7490078AE32 /* bill_normal.png */; };
 		388C74751B3EE7490078AE32 /* bill_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 388C746E1B3EE7490078AE32 /* bill_normal@2x.png */; };
 		388C74761B3EE7490078AE32 /* bkImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 388C746F1B3EE7490078AE32 /* bkImage.jpg */; };
@@ -348,6 +370,29 @@
 		2456A2871B4298CC00F49906 /* CartTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CartTableView.m; sourceTree = "<group>"; };
 		2456A2891B42AE9400F49906 /* RegisterController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterController.h; sourceTree = "<group>"; };
 		2456A28A1B42AE9400F49906 /* RegisterController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterController.m; sourceTree = "<group>"; };
+		249955F21B4374650075B78A /* icon-password.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-password.png"; sourceTree = "<group>"; };
+		249955F31B4374650075B78A /* icon-password@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-password@2x.png"; sourceTree = "<group>"; };
+		249955F61B4377B10075B78A /* icon-password2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-password2@2x.png"; sourceTree = "<group>"; };
+		249955F71B4377B10075B78A /* icon-password2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-password2.png"; sourceTree = "<group>"; };
+		249955FE1B4382FB0075B78A /* icon-verify.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-verify.png"; sourceTree = "<group>"; };
+		249955FF1B4382FB0075B78A /* icon-verify@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-verify@2x.png"; sourceTree = "<group>"; };
+		249956021B4398C40075B78A /* icon-verify-right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-verify-right.png"; sourceTree = "<group>"; };
+		249956031B4398C40075B78A /* icon-verify-right@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-verify-right@2x.png"; sourceTree = "<group>"; };
+		249956061B439C010075B78A /* icon-verify-wrong.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-verify-wrong.png"; sourceTree = "<group>"; };
+		249956071B439C010075B78A /* icon-verify-wrong@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-verify-wrong@2x.png"; sourceTree = "<group>"; };
+		249956241B43F50C0075B78A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/SMS_SDKLocalizable.strings; sourceTree = "<group>"; };
+		249956251B43F50C0075B78A /* SMS_SDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SMS_SDK.framework; sourceTree = "<group>"; };
+		249956261B43F50C0075B78A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/SMS_SDKLocalizable.strings"; sourceTree = "<group>"; };
+		2499562B1B43F5450075B78A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = SMS_SDKLocalizable.strings; sourceTree = "<group>"; };
+		2499562F1B43F5520075B78A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = SMS_SDKLocalizable.strings; sourceTree = "<group>"; };
+		249956311B43F5B20075B78A /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
+		249956331B43F5BE0075B78A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		249956351B43F5C70075B78A /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		249956371B43F5D20075B78A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		3874C9811B42CFBA00BD83FF /* icon-email.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-email.png"; sourceTree = "<group>"; };
+		3874C9821B42CFBA00BD83FF /* icon-email@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-email@2x.png"; sourceTree = "<group>"; };
+		3874C9831B42CFBA00BD83FF /* icon-phone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-phone.png"; sourceTree = "<group>"; };
+		3874C9841B42CFBA00BD83FF /* icon-phone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-phone@2x.png"; sourceTree = "<group>"; };
 		388C746D1B3EE7490078AE32 /* bill_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bill_normal.png; sourceTree = "<group>"; };
 		388C746E1B3EE7490078AE32 /* bill_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bill_normal@2x.png"; sourceTree = "<group>"; };
 		388C746F1B3EE7490078AE32 /* bkImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bkImage.jpg; sourceTree = "<group>"; };
@@ -366,9 +411,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				249956381B43F5D20075B78A /* SystemConfiguration.framework in Frameworks */,
+				249956361B43F5C70075B78A /* MessageUI.framework in Frameworks */,
+				249956341B43F5BE0075B78A /* libz.dylib in Frameworks */,
+				249956321B43F5B20075B78A /* libicucore.dylib in Frameworks */,
 				094E16631B4298DC00C05CB2 /* libSocialQQ.a in Frameworks */,
 				094E16641B4298DC00C05CB2 /* TencentOpenAPI.framework in Frameworks */,
 				094E16661B4298DC00C05CB2 /* libSocialWechat.a in Frameworks */,
+				249956281B43F50C0075B78A /* SMS_SDK.framework in Frameworks */,
 				094E16591B4298DC00C05CB2 /* libUMSocial_Sdk_4.2.3.a in Frameworks */,
 				094E16671B4298DD00C05CB2 /* libWeChatSDK.a in Frameworks */,
 			);
@@ -387,6 +437,10 @@
 		092AA7691B3B918D00B88F23 = {
 			isa = PBXGroup;
 			children = (
+				249956371B43F5D20075B78A /* SystemConfiguration.framework */,
+				249956351B43F5C70075B78A /* MessageUI.framework */,
+				249956331B43F5BE0075B78A /* libz.dylib */,
+				249956311B43F5B20075B78A /* libicucore.dylib */,
 				092AA7741B3B918D00B88F23 /* Hi鲜果 */,
 				092AA78E1B3B918D00B88F23 /* Hi鲜果Tests */,
 				092AA7731B3B918D00B88F23 /* Products */,
@@ -588,6 +642,7 @@
 		097A0E5C1B414B4800E860B9 /* 第三方库 */ = {
 			isa = PBXGroup;
 			children = (
+				249956221B43F50C0075B78A /* SMS_SDK */,
 				094E16311B4298DC00C05CB2 /* UMSocial_Sdk_4.2.3 */,
 				094E164C1B4298DC00C05CB2 /* UMSocial_Sdk_Extra_Frameworks */,
 				097A0EA61B414B7600E860B9 /* SDWebImage */,
@@ -805,6 +860,20 @@
 				094E16291B4272B600C05CB2 /* guowai.png */,
 				094E162A1B4272B600C05CB2 /* guonei.png */,
 				094E162F1B42731900C05CB2 /* quanbu.png */,
+				3874C9811B42CFBA00BD83FF /* icon-email.png */,
+				3874C9821B42CFBA00BD83FF /* icon-email@2x.png */,
+				3874C9831B42CFBA00BD83FF /* icon-phone.png */,
+				3874C9841B42CFBA00BD83FF /* icon-phone@2x.png */,
+				249955F21B4374650075B78A /* icon-password.png */,
+				249955F31B4374650075B78A /* icon-password@2x.png */,
+				249955F61B4377B10075B78A /* icon-password2@2x.png */,
+				249955F71B4377B10075B78A /* icon-password2.png */,
+				249955FE1B4382FB0075B78A /* icon-verify.png */,
+				249955FF1B4382FB0075B78A /* icon-verify@2x.png */,
+				249956021B4398C40075B78A /* icon-verify-right.png */,
+				249956031B4398C40075B78A /* icon-verify-right@2x.png */,
+				249956061B439C010075B78A /* icon-verify-wrong.png */,
+				249956071B439C010075B78A /* icon-verify-wrong@2x.png */,
 			);
 			path = Resoure;
 			sourceTree = "<group>";
@@ -1004,6 +1073,33 @@
 			path = "单例";
 			sourceTree = "<group>";
 		};
+		249956221B43F50C0075B78A /* SMS_SDK */ = {
+			isa = PBXGroup;
+			children = (
+				2499562D1B43F5520075B78A /* zh-Hans.lproj */,
+				249956291B43F5450075B78A /* en.lproj */,
+				249956231B43F50C0075B78A /* SMS_SDKLocalizable.strings */,
+				249956251B43F50C0075B78A /* SMS_SDK.framework */,
+			);
+			path = SMS_SDK;
+			sourceTree = "<group>";
+		};
+		249956291B43F5450075B78A /* en.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				2499562A1B43F5450075B78A /* SMS_SDKLocalizable.strings */,
+			);
+			path = en.lproj;
+			sourceTree = "<group>";
+		};
+		2499562D1B43F5520075B78A /* zh-Hans.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				2499562E1B43F5520075B78A /* SMS_SDKLocalizable.strings */,
+			);
+			path = "zh-Hans.lproj";
+			sourceTree = "<group>";
+		};
 		388C747B1B3EE7830078AE32 /* 屏幕适配工具 */ = {
 			isa = PBXGroup;
 			children = (
@@ -1105,23 +1201,34 @@
 			files = (
 				094E16651B4298DC00C05CB2 /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
 				094E165D1B4298DC00C05CB2 /* UMShareEditViewController.xib in Resources */,
+				249956271B43F50C0075B78A /* SMS_SDKLocalizable.strings in Resources */,
+				249955F91B4377B10075B78A /* icon-password2.png in Resources */,
+				249955F41B4374650075B78A /* icon-password.png in Resources */,
 				094E165A1B4298DC00C05CB2 /* UMSCommentDetailController.xib in Resources */,
+				3874C9861B42CFBA00BD83FF /* icon-email@2x.png in Resources */,
 				096DA85B1B3E327B00925F62 /* star_1.png in Resources */,
 				091DD3311B43D4D800DC68B0 /* wodedingdan.png in Resources */,
 				094E16581B4298DC00C05CB2 /* UMSocialLocalizable.strings in Resources */,
 				388C74751B3EE7490078AE32 /* bill_normal@2x.png in Resources */,
+				249956091B439C010075B78A /* icon-verify-wrong@2x.png in Resources */,
+				249955F81B4377B10075B78A /* icon-password2@2x.png in Resources */,
+				249956081B439C010075B78A /* icon-verify-wrong.png in Resources */,
 				388C74791B3EE7490078AE32 /* user_button_normal.png in Resources */,
+				249956041B4398C40075B78A /* icon-verify-right.png in Resources */,
 				094E16961B43839400C05CB2 /* fenxiang_0.png in Resources */,
 				091DD3391B43E30A00DC68B0 /* 2.png in Resources */,
 				094E16911B4382E900C05CB2 /* shoucang_1.png in Resources */,
 				091DD33A1B43E30A00DC68B0 /* 3.png in Resources */,
 				092AA7861B3B918D00B88F23 /* LaunchScreen.xib in Resources */,
+				249956301B43F5520075B78A /* SMS_SDKLocalizable.strings in Resources */,
 				094E16301B42731900C05CB2 /* quanbu.png in Resources */,
 				094E165B1B4298DC00C05CB2 /* UMSCommentInputController.xib in Resources */,
 				094E162C1B4272B600C05CB2 /* guowai.png in Resources */,
+				3874C9871B42CFBA00BD83FF /* icon-phone.png in Resources */,
 				094E16601B4298DC00C05CB2 /* UMSnsAccountViewController.xib in Resources */,
 				094E162D1B4272B600C05CB2 /* guonei.png in Resources */,
 				388C74781B3EE7490078AE32 /* nav_clear_bk.png in Resources */,
+				249956001B4382FB0075B78A /* icon-verify.png in Resources */,
 				388C747A1B3EE7490078AE32 /* user_button_normal@2x.png in Resources */,
 				091DD3331B43D4D800DC68B0 /* mianfeishichi.png in Resources */,
 				094E165F1B4298DC00C05CB2 /* UMSLoginViewController.xib in Resources */,
@@ -1135,11 +1242,14 @@
 				091DD3381B43E30A00DC68B0 /* 1.png in Resources */,
 				388C74741B3EE7490078AE32 /* bill_normal.png in Resources */,
 				388C74771B3EE7490078AE32 /* logo_default.png in Resources */,
+				249956051B4398C40075B78A /* icon-verify-right@2x.png in Resources */,
 				2456A2851B4292FD00F49906 /* placeholder.jpg in Resources */,
 				096DA87B1B3E4B8E00925F62 /* fruit_jian.png in Resources */,
 				092AA7831B3B918D00B88F23 /* Images.xcassets in Resources */,
 				096DA8591B3E327B00925F62 /* star_2.png in Resources */,
 				094E165E1B4298DC00C05CB2 /* UMShareEditViewControlleriPad.xib in Resources */,
+				249955F51B4374650075B78A /* icon-password@2x.png in Resources */,
+				3874C9851B42CFBA00BD83FF /* icon-email.png in Resources */,
 				09FFE2A91B40ECD2007066C3 /* jiuzhuan.jpg in Resources */,
 				094E16901B4382E900C05CB2 /* back_0.png in Resources */,
 				094E165C1B4298DC00C05CB2 /* UMSCommentInputControlleriPad.xib in Resources */,
@@ -1275,6 +1385,31 @@
 			name = UMSocialLocalizable.strings;
 			sourceTree = "<group>";
 		};
+		249956231B43F50C0075B78A /* SMS_SDKLocalizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				249956241B43F50C0075B78A /* en */,
+				249956261B43F50C0075B78A /* zh-Hans */,
+			);
+			name = SMS_SDKLocalizable.strings;
+			sourceTree = "<group>";
+		};
+		2499562A1B43F5450075B78A /* SMS_SDKLocalizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2499562B1B43F5450075B78A /* en */,
+			);
+			name = SMS_SDKLocalizable.strings;
+			sourceTree = "<group>";
+		};
+		2499562E1B43F5520075B78A /* SMS_SDKLocalizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2499562F1B43F5520075B78A /* zh-Hans */,
+			);
+			name = SMS_SDKLocalizable.strings;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -1365,6 +1500,9 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Hi鲜果/第三方库/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
+					"$(PROJECT_DIR)/Hi鲜果/第三方库/SMS_SDK",
+					"$(PROJECT_DIR)/Hi鲜果/第三方库/AFNetworking/SMS_SDK",
+					"$(PROJECT_DIR)/Hi鲜果/第三方库",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Hi鲜果/项目主框架/PrefixHeader.pch";
@@ -1387,6 +1525,9 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Hi鲜果/第三方库/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
+					"$(PROJECT_DIR)/Hi鲜果/第三方库/SMS_SDK",
+					"$(PROJECT_DIR)/Hi鲜果/第三方库/AFNetworking/SMS_SDK",
+					"$(PROJECT_DIR)/Hi鲜果/第三方库",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Hi鲜果/项目主框架/PrefixHeader.pch";
