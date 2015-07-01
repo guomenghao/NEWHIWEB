@@ -90,9 +90,6 @@
 		097A82451B3BE5D000D59370 /* HomePageTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 097A82441B3BE5D000D59370 /* HomePageTableView.m */; };
 		097A82481B3BE92400D59370 /* HomePageCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 097A82471B3BE92400D59370 /* HomePageCustomCell.m */; };
 		097A824B1B3BFE0C00D59370 /* CarouselView.m in Sources */ = {isa = PBXBuildFile; fileRef = 097A824A1B3BFE0C00D59370 /* CarouselView.m */; };
-		097A82551B3C05AF00D59370 /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 097A82521B3C05AF00D59370 /* 1.jpg */; };
-		097A82561B3C05AF00D59370 /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 097A82531B3C05AF00D59370 /* 2.jpg */; };
-		097A82571B3C05AF00D59370 /* 3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 097A82541B3C05AF00D59370 /* 3.jpg */; };
 		097A825A1B3CEAF500D59370 /* CarouselButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 097A82591B3CEAF500D59370 /* CarouselButton.m */; };
 		09FFE2971B40CD1A007066C3 /* FruitCategoryTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 09FFE2961B40CD1A007066C3 /* FruitCategoryTableView.m */; };
 		09FFE29A1B40DA81007066C3 /* FruitCategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 09FFE2991B40DA81007066C3 /* FruitCategoryCell.m */; };
@@ -306,9 +303,6 @@
 		097A82471B3BE92400D59370 /* HomePageCustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomePageCustomCell.m; sourceTree = "<group>"; };
 		097A82491B3BFE0C00D59370 /* CarouselView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarouselView.h; sourceTree = "<group>"; };
 		097A824A1B3BFE0C00D59370 /* CarouselView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarouselView.m; sourceTree = "<group>"; };
-		097A82521B3C05AF00D59370 /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
-		097A82531B3C05AF00D59370 /* 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2.jpg; sourceTree = "<group>"; };
-		097A82541B3C05AF00D59370 /* 3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3.jpg; sourceTree = "<group>"; };
 		097A82581B3CEAF500D59370 /* CarouselButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarouselButton.h; sourceTree = "<group>"; };
 		097A82591B3CEAF500D59370 /* CarouselButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarouselButton.m; sourceTree = "<group>"; };
 		09FFE2951B40CD1A007066C3 /* FruitCategoryTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FruitCategoryTableView.h; sourceTree = "<group>"; };
@@ -793,9 +787,6 @@
 				097A81E71B3BA6B000D59370 /* search_menu.png */,
 				096DA8781B3E4B8E00925F62 /* fruit_jia.png */,
 				096DA8791B3E4B8E00925F62 /* fruit_jian.png */,
-				097A82521B3C05AF00D59370 /* 1.jpg */,
-				097A82531B3C05AF00D59370 /* 2.jpg */,
-				097A82541B3C05AF00D59370 /* 3.jpg */,
 				2456A2841B4292FD00F49906 /* placeholder.jpg */,
 				094E16291B4272B600C05CB2 /* guowai.png */,
 				094E162A1B4272B600C05CB2 /* guonei.png */,
@@ -1113,7 +1104,6 @@
 				094E16651B4298DC00C05CB2 /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
 				094E165D1B4298DC00C05CB2 /* UMShareEditViewController.xib in Resources */,
 				249955F91B4377B10075B78A /* icon-password2.png in Resources */,
-				097A82551B3C05AF00D59370 /* 1.jpg in Resources */,
 				249955F41B4374650075B78A /* icon-password.png in Resources */,
 				094E165A1B4298DC00C05CB2 /* UMSCommentDetailController.xib in Resources */,
 				3874C9861B42CFBA00BD83FF /* icon-email@2x.png in Resources */,
@@ -1144,7 +1134,6 @@
 				094E16611B4298DC00C05CB2 /* UMSShareListController.xib in Resources */,
 				388C74741B3EE7490078AE32 /* bill_normal.png in Resources */,
 				388C74771B3EE7490078AE32 /* logo_default.png in Resources */,
-				097A82571B3C05AF00D59370 /* 3.jpg in Resources */,
 				249956051B4398C40075B78A /* icon-verify-right@2x.png in Resources */,
 				2456A2851B4292FD00F49906 /* placeholder.jpg in Resources */,
 				096DA87B1B3E4B8E00925F62 /* fruit_jian.png in Resources */,
@@ -1155,7 +1144,6 @@
 				3874C9851B42CFBA00BD83FF /* icon-email.png in Resources */,
 				09FFE2A91B40ECD2007066C3 /* jiuzhuan.jpg in Resources */,
 				094E165C1B4298DC00C05CB2 /* UMSCommentInputControlleriPad.xib in Resources */,
-				097A82561B3C05AF00D59370 /* 2.jpg in Resources */,
 				249956011B4382FB0075B78A /* icon-verify@2x.png in Resources */,
 				097A81E81B3BA6B000D59370 /* search_menu.png in Resources */,
 			);
