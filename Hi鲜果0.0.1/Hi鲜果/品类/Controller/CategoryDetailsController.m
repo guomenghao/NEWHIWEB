@@ -16,19 +16,9 @@
 
 @property (nonatomic, strong) CategoryDetailsTableView *tableView;
 
-@property (nonatomic, strong) CategoryModel *model;
-
 @end
 
 @implementation CategoryDetailsController
-
-- (CategoryModel *)model
-{
-    if (_model == nil) {
-        _model = [[CategoryModel alloc] init];
-    }
-    return _model;
-}
 
 - (instancetype)init
 {
@@ -80,11 +70,16 @@
     [hotSale setTitle:@"热卖" forState:UIControlStateNormal];
     [self.view addSubview:hotSale];
     
+    [GlobalMethod rectWithView:hotSale corners1:UIRectCornerTopRight corners2:UIRectCornerBottomRight radius:8];
+    
+    
     UIButton *newProduct = [UIButton buttonWithType:UIButtonTypeCustom];
     newProduct.frame = CGRectMake(CGRectGetWidth(self.view.bounds) / 2 - CGRectGetWidth(self.view.bounds) / 2 * 0.8, 64 + Screen_height / 19 / 3.5, CGRectGetWidth(self.view.bounds) / 2 * 0.8, Screen_height / 19);
     newProduct.backgroundColor = [UIColor colorWithRed:0.502 green:0.502 blue:0.000 alpha:1.000];
     [newProduct setTitle:@"新品" forState:UIControlStateNormal];
     [self.view addSubview:newProduct];
+    
+    [GlobalMethod rectWithView:newProduct corners1:UIRectCornerTopLeft corners2:UIRectCornerBottomLeft radius:8];
     
     
     self.tableView = [[CategoryDetailsTableView alloc] initWithView:newProduct];

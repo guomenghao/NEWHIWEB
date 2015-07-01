@@ -31,18 +31,20 @@
 - (void)initializeUserInterface
 {
     UIButton *shopCar = [UIButton buttonWithType:UIButtonTypeCustom];
-    shopCar.frame = CGRectMake(20, 5, 34, 34);
-    shopCar.backgroundColor = [UIColor orangeColor];
+    shopCar.frame = CGRectMake(20, 2, 40, 40);
+    [shopCar setImage:ImageWithName(@"gouwuche_0.png") forState:UIControlStateNormal];
     [shopCar addTarget:self action:@selector(addShopCar:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:shopCar];
     
     
-    UIButton *addShopCar = [UIButton buttonWithType:UIButtonTypeCustom];
-    addShopCar.frame = CGRectMake(Screen_width * 0.55, 5, Screen_width * 0.4, 34);
-    addShopCar.backgroundColor = [UIColor orangeColor];
-    addShopCar.layer.cornerRadius = 17;
-    [addShopCar addTarget:self action:nil forControlEvents:UIControlEventTouchUpInside];
-    [self addSubview:addShopCar];
+    UIButton *forward = [UIButton buttonWithType:UIButtonTypeCustom];
+    forward.frame = CGRectMake(Screen_width * 0.55, 5, Screen_width * 0.4, 34);
+    forward.backgroundColor = [UIColor orangeColor];
+    forward.layer.cornerRadius = 17;
+    [forward setTitle:@"立即结账" forState:UIControlStateNormal];
+    forward.titleLabel.font = [UIFont boldSystemFontOfSize:Screen_height / 40];
+    [forward addTarget:self action:nil forControlEvents:UIControlEventTouchUpInside];
+    [self addSubview:forward];
     
 }
 

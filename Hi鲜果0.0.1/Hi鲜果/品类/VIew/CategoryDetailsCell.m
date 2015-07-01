@@ -80,9 +80,9 @@
         NSAttributedString *attstr = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"￥%@", data[@"tprice"]] attributes:@{NSStrikethroughStyleAttributeName : @1}];
         self.original.attributedText = attstr;
         [self addSubview:self.original];
-        
-        CustomSeparator *separator = [[CustomSeparator alloc] initWithFrame:CGRectMake(0, Screen_height / 5 - 0.5, Screen_width, 0.5)];
-        [self.contentView addSubview:separator];
     }
+    
+    CustomSeparator *separator = [[CustomSeparator alloc] initWithFrame:CGRectMake(0, Screen_height / 5 - 0.5, Screen_width, 0.5)];
+    [self.contentView addSubview:separator];
 }
 @end

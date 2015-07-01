@@ -8,9 +8,11 @@
 
 #import "HoverButton.h"
 
-@interface HoverButton ()
+@interface HoverButton () {
+    BOOL _isLike;
+}
 
-@property (nonatomic, strong) UIViewController *viewController;
+@property (nonatomic, weak) UIViewController *viewController;
 
 @end
 
@@ -29,25 +31,27 @@
 {
     UIButton *backButton = [UIButton buttonWithType:UIButtonTypeCustom];
     backButton.frame = CGRectMake(0, 0, 35, 35);
-    backButton.backgroundColor = [UIColor orangeColor];
-    [backButton setTitle:@"返回" forState:UIControlStateNormal];
+    [backButton setImage:ImageWithName(@"back_0.png") forState:UIControlStateNormal];
+    [backButton setImage:ImageWithName(@"back_0.png") forState:UIControlStateHighlighted];
     [backButton addTarget:self action:@selector(backView:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:backButton];
     self.viewController = controller;
     
     UIButton *shareButton = [UIButton buttonWithType:UIButtonTypeCustom];
     shareButton.frame = CGRectMake(CGRectGetWidth(self.bounds) - 35, 0, 35, 35);
-    shareButton.backgroundColor = [UIColor orangeColor];
-    [shareButton setTitle:@"分享" forState:UIControlStateNormal];
     [shareButton addTarget:self action:@selector(buttonShare:) forControlEvents:UIControlEventTouchUpInside];
+    [shareButton setImage:ImageWithName(@"fenxiang_0.png") forState:UIControlStateNormal];
     [self addSubview:shareButton];
     
     if (like) {
         UIButton *likeButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        likeButton.frame = CGRectMake(CGRectGetWidth(self.bounds) - 90, 0, 35, 35);
-        likeButton.backgroundColor = [UIColor orangeColor];
-        [likeButton setTitle:@"喜欢" forState:UIControlStateNormal];
+        likeButton.frame = CGRectMake(CGRectGetWidth(self.bounds) - 90, 1.5, 32, 32);
         [likeButton addTarget:self action:@selector(buttonLike:) forControlEvents:UIControlEventTouchUpInside];
+        /**
+         *  如果账号中当前商品是喜欢状态
+         */
+        [likeButton setImage:ImageWithName(@"shoucang_0.png") forState:UIControlStateNormal];
+        [likeButton setImage:ImageWithName(@"shoucang_1.png") forState:UIControlStateHighlighted];
         [self addSubview:likeButton];
     }
 }
@@ -55,18 +59,23 @@
 - (void)backView:(UIButton *)sender
 {
     [self.viewController.navigationController popViewControllerAnimated:YES];
-    self.viewController = nil;
 }
 
 - (void)buttonLike:(UIButton *)sender
 {
-    NSLog(@"喜欢");
+    if (_isLike) {
+        [sender setImage:ImageWithName(@"shoucang_0.png") forState:UIControlStateNormal];
+        [sender setImage:ImageWithName(@"shoucang_0.png") forState:UIControlStateHighlighted];
+        _isLike = NO;
+    } else {
+        [sender setImage:ImageWithName(@"shoucang_1.png") forState:UIControlStateNormal];
+        [sender setImage:ImageWithName(@"shoucang_1.png") forState:UIControlStateHighlighted];
+        _isLike = YES;
+    }
 }
 
 - (void)buttonShare:(UIButton *)sender
 {
-    
-    NSLog(@"分享");
     [UMSocialSnsService presentSnsIconSheetView:[Framework controllers].homePageVC
                                          appKey:@"559261b267e58e6cda001819"
                                       shareText:@"你要分享的文字"

@@ -27,6 +27,7 @@
         NSString *imageName = array[i];
         imageView.contentMode = UIViewContentModeScaleAspectFill;
         imageView.image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForAuxiliaryExecutable:imageName]];
+        imageView.clipsToBounds = YES;
         [self addSubview:imageView];
     }
     self.contentSize = CGSizeMake(CGRectGetWidth(self.bounds) * 3, CGRectGetHeight(self.bounds));

@@ -55,7 +55,7 @@
     _contentViews = [[NSMutableArray alloc] init];
     
     for (int i = 0; i < 3; i ++) {
-        NSString *imageName = [NSString stringWithFormat:@"%d.jpg", i + 1];
+        NSString *imageName = [NSString stringWithFormat:@"%d.png", i + 1];
         [_imageArray addObject:imageName];
     }
     
@@ -64,13 +64,13 @@
         CGFloat y = 0;
         CarouselButton *imageButton = [CarouselButton buttonWithType:UIButtonTypeCustom];
         imageButton.frame = CGRectMake(x, y, CGRectGetMaxX(self.bounds), CGRectGetHeight(self.bounds));
-        NSString *imageName = [NSString stringWithFormat:@"%d.jpg", i + 1];
-        [imageButton setBackgroundImage:ImageWithName(imageName) forState:UIControlStateNormal];
-        [imageButton setBackgroundImage:ImageWithName(imageName) forState:UIControlStateHighlighted];
+        NSString *imageName = [NSString stringWithFormat:@"%d.png", i + 1];
+        [imageButton setImage:ImageWithName(imageName) forState:UIControlStateNormal];
+        [imageButton setImage:ImageWithName(imageName) forState:UIControlStateHighlighted];
         imageButton.clipsToBounds = NO;
         NSInteger index = [self correctIndex: - 1 + i maxCount:_imageArray.count];
-        [imageButton setBackgroundImage:ImageWithName(_imageArray[index]) forState:UIControlStateNormal];
-        [imageButton setBackgroundImage:ImageWithName(_imageArray[index]) forState:UIControlStateHighlighted];
+        [imageButton setImage:ImageWithName(_imageArray[index]) forState:UIControlStateNormal];
+        [imageButton setImage:ImageWithName(_imageArray[index]) forState:UIControlStateHighlighted];
         [imageButton addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:imageButton];
         [_contentViews addObject:imageButton];
@@ -133,8 +133,8 @@
         for (NSInteger i = 0; i < 3; i++) {
             CarouselButton *imageButton = _contentViews[i];
             NSString *imageName = _imageArray[[self correctIndex:_currentIndex - 1 + i maxCount:_imageArray.count]];
-            [imageButton setBackgroundImage:ImageWithName(imageName) forState:UIControlStateNormal];
-            [imageButton setBackgroundImage:ImageWithName(imageName) forState:UIControlStateHighlighted];
+            [imageButton setImage:ImageWithName(imageName) forState:UIControlStateNormal];
+            [imageButton setImage:ImageWithName(imageName) forState:UIControlStateHighlighted];
             imageButton.index = [self correctIndex:_currentIndex - 1 + i maxCount:_imageArray.count];
         }
         [GlobalControl myControl].pageControl.currentPage = _currentIndex;
