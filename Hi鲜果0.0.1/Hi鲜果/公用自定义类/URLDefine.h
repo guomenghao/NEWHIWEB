@@ -21,7 +21,10 @@
  */
 #define GetNewsContent_Url @"/e/api/getNewsContent.php"
 
-
+/**
+ *  用户注册
+ */
+#define Register_Url @"/e/api/getRigister.php"
 
 
 

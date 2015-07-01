@@ -20,4 +20,12 @@
 
 + (void)serviceWithMothedName:(NSString *)mothedName parmeter:(id)parmeter success:(void (^)(id responseObject))succeedBlock fail:(void (^)(NSError *error))failBlock;
 
+/*邮箱是否有效*/
++ (BOOL) validateEmail:(NSString *)email;
+/**手机号码是否有效：13、15、17、18开头*/
++ (BOOL) validateMobile:(NSString *)mobile;
+/**用户名是否有效：是字母数字开头，6~20位*/
++ (BOOL) validateUserName:(NSString *)name;
+/**密码是否有效：是字母数字组合，6-16位*/
++ (BOOL) validatePassword:(NSString *)passWord;
 @end

@@ -109,6 +109,16 @@
 		2456A2851B4292FD00F49906 /* placeholder.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2456A2841B4292FD00F49906 /* placeholder.jpg */; };
 		2456A2881B4298CC00F49906 /* CartTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2456A2871B4298CC00F49906 /* CartTableView.m */; };
 		2456A28B1B42AE9400F49906 /* RegisterController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2456A28A1B42AE9400F49906 /* RegisterController.m */; };
+		249955F41B4374650075B78A /* icon-password.png in Resources */ = {isa = PBXBuildFile; fileRef = 249955F21B4374650075B78A /* icon-password.png */; };
+		249955F51B4374650075B78A /* icon-password@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 249955F31B4374650075B78A /* icon-password@2x.png */; };
+		249955F81B4377B10075B78A /* icon-password2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 249955F61B4377B10075B78A /* icon-password2@2x.png */; };
+		249955F91B4377B10075B78A /* icon-password2.png in Resources */ = {isa = PBXBuildFile; fileRef = 249955F71B4377B10075B78A /* icon-password2.png */; };
+		249956001B4382FB0075B78A /* icon-verify.png in Resources */ = {isa = PBXBuildFile; fileRef = 249955FE1B4382FB0075B78A /* icon-verify.png */; };
+		249956011B4382FB0075B78A /* icon-verify@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 249955FF1B4382FB0075B78A /* icon-verify@2x.png */; };
+		249956041B4398C40075B78A /* icon-verify-right.png in Resources */ = {isa = PBXBuildFile; fileRef = 249956021B4398C40075B78A /* icon-verify-right.png */; };
+		249956051B4398C40075B78A /* icon-verify-right@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 249956031B4398C40075B78A /* icon-verify-right@2x.png */; };
+		249956081B439C010075B78A /* icon-verify-wrong.png in Resources */ = {isa = PBXBuildFile; fileRef = 249956061B439C010075B78A /* icon-verify-wrong.png */; };
+		249956091B439C010075B78A /* icon-verify-wrong@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 249956071B439C010075B78A /* icon-verify-wrong@2x.png */; };
 		3874C9851B42CFBA00BD83FF /* icon-email.png in Resources */ = {isa = PBXBuildFile; fileRef = 3874C9811B42CFBA00BD83FF /* icon-email.png */; };
 		3874C9861B42CFBA00BD83FF /* icon-email@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3874C9821B42CFBA00BD83FF /* icon-email@2x.png */; };
 		3874C9871B42CFBA00BD83FF /* icon-phone.png in Resources */ = {isa = PBXBuildFile; fileRef = 3874C9831B42CFBA00BD83FF /* icon-phone.png */; };
@@ -329,6 +339,16 @@
 		2456A2871B4298CC00F49906 /* CartTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CartTableView.m; sourceTree = "<group>"; };
 		2456A2891B42AE9400F49906 /* RegisterController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterController.h; sourceTree = "<group>"; };
 		2456A28A1B42AE9400F49906 /* RegisterController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterController.m; sourceTree = "<group>"; };
+		249955F21B4374650075B78A /* icon-password.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-password.png"; sourceTree = "<group>"; };
+		249955F31B4374650075B78A /* icon-password@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-password@2x.png"; sourceTree = "<group>"; };
+		249955F61B4377B10075B78A /* icon-password2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-password2@2x.png"; sourceTree = "<group>"; };
+		249955F71B4377B10075B78A /* icon-password2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-password2.png"; sourceTree = "<group>"; };
+		249955FE1B4382FB0075B78A /* icon-verify.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-verify.png"; sourceTree = "<group>"; };
+		249955FF1B4382FB0075B78A /* icon-verify@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-verify@2x.png"; sourceTree = "<group>"; };
+		249956021B4398C40075B78A /* icon-verify-right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-verify-right.png"; sourceTree = "<group>"; };
+		249956031B4398C40075B78A /* icon-verify-right@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-verify-right@2x.png"; sourceTree = "<group>"; };
+		249956061B439C010075B78A /* icon-verify-wrong.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-verify-wrong.png"; sourceTree = "<group>"; };
+		249956071B439C010075B78A /* icon-verify-wrong@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-verify-wrong@2x.png"; sourceTree = "<group>"; };
 		3874C9811B42CFBA00BD83FF /* icon-email.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-email.png"; sourceTree = "<group>"; };
 		3874C9821B42CFBA00BD83FF /* icon-email@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-email@2x.png"; sourceTree = "<group>"; };
 		3874C9831B42CFBA00BD83FF /* icon-phone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-phone.png"; sourceTree = "<group>"; };
@@ -784,6 +804,16 @@
 				3874C9821B42CFBA00BD83FF /* icon-email@2x.png */,
 				3874C9831B42CFBA00BD83FF /* icon-phone.png */,
 				3874C9841B42CFBA00BD83FF /* icon-phone@2x.png */,
+				249955F21B4374650075B78A /* icon-password.png */,
+				249955F31B4374650075B78A /* icon-password@2x.png */,
+				249955F61B4377B10075B78A /* icon-password2@2x.png */,
+				249955F71B4377B10075B78A /* icon-password2.png */,
+				249955FE1B4382FB0075B78A /* icon-verify.png */,
+				249955FF1B4382FB0075B78A /* icon-verify@2x.png */,
+				249956021B4398C40075B78A /* icon-verify-right.png */,
+				249956031B4398C40075B78A /* icon-verify-right@2x.png */,
+				249956061B439C010075B78A /* icon-verify-wrong.png */,
+				249956071B439C010075B78A /* icon-verify-wrong@2x.png */,
 			);
 			path = Resoure;
 			sourceTree = "<group>";
@@ -1082,13 +1112,19 @@
 			files = (
 				094E16651B4298DC00C05CB2 /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
 				094E165D1B4298DC00C05CB2 /* UMShareEditViewController.xib in Resources */,
+				249955F91B4377B10075B78A /* icon-password2.png in Resources */,
 				097A82551B3C05AF00D59370 /* 1.jpg in Resources */,
+				249955F41B4374650075B78A /* icon-password.png in Resources */,
 				094E165A1B4298DC00C05CB2 /* UMSCommentDetailController.xib in Resources */,
 				3874C9861B42CFBA00BD83FF /* icon-email@2x.png in Resources */,
 				096DA85B1B3E327B00925F62 /* star_1.png in Resources */,
 				094E16581B4298DC00C05CB2 /* UMSocialLocalizable.strings in Resources */,
 				388C74751B3EE7490078AE32 /* bill_normal@2x.png in Resources */,
+				249956091B439C010075B78A /* icon-verify-wrong@2x.png in Resources */,
+				249955F81B4377B10075B78A /* icon-password2@2x.png in Resources */,
+				249956081B439C010075B78A /* icon-verify-wrong.png in Resources */,
 				388C74791B3EE7490078AE32 /* user_button_normal.png in Resources */,
+				249956041B4398C40075B78A /* icon-verify-right.png in Resources */,
 				092AA7861B3B918D00B88F23 /* LaunchScreen.xib in Resources */,
 				094E16301B42731900C05CB2 /* quanbu.png in Resources */,
 				094E165B1B4298DC00C05CB2 /* UMSCommentInputController.xib in Resources */,
@@ -1098,6 +1134,7 @@
 				094E16601B4298DC00C05CB2 /* UMSnsAccountViewController.xib in Resources */,
 				094E162D1B4272B600C05CB2 /* guonei.png in Resources */,
 				388C74781B3EE7490078AE32 /* nav_clear_bk.png in Resources */,
+				249956001B4382FB0075B78A /* icon-verify.png in Resources */,
 				388C747A1B3EE7490078AE32 /* user_button_normal@2x.png in Resources */,
 				094E165F1B4298DC00C05CB2 /* UMSLoginViewController.xib in Resources */,
 				096DA87A1B3E4B8E00925F62 /* fruit_jia.png in Resources */,
@@ -1108,15 +1145,18 @@
 				388C74741B3EE7490078AE32 /* bill_normal.png in Resources */,
 				388C74771B3EE7490078AE32 /* logo_default.png in Resources */,
 				097A82571B3C05AF00D59370 /* 3.jpg in Resources */,
+				249956051B4398C40075B78A /* icon-verify-right@2x.png in Resources */,
 				2456A2851B4292FD00F49906 /* placeholder.jpg in Resources */,
 				096DA87B1B3E4B8E00925F62 /* fruit_jian.png in Resources */,
 				092AA7831B3B918D00B88F23 /* Images.xcassets in Resources */,
 				096DA8591B3E327B00925F62 /* star_2.png in Resources */,
 				094E165E1B4298DC00C05CB2 /* UMShareEditViewControlleriPad.xib in Resources */,
+				249955F51B4374650075B78A /* icon-password@2x.png in Resources */,
 				3874C9851B42CFBA00BD83FF /* icon-email.png in Resources */,
 				09FFE2A91B40ECD2007066C3 /* jiuzhuan.jpg in Resources */,
 				094E165C1B4298DC00C05CB2 /* UMSCommentInputControlleriPad.xib in Resources */,
 				097A82561B3C05AF00D59370 /* 2.jpg in Resources */,
+				249956011B4382FB0075B78A /* icon-verify@2x.png in Resources */,
 				097A81E81B3BA6B000D59370 /* search_menu.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
