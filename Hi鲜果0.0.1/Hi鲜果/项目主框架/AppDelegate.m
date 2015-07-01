@@ -10,6 +10,7 @@
 #import "HomePageController.h"
 #import "CategoryController.h"
 #import "ShoppingCartController.h"
+#import <SMS_SDK/SMS_SDK.h>
 @interface AppDelegate ()
 
 @end
@@ -26,12 +27,15 @@
     UINavigationController *homePage = [[UINavigationController alloc] initWithRootViewController:[[HomePageController alloc] init]];
     UINavigationController *category = [[UINavigationController alloc] initWithRootViewController:[[CategoryController alloc] init]];
     UINavigationController *shoppingCart = [[UINavigationController alloc] initWithRootViewController:[[ShoppingCartController alloc] init]];
-    
+    [Framework controllers].rootViewController = tabBarController;
     tabBarController.viewControllers = @[homePage, category, shoppingCart];
     [self.window setRootViewController:tabBarController];
     [self.window makeKeyAndVisible];
     
     [UMSocialData setAppKey:@"559261b267e58e6cda001819"];
+    
+    // 短信验证码
+    [SMS_SDK registerApp:@"87b657d7705c" withSecret:@"4b33ba53cc26c1dec823ab836cec5f93"];
     return YES;
 }
 

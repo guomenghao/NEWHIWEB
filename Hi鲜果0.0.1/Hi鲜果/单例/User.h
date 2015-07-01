@@ -9,14 +9,14 @@
 #import <Foundation/Foundation.h>
 
 @interface User : NSObject
-/**用户账号*/
-@property (strong, nonatomic, readonly) NSString * account;
-/**用户头像*/
-@property (strong, nonatomic, readonly) NSString * picture;
+/**用户ID*/
+@property (strong, nonatomic) NSString * userid;
+/**用户账号<为手机号>*/
+@property (strong, nonatomic) NSString * username;
 /**用户昵称*/
-@property (strong, nonatomic, readonly) NSString * nickName;
+@property (strong, nonatomic) NSString * nickName;
 /**用户积分*/
-@property (strong, nonatomic, readonly) NSString * score;
+@property (strong, nonatomic) NSString * score;
 /**接收所有信息的字典*/
 @property (strong, nonatomic) NSDictionary *info;
 /**标记登录状态*/

@@ -52,6 +52,9 @@
     [manager GET:url parameters:parmeter success:^(AFHTTPRequestOperation *operation, id responseObject) {
         succeedBlock(responseObject);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+        UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"服务器连接失败，请稍后再试" delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil];
+        [alert show];
         failBlock(error);
     }];
     

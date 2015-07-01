@@ -8,11 +8,12 @@
 
 #import "RegisterController.h"
 #import "GlobalMethod.h"
+#import <SMS_SDK/SMS_SDK.h>
 #define Margin 40*[FlexibleFrame ratios].height
 #define MiddleFont ([UIFont systemFontOfSize:15*[FlexibleFrame ratios].height])
 #define NUMBERS @"0123456789"
 #define TextFieldTagBase 110
-@interface RegisterController () <UITextFieldDelegate>
+@interface RegisterController () <UITextFieldDelegate, UIAlertViewDelegate>
 /**手机号有效性*/
 @property (assign, nonatomic) BOOL phoneValide;
 /**验证码有效性*/
@@ -203,8 +204,10 @@
 - (void)sendVerificationCode:(UIButton *)sender {
     
     if (sender.selected == YES) {
-        NSLog(@"发送验证码");
-        [self setSendVerificationCodeButtonWithSelected:YES];
+        NSString * message = [NSString stringWithFormat:@"即将发送短信验证码到此手机：%@", self.phoneField.text];
+        UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"温馨提示" message:message delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定",nil];
+        [alert show];
+        
     }
 }
 
@@ -245,7 +248,7 @@
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     
     [textField resignFirstResponder];
-    if (self.phoneValide && self.verifyValide && (self.emailValide || self.emailField.text.length == 0)&& self.passwordValide) {
+    if (self.phoneValide && self.verifyValide && (self.emailValide || self.emailField.text.length == 0) && self.passwordValide) {
         [self.registerButton setBackgroundColor:[UIColor orangeColor]];
         [self.registerButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     }
@@ -340,13 +343,19 @@
             
             textField.rightView = rightIcon;
             textField.rightViewMode = UITextFieldViewModeUnlessEditing;
-            if (textField.text.length == 6 && [textField.text isEqualToString:@"123456"]) {
-                rightIcon.image = ImageWithName(@"icon-verify-right.png");
-                self.verifyValide = YES;
-            } else {
-                self.verifyValide = NO;
-                [self showInvalideAnimationViewWithTips:@"验证码错误"];
-                rightIcon.image = ImageWithName(@"icon-verify-wrong.png");
+            
+            if (textField.text.length == 4) {
+                [SMS_SDK commitVerifyCode:textField.text result:^(enum SMS_ResponseState state) {
+                    NSLog(@"验证验证码状态：%d", state);
+                    if (state == 1) {
+                        rightIcon.image = ImageWithName(@"icon-verify-right.png");
+                        self.verifyValide = YES;
+                    } else {
+                        self.verifyValide = NO;
+                        [self showInvalideAnimationViewWithTips:@"验证码错误"];
+                        rightIcon.image = ImageWithName(@"icon-verify-wrong.png");
+                    }
+                }];
             }
         }
             break;
@@ -394,4 +403,17 @@
     [alert show];
 }
 
+#pragma mark - <UIAlertViewDelegate>
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    
+    if (buttonIndex == 1) {
+
+        [SMS_SDK getVerificationCodeBySMSWithPhone:self.phoneField.text zone:@"86" customIdentifier:@"打堆水果" result:^(SMS_SDKError *error) {
+            if (error) {
+                NSLog(@"发送失败:%@", [error localizedDescription]);
+            }
+        }];
+        [self setSendVerificationCodeButtonWithSelected:NO];
+    }
+}
 @end

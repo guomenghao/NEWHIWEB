@@ -11,7 +11,7 @@
 #import "MyGardenCell.h"
 #import "SettingController.h"
 #import "PersonalController.h"
-@interface MyGardenView () <UITableViewDelegate, UITableViewDataSource>
+@interface MyGardenView () <UITableViewDelegate, UITableViewDataSource, UIAlertViewDelegate>
 /**记录自身视图动画状态，是否是打开*/
 @property (assign, nonatomic) BOOL open;
 /**菜单栏*/
@@ -257,32 +257,33 @@ static MyGardenView * gardenView;
         
         self.transform = CGAffineTransformIdentity;
         self.center = CGPointMake(Screen_width * 0.5, Screen_height * 0.5);
-        [UIApplication sharedApplication].keyWindow.rootViewController.view.center = CGPointMake(Screen_width * (0.75 + 0.4), 0.5 * Screen_height);
-        [UIApplication sharedApplication].keyWindow.rootViewController.view.transform = CGAffineTransformMakeScale(0.8, 0.8);
+        [Framework controllers].rootViewController.view.center = CGPointMake(Screen_width * (0.75 + 0.4), 0.5 * Screen_height);
+        [Framework controllers].rootViewController.view.transform = CGAffineTransformMakeScale(0.8, 0.8);
     } completion:^(BOOL finished) {
         // 动画完成
         self.open = YES;
         // 为根控制器的view添加tap手势
         UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapRootView:)];
-        [[UIApplication sharedApplication].keyWindow.rootViewController.view addGestureRecognizer:tap];
+        [[Framework controllers].rootViewController.view addGestureRecognizer:tap];
     }];
 }
 
 - (void)closeGardenAnimation {
-
+    
     /**
      *  让主页可交互
      */
     [[Framework controllers].homePageVC.navigationController setNavigationBarHidden:NO];
     [Framework controllers].homePageVC.view.userInteractionEnabled = YES;
     [UIView animateWithDuration:0.5 delay:0 usingSpringWithDamping:0.7 initialSpringVelocity:0.6 options:UIViewAnimationOptionTransitionFlipFromLeft animations:^{
-        [UIApplication sharedApplication].keyWindow.rootViewController.view.center = CGPointMake(Screen_width * 0.5, Screen_height * 0.5);
-        [UIApplication sharedApplication].keyWindow.rootViewController.view.transform = CGAffineTransformIdentity;
+        
+        [Framework controllers].rootViewController.view.center = CGPointMake(Screen_width * 0.5, Screen_height * 0.5);
+        [Framework controllers].rootViewController.view.transform = CGAffineTransformIdentity;
         self.transform = CGAffineTransformMakeScale(0.8, 0.8);
         self.transform = CGAffineTransformTranslate(self.transform, - self.bounds.size.width / 4, self.bounds.size.height / 8);
     } completion:^(BOOL finished) {
         // 动画完成
-        UIView * mainView = [UIApplication sharedApplication].keyWindow.rootViewController.view;
+        UIView * mainView = [Framework controllers].rootViewController.view;
         //移除mainVC的tap手势
         for (UITapGestureRecognizer * tap in mainView.gestureRecognizers) {
             [mainView removeGestureRecognizer:tap];
@@ -325,7 +326,8 @@ static MyGardenView * gardenView;
 
 - (void)logoutButtonPressed:(UIButton *)sender {
     
-    NSLog(@"提示用户是否退出登录");
+    UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"是否注销当前账号" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil];
+    [alert show];
 }
 
 - (void)handleTapRootView:(UITapGestureRecognizer *)sender {
@@ -343,4 +345,35 @@ static MyGardenView * gardenView;
         [self closeGardenAnimation];
     }
 }
+
+#pragma mark - <UIAlertViewDelegate>
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    
+    if (buttonIndex == 0 && [alertView.title isEqualToString:@"提示"]) {//确认退出登录
+        NSLog(@"即将注销的用户名为：%@", [User loginUser].username);
+        [GlobalMethod serviceWithMothedName:Logout_Url
+                                   parmeter:@{
+                                              @"username":[User loginUser].username,
+                                              @"userid":[User loginUser].userid}
+                                    success:^(id responseObject) {
+                                        NSString * msg = responseObject[@"err_msg"];
+                                        if ([msg isEqualToString:@"success"]) {
+                                            UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"注销成功" message:nil delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
+                                            [alert show];
+                                            // 修改登录状态
+                                            [User loginUser].isLogin = NO;
+                                        }
+                                    }
+                                       fail:^(NSError *error) {
+                                           
+                                       }];
+        return;
+    }
+    
+    if (buttonIndex == 0 && [alertView.title isEqualToString:@"注销成功"]) {
+        NSLog(@"2");
+        [self closeGardenAnimation];
+    }
+}
+
 @end

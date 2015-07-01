@@ -18,25 +18,38 @@
     });
     return loginUser;
 }
+
 // 重写getter方法，将_info中的数据返回
-- (NSString *)account {
+
+- (void)setInfo:(NSDictionary *)info {
     
-    return _info[@"account"];
+    _info = info;
 }
 
-- (NSString *)picture {
+- (NSString *)username {
     
-    return _info[@"picture"];
+    return _info[@"username"];
 }
 
 - (NSString *)nickName {
     
-    return _info[@"nickName"];
+    return _info[@"nickname"];
 }
 
 - (NSString *)score {
     
     return _info[@"score"];
+}
+
+- (NSString *)userid {
+    
+    return _info[@"userid"];
+}
+
+// 重写description
+- (NSString *)description {
+    
+    return [NSString stringWithFormat:@"用户信息为\n手机号：%@\n昵称：%@\n积分：%@\n登录状态：%d", self.username, self.nickName, self.score, self.isLogin];
 }
 
 @end

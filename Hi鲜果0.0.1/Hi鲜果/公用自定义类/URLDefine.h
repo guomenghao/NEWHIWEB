@@ -26,7 +26,15 @@
  */
 #define Register_Url @"/e/api/getRigister.php"
 
+/**
+ *  用户登录验证
+ */
+#define Login_Url @"/e/api/getLogin.php"
 
+/**
+ *  用户注销
+ */
+#define Logout_Url @"/e/api/getOutLogin.php"
 
 #import <Foundation/Foundation.h>
 
