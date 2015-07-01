@@ -80,6 +80,7 @@
 {
     CategoryDetailsController *cdVC = [[CategoryDetailsController alloc] init];
     cdVC.title = _dataSource[indexPath.row][@"fruitname"];
+    cdVC.classid = [NSString stringWithFormat:@"%ld", (long)indexPath.row + 1];
     [cdVC getNetWork:[NSString stringWithFormat:@"%ld", (long)indexPath.row + 1]];
     
     [[Framework controllers].categoryVC.navigationController pushViewController:cdVC animated:YES];

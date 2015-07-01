@@ -18,7 +18,7 @@
 
 - (instancetype)initWithView:(UIView *)view
 {
-    self = [self initWithFrame:CGRectMake(0, CGRectGetMaxY(view.frame), Screen_width, Screen_height - CGRectGetMaxY(view.frame) - 44)];
+    self = [self initWithFrame:CGRectMake(0, CGRectGetMaxY(view.frame) + 1, Screen_width, Screen_height - CGRectGetMaxY(view.frame) - 45)];
     self.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.delegate = self;
     self.dataSource = self;

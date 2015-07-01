@@ -15,13 +15,28 @@
  *  给UIView设置任意两个圆角
  */
 
-+ (void)rectWithView:(UIView *)view corners1:(UIRectCorner)corners1 corners2:(UIRectCorner)corners2 radius:(CGFloat)radius
++ (void)rectWithView:(UIView *)view corners1:(UIRectCorner)corners1 corners2:(UIRectCorner)corners2 radius:(CGFloat)radius lineWidth:(CGFloat)lineWidth lineColor:(UIColor *)lineColor fillColor:(UIColor *)fillColor
 {
     UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:view.bounds byRoundingCorners:corners1 | corners2 cornerRadii:CGSizeMake(radius, radius)];
     CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];
     maskLayer.frame = view.bounds;
+    maskLayer.strokeColor = lineColor.CGColor;
+    maskLayer.lineWidth = lineWidth;
+    maskLayer.fillColor = fillColor.CGColor;
     maskLayer.path = maskPath.CGPath;
-    view.layer.mask = maskLayer;
+    [view.layer addSublayer:maskLayer];
+}
+
++ (void)view:(UIView *)view lineWidth:(CGFloat)lineWidth lineColor:(UIColor *)lineColor fillColor:(UIColor *)fillColor
+{
+    
+    for (NSObject *layer in view.layer.sublayers) {
+        if ([layer isKindOfClass:[CAShapeLayer class]]) {
+            [(CAShapeLayer *)layer setStrokeColor:lineColor.CGColor];
+            [(CAShapeLayer *)layer setFillColor:fillColor.CGColor];
+            [(CAShapeLayer *)layer setLineWidth:lineWidth];
+        }
+    }
 }
 
 
