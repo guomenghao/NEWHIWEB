@@ -24,7 +24,7 @@
     maskLayer.lineWidth = lineWidth;
     maskLayer.fillColor = fillColor.CGColor;
     maskLayer.path = maskPath.CGPath;
-    [view.layer addSublayer:maskLayer];
+    [view.layer insertSublayer:maskLayer atIndex:0];
 }
 
 + (void)view:(UIView *)view lineWidth:(CGFloat)lineWidth lineColor:(UIColor *)lineColor fillColor:(UIColor *)fillColor

@@ -31,14 +31,17 @@
 }
 
 /**
- *  点击推送到搜索界面
- *
- *  @param sender 搜索按钮
+ *  点击Push到搜索界面
  */
 
 - (void)searchFruit:(UIButton *)sender
 {
-    [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:[[SearchController alloc] init] animated:YES completion:nil];
+    SearchController *searchController = [[SearchController alloc] init];
+    [UIView animateWithDuration:0.7 animations:^{
+        [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+        [[Framework controllers].homePageVC.navigationController pushViewController:searchController animated:NO];
+        [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromRight forView:[Framework controllers].homePageVC.navigationController.view cache:NO];
+    }];
 }
 
 
