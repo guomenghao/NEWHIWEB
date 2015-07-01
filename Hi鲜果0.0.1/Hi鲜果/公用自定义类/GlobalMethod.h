@@ -21,4 +21,8 @@
 + (void)serviceWithMothedName:(NSString *)mothedName parmeter:(id)parmeter success:(void (^)(id responseObject))succeedBlock fail:(void (^)(NSError *error))failBlock;
 + (void)rectWithView:(UIView *)view corners1:(UIRectCorner)corners1 corners2:(UIRectCorner)corners2 radius:(CGFloat)radius lineWidth:(CGFloat)lineWidth lineColor:(UIColor *)lineColor fillColor:(UIColor *)fillColor;
 + (void)view:(UIView *)view lineWidth:(CGFloat)lineWidth lineColor:(UIColor *)lineColor fillColor:(UIColor *)fillColor;
++ (BOOL) validateEmail:(NSString *)email;
++ (BOOL) validateUserName:(NSString *)name;
++ (BOOL) validateMobile:(NSString *)mobile;
++ (BOOL) validatePassword:(NSString *)passWord;
 @end
