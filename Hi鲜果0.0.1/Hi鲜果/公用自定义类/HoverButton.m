@@ -66,7 +66,7 @@
     if (_isLike) {
         [sender setImage:ImageWithName(@"shoucang_0.png") forState:UIControlStateNormal];
         [sender setImage:ImageWithName(@"shoucang_0.png") forState:UIControlStateHighlighted];
-        _isLike = NO;
+        _isLike = NO;   
     } else {
         [sender setImage:ImageWithName(@"shoucang_1.png") forState:UIControlStateNormal];
         [sender setImage:ImageWithName(@"shoucang_1.png") forState:UIControlStateHighlighted];
