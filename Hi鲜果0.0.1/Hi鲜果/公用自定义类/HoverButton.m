@@ -30,7 +30,7 @@
 - (void)initializeUserInterfaceWithLike:(BOOL)like controller:(UIViewController *)controller
 {
     UIButton *backButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    backButton.frame = CGRectMake(0, 0, 35, 35);
+    backButton.frame = CGRectMake(0, 0, Screen_height / 19, Screen_height / 19);
     [backButton setImage:ImageWithName(@"back_0.png") forState:UIControlStateNormal];
     [backButton setImage:ImageWithName(@"back_0.png") forState:UIControlStateHighlighted];
     [backButton addTarget:self action:@selector(backView:) forControlEvents:UIControlEventTouchUpInside];
@@ -38,14 +38,14 @@
     self.viewController = controller;
     
     UIButton *shareButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    shareButton.frame = CGRectMake(CGRectGetWidth(self.bounds) - 35, 0, 35, 35);
+    shareButton.frame = CGRectMake(CGRectGetWidth(self.bounds) - Screen_height / 19, 0, Screen_height / 19, Screen_height / 19);
     [shareButton addTarget:self action:@selector(buttonShare:) forControlEvents:UIControlEventTouchUpInside];
     [shareButton setImage:ImageWithName(@"fenxiang_0.png") forState:UIControlStateNormal];
     [self addSubview:shareButton];
     
     if (like) {
         UIButton *likeButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        likeButton.frame = CGRectMake(CGRectGetWidth(self.bounds) - 90, 1.5, 32, 32);
+        likeButton.frame = CGRectMake(CGRectGetWidth(self.bounds) - Screen_height / 8, 1.5, Screen_height / 21, Screen_height / 21);
         [likeButton addTarget:self action:@selector(buttonLike:) forControlEvents:UIControlEventTouchUpInside];
         /**
          *  如果账号中当前商品是喜欢状态
@@ -66,7 +66,7 @@
     if (_isLike) {
         [sender setImage:ImageWithName(@"shoucang_0.png") forState:UIControlStateNormal];
         [sender setImage:ImageWithName(@"shoucang_0.png") forState:UIControlStateHighlighted];
-        _isLike = NO;
+        _isLike = NO;   
     } else {
         [sender setImage:ImageWithName(@"shoucang_1.png") forState:UIControlStateNormal];
         [sender setImage:ImageWithName(@"shoucang_1.png") forState:UIControlStateHighlighted];

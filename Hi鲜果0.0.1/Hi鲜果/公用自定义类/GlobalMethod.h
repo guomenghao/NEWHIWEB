@@ -19,14 +19,10 @@
 + (void)removeAllSubViews:(UIView *)superView;
 
 + (void)serviceWithMothedName:(NSString *)mothedName parmeter:(id)parmeter success:(void (^)(id responseObject))succeedBlock fail:(void (^)(NSError *error))failBlock;
-+ (void)rectWithView:(UIView *)view corners1:(UIRectCorner)corners1 corners2:(UIRectCorner)corners2 radius:(CGFloat)radius;
-
-/*邮箱是否有效*/
++ (void)rectWithView:(UIView *)view corners1:(UIRectCorner)corners1 corners2:(UIRectCorner)corners2 radius:(CGFloat)radius lineWidth:(CGFloat)lineWidth lineColor:(UIColor *)lineColor fillColor:(UIColor *)fillColor;
++ (void)view:(UIView *)view lineWidth:(CGFloat)lineWidth lineColor:(UIColor *)lineColor fillColor:(UIColor *)fillColor;
 + (BOOL) validateEmail:(NSString *)email;
-/**手机号码是否有效：13、15、17、18开头*/
-+ (BOOL) validateMobile:(NSString *)mobile;
-/**用户名是否有效：是字母数字开头，6~20位*/
 + (BOOL) validateUserName:(NSString *)name;
-/**密码是否有效：是字母数字组合，6-16位*/
++ (BOOL) validateMobile:(NSString *)mobile;
 + (BOOL) validatePassword:(NSString *)passWord;
 @end

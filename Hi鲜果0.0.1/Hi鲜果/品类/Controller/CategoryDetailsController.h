@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface CategoryDetailsController : BasicViewController
+@property (nonatomic, strong) NSString *classid;
 
 @end

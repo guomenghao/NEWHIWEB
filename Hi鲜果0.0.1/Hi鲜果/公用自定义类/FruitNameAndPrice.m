@@ -25,7 +25,7 @@
 {
     if (_fruitName == nil) {
         _fruitName = [[UILabel alloc] initWithFrame:CGRectMake(12, 10, Screen_width - 24, Screen_height * 0.2 * 0.2)];
-        _fruitName.font = [UIFont systemFontOfSize:Screen_height / 40];
+        _fruitName.font = [UIFont systemFontOfSize:Screen_height / 35];
     }
     return _fruitName;
 }
@@ -67,7 +67,7 @@
     /**
      *  如果info中有打折状态
      */
-    if (![info[@"price"] isEqual:info[@"tprice"]]) {
+    if (info[@"tprice"] && ![info[@"price"] isEqual:info[@"tprice"]]) {
         NSAttributedString *attstr = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"￥%@", info[@"tprice"]] attributes:@{NSStrikethroughStyleAttributeName : @1}];
         self.original.attributedText = attstr;
         [self addSubview:self.original];

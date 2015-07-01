@@ -50,14 +50,13 @@
 }
 - (void)getCategoryDetailsCelldata:(NSDictionary *)data
 {
-    NSLog(@"%@",data[@"reptitle"]);
     UIImageView *categoryImageView = [[UIImageView alloc] initWithFrame:CGRectMake(5, 5, Screen_height / 5 - 10, Screen_height / 5 - 10)];
     [categoryImageView sd_setImageWithURL:[NSURL URLWithString:data[@"titlepic"]] placeholderImage:nil];
     [self.contentView addSubview:categoryImageView];
     
     UILabel *category = [[UILabel alloc] initWithFrame:CGRectMake(Screen_height / 5, Screen_height / 5 / 15, Screen_width - Screen_height / 5 - 10, Screen_height / 5 / 5)];
     category.text = data[@"title"];
-    category.font = [UIFont systemFontOfSize:Screen_height / 40];
+    category.font = [UIFont systemFontOfSize:Screen_height / 35];
     [self.contentView addSubview:category];
     
     UILabel *categoryInfo = [[UILabel alloc] initWithFrame:CGRectMake(Screen_height / 5, Screen_height / 16, Screen_width - Screen_height / 5 - 10, Screen_height / 5 / 6)];
