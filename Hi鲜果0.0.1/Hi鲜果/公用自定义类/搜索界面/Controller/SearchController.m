@@ -7,16 +7,55 @@
 //
 
 #import "SearchController.h"
+#import "SearchCustomCell.h"
+#import "SearchView.h"
 
-@interface SearchController ()<UISearchBarDelegate,UITextFieldDelegate>
 
-@property (nonatomic, strong) UITableView *tableView;
+@interface SearchController ()<UISearchBarDelegate,UITextFieldDelegate,UITableViewDataSource,UITableViewDelegate> {
+    BOOL _isSearch;
+}
+
+
 @property (nonatomic, strong) NSUserDefaults *userDeafaults;
-@property (nonatomic, strong) NSMutableArray *dataSource;
 @property (nonatomic, strong) UISearchBar *searchBar;
+@property (nonatomic, strong) UIBarButtonItem *backItem;
+@property (nonatomic, strong) UIBarButtonItem *cancelItem;
+@property (nonatomic, strong) SearchView *searchView;
 @end
 
 @implementation SearchController
+
+- (UIBarButtonItem *)backItem
+{
+    if (_backItem == nil) {
+        _backItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:self action:@selector(backSearch)];
+    }
+    return _backItem;
+}
+
+- (SearchView *)searchView
+{
+    if (_searchView == nil) {
+        _searchView = [[SearchView alloc] init];
+    }
+    return _searchView;
+}
+
+- (UIBarButtonItem *)cancelItem
+{
+    if (_cancelItem == nil) {
+        _cancelItem = [[UIBarButtonItem alloc] initWithTitle:@"取消" style:UIBarButtonItemStylePlain target:self action:@selector(backHomePage)];
+    }
+    return _cancelItem;
+}
+
+- (NSMutableArray *)dataSource
+{
+    if (_dataSource == nil) {
+        _dataSource = [[NSMutableArray arrayWithArray:[self.userDeafaults objectForKey:@"searchHistory"]] mutableCopy];
+    }
+    return _dataSource;
+}
 
 - (UISearchBar *)searchBar
 {
@@ -42,10 +81,11 @@
 
 - (UITableView *)tableView {
     if (_tableView == nil) {
-        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(Screen_height / 33.35, Screen_height / 13 + 64, Screen_width - Screen_height / 33.35 * 2, Screen_height - Screen_height / 13 - 64 - Screen_height / 33.35) style:UITableViewStylePlain];
-        _tableView.layer.cornerRadius = 8;
+        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, Screen_width, Screen_height - 64 ) style:UITableViewStylePlain];
         _tableView.showsVerticalScrollIndicator = NO;
-        _tableView.backgroundColor = [UIColor lightGrayColor];
+        _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        _tableView.delegate = self;
+        _tableView.dataSource = self;
         
     }
     return _tableView;
@@ -56,6 +96,7 @@
     self = [super init];
     if (self) {
         self.controllerType = UIViewControllerHaveNavigation;
+        [Framework controllers].searchVC = self;
     }
     return self;
 }
@@ -69,57 +110,148 @@
 
 - (void)initializeDataSource
 {
-    self.dataSource = [[self.userDeafaults objectForKey:@"searchHistory"] mutableCopy];
+    
 }
 
 - (void)initializeUserInterface
 {
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self.view addSubview:self.tableView];
-    UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithTitle:@"222" style:UIBarButtonItemStylePlain target:self action:nil];
-    self.navigationItem.leftBarButtonItem = backItem;
-    
-    UIBarButtonItem *cancelItem = [[UIBarButtonItem alloc] initWithTitle:@"取消" style:UIBarButtonItemStylePlain target:self action:@selector(backHomePage)];
-    self.navigationItem.rightBarButtonItem = cancelItem;
     
     self.navigationItem.titleView = self.searchBar;
-    
-    
-    UILabel *labelHistory = [[UILabel alloc] initWithFrame:CGRectMake(Screen_height / 30, Screen_height / 50 + 64, Screen_height / 4.5, Screen_height / 23)];
-    [labelHistory setText:@"搜索历史"];
-    [labelHistory setFont:[UIFont systemFontOfSize:22]];
-    [labelHistory setTextColor:[UIColor lightGrayColor]];
-    labelHistory.textAlignment = NSTextAlignmentCenter;
-    [self.view addSubview:labelHistory];
-    
-    UIButton *buttonClear = [UIButton buttonWithType:UIButtonTypeCustom];
-    [buttonClear setFrame:CGRectMake(Screen_width - Screen_height / 4.5 - Screen_height / 30, Screen_height / 50 + 64, Screen_height / 4.5, Screen_height / 23)];
-    [buttonClear setBackgroundColor:[UIColor clearColor]];
-    [buttonClear.titleLabel setFont:[UIFont systemFontOfSize:22]];
-    [buttonClear setTitle:@"清除历史" forState:UIControlStateNormal];
-    [buttonClear setTitleColor:[UIColor colorWithWhite:0.400 alpha:1.000] forState:UIControlStateNormal];
-    [buttonClear setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
-    [buttonClear addTarget:self action:@selector(clear) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:buttonClear];
     
 }
 
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
-    NSLog(@"333");
+    [searchBar resignFirstResponder];
+    int a = 0;
+    for (int i = 0; i < (int)[searchBar.text length]; i ++) {
+        NSString *string = [searchBar.text substringWithRange:NSMakeRange(i, 1)];
+        if ([string isEqual:@" "]) {
+            a ++;
+        }
+    }
+    if (a == [searchBar.text length]) {
+        searchBar.text = nil;
+        return;
+    }
+    
+    /**
+     *  去掉前后空格
+     */
+    searchBar.text = [searchBar.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    
+    /**
+     *  网络请求
+     */
+    [self getNetWorkingString:searchBar.text success:^(id responseObject) {
+        NSLog(@"%@", responseObject);
+        for (NSString *string in self.dataSource) {
+            if ([string isEqual:searchBar.text]) {
+                return;
+            }
+        }
+        [self.dataSource insertObject:searchBar.text atIndex:0];
+        [self.userDeafaults setObject:self.dataSource forKey:@"searchHistory"];
+        [self.tableView reloadData];
+    } fail:^(NSError *error) {
+    }];
+
+}
+
+/**
+ *  cell行高
+ */
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.row == [self.dataSource count]) {
+        return Screen_height / 10;
+    }
+    return Screen_height / 13;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    if ([self.dataSource count] == 0) {
+        return 0;
+    }
+    return [self.dataSource count] + 1;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSString *identifier = @"Cell";
+    SearchCustomCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    if (!cell) {
+        cell = [[SearchCustomCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:identifier];
+    }
+    
+    [GlobalMethod removeAllSubViews:cell.contentView];
+    if ([self.dataSource count] > 0) {
+        if (indexPath.row < [self.dataSource count]) {
+            cell.textLabel.text = _dataSource[indexPath.row];
+            [cell getSearchCell];
+        }
+        if (indexPath.row == [self.dataSource count]) {
+            cell.textLabel.text = nil;
+            [cell getsearchClearCell];
+        }
+    }
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.row == [self.dataSource count]) {
+        return;
+    }
+    [self getNetWorkingString:self.dataSource[indexPath.row] success:^(id responseObject) {
+        NSLog(@"%@", responseObject);
+    } fail:^(NSError *error) {
+        
+    }];
+}
+
+
+- (void)beganSearch
+{
+    _isSearch = YES;
+    [self.view addSubview:self.searchView];
+    [UIView animateWithDuration:0.5 animations:^{
+        self.view.center = CGPointMake(- Screen_width * 0.5, Screen_height / 2);
+        self.navigationItem.rightBarButtonItem = self.cancelItem;
+        self.navigationItem.leftBarButtonItem = self.backItem;
+        [self.searchBar resignFirstResponder];
+    } completion:^(BOOL finished) {
+        self.view.center = CGPointMake(Screen_width * 0.5, Screen_height / 2);
+        self.searchView.center = CGPointMake(Screen_width / 2, (Screen_height + 64) / 2);
+    }];
+}
+
+
+- (void)backSearch
+{
+    _isSearch = NO;
+    [UIView animateWithDuration:0.5 animations:^{
+        self.navigationItem.rightBarButtonItem = nil;
+        self.navigationItem.leftBarButtonItem = nil;
+        self.searchView.center = CGPointMake(Screen_width * 1.5, (Screen_height + 64) / 2);
+        self.view.center = CGPointMake(Screen_width * 0.5, Screen_height / 2);
+    } completion:^(BOOL finished) {
+        [self.searchView removeFromSuperview];
+    }];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:NO];
     [self.tabBarController.tabBar setHidden:YES];
 }
 
-- (void)clear
-{
-    NSLog(@"%@", self.searchBar.text);
-}
 
 - (void)backHomePage
 {
@@ -129,5 +261,25 @@
         [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:[Framework controllers].homePageVC.navigationController.view cache:NO];
     }];
 }
+
+- (void)getNetWorkingString:(NSString *)string success:(void (^)(id responseObject))succeedBlock fail:(void (^)(NSError *error))failBlock
+{
+    NSLog(@"搜索的水果为：%@", string);
+    [self.searchView.dataSource removeAllObjects];
+    if (!_isSearch) {
+        [self beganSearch];
+    }
+    succeedBlock(@"搜索成功");
+    [GlobalMethod serviceWithMothedName:string parmeter:nil success:^(id responseObject) {
+        succeedBlock(responseObject);
+    } fail:^(NSError *error) {
+        failBlock(error);
+    }];
+    self.searchView.dataSource = [@[@{@"price" : @"13.00", @"title" : @"芒果", @"tprice" : @"19.00", @"titlepic" : @"http://218.6.128.225:8088//d/file/shangpin/guoneixianguo/2015-06-28/ebe81c7165f7517693fd50a22dcddcd8.jpg", @"classid" : @"3", @"id" : @"1"}] mutableCopy];
+    [self.searchView.tableView reloadData];
+    
+}
+
+
 
 @end

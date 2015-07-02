@@ -54,6 +54,13 @@
     if (sender.tag == 100) {
         [[[UIApplication sharedApplication].keyWindow.rootViewController.childViewControllers firstObject] pushViewController:[[EatForFreeController alloc] init] animated:YES];
     }
+    if (sender.tag == 101) {
+        if ([User loginUser].isLogin == NO) {
+            [[Framework controllers].homePageVC.navigationController pushViewController:[[LoginController alloc] init] animated:YES];
+        } else {
+            [[Framework controllers].homePageVC.navigationController pushViewController:[[MyOrderController alloc] init] animated:YES];
+        }
+    }
 }
 
 @end

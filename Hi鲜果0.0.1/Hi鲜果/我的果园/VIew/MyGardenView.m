@@ -230,10 +230,9 @@ static MyGardenView * gardenView;
     if ([User loginUser].isLogin == NO) {//直接推送至登录页面
         [self pushLoginViewController];
     } else {
-        
         switch (indexPath.row) {
             case 0://我的订单
-                NSLog(@"我的订单");
+                [self pushOtherViewController:[[MyOrderController alloc] init]];
                 break;
             case 1://待评价
                 NSLog(@"待评价");
@@ -303,7 +302,8 @@ static MyGardenView * gardenView;
 }
 
 #pragma mark - 其他
-- (void)pushLoginViewController {
+- (void)pushLoginViewController
+{
     
     // 由主页控制器推送登录界面
     LoginController * loginVC = [[LoginController alloc] init];
@@ -311,12 +311,20 @@ static MyGardenView * gardenView;
     [self closeGardenAnimation];
 }
 
-- (void)loginButtonPressed:(UIButton *)sender {
+- (void)pushOtherViewController:(UIViewController *)controller
+{
+    [[Framework controllers].homePageVC.navigationController pushViewController:controller animated:YES];
+    [self closeGardenAnimation];
+}
+
+- (void)loginButtonPressed:(UIButton *)sender
+{
     
     [self pushLoginViewController];
 }
 
-- (void)settingButtonPressed:(UIButton *)sender {
+- (void)settingButtonPressed:(UIButton *)sender
+{
     
     SettingController * settingVC = [[SettingController alloc] init];
     // 由主页控制器推送
@@ -324,18 +332,21 @@ static MyGardenView * gardenView;
     [self closeGardenAnimation];
 }
 
-- (void)logoutButtonPressed:(UIButton *)sender {
+- (void)logoutButtonPressed:(UIButton *)sender
+{
     
     UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"是否注销当前账号" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil];
     [alert show];
 }
 
-- (void)handleTapRootView:(UITapGestureRecognizer *)sender {
+- (void)handleTapRootView:(UITapGestureRecognizer *)sender
+{
     
     [self closeGardenAnimation];
 }
 
-- (void)logoImageViewTapped:(UITapGestureRecognizer *)tap {
+- (void)logoImageViewTapped:(UITapGestureRecognizer *)tap
+{
     
     if ([User loginUser].isLogin == YES) {
         
@@ -347,7 +358,8 @@ static MyGardenView * gardenView;
 }
 
 #pragma mark - <UIAlertViewDelegate>
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
     
     if (buttonIndex == 0 && [alertView.title isEqualToString:@"提示"]) {//确认退出登录
         NSLog(@"即将注销的用户名为：%@", [User loginUser].username);
@@ -370,7 +382,8 @@ static MyGardenView * gardenView;
         return;
     }
     
-    if (buttonIndex == 0 && [alertView.title isEqualToString:@"注销成功"]) {
+    if (buttonIndex == 0 && [alertView.title isEqualToString:@"注销成功"])
+    {
         NSLog(@"2");
         [self closeGardenAnimation];
     }

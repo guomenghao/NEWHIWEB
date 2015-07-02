@@ -20,7 +20,7 @@
 {
     if (_fruitNum == nil) {
         _fruitNum = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.bounds) * 0.33, CGRectGetHeight(self.bounds) - 2)];
-        _fruitNum.center = CGPointMake(CGRectGetWidth(self.bounds) / 2, CGRectGetHeight(self.bounds) / 2 - 0.05);
+        _fruitNum.center = CGPointMake(CGRectGetWidth(self.bounds) / 2, CGRectGetHeight(self.bounds) / 2 - 0.01);
         _fruitNum.textAlignment = NSTextAlignmentCenter;
         _fruitNum.textColor = [UIColor blackColor];
         _fruitNum.backgroundColor = [UIColor whiteColor];
@@ -32,7 +32,7 @@
 - (instancetype)initWithPoint:(CGPoint)point
 {
     self = [self initWithFrame:CGRectMake(point.x, point.y, Screen_width * 0.3, Screen_height * 0.2 * 0.25)];
-    self.backgroundColor = [UIColor colorWithWhite:0.800 alpha:1.000];
+    self.backgroundColor = [UIColor colorWithRed:1.000 green:0.502 blue:0.000 alpha:1.000];
     self.layer.cornerRadius = Screen_height / 51;
     [GlobalControl myControl].numPicker = self;
     [self initializeUserInterface];

@@ -30,7 +30,7 @@
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     button.frame = CGRectMake(0, 0, CGRectGetHeight(self.bounds) / 1.5, CGRectGetHeight(self.bounds) / 1.5);
     button.center = CGPointMake(CGRectGetWidth(self.bounds) / 2, CGRectGetHeight(self.bounds) / 2);
-    button.backgroundColor = [UIColor greenColor];
+    button.backgroundColor = [UIColor orangeColor];
     button.layer.cornerRadius = CGRectGetHeight(button.bounds) / 2;
     [button setTitle:@"申请试吃" forState:UIControlStateNormal];
     button.titleLabel.font = [UIFont systemFontOfSize:Screen_height / 35];
