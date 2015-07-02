@@ -8,6 +8,7 @@
 
 #import "SearchView.h"
 #import "CategoryDetailsCell.h"
+#import "FruitDetailsController.h"
 
 @interface SearchView ()<UITableViewDataSource,UITableViewDelegate>
 
@@ -74,6 +75,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    FruitDetailsController *fdVC = [[FruitDetailsController alloc] init];
+    [fdVC getNetWork:self.dataSource[indexPath.row]];
+    [[Framework controllers].homePageVC.navigationController pushViewController:fdVC animated:YES];
 }
 
 

@@ -248,6 +248,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:NO];
     [self.tabBarController.tabBar setHidden:YES];
 }
 
@@ -274,9 +275,11 @@
     } fail:^(NSError *error) {
         failBlock(error);
     }];
-    self.searchView.dataSource = [@[@{@"price" : @"13.00", @"title" : @"芒果", @"tprice" : @"19.00", @"titlepic" : @"http://218.6.128.225:8088//d/file/shangpin/guoneixianguo/2015-06-28/ebe81c7165f7517693fd50a22dcddcd8.jpg"}] mutableCopy];
+    self.searchView.dataSource = [@[@{@"price" : @"13.00", @"title" : @"芒果", @"tprice" : @"19.00", @"titlepic" : @"http://218.6.128.225:8088//d/file/shangpin/guoneixianguo/2015-06-28/ebe81c7165f7517693fd50a22dcddcd8.jpg", @"classid" : @"3", @"id" : @"1"}] mutableCopy];
     [self.searchView.tableView reloadData];
     
 }
+
+
 
 @end

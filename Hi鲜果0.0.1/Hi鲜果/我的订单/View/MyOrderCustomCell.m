@@ -23,7 +23,7 @@
 - (UIView *)background
 {
     if (_background == nil) {
-        _background = [[UIView alloc] initWithFrame:CGRectMake(Screen_width / 37.5, Screen_width / 37.5, Screen_width - Screen_width / 37.5 * 2, Screen_height / 4.5 - Screen_width / 37.5)];
+        _background = [[UIView alloc] initWithFrame:CGRectMake(Screen_width / 37.5, Screen_width / 37.5, Screen_width - Screen_width / 44 * 2, Screen_height / 4.5 - Screen_width / 44 * 2)];
         _background.layer.borderColor = [UIColor orangeColor].CGColor;
         _background.layer.borderWidth = Screen_height / 500;
         _background.layer.cornerRadius = Screen_height / 100;
@@ -34,7 +34,7 @@
 - (UIImageView *)fruitImageView
 {
     if (_fruitImageView == nil) {
-        _fruitImageView = [[UIImageView alloc] initWithFrame:CGRectMake(Screen_width / 37.5 * 2, Screen_width / 37.5 * 2, CGRectGetHeight(self.background.bounds) - Screen_width / 37.5 * 2, CGRectGetHeight(self.background.bounds) - Screen_width / 37.5 * 2)];
+        _fruitImageView = [[UIImageView alloc] initWithFrame:CGRectMake(Screen_width / 43 * 2, Screen_width / 40.5 * 2, CGRectGetHeight(self.background.bounds) - Screen_width / 44 * 2, CGRectGetHeight(self.background.bounds) - Screen_width / 44 * 2)];
         _fruitImageView.backgroundColor = [UIColor orangeColor];
         _fruitImageView.layer.cornerRadius = Screen_height / 100;
     }
@@ -44,7 +44,7 @@
 - (UILabel *)time
 {
     if (_time == nil) {
-        _time = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.fruitImageView.frame) + Screen_width / 37.5, Screen_height / 4.5 / 2 - Screen_height / 25 / 2 - Screen_height / 25 - Screen_height / 25 / 5, Screen_width - CGRectGetMaxX(self.fruitImageView.frame) - Screen_width / 37.5 * 3, Screen_height / 25)];
+        _time = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.fruitImageView.frame) + Screen_width / 37.5, Screen_height / 4.5 / 2 - Screen_height / 25 / 2 - Screen_height / 25 - Screen_height / 25 / 3, Screen_width - CGRectGetMaxX(self.fruitImageView.frame) - Screen_width / 37.5 * 3, Screen_height / 25)];
         _time.font = [UIFont systemFontOfSize:Screen_height / 37];
         if (Screen_height != 480) {
             _time.font = [UIFont systemFontOfSize:Screen_height / 48];
