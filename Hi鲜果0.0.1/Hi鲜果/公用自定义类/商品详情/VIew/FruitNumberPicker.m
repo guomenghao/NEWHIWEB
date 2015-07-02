@@ -10,8 +10,6 @@
 
 @interface FruitNumberPicker ()
 
-@property (nonatomic, strong) UILabel *fruitNum;
-
 - (void)initializeUserInterface;
 
 @end
@@ -66,6 +64,9 @@
     if (self.fruitsNum > 1) {
         self.fruitsNum --;
         self.fruitNum.text = [NSString stringWithFormat:@"%ld", (long)self.fruitsNum];
+        if (self.classInfo != nil) {
+            [self changeNumberRequestWithClassInfo:self.classInfo];
+        }
     }
 }
 
@@ -73,6 +74,27 @@
 {
     self.fruitsNum ++;
     self.fruitNum.text = [NSString stringWithFormat:@"%ld", (long)self.fruitsNum];
+    if (self.classInfo != nil) {
+        [self changeNumberRequestWithClassInfo:self.classInfo];
+    }
+}
+
+/**
+ * 加减操作时，进行网络请求
+ */
+- (void)changeNumberRequestWithClassInfo:(NSDictionary *)classInfo {
+    
+    [GlobalMethod serviceWithMothedName:AddCar_Url
+                               parmeter:@{
+                                          @"classid":classInfo[@"classid"],
+                                          @"id":classInfo[@"id"],
+                                          @"pn":@(self.fruitsNum)}
+                                success:^(id responseObject) {
+                                    NSLog(@"---->加购物车成功%@", responseObject);
+                                }
+                                   fail:^(NSError *error) {
+                                       
+                                   }];
 }
 
 @end

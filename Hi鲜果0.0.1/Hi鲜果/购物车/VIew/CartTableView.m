@@ -30,6 +30,7 @@ static NSString * identifier = @"cartCell";
 - (void)initializeUserInterface {
     
     self.dataSource = self;
+    self.tableFooterView = [[UIView alloc] init];
     [self registerClass:[CartCell class] forCellReuseIdentifier:identifier];
 }
 
@@ -45,7 +46,9 @@ static NSString * identifier = @"cartCell";
         
         cell = [[CartCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
     }
-    cell.fruit = self.goods[indexPath.row];
+    if (self.goods.count > 0) {
+        cell.fruit = self.goods[indexPath.row];
+    }
     return cell;
 }
 

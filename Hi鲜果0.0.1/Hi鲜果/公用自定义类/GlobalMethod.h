@@ -25,4 +25,6 @@
 + (BOOL) validateUserName:(NSString *)name;
 + (BOOL) validateMobile:(NSString *)mobile;
 + (BOOL) validatePassword:(NSString *)passWord;
+/**label的size适应文字*/
++ (CGSize)sizeWithString:(NSString *)string font:(UIFont *)font maxWidth:(CGFloat)width maxHeight:(CGFloat)height;
 @end

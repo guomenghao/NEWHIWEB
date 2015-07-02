@@ -23,32 +23,42 @@
 
 - (NSString *)pic {
     
-    return _info[@"pic"];
+    return _info[@"titlepic"];
 }
 
 - (NSString *)ID {
     
-    return _info[@"ID"];
+    return _info[@"id"];
 }
 
 - (NSString *)name {
     
-    return _info[@"name"];
+    return _info[@"title"];
 }
 
 - (NSString *)unit {
     
-    return _info[@"unit"];
+    //return _info[@"unit"];
+    return @"一个";
 }
 
 - (NSString *)originalPrice {
     
-    return _info[@"originalPrice"];
+    return _info[@"price"];
 }
 
 - (NSString *)discountPrice {
     
-    return _info[@"discountPrice"];
+    return _info[@"tprice"];
 }
 
+- (NSNumber *)number {
+    
+    return _info[@"pnum"];
+}
+
+- (NSString *)classid {
+    
+    return _info[@"classid"];
+}
 @end

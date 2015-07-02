@@ -10,7 +10,6 @@
 #import "GlobalMethod.h"
 #import <SMS_SDK/SMS_SDK.h>
 #define Margin 40*[FlexibleFrame ratios].height
-#define MiddleFont ([UIFont systemFontOfSize:15*[FlexibleFrame ratios].height])
 #define NUMBERS @"0123456789"
 #define TextFieldTagBase 110
 @interface RegisterController () <UITextFieldDelegate, UIAlertViewDelegate>
@@ -373,7 +372,7 @@
             break;
         case 3://密码
         {
-            if (textField.text.length < 6) {
+            if (textField.text.length < 6 && textField.text.length > 0) {
                 [self showInvalideAnimationViewWithTips:@"密码至少为6位"];
             } else {
                 self.password = textField.text;

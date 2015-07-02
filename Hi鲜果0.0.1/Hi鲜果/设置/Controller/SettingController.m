@@ -13,7 +13,10 @@
 @property (strong, nonatomic) NSArray * dataSource;
 @property (strong, nonatomic) UITableView * tableView;
 @property (strong, nonatomic) NSString * telephone;
-
+@property (assign, nonatomic) NSInteger cacheSize;
+@property (assign, nonatomic) NSInteger totlaSize;
+//逐渐减少缓存值
+- (void)decreaseCacheWithLabel:(UILabel *)label;
 @end
 
 @implementation SettingController
@@ -91,10 +94,20 @@
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    self.cacheSize = 0;
     cell.textLabel.text = self.dataSource[indexPath.section][indexPath.row];
     if (indexPath.section == 3 && indexPath.row == 0) {//联系客服电话
         cell.detailTextLabel.text = self.telephone;
         cell.detailTextLabel.textColor = [UIColor orangeColor];
+    } else if (indexPath.section == 0 && indexPath.row == 0) {//清理图片缓存
+        
+        self.cacheSize = [[SDImageCache sharedImageCache] getSize];
+        NSLog(@"缓存大小：%ld", (long)self.cacheSize);
+        if (self.cacheSize < 100000) {
+            cell.detailTextLabel.text = [NSString stringWithFormat:@"共%.2lfKB", self.cacheSize / 1024.0];
+        } else {
+            cell.detailTextLabel.text = [NSString stringWithFormat:@"共%.2lfMB", self.cacheSize / 1024.0/ 1024.0];
+        }
     }
 }
 
@@ -105,9 +118,45 @@
         
         UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"是否联系客服" message:self.telephone delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"呼叫", nil];
         [alert show];
+    } else if (indexPath.section == 0 && indexPath.row == 0) {
+        UILabel * detailLabel = [tableView cellForRowAtIndexPath:indexPath].detailTextLabel;
+        self.cacheSize = [[SDImageCache sharedImageCache] getSize];
+        self.totlaSize = [[SDImageCache sharedImageCache] getSize];
+        [[SDImageCache sharedImageCache] clearDisk];//clearDisk:清除;cleanDisk:删除
+        [self decreaseCacheWithLabel:detailLabel];
     }
 }
 
+- (void)decreaseCacheWithLabel:(UILabel *)label {
+
+    [UIView animateWithDuration:1 animations:^{
+        
+        if (self.cacheSize < 100000) {
+            label.text = [NSString stringWithFormat:@"共%.2lfKB", self.cacheSize / 1024.0];
+            
+        } else {
+            label.text = [NSString stringWithFormat:@"共%.2lfMB", self.cacheSize / 1024.0/ 1024.0];
+        }
+    } completion:^(BOOL finished) {
+
+        if (self.cacheSize == 0) {
+            NSString * msg;
+            if (self.totlaSize < 100000) {
+               msg = [NSString stringWithFormat:@"清理完毕，本次清理缓存%.2fKB", self.totlaSize / 1024.0];
+            } else {
+               msg = [NSString stringWithFormat:@"清理完毕，本次清理缓存%.2fMB", self.totlaSize /1024.0/ 1024.0];
+            }
+            UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"温馨提示" message:msg delegate:nil cancelButtonTitle:@"我知道了" otherButtonTitles:nil];
+            [alert show];
+            return ;
+        }
+        self.cacheSize -= 1000;
+        if (self.cacheSize < 0) {
+            self.cacheSize = 0;
+        }
+        [self decreaseCacheWithLabel:label];
+    }];
+}
 #pragma mark - <UIAlertViewDelegate>
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     

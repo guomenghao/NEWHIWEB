@@ -36,6 +36,16 @@
  */
 #define Logout_Url @"/e/api/getOutLogin.php"
 
+/**
+ *  加入购物车
+ */
+#define AddCar_Url @"/e/api/addBuyCar.php"
+
+/**
+ *  查看购物车
+ */
+#define GetCar_Url @"/e/api/getBuyCarList.php"
+
 #import <Foundation/Foundation.h>
 
 @protocol URLDefine <NSObject>

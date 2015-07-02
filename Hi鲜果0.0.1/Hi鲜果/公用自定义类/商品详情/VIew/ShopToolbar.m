@@ -50,9 +50,20 @@
 
 - (void)addShopCar:(UIButton *)sender
 {
-    
-    NSLog(@"%ld", (long)[GlobalControl myControl].numPicker.fruitsNum);
+    NSInteger number = (long)[GlobalControl myControl].numPicker.fruitsNum;
+    [GlobalMethod serviceWithMothedName:AddCar_Url
+                               parmeter:@{
+                                          @"classid":self.classInfo[@"classid"],
+                                          @"id":self.classInfo[@"id"],
+                                          @"pn":[NSString stringWithFormat:@"%ld", number]}
+                                success:^(id responseObject) {
+                                    
+                                    NSLog(@"---->加购物车成功%@", responseObject);
+    }
+                                   fail:^(NSError *error) {
+        
+    }];
+    //NSLog(@"%ld", (long)[GlobalControl myControl].numPicker.fruitsNum);
 }
-
 
 @end

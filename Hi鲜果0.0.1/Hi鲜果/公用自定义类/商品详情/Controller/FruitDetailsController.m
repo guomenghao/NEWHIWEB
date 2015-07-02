@@ -78,6 +78,8 @@
 
 - (void)getNetWork:(NSDictionary *)classInfo
 {
+    // 将参数传给toolbar
+    self.toolbar.classInfo = classInfo;
     [GlobalMethod serviceWithMothedName:GetNewsContent_Url parmeter:@{@"classid" : classInfo[@"classid"], @"id" : classInfo[@"id"]} success:^(id responseObject) {
         self.tableView.dataSourceDic = responseObject[@"data"][@"content"];
         [self.tableView reloadData];

@@ -11,6 +11,12 @@
 @interface FruitNumberPicker : UIView
 
 @property (nonatomic, assign) NSInteger fruitsNum;
+@property (nonatomic, strong) UILabel *fruitNum;
+
+/**
+ * 商品信息，如有则在点击加减时，网络请求加入购物车
+ */
+@property (strong, nonatomic) NSDictionary *classInfo;
 
 - (instancetype)initWithPoint:(CGPoint)point;
 

@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface ShopToolbar : UIView
-
+@property (strong, nonatomic) NSDictionary * classInfo;
 @end

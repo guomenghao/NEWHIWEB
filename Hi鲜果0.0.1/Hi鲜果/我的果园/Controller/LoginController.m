@@ -9,7 +9,7 @@
 #import "LoginController.h"
 #import "GlobalMethod.h"
 #define Margin 50*[FlexibleFrame ratios].height
-#define MiddleFont ([UIFont systemFontOfSize:15*[FlexibleFrame ratios].height])
+
 @interface LoginController () <UITextFieldDelegate, UIAlertViewDelegate>
 @property (strong, nonatomic) UITextField * accountField;
 @property (strong, nonatomic) UITextField * passwordField;
@@ -119,6 +119,7 @@
 - (void)buttonPressed:(UIButton *)sender {
     
     if ([sender.currentTitle isEqualToString:@"登 录"]) {
+        [sender setEnabled:NO];//禁用按钮
         UIActivityIndicatorView * indicator = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
         indicator.center = CGPointMake(self.view.center.x, self.view.center.y);
         [indicator startAnimating];
@@ -141,6 +142,8 @@
                                                         @"score":@"200"};
                                             [User loginUser].isLogin = YES;
                                             [User loginUser].info = info;
+                                        } else {
+                                            [sender setEnabled:YES];
                                         }
                                         
                                         UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"提示" message:responseObject[@"info"] delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil];
