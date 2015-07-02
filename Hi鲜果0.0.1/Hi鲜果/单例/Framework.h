@@ -16,6 +16,8 @@
 #import "PersonalController.h"
 #import "CategoryDetailsController.h"
 #import "RegisterController.h"
+#import "SearchController.h"
+#import "MyOrderController.h"
 @interface Framework : NSObject
 /**主页*/
 @property (nonatomic, weak) HomePageController * homePageVC;
@@ -29,6 +31,10 @@
 @property (nonatomic, weak) SettingController * settingVC;
 /**个人信息*/
 @property (nonatomic, weak) PersonalController * personalVC;
+/**搜索*/
+@property (nonatomic, weak) SearchController * searchVC;
+/**我的订单*/
+@property (nonatomic, weak) MyOrderController * myOrderVC;
 /**窗口*/
 @property (nonatomic, weak) UIWindow * window;
 /**品类详情*/

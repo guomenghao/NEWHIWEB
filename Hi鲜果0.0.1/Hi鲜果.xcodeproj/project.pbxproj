@@ -14,6 +14,7 @@
 		091DD3381B43E30A00DC68B0 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 091DD3351B43E30A00DC68B0 /* 1.png */; };
 		091DD3391B43E30A00DC68B0 /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 091DD3361B43E30A00DC68B0 /* 2.png */; };
 		091DD33A1B43E30A00DC68B0 /* 3.png in Resources */ = {isa = PBXBuildFile; fileRef = 091DD3371B43E30A00DC68B0 /* 3.png */; };
+		091DD33E1B44CF5300DC68B0 /* SearchCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 091DD33D1B44CF5300DC68B0 /* SearchCustomCell.m */; };
 		092AA7781B3B918D00B88F23 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 092AA7771B3B918D00B88F23 /* main.m */; };
 		092AA7831B3B918D00B88F23 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 092AA7821B3B918D00B88F23 /* Images.xcassets */; };
 		092AA7861B3B918D00B88F23 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 092AA7841B3B918D00B88F23 /* LaunchScreen.xib */; };
@@ -50,8 +51,6 @@
 		096DA8591B3E327B00925F62 /* star_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 096DA8561B3E327B00925F62 /* star_2.png */; };
 		096DA85A1B3E327B00925F62 /* star_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 096DA8571B3E327B00925F62 /* star_0.png */; };
 		096DA85B1B3E327B00925F62 /* star_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 096DA8581B3E327B00925F62 /* star_1.png */; };
-		096DA87A1B3E4B8E00925F62 /* fruit_jia.png in Resources */ = {isa = PBXBuildFile; fileRef = 096DA8781B3E4B8E00925F62 /* fruit_jia.png */; };
-		096DA87B1B3E4B8E00925F62 /* fruit_jian.png in Resources */ = {isa = PBXBuildFile; fileRef = 096DA8791B3E4B8E00925F62 /* fruit_jian.png */; };
 		096DA8851B3E4E6C00925F62 /* EatForFreeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 096DA8821B3E4E6C00925F62 /* EatForFreeController.m */; };
 		096DA8881B3F9FA300925F62 /* FruitNameAndPrice.m in Sources */ = {isa = PBXBuildFile; fileRef = 096DA8871B3F9FA300925F62 /* FruitNameAndPrice.m */; };
 		096DA88D1B3FA6E700925F62 /* FruitDetailsCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 096DA88C1B3FA6E700925F62 /* FruitDetailsCustomCell.m */; };
@@ -105,6 +104,11 @@
 		097A82481B3BE92400D59370 /* HomePageCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 097A82471B3BE92400D59370 /* HomePageCustomCell.m */; };
 		097A824B1B3BFE0C00D59370 /* CarouselView.m in Sources */ = {isa = PBXBuildFile; fileRef = 097A824A1B3BFE0C00D59370 /* CarouselView.m */; };
 		097A825A1B3CEAF500D59370 /* CarouselButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 097A82591B3CEAF500D59370 /* CarouselButton.m */; };
+		09BBED0F1B4507170024A3CE /* SearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 09BBED0E1B4507170024A3CE /* SearchView.m */; };
+		09BBED151B45212D0024A3CE /* MyOrderController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09BBED141B45212D0024A3CE /* MyOrderController.m */; };
+		09BBED1C1B4536580024A3CE /* fruit_jia.png in Resources */ = {isa = PBXBuildFile; fileRef = 09BBED1A1B4536580024A3CE /* fruit_jia.png */; };
+		09BBED1D1B4536580024A3CE /* fruit_jian.png in Resources */ = {isa = PBXBuildFile; fileRef = 09BBED1B1B4536580024A3CE /* fruit_jian.png */; };
+		09BBED201B4536FA0024A3CE /* MyOrderCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 09BBED1F1B4536FA0024A3CE /* MyOrderCustomCell.m */; };
 		09FFE2971B40CD1A007066C3 /* FruitCategoryTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 09FFE2961B40CD1A007066C3 /* FruitCategoryTableView.m */; };
 		09FFE29A1B40DA81007066C3 /* FruitCategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 09FFE2991B40DA81007066C3 /* FruitCategoryCell.m */; };
 		09FFE2A91B40ECD2007066C3 /* jiuzhuan.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 09FFE2A81B40ECD2007066C3 /* jiuzhuan.jpg */; };
@@ -171,6 +175,8 @@
 		091DD3351B43E30A00DC68B0 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
 		091DD3361B43E30A00DC68B0 /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.png; sourceTree = "<group>"; };
 		091DD3371B43E30A00DC68B0 /* 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3.png; sourceTree = "<group>"; };
+		091DD33C1B44CF5300DC68B0 /* SearchCustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchCustomCell.h; path = "Hi鲜果/品类/VIew/SearchCustomCell.h"; sourceTree = SOURCE_ROOT; };
+		091DD33D1B44CF5300DC68B0 /* SearchCustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchCustomCell.m; path = "Hi鲜果/品类/VIew/SearchCustomCell.m"; sourceTree = SOURCE_ROOT; };
 		092AA7721B3B918D00B88F23 /* Hi鲜果.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Hi鲜果.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		092AA7761B3B918D00B88F23 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		092AA7771B3B918D00B88F23 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -231,8 +237,6 @@
 		096DA8561B3E327B00925F62 /* star_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star_2.png; sourceTree = "<group>"; };
 		096DA8571B3E327B00925F62 /* star_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star_0.png; sourceTree = "<group>"; };
 		096DA8581B3E327B00925F62 /* star_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star_1.png; sourceTree = "<group>"; };
-		096DA8781B3E4B8E00925F62 /* fruit_jia.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fruit_jia.png; sourceTree = "<group>"; };
-		096DA8791B3E4B8E00925F62 /* fruit_jian.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fruit_jian.png; sourceTree = "<group>"; };
 		096DA8811B3E4E6C00925F62 /* EatForFreeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EatForFreeController.h; sourceTree = "<group>"; };
 		096DA8821B3E4E6C00925F62 /* EatForFreeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EatForFreeController.m; sourceTree = "<group>"; };
 		096DA8861B3F9FA300925F62 /* FruitNameAndPrice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FruitNameAndPrice.h; sourceTree = "<group>"; };
@@ -342,6 +346,14 @@
 		097A824A1B3BFE0C00D59370 /* CarouselView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarouselView.m; sourceTree = "<group>"; };
 		097A82581B3CEAF500D59370 /* CarouselButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarouselButton.h; sourceTree = "<group>"; };
 		097A82591B3CEAF500D59370 /* CarouselButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarouselButton.m; sourceTree = "<group>"; };
+		09BBED0D1B4507170024A3CE /* SearchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchView.h; path = "Hi鲜果/品类/VIew/SearchView.h"; sourceTree = SOURCE_ROOT; };
+		09BBED0E1B4507170024A3CE /* SearchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchView.m; path = "Hi鲜果/品类/VIew/SearchView.m"; sourceTree = SOURCE_ROOT; };
+		09BBED131B45212D0024A3CE /* MyOrderController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyOrderController.h; sourceTree = "<group>"; };
+		09BBED141B45212D0024A3CE /* MyOrderController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyOrderController.m; sourceTree = "<group>"; };
+		09BBED1A1B4536580024A3CE /* fruit_jia.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fruit_jia.png; sourceTree = "<group>"; };
+		09BBED1B1B4536580024A3CE /* fruit_jian.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fruit_jian.png; sourceTree = "<group>"; };
+		09BBED1E1B4536FA0024A3CE /* MyOrderCustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyOrderCustomCell.h; sourceTree = "<group>"; };
+		09BBED1F1B4536FA0024A3CE /* MyOrderCustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyOrderCustomCell.m; sourceTree = "<group>"; };
 		09FFE2951B40CD1A007066C3 /* FruitCategoryTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FruitCategoryTableView.h; sourceTree = "<group>"; };
 		09FFE2961B40CD1A007066C3 /* FruitCategoryTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FruitCategoryTableView.m; sourceTree = "<group>"; };
 		09FFE2981B40DA81007066C3 /* FruitCategoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FruitCategoryCell.h; sourceTree = "<group>"; };
@@ -466,6 +478,7 @@
 				09FFE2AA1B40F4C4007066C3 /* 单例 */,
 				097A82071B3BD70600D59370 /* 公用自定义类 */,
 				092AA7B51B3B999900B88F23 /* 首页 */,
+				09BBED101B4520CC0024A3CE /* 我的订单 */,
 				097A821F1B3BD70600D59370 /* 品类 */,
 				097A0EDF1B42251900E860B9 /* 购物车 */,
 				097A0EE91B42251900E860B9 /* 设置 */,
@@ -853,9 +866,9 @@
 				091DD3351B43E30A00DC68B0 /* 1.png */,
 				091DD3361B43E30A00DC68B0 /* 2.png */,
 				091DD3371B43E30A00DC68B0 /* 3.png */,
+				09BBED1A1B4536580024A3CE /* fruit_jia.png */,
+				09BBED1B1B4536580024A3CE /* fruit_jian.png */,
 				097A81E71B3BA6B000D59370 /* search_menu.png */,
-				096DA8781B3E4B8E00925F62 /* fruit_jia.png */,
-				096DA8791B3E4B8E00925F62 /* fruit_jian.png */,
 				2456A2841B4292FD00F49906 /* placeholder.jpg */,
 				094E16291B4272B600C05CB2 /* guowai.png */,
 				094E162A1B4272B600C05CB2 /* guonei.png */,
@@ -1007,6 +1020,10 @@
 		097A82171B3BD70600D59370 /* VIew */ = {
 			isa = PBXGroup;
 			children = (
+				091DD33C1B44CF5300DC68B0 /* SearchCustomCell.h */,
+				091DD33D1B44CF5300DC68B0 /* SearchCustomCell.m */,
+				09BBED0D1B4507170024A3CE /* SearchView.h */,
+				09BBED0E1B4507170024A3CE /* SearchView.m */,
 			);
 			path = VIew;
 			sourceTree = "<group>";
@@ -1056,6 +1073,33 @@
 				094E169E1B43BEB100C05CB2 /* CategoryButton.m */,
 			);
 			path = VIew;
+			sourceTree = "<group>";
+		};
+		09BBED101B4520CC0024A3CE /* 我的订单 */ = {
+			isa = PBXGroup;
+			children = (
+				09BBED111B4520F10024A3CE /* Controller */,
+				09BBED121B4520F10024A3CE /* View */,
+			);
+			path = "我的订单";
+			sourceTree = "<group>";
+		};
+		09BBED111B4520F10024A3CE /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				09BBED131B45212D0024A3CE /* MyOrderController.h */,
+				09BBED141B45212D0024A3CE /* MyOrderController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		09BBED121B4520F10024A3CE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				09BBED1E1B4536FA0024A3CE /* MyOrderCustomCell.h */,
+				09BBED1F1B4536FA0024A3CE /* MyOrderCustomCell.m */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		09FFE2AA1B40F4C4007066C3 /* 单例 */ = {
@@ -1216,6 +1260,7 @@
 				249956081B439C010075B78A /* icon-verify-wrong.png in Resources */,
 				388C74791B3EE7490078AE32 /* user_button_normal.png in Resources */,
 				249956041B4398C40075B78A /* icon-verify-right.png in Resources */,
+				09BBED1C1B4536580024A3CE /* fruit_jia.png in Resources */,
 				094E16961B43839400C05CB2 /* fenxiang_0.png in Resources */,
 				091DD3391B43E30A00DC68B0 /* 2.png in Resources */,
 				094E16911B4382E900C05CB2 /* shoucang_1.png in Resources */,
@@ -1225,7 +1270,6 @@
 				094E16301B42731900C05CB2 /* quanbu.png in Resources */,
 				094E165B1B4298DC00C05CB2 /* UMSCommentInputController.xib in Resources */,
 				3874C9881B42CFBA00BD83FF /* icon-phone@2x.png in Resources */,
-				094E169A1B4384A100C05CB2 /* 3.png in Resources */,
 				094E162C1B4272B600C05CB2 /* guowai.png in Resources */,
 				3874C9871B42CFBA00BD83FF /* icon-phone.png in Resources */,
 				094E16601B4298DC00C05CB2 /* UMSnsAccountViewController.xib in Resources */,
@@ -1235,7 +1279,6 @@
 				388C747A1B3EE7490078AE32 /* user_button_normal@2x.png in Resources */,
 				091DD3331B43D4D800DC68B0 /* mianfeishichi.png in Resources */,
 				094E165F1B4298DC00C05CB2 /* UMSLoginViewController.xib in Resources */,
-				096DA87A1B3E4B8E00925F62 /* fruit_jia.png in Resources */,
 				388C74761B3EE7490078AE32 /* bkImage.jpg in Resources */,
 				094E16621B4298DC00C05CB2 /* UMSocialSDKResourcesNew.bundle in Resources */,
 				096DA85A1B3E327B00925F62 /* star_0.png in Resources */,
@@ -1247,7 +1290,6 @@
 				388C74771B3EE7490078AE32 /* logo_default.png in Resources */,
 				249956051B4398C40075B78A /* icon-verify-right@2x.png in Resources */,
 				2456A2851B4292FD00F49906 /* placeholder.jpg in Resources */,
-				096DA87B1B3E4B8E00925F62 /* fruit_jian.png in Resources */,
 				092AA7831B3B918D00B88F23 /* Images.xcassets in Resources */,
 				096DA8591B3E327B00925F62 /* star_2.png in Resources */,
 				094E165E1B4298DC00C05CB2 /* UMShareEditViewControlleriPad.xib in Resources */,
@@ -1259,6 +1301,7 @@
 				091DD3321B43D4D800DC68B0 /* chongzhiyouli.png in Resources */,
 				249956011B4382FB0075B78A /* icon-verify@2x.png in Resources */,
 				097A81E81B3BA6B000D59370 /* search_menu.png in Resources */,
+				09BBED1D1B4536580024A3CE /* fruit_jian.png in Resources */,
 				094E167C1B43792100C05CB2 /* fenxiang_1.png in Resources */,
 				094E168B1B43811800C05CB2 /* gouwuche_0.png in Resources */,
 			);
@@ -1304,13 +1347,16 @@
 				388C74811B3EE7830078AE32 /* UIView+Flexible.m in Sources */,
 				097A824B1B3BFE0C00D59370 /* CarouselView.m in Sources */,
 				097A0ECE1B414B7600E860B9 /* UIImage+MultiFormat.m in Sources */,
+				091DD33E1B44CF5300DC68B0 /* SearchCustomCell.m in Sources */,
 				097A0ECB1B414B7600E860B9 /* SDWebImagePrefetcher.m in Sources */,
 				096DA8901B3FEFCA00925F62 /* CustomSeparator.m in Sources */,
+				09BBED151B45212D0024A3CE /* MyOrderController.m in Sources */,
 				097A0F001B42251900E860B9 /* LoginController.m in Sources */,
 				097A0ED11B414B7600E860B9 /* UIView+WebCacheOperation.m in Sources */,
 				097A82351B3BD70600D59370 /* FruitDetailsController.m in Sources */,
 				097A0E711B414B5D00E860B9 /* AFHTTPRequestOperation.m in Sources */,
 				2456A28B1B42AE9400F49906 /* RegisterController.m in Sources */,
+				09BBED201B4536FA0024A3CE /* MyOrderCustomCell.m in Sources */,
 				09FFE2B11B40F4C4007066C3 /* Framework.m in Sources */,
 				092AA7C71B3B9BE500B88F23 /* BasicViewController.m in Sources */,
 				097A0EC71B414B7600E860B9 /* SDWebImageDecoder.m in Sources */,
@@ -1347,6 +1393,7 @@
 				09FFE2B91B40F52A007066C3 /* User.m in Sources */,
 				096F9C6D1B3D5627007CE994 /* FruitNumberPicker.m in Sources */,
 				097A0F021B42251900E860B9 /* MyGardenView.m in Sources */,
+				09BBED0F1B4507170024A3CE /* SearchView.m in Sources */,
 				094E169F1B43BEB100C05CB2 /* CategoryButton.m in Sources */,
 				096DA88D1B3FA6E700925F62 /* FruitDetailsCustomCell.m in Sources */,
 				097A82371B3BD70600D59370 /* SearchController.m in Sources */,
@@ -1505,7 +1552,6 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Hi鲜果/第三方库/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
 					"$(PROJECT_DIR)/Hi鲜果/第三方库/SMS_SDK",
-					"$(PROJECT_DIR)/Hi鲜果/第三方库/AFNetworking/SMS_SDK",
 					"$(PROJECT_DIR)/Hi鲜果/第三方库",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1530,7 +1576,6 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Hi鲜果/第三方库/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
 					"$(PROJECT_DIR)/Hi鲜果/第三方库/SMS_SDK",
-					"$(PROJECT_DIR)/Hi鲜果/第三方库/AFNetworking/SMS_SDK",
 					"$(PROJECT_DIR)/Hi鲜果/第三方库",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
