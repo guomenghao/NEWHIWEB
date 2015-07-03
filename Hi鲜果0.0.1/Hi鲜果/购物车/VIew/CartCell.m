@@ -33,7 +33,7 @@
 
 @implementation CartCell
 
-- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier type:(CartCellType)type{
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
@@ -43,15 +43,21 @@
         [self.contentView addSubview:self.titleLabel];
         [self.contentView addSubview:self.unitLable];
         [self.contentView addSubview:self.priceLabel];
-        if (type == CartCellTypeCart) {
-            [self.contentView addSubview:self.numberPicker];
-        } else {
-            [self.contentView addSubview:self.numberLabel];
-            self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        }
         self.selectionStyle = UITableViewCellSelectionStyleNone;
+        NSLog(@"%s", __FUNCTION__);
     }
     return self;
+}
+
+- (void)setType:(CartCellType)type {
+    
+    _type = type;
+    if (_type == CartCellTypeCart) {
+        [self.contentView addSubview:self.numberPicker];
+    } else {
+        [self.contentView addSubview:self.numberLabel];
+        self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    }
 }
 
 - (UIImageView *)picView {

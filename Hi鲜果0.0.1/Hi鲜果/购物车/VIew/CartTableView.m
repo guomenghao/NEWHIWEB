@@ -44,9 +44,10 @@ static NSString * identifier = @"cartCell";
     
     CartCell * cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     if (!cell) {
-        
-        cell = [[CartCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier type:CartCellTypeCart];
+
+        cell = [[CartCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
     }
+    cell.type = CartCellTypeCart;
     if (self.goods.count > 0) {
         cell.fruit = self.goods[indexPath.row];
     }

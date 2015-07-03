@@ -14,5 +14,5 @@ typedef NS_ENUM(NSInteger, CartCellType) {
 };
 @interface CartCell : UITableViewCell
 @property (strong, nonatomic) Fruit * fruit;
-- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier type:(CartCellType)type;
+@property (assign, nonatomic) CartCellType type;
 @end

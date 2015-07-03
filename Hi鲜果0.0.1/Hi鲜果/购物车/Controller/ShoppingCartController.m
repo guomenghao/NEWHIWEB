@@ -40,8 +40,8 @@
         if (![responseObject[@"data"] isKindOfClass:[NSNull class]]) {
             // 注意返回的总价和个数是NSNumber
             self.dataSource = [[NSMutableArray alloc] initWithArray:responseObject[@"data"]];
-//            NSLog(@"购物车信息：%@", self.dataSource);
-//            NSLog(@"购物车总价为:%@", responseObject[@"totalmoney"]);
+            NSLog(@"购物车信息：%@", self.dataSource);
+            NSLog(@"购物车总价为:%@", responseObject[@"totalmoney"]);
             self.toolBar.totalPrice = [responseObject[@"totalmoney"] integerValue];
             [self reloadDataSource];
             [self showCustomToolBar];

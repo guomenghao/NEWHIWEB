@@ -64,6 +64,7 @@
         _birthday = [[UILabel alloc] initWithFrame:CGRectMake(Screen_width - Screen_width * 0.7 - 10, Screen_height * 0.1 / 4, Screen_width * 0.7, Screen_height * 0.1 / 2)];
         _birthday.textAlignment = NSTextAlignmentRight;
         _birthday.font = [UIFont systemFontOfSize:Screen_width / 22];
+        _birthday.textColor = self.sex.textColor;
         [User loginUser].tempBirthday = _birthday;
     }
     return _birthday;
