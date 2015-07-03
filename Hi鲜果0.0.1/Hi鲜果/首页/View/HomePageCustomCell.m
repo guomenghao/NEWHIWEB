@@ -31,19 +31,6 @@
     return _headLine;
 }
 
-- (UIPageControl *)pageControl
-{
-    if (_pageControl == nil) {
-        //分页控件
-        _pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(0, 0, Screen_width * 0.5, Screen_height * 0.27 / 5)];
-        _pageControl.center = CGPointMake(Screen_width / 2, Screen_height * 0.27 * 0.9);
-        _pageControl.numberOfPages = 3;
-        _pageControl.userInteractionEnabled = NO;
-        [GlobalControl myControl].pageControl = _pageControl;
-    }
-    return _pageControl;
-}
-
 - (CarouselView *)carouselView
 {
     if (_carouselView == nil) {
@@ -58,7 +45,6 @@
 - (void)getCarouselCell
 {
     [self.contentView addSubview:self.carouselView];
-    [self.contentView addSubview:self.pageControl];
 }
 
 /**

@@ -22,6 +22,17 @@
 /**标记登录状态*/
 @property (assign, nonatomic) BOOL isLogin;
 
+
+/**
+ *  临时信息库，用于修改个人信息储存
+ */
+@property (weak, nonatomic) UIImageView *tempHeadImage;
+@property (weak, nonatomic) NSString *tempHead;
+@property (weak, nonatomic) UITextField *tempName;
+@property (weak, nonatomic) UILabel *tempSex;
+@property (weak, nonatomic) UILabel *tempBirthday;
+
+
 /**单例便利构造，返回当前已登录用户，在登录成功后第一次创建对象*/
 + (User *)loginUser;
 @end

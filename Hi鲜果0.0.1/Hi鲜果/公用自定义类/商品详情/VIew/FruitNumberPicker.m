@@ -65,7 +65,7 @@
         self.fruitsNum --;
         self.fruitNum.text = [NSString stringWithFormat:@"%ld", (long)self.fruitsNum];
         if (self.classInfo != nil) {
-            [self changeNumberRequestWithClassInfo:self.classInfo];
+            [self changeNumberRequestWithClassInfo:self.classInfo number:-1];
         }
     }
 }
@@ -75,20 +75,20 @@
     self.fruitsNum ++;
     self.fruitNum.text = [NSString stringWithFormat:@"%ld", (long)self.fruitsNum];
     if (self.classInfo != nil) {
-        [self changeNumberRequestWithClassInfo:self.classInfo];
+        [self changeNumberRequestWithClassInfo:self.classInfo number:1];
     }
 }
 
 /**
  * 加减操作时，进行网络请求
  */
-- (void)changeNumberRequestWithClassInfo:(NSDictionary *)classInfo {
+- (void)changeNumberRequestWithClassInfo:(NSDictionary *)classInfo number:(NSInteger)number {
     
     [GlobalMethod serviceWithMothedName:AddCar_Url
                                parmeter:@{
                                           @"classid":classInfo[@"classid"],
                                           @"id":classInfo[@"id"],
-                                          @"pn":@(self.fruitsNum)}
+                                          @"pn":@(number)}
                                 success:^(id responseObject) {
                                     NSLog(@"---->加购物车成功%@", responseObject);
                                 }

@@ -16,10 +16,6 @@
  */
 @property (nonatomic, strong) UILabel *headLine;
 
-/**
- *  页数控制器
- */
-@property (nonatomic, strong) UIPageControl *pageControl;
 
 /**
  *  轮播图

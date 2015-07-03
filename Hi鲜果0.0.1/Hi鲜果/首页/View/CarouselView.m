@@ -137,7 +137,6 @@
             [imageButton setImage:ImageWithName(imageName) forState:UIControlStateHighlighted];
             imageButton.index = [self correctIndex:_currentIndex - 1 + i maxCount:_imageArray.count];
         }
-        [GlobalControl myControl].pageControl.currentPage = _currentIndex;
         
         //更改偏移量
         [self setContentOffset:CGPointMake(CGRectGetWidth(self.bounds), 0) animated:NO];

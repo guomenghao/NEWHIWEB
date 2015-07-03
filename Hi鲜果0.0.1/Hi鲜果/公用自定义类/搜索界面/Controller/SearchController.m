@@ -62,6 +62,7 @@
     if (_searchBar == nil) {
         _searchBar = [[UISearchBar alloc] init];
         _searchBar.delegate = self;
+        _searchBar.showsCancelButton = YES;
     }
     return _searchBar;
 }
@@ -122,6 +123,11 @@
     
 }
 
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
+{
+    [searchBar resignFirstResponder];
+}
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
@@ -280,6 +286,11 @@
     
 }
 
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [self.searchBar resignFirstResponder];
+}
 
 
 @end

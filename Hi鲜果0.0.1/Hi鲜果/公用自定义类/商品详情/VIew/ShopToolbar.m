@@ -55,7 +55,7 @@
                                parmeter:@{
                                           @"classid":self.classInfo[@"classid"],
                                           @"id":self.classInfo[@"id"],
-                                          @"pn":[NSString stringWithFormat:@"%ld", number]}
+                                          @"pn":[NSString stringWithFormat:@"%ld", (long)number]}
                                 success:^(id responseObject) {
                                     
                                     NSLog(@"---->加购物车成功%@", responseObject);
