@@ -45,6 +45,6 @@
 #define SmallFont [UIFont systemFontOfSize:12 * [FlexibleFrame ratios].height]
 #define MiddleFont [UIFont systemFontOfSize:15 * [FlexibleFrame ratios].height]
 #define LargeFont [UIFont systemFontOfSize:20 * [FlexibleFrame ratios].height]
-
+#define FontWithSize(int) [UIFont systemFontOfSize:Screen_height / (int)]
 
 #endif

@@ -38,6 +38,7 @@
         button.frame = CGRectMake(Screen_width - Margin - 100 * [FlexibleFrame ratios].width, 0, 100 * [FlexibleFrame ratios].width, 30);
         button.center = CGPointMake(button.center.x, self.totalPriceLabel.center.y);
         button.backgroundColor = BtnBkColor;
+        button.titleLabel.font = MiddleFont;
         [button setTitle:@"立即结算" forState:UIControlStateNormal];
         button.layer.cornerRadius = button.bounds.size.width / 8;
         [button addTarget:self action:@selector(settleButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
