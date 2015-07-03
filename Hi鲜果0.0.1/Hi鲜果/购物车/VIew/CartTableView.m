@@ -30,6 +30,7 @@ static NSString * identifier = @"cartCell";
 - (void)initializeUserInterface {
     
     self.dataSource = self;
+    self.backgroundColor = RGBAColor(0, 0, 0, 0.1);
     self.tableFooterView = [[UIView alloc] init];
     [self registerClass:[CartCell class] forCellReuseIdentifier:identifier];
 }
@@ -44,7 +45,7 @@ static NSString * identifier = @"cartCell";
     CartCell * cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     if (!cell) {
         
-        cell = [[CartCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+        cell = [[CartCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier type:CartCellTypeCart];
     }
     if (self.goods.count > 0) {
         cell.fruit = self.goods[indexPath.row];

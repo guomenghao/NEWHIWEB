@@ -21,8 +21,10 @@
 @property (strong, nonatomic) UILabel * unitLabel;
 /**打折后价格*/
 @property (strong, nonatomic) UILabel * priceLabel;
-///**数量加减选择*/
+/**数量加减选择(购物车中使用)*/
 @property (strong, nonatomic) FruitNumberPicker * numberPicker;
+/**只显示数量(提交订单中使用)*/
+@property (strong, nonatomic) UILabel * numberLabel;
 /**拿到数据模型以后更新界面*/
 - (void)updateUI;
 /**label高度适应文字*/
@@ -31,7 +33,7 @@
 
 @implementation CartCell
 
-- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier type:(CartCellType)type{
     
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
@@ -41,7 +43,12 @@
         [self.contentView addSubview:self.titleLabel];
         [self.contentView addSubview:self.unitLable];
         [self.contentView addSubview:self.priceLabel];
-        [self.contentView addSubview:self.numberPicker];
+        if (type == CartCellTypeCart) {
+            [self.contentView addSubview:self.numberPicker];
+        } else {
+            [self.contentView addSubview:self.numberLabel];
+            self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        }
         self.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     return self;
@@ -95,6 +102,18 @@
     return _numberPicker;
 }
 
+- (UILabel *)numberLabel {
+    
+    if (_numberLabel == nil) {
+        _numberLabel = ({
+            UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(Screen_width - 50 - XMargin, 0, 50, 30)];
+            label.font = SmallFont;
+            label;
+        });
+    }
+    return _numberLabel;
+}
+
 - (void)setFruit:(Fruit *)fruit {
     
     _fruit = fruit;
@@ -118,7 +137,7 @@
     }
     
     [self adjustLabelFrame];
-    // 打折后价格富文本属性
+    // 现价富文本属性
     NSDictionary * attrs1 = @{
                              NSFontAttributeName:LargeFont,
                              NSForegroundColorAttributeName:[UIColor orangeColor]

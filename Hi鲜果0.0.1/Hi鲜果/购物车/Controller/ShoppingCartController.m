@@ -10,11 +10,14 @@
 #import "CartTableView.h"
 #import "Fruit.h"
 #import "CartCell.h"
+#import "NoDataView.h"
 @interface ShoppingCartController () <UITableViewDelegate>
 
 @property (strong, nonatomic) CartTableView * tableView;
 @property (strong, nonatomic) NSMutableArray * dataSource;
-
+@property (strong, nonatomic) NoDataView * noDataView;
+- (void)showCustomToolBar;
+- (void)showNoDataView;
 @end
 
 @implementation ShoppingCartController
@@ -24,13 +27,10 @@
     self = [super init];
     if (self) {
         self.title = @"购物车";
+        self.automaticallyAdjustsScrollViewInsets = NO;
+        [Framework controllers].shoppingCartVC = self;
     }
     return self;
-}
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    [self initializeUserInterface];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -40,15 +40,15 @@
         if (![responseObject[@"data"] isKindOfClass:[NSNull class]]) {
             // 注意返回的总价和个数是NSNumber
             self.dataSource = [[NSMutableArray alloc] initWithArray:responseObject[@"data"]];
-            NSLog(@"购物车信息：%@", self.dataSource);
+//            NSLog(@"购物车信息：%@", self.dataSource);
+//            NSLog(@"购物车总价为:%@", responseObject[@"totalmoney"]);
+            self.toolBar.totalPrice = [responseObject[@"totalmoney"] integerValue];
             [self reloadDataSource];
+            [self showCustomToolBar];
         } else {
-            NSLog(@"购物车内没有任何商品哦");
+            [self showNoDataView];
         }
-        
-    } fail:^(NSError *error) {
-        
-    }];
+    } fail:^(NSError *error) {}];
 }
 
 - (void)reloadDataSource {
@@ -62,9 +62,12 @@
     [_tableView reloadData];
 }
 
-- (void)initializeUserInterface {
+- (CartToolBar *)toolBar {
     
-    self.automaticallyAdjustsScrollViewInsets = NO;
+    if (_toolBar == nil) {
+        _toolBar = [[CartToolBar alloc] initWithFrame:CGRectMake(0, Screen_height - 48, Screen_width, 48)];
+    }
+    return _toolBar;
 }
 
 - (CartTableView *)tableView {
@@ -75,6 +78,14 @@
         [self.view addSubview:_tableView];
     }
     return _tableView;
+}
+
+- (NoDataView *)noDataView {
+    
+    if (_noDataView == nil) {
+        _noDataView = [[NoDataView alloc] initWithFrame:self.view.bounds];
+    }
+    return _noDataView;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -94,6 +105,22 @@
     
     [super viewWillDisappear:animated];
     self.dataSource = nil;
+    self.toolBar.transform = CGAffineTransformIdentity;
+    [self.noDataView removeFromSuperview];
+    [self.toolBar removeFromSuperview];
+}
+
+- (void)showCustomToolBar {
+    
+    [self.view addSubview:self.toolBar];
+    [UIView animateWithDuration:0.25 animations:^{
+        self.toolBar.transform = CGAffineTransformMakeTranslation(0, -self.toolBar.bounds.size.height);
+    }];
+}
+
+- (void)showNoDataView {
+
+    [self.view addSubview:self.noDataView];
 }
 
 - (void)dealloc {

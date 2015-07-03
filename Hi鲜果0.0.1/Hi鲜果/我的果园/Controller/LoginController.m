@@ -150,6 +150,7 @@
                                         [alert show];
                                     }
                                        fail:^(NSError *error) {
+                                           [sender setEnabled:YES];//取消禁用按钮
                                            NSLog(@"error：%@", [error localizedDescription]);
                                        }];
         

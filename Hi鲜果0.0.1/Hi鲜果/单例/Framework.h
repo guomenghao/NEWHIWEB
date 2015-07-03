@@ -18,6 +18,8 @@
 #import "RegisterController.h"
 #import "SearchController.h"
 #import "MyOrderController.h"
+#import "ShoppingCartController.h"
+#import "SubmitOrderController.h"
 @interface Framework : NSObject
 /**主页*/
 @property (nonatomic, weak) HomePageController * homePageVC;
@@ -35,6 +37,10 @@
 @property (nonatomic, weak) SearchController * searchVC;
 /**我的订单*/
 @property (nonatomic, weak) MyOrderController * myOrderVC;
+/**提交订单*/
+@property (nonatomic, weak) SubmitOrderController * submitOrderVC;
+/**购物车*/
+@property (nonatomic, weak) ShoppingCartController * shoppingCartVC;
 /**窗口*/
 @property (nonatomic, weak) UIWindow * window;
 /**品类详情*/

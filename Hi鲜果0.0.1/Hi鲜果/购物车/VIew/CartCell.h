@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "Fruit.h"
+typedef NS_ENUM(NSInteger, CartCellType) {
+    CartCellTypeCart = 0,//购物车中的cell
+    CartCellTypeSubmit,//提交订单中的cell
+};
 @interface CartCell : UITableViewCell
 @property (strong, nonatomic) Fruit * fruit;
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier type:(CartCellType)type;
 @end

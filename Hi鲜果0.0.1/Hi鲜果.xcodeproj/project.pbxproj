@@ -142,10 +142,12 @@
 		249956341B43F5BE0075B78A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 249956331B43F5BE0075B78A /* libz.dylib */; };
 		249956361B43F5C70075B78A /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 249956351B43F5C70075B78A /* MessageUI.framework */; };
 		249956381B43F5D20075B78A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 249956371B43F5D20075B78A /* SystemConfiguration.framework */; };
-		24B791FC1B44D81000E95C20 /* lychee.png in Resources */ = {isa = PBXBuildFile; fileRef = 24B791F81B44D81000E95C20 /* lychee.png */; };
-		24B791FD1B44D81000E95C20 /* orange.png in Resources */ = {isa = PBXBuildFile; fileRef = 24B791F91B44D81000E95C20 /* orange.png */; };
-		24B791FE1B44D81000E95C20 /* apple.png in Resources */ = {isa = PBXBuildFile; fileRef = 24B791FA1B44D81000E95C20 /* apple.png */; };
-		24B791FF1B44D81000E95C20 /* jackfruit.png in Resources */ = {isa = PBXBuildFile; fileRef = 24B791FB1B44D81000E95C20 /* jackfruit.png */; };
+		24C8CFF71B461D31002F4042 /* CartToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 24C8CFF61B461D31002F4042 /* CartToolBar.m */; };
+		24C8CFFA1B463236002F4042 /* NoDataView.m in Sources */ = {isa = PBXBuildFile; fileRef = 24C8CFF91B463236002F4042 /* NoDataView.m */; };
+		24C8CFFC1B4633B8002F4042 /* cart-nodata.png in Resources */ = {isa = PBXBuildFile; fileRef = 24C8CFFB1B4633B8002F4042 /* cart-nodata.png */; };
+		24C8D0001B463955002F4042 /* AutoDismissBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 24C8CFFF1B463955002F4042 /* AutoDismissBox.m */; };
+		24C8D00A1B465E29002F4042 /* SubmitOrderController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24C8D0071B465E29002F4042 /* SubmitOrderController.m */; };
+		24C8D00D1B465FAC002F4042 /* SubmitOrderTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 24C8D00C1B465FAC002F4042 /* SubmitOrderTableView.m */; };
 		3874C9851B42CFBA00BD83FF /* icon-email.png in Resources */ = {isa = PBXBuildFile; fileRef = 3874C9811B42CFBA00BD83FF /* icon-email.png */; };
 		3874C9861B42CFBA00BD83FF /* icon-email@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3874C9821B42CFBA00BD83FF /* icon-email@2x.png */; };
 		3874C9871B42CFBA00BD83FF /* icon-phone.png in Resources */ = {isa = PBXBuildFile; fileRef = 3874C9831B42CFBA00BD83FF /* icon-phone.png */; };
@@ -405,10 +407,17 @@
 		249956331B43F5BE0075B78A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		249956351B43F5C70075B78A /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		249956371B43F5D20075B78A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		24B791F81B44D81000E95C20 /* lychee.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lychee.png; sourceTree = "<group>"; };
-		24B791F91B44D81000E95C20 /* orange.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = orange.png; sourceTree = "<group>"; };
-		24B791FA1B44D81000E95C20 /* apple.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = apple.png; sourceTree = "<group>"; };
-		24B791FB1B44D81000E95C20 /* jackfruit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = jackfruit.png; sourceTree = "<group>"; };
+		24C8CFF51B461D31002F4042 /* CartToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CartToolBar.h; sourceTree = "<group>"; };
+		24C8CFF61B461D31002F4042 /* CartToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CartToolBar.m; sourceTree = "<group>"; };
+		24C8CFF81B463236002F4042 /* NoDataView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoDataView.h; sourceTree = "<group>"; };
+		24C8CFF91B463236002F4042 /* NoDataView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoDataView.m; sourceTree = "<group>"; };
+		24C8CFFB1B4633B8002F4042 /* cart-nodata.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cart-nodata.png"; sourceTree = "<group>"; };
+		24C8CFFE1B463955002F4042 /* AutoDismissBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutoDismissBox.h; sourceTree = "<group>"; };
+		24C8CFFF1B463955002F4042 /* AutoDismissBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutoDismissBox.m; sourceTree = "<group>"; };
+		24C8D0061B465E29002F4042 /* SubmitOrderController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubmitOrderController.h; sourceTree = "<group>"; };
+		24C8D0071B465E29002F4042 /* SubmitOrderController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubmitOrderController.m; sourceTree = "<group>"; };
+		24C8D00B1B465FAC002F4042 /* SubmitOrderTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubmitOrderTableView.h; sourceTree = "<group>"; };
+		24C8D00C1B465FAC002F4042 /* SubmitOrderTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubmitOrderTableView.m; sourceTree = "<group>"; };
 		3874C9811B42CFBA00BD83FF /* icon-email.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-email.png"; sourceTree = "<group>"; };
 		3874C9821B42CFBA00BD83FF /* icon-email@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-email@2x.png"; sourceTree = "<group>"; };
 		3874C9831B42CFBA00BD83FF /* icon-phone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-phone.png"; sourceTree = "<group>"; };
@@ -489,6 +498,7 @@
 				09BBED101B4520CC0024A3CE /* 我的订单 */,
 				097A821F1B3BD70600D59370 /* 品类 */,
 				097A0EDF1B42251900E860B9 /* 购物车 */,
+				24C8D0011B465D4D002F4042 /* 确认订单 */,
 				097A0EE91B42251900E860B9 /* 设置 */,
 				097A0EF11B42251900E860B9 /* 我的果园 */,
 				092AA7821B3B918D00B88F23 /* Images.xcassets */,
@@ -769,6 +779,10 @@
 				097A0EE81B42251900E860B9 /* CartCell.m */,
 				2456A2861B4298CC00F49906 /* CartTableView.h */,
 				2456A2871B4298CC00F49906 /* CartTableView.m */,
+				24C8CFF51B461D31002F4042 /* CartToolBar.h */,
+				24C8CFF61B461D31002F4042 /* CartToolBar.m */,
+				24C8CFF81B463236002F4042 /* NoDataView.h */,
+				24C8CFF91B463236002F4042 /* NoDataView.m */,
 			);
 			path = VIew;
 			sourceTree = "<group>";
@@ -850,10 +864,6 @@
 		097A81E61B3BA6B000D59370 /* Resoure */ = {
 			isa = PBXGroup;
 			children = (
-				24B791F81B44D81000E95C20 /* lychee.png */,
-				24B791F91B44D81000E95C20 /* orange.png */,
-				24B791FA1B44D81000E95C20 /* apple.png */,
-				24B791FB1B44D81000E95C20 /* jackfruit.png */,
 				091DD32D1B43D4D800DC68B0 /* wodedingdan.png */,
 				091DD32E1B43D4D800DC68B0 /* chongzhiyouli.png */,
 				091DD32F1B43D4D800DC68B0 /* mianfeishichi.png */,
@@ -899,6 +909,7 @@
 				249956031B4398C40075B78A /* icon-verify-right@2x.png */,
 				249956061B439C010075B78A /* icon-verify-wrong.png */,
 				249956071B439C010075B78A /* icon-verify-wrong@2x.png */,
+				24C8CFFB1B4633B8002F4042 /* cart-nodata.png */,
 			);
 			path = Resoure;
 			sourceTree = "<group>";
@@ -939,6 +950,7 @@
 		097A82071B3BD70600D59370 /* 公用自定义类 */ = {
 			isa = PBXGroup;
 			children = (
+				24C8CFFD1B46392B002F4042 /* 提示框 */,
 				388C74851B3EE96F0078AE32 /* Model */,
 				097A0E5B1B414B0800E860B9 /* URLDefine.h */,
 				097A82081B3BD70600D59370 /* SearchBox.h */,
@@ -1156,6 +1168,50 @@
 			path = "zh-Hans.lproj";
 			sourceTree = "<group>";
 		};
+		24C8CFFD1B46392B002F4042 /* 提示框 */ = {
+			isa = PBXGroup;
+			children = (
+				24C8CFFE1B463955002F4042 /* AutoDismissBox.h */,
+				24C8CFFF1B463955002F4042 /* AutoDismissBox.m */,
+			);
+			path = "提示框";
+			sourceTree = "<group>";
+		};
+		24C8D0011B465D4D002F4042 /* 确认订单 */ = {
+			isa = PBXGroup;
+			children = (
+				24C8D0051B465E29002F4042 /* Controller */,
+				24C8D0081B465E29002F4042 /* Model */,
+				24C8D0091B465E29002F4042 /* View */,
+			);
+			path = "确认订单";
+			sourceTree = "<group>";
+		};
+		24C8D0051B465E29002F4042 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				24C8D0061B465E29002F4042 /* SubmitOrderController.h */,
+				24C8D0071B465E29002F4042 /* SubmitOrderController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		24C8D0081B465E29002F4042 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		24C8D0091B465E29002F4042 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				24C8D00B1B465FAC002F4042 /* SubmitOrderTableView.h */,
+				24C8D00C1B465FAC002F4042 /* SubmitOrderTableView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		388C747B1B3EE7830078AE32 /* 屏幕适配工具 */ = {
 			isa = PBXGroup;
 			children = (
@@ -1269,7 +1325,6 @@
 				388C74751B3EE7490078AE32 /* bill_normal@2x.png in Resources */,
 				249956091B439C010075B78A /* icon-verify-wrong@2x.png in Resources */,
 				249955F81B4377B10075B78A /* icon-password2@2x.png in Resources */,
-				24B791FE1B44D81000E95C20 /* apple.png in Resources */,
 				249956081B439C010075B78A /* icon-verify-wrong.png in Resources */,
 				388C74791B3EE7490078AE32 /* user_button_normal.png in Resources */,
 				249956041B4398C40075B78A /* icon-verify-right.png in Resources */,
@@ -1296,6 +1351,7 @@
 				094E16621B4298DC00C05CB2 /* UMSocialSDKResourcesNew.bundle in Resources */,
 				096DA85A1B3E327B00925F62 /* star_0.png in Resources */,
 				091DD3341B43D4D800DC68B0 /* higuotuangou.png in Resources */,
+				24C8CFFC1B4633B8002F4042 /* cart-nodata.png in Resources */,
 				094E16611B4298DC00C05CB2 /* UMSShareListController.xib in Resources */,
 				094E16941B43833700C05CB2 /* shoucang_0.png in Resources */,
 				091DD3381B43E30A00DC68B0 /* 1.png in Resources */,
@@ -1307,7 +1363,6 @@
 				096DA8591B3E327B00925F62 /* star_2.png in Resources */,
 				094E165E1B4298DC00C05CB2 /* UMShareEditViewControlleriPad.xib in Resources */,
 				249955F51B4374650075B78A /* icon-password@2x.png in Resources */,
-				24B791FF1B44D81000E95C20 /* jackfruit.png in Resources */,
 				3874C9851B42CFBA00BD83FF /* icon-email.png in Resources */,
 				09FFE2A91B40ECD2007066C3 /* jiuzhuan.jpg in Resources */,
 				094E16901B4382E900C05CB2 /* back_0.png in Resources */,
@@ -1318,8 +1373,6 @@
 				09BBED1D1B4536580024A3CE /* fruit_jian.png in Resources */,
 				094E167C1B43792100C05CB2 /* fenxiang_1.png in Resources */,
 				094E168B1B43811800C05CB2 /* gouwuche_0.png in Resources */,
-				24B791FC1B44D81000E95C20 /* lychee.png in Resources */,
-				24B791FD1B44D81000E95C20 /* orange.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1340,6 +1393,7 @@
 				2456A2831B427C5000F49906 /* Fruit.m in Sources */,
 				097A0E791B414B5D00E860B9 /* AFURLSessionManager.m in Sources */,
 				097A0ED41B41502B00E860B9 /* CategoryModel.m in Sources */,
+				24C8CFF71B461D31002F4042 /* CartToolBar.m in Sources */,
 				092AA7781B3B918D00B88F23 /* main.m in Sources */,
 				097A0EC91B414B7600E860B9 /* SDWebImageDownloaderOperation.m in Sources */,
 				097A823B1B3BD70600D59370 /* CategoryController.m in Sources */,
@@ -1374,6 +1428,7 @@
 				2456A28B1B42AE9400F49906 /* RegisterController.m in Sources */,
 				09BBED201B4536FA0024A3CE /* MyOrderCustomCell.m in Sources */,
 				09FFE2B11B40F4C4007066C3 /* Framework.m in Sources */,
+				24C8D00A1B465E29002F4042 /* SubmitOrderController.m in Sources */,
 				092AA7C71B3B9BE500B88F23 /* BasicViewController.m in Sources */,
 				097A0EC71B414B7600E860B9 /* SDWebImageDecoder.m in Sources */,
 				09FFE29A1B40DA81007066C3 /* FruitCategoryCell.m in Sources */,
@@ -1389,14 +1444,17 @@
 				09FFE2BC1B40F5A7007066C3 /* HoverButton.m in Sources */,
 				097A0ED01B414B7600E860B9 /* UIImageView+WebCache.m in Sources */,
 				096DA8851B3E4E6C00925F62 /* EatForFreeController.m in Sources */,
+				24C8CFFA1B463236002F4042 /* NoDataView.m in Sources */,
 				097A0ED71B415F8A00E860B9 /* Model.m in Sources */,
 				09FFE2C21B41230B007066C3 /* CategoryDetailsController.m in Sources */,
 				097A0EFF1B42251900E860B9 /* SettingController.m in Sources */,
 				097A0EC81B414B7600E860B9 /* SDWebImageDownloader.m in Sources */,
 				09FFE2971B40CD1A007066C3 /* FruitCategoryTableView.m in Sources */,
+				24C8D0001B463955002F4042 /* AutoDismissBox.m in Sources */,
 				097A0EFD1B42251900E860B9 /* CartCell.m in Sources */,
 				097A0EC51B414B7600E860B9 /* SDImageCache.m in Sources */,
 				09FFE2D21B413753007066C3 /* CategoryDetailsCell.m in Sources */,
+				24C8D00D1B465FAC002F4042 /* SubmitOrderTableView.m in Sources */,
 				096DA8551B3E2E9600925F62 /* EvaluateView.m in Sources */,
 				097A0EC41B414B7600E860B9 /* NSData+ImageContentType.m in Sources */,
 				097A0E771B414B5D00E860B9 /* AFURLRequestSerialization.m in Sources */,
