@@ -64,7 +64,6 @@
     if (!cell) {
         cell = [[FruitCategoryCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:identifier];
     }
-    
     [GlobalMethod removeAllSubViews:cell.contentView];
     [cell getFruitCategoryCellData:_dataSource[indexPath.row]];
     [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];

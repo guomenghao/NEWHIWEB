@@ -65,7 +65,7 @@
         self.fruitsNum --;
         self.fruitNum.text = [NSString stringWithFormat:@"%ld", (long)self.fruitsNum];
         if (self.classInfo != nil) {
-            [self changeNumberRequestWithClassInfo:self.classInfo];
+            [self changeNumberRequestWithClassInfo:self.classInfo num:-1];
         }
     }
 }
@@ -75,26 +75,44 @@
     self.fruitsNum ++;
     self.fruitNum.text = [NSString stringWithFormat:@"%ld", (long)self.fruitsNum];
     if (self.classInfo != nil) {
-        [self changeNumberRequestWithClassInfo:self.classInfo];
+        [self changeNumberRequestWithClassInfo:self.classInfo num:1];
     }
 }
 
 /**
  * 加减操作时，进行网络请求
  */
-- (void)changeNumberRequestWithClassInfo:(NSDictionary *)classInfo {
+- (void)changeNumberRequestWithClassInfo:(NSDictionary *)classInfo num:(NSInteger)num{
     
+    if (num == 1) {
+        NSLog(@"商品数量为1了");
+    }
     [GlobalMethod serviceWithMothedName:AddCar_Url
                                parmeter:@{
                                           @"classid":classInfo[@"classid"],
                                           @"id":classInfo[@"id"],
-                                          @"pn":@(self.fruitsNum)}
+                                          @"pn":@(num)}
                                 success:^(id responseObject) {
-                                    NSLog(@"---->加购物车成功%@", responseObject);
+                                    NSLog(@"---->加购物车成功");
+                                    [self getCartInfo];
                                 }
                                    fail:^(NSError *error) {
                                        
                                    }];
+}
+
+- (void)getCartInfo {
+    
+    [GlobalMethod serviceWithMothedName:GetCar_Url parmeter:nil success:^(id responseObject) {
+        if (![responseObject[@"data"] isKindOfClass:[NSNull class]]) {
+            // 注意返回的总价和个数是NSNumber
+            NSLog(@"购物车总价为：%@", responseObject[@"totalmoney"]);
+            // 更新购物车的总价
+            [Framework controllers].shoppingCartVC.toolBar.totalPrice = [responseObject[@"totalmoney"] integerValue];
+        } else {
+            NSLog(@"购物车内没有任何商品哦");
+        }
+    } fail:^(NSError *error) {}];
 }
 
 @end

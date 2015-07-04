@@ -13,7 +13,7 @@
 
 + (GlobalControl *)myControl;
 
-@property (nonatomic, weak) UIPageControl *pageControl;
 @property (nonatomic, weak) FruitNumberPicker *numPicker;
+@property (nonatomic, weak) UITableView *tableView;
 
 @end

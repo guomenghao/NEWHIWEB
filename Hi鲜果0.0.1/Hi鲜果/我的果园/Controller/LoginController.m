@@ -135,13 +135,13 @@
                                             // 验证成功
                                             // 修改loginUser的登录标记
                                             // 保存至单例
-                                            NSDictionary * info = @{
-                                                        @"username":responseObject[@"username"],
-                                                        @"userid":responseObject[@"userid"],
-                                                        @"nickname":@"昵称",
-                                                        @"score":@"200"};
+//                                            NSDictionary * info = @{
+//                                                        @"username":responseObject[@"username"],
+//                                                        @"userid":responseObject[@"userid"],
+//                                                        @"nickname":@"昵称",
+//                                                        @"score":@"200"};
                                             [User loginUser].isLogin = YES;
-                                            [User loginUser].info = info;
+//                                            [User loginUser].info = info;
                                         } else {
                                             [sender setEnabled:YES];
                                         }
@@ -150,6 +150,7 @@
                                         [alert show];
                                     }
                                        fail:^(NSError *error) {
+                                           [sender setEnabled:YES];//取消禁用按钮
                                            NSLog(@"error：%@", [error localizedDescription]);
                                        }];
         

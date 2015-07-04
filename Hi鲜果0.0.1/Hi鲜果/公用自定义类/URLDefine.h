@@ -46,6 +46,11 @@
  */
 #define GetCar_Url @"/e/api/getBuyCarList.php"
 
+/**
+ *  立即结算
+ */
+#define Settle_Url @"/e/api/getOrderStepOne.php"
+
 #import <Foundation/Foundation.h>
 
 @protocol URLDefine <NSObject>

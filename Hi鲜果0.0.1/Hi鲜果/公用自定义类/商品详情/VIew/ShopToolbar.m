@@ -8,10 +8,11 @@
 
 #import "ShopToolbar.h"
 #import "FruitNumberPicker.h"
-
+#import "AutoDismissBox.h"
 @interface ShopToolbar()
 
 - (void)initializeUserInterface;
+- (void)openButtonEnable:(UIButton *)sender;
 
 @end
 
@@ -24,6 +25,7 @@
         self.frame = CGRectMake(0, Screen_height, Screen_width, 44);
         self.backgroundColor = [UIColor colorWithWhite:0.902 alpha:1.000];
         [self initializeUserInterface];
+        
     }
     return self;
 }
@@ -50,20 +52,26 @@
 
 - (void)addShopCar:(UIButton *)sender
 {
+    sender.enabled = NO;
+    [self performSelector:@selector(openButtonEnable:) withObject:sender afterDelay:1.5];
     NSInteger number = (long)[GlobalControl myControl].numPicker.fruitsNum;
     [GlobalMethod serviceWithMothedName:AddCar_Url
                                parmeter:@{
                                           @"classid":self.classInfo[@"classid"],
                                           @"id":self.classInfo[@"id"],
-                                          @"pn":[NSString stringWithFormat:@"%ld", number]}
+                                          @"pn":[NSString stringWithFormat:@"%ld", (long)number]}
                                 success:^(id responseObject) {
-                                    
-                                    NSLog(@"---->加购物车成功%@", responseObject);
-    }
+                                [AutoDismissBox showBoxWithTitle:@"恭喜您" message:@"商品已成功加入购物车"];
+                                }
                                    fail:^(NSError *error) {
         
     }];
     //NSLog(@"%ld", (long)[GlobalControl myControl].numPicker.fruitsNum);
+}
+
+- (void)openButtonEnable:(UIButton *)sender {
+    
+    sender.enabled = YES;
 }
 
 @end

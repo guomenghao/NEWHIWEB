@@ -36,13 +36,10 @@
     NSArray *buttonNames = @[@"mianfeishichi.png", @"wodedingdan.png", @"higuotuangou.png", @"chongzhiyouli.png"];
     for (int i = 0; i < 4; i ++) {
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-        button.titleLabel.font = [UIFont systemFontOfSize:Screen_height / 35];
         button.frame = CGRectMake((Screen_width * 0.5 - 5) * (i % 2), Screen_height * 0.25 * 0.5 * (i / 2), Screen_width / 2 - 5, Screen_height * 0.25 * 0.5);
         [button.layer setBorderWidth:0.5];
         [button.layer setBorderColor:[UIColor colorWithWhite:0.843 alpha:1.000].CGColor];
-//        [button setTitle:buttonNames[i] forState:UIControlStateNormal];
         [button setImage:ImageWithName(buttonNames[i]) forState:UIControlStateNormal];
-        [button setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
         [button setTag:i + 100];
         [button addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:button];
