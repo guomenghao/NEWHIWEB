@@ -9,7 +9,7 @@
 #import "RegisterController.h"
 #import "GlobalMethod.h"
 #import <SMS_SDK/SMS_SDK.h>
-#define Margin 40*[FlexibleFrame ratios].height
+#define Margin 30*[FlexibleFrame ratios].height
 #define NUMBERS @"0123456789"
 #define TextFieldTagBase 110
 @interface RegisterController () <UITextFieldDelegate, UIAlertViewDelegate>
@@ -37,6 +37,7 @@
 - (void)dealloc {
     
     NSLog(@"%s", __FUNCTION__);
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (instancetype)init
@@ -55,11 +56,6 @@
     [super viewDidLoad];
     [self initializeDataSource];
     [self initializeUserInterface];
-}
-
-- (void)initializeDataSource {
-    
-    
 }
 
 - (void)initializeUserInterface {

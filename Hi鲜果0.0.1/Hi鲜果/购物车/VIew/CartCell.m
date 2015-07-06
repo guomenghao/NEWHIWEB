@@ -112,8 +112,9 @@
     
     if (_numberLabel == nil) {
         _numberLabel = ({
-            UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(Screen_width - 50 - XMargin, 0, 50, 30)];
-            label.font = SmallFont;
+            UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(Screen_width - 80 - XMargin, 0, 50, 30)];
+            label.font = MiddleFont;
+            label.textColor = [UIColor lightGrayColor];
             label;
         });
     }
@@ -135,8 +136,13 @@
                            }];
     self.titleLabel.text = self.fruit.name;
     self.unitLable.text = self.fruit.unit;
-    self.numberPicker.fruitNum.text = [self.fruit.number stringValue];
-    self.numberPicker.fruitsNum = [self.fruit.number integerValue];
+    if (self.type == CartCellTypeCart) {
+        self.numberPicker.fruitNum.text = [self.fruit.number stringValue];
+        self.numberPicker.fruitsNum = [self.fruit.number integerValue];
+    } else {
+        self.numberLabel.text = [NSString stringWithFormat:@"X%@", self.fruit.number];
+    }
+    
     if (self.fruit.info) {
         self.numberPicker.classInfo = @{@"classid":self.fruit.classid,
                                         @"id":self.fruit.ID};
@@ -168,7 +174,11 @@
     [self.titleLabel setFrame:CGRectMake(CGRectGetMaxX(self.picView.frame) + XMargin * [FlexibleFrame ratios].width, self.picView.frame.origin.y, size.width, size.height)];
     [self.unitLabel setFrame:CGRectMake(self.titleLabel.frame.origin.x, CGRectGetMaxY(self.titleLabel.frame), 50 * [FlexibleFrame ratios].width, 20 * [FlexibleFrame ratios].height)];
     [self.priceLabel setFrame:CGRectMake(self.titleLabel.frame.origin.x, CGRectGetMaxY(self.picView.frame) - 20 * [FlexibleFrame ratios].height, 100 * [FlexibleFrame ratios].width, 20 * [FlexibleFrame ratios].height)];
-    self.numberPicker.center = CGPointMake(self.numberPicker.center.x, self.priceLabel.center.y);
+    if (self.type == CartCellTypeCart) {
+        self.numberPicker.center = CGPointMake(self.numberPicker.center.x, self.priceLabel.center.y);
+    } else {
+        self.numberLabel.center = CGPointMake(self.numberLabel.center.x, self.picView.center.y);
+    }
 }
 
 @end

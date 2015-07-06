@@ -45,7 +45,7 @@
     forward.layer.cornerRadius = 17;
     [forward setTitle:@"立即结账" forState:UIControlStateNormal];
     forward.titleLabel.font = [UIFont boldSystemFontOfSize:Screen_height / 40];
-    [forward addTarget:self action:nil forControlEvents:UIControlEventTouchUpInside];
+    [forward addTarget:self action:@selector(forwardButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:forward];
     
 }
@@ -67,6 +67,21 @@
         
     }];
     //NSLog(@"%ld", (long)[GlobalControl myControl].numPicker.fruitsNum);
+}
+// 立即结算按钮点击事件
+- (void)forwardButtonPressed:(UIButton *)sender {
+    
+    // 先读取购物车信息，再提交订单,如果购物车为空则提示不进入提交订单页面
+    [GlobalMethod serviceWithMothedName:GetCar_Url parmeter:nil success:^(id responseObject) {
+        if (![responseObject[@"data"] isKindOfClass:[NSNull class]]) {
+            // 注意返回的总价和个数是NSNumber
+            NSLog(@"购物车不为空，进入提交订单页面");
+            [[Framework controllers].fruitDetailVC.navigationController pushViewController:[[SubmitOrderController alloc] init] animated:YES];
+        } else {
+            NSLog(@"购物车为空,不进入提交订单页面");
+            [AutoDismissBox showBoxWithTitle:@"温馨提示" message:@"购物车为空，赶紧选购吧~"];
+        }
+    } fail:^(NSError *error) {}];
 }
 
 - (void)openButtonEnable:(UIButton *)sender {

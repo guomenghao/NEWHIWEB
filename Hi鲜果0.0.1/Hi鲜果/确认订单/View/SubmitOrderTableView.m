@@ -8,11 +8,11 @@
 
 #import "SubmitOrderTableView.h"
 #import "CartCell.h"
-static NSString * identifier = @"orderCell";
-@interface SubmitOrderTableView ()
-
-@end
-
+#import "OpenSectionCell.h"
+#import "SwitchCell.h"
+static NSString * ID = @"orderCell";
+static NSString * openID = @"openCell";
+static NSString * switchID = @"switchCell";
 @implementation SubmitOrderTableView
 
 - (instancetype)initWithFrame:(CGRect)frame style:(UITableViewStyle)style {
@@ -26,9 +26,15 @@ static NSString * identifier = @"orderCell";
 
 - (void)initializeUserInterface {
     
-    self.backgroundColor = RGBAColor(0, 0, 0, 0.1);
+    self.backgroundColor = RGBAColor(0, 0, 0, 0.02);
     self.tableFooterView = [[UIView alloc] init];
-    [self registerClass:[CartCell class] forCellReuseIdentifier:identifier];
+    [self registerClass:[CartCell class] forCellReuseIdentifier:ID];
+    [self registerClass:[OpenSectionCell class] forCellReuseIdentifier:openID];
+    [self registerClass:[SwitchCell class] forCellReuseIdentifier:switchID];
 }
 
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    
+    [self endEditing:YES];
+}
 @end

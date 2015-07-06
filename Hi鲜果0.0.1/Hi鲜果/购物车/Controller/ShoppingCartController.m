@@ -62,10 +62,10 @@
     [_tableView reloadData];
 }
 
-- (CartToolBar *)toolBar {
+- (TotalPriceToolBar *)toolBar {
     
     if (_toolBar == nil) {
-        _toolBar = [[CartToolBar alloc] initWithFrame:CGRectMake(0, Screen_height - 48, Screen_width, 48)];
+        _toolBar = [[TotalPriceToolBar alloc] initWithFrame:CGRectMake(0, Screen_height - 48, Screen_width, 48) submitTitle:@"立即结算"];
     }
     return _toolBar;
 }
