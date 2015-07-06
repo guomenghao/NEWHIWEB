@@ -30,7 +30,7 @@
 
 - (void)initializeUserInterface
 {
-    _headImages = @[@"1", @"2", @"3", @"4", @"5", @"7", @"7", @"8", @"9"];
+    _headImages = @[@"1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9"];
     for (int i = 0; i < 9; i ++) {
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
         button.frame = CGRectMake((CGRectGetWidth(self.bounds) - Screen_height / 8.35 * 3) / 4 + (i % 3) * (Screen_height / 8.35 + (CGRectGetWidth(self.bounds) - Screen_height / 8.35 * 3) / 4), (CGRectGetHeight(self.bounds) - Screen_height / 8.35 * 3) / 4 + (i / 3) * (Screen_height / 8.35 + (CGRectGetHeight(self.bounds) - Screen_height / 8.35 * 3) / 4), Screen_height / 8.35, Screen_height / 8.35);
@@ -50,8 +50,9 @@
 
 - (void)buttonPressed:(UIButton *)sender
 {
-    [User loginUser].tempHead = [NSString stringWithFormat:@"T%@.png", _headImages[sender.tag - 200]];
-    [User loginUser].tempHeadImage.image = ImageWithName([User loginUser].tempHead);
+    [User loginUser].tempHead = _headImages[sender.tag - 200];
+    NSString *string = [NSString stringWithFormat:@"T%@.png", [User loginUser].tempHead];
+    [User loginUser].tempHeadImage.image = ImageWithName(string);
     [UIView animateWithDuration:0.7 animations:^{
         self.transform = CGAffineTransformMakeScale(0.01, 0.01);
         self.center = CGPointMake(Screen_width - (Screen_height / 5 + 10) / 2, 74 + (Screen_height / 5 - 20) / 2);

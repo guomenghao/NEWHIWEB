@@ -15,10 +15,10 @@
 {
     self = [super init];
     if (self) {
-        self.frame = CGRectMake(5, 0, Screen_width - 10, Screen_height * 0.25);
+        self.frame = CGRectMake(5, 5, Screen_width - 10, Screen_height * 0.25);
         self.backgroundColor = [UIColor whiteColor];
-        self.layer.borderColor = [UIColor colorWithWhite:0.843 alpha:1.000].CGColor;
-        self.layer.borderWidth = 1;
+        self.layer.borderColor = [UIColor colorWithWhite:0.902 alpha:1.000].CGColor;
+        self.layer.borderWidth = 0.5;
         [self initializeDataSource];
         [self initializeUserInterface];
     }
@@ -33,13 +33,13 @@
 
 - (void)initializeUserInterface
 {
-    NSArray *buttonNames = @[@"mianfeishichi.png", @"wodedingdan.png", @"higuotuangou.png", @"chongzhiyouli.png"];
+    NSArray *buttonNames = @[@"mianfeishichi.png", @"wodedingdan.png", @"wodeguanzhu.png", @"chongzhiyouli.png"];
     for (int i = 0; i < 4; i ++) {
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
         button.frame = CGRectMake((Screen_width * 0.5 - 5) * (i % 2), Screen_height * 0.25 * 0.5 * (i / 2), Screen_width / 2 - 5, Screen_height * 0.25 * 0.5);
-        [button.layer setBorderWidth:0.5];
+        [button.layer setBorderWidth:0.25];
         [button.layer setBorderColor:[UIColor colorWithWhite:0.843 alpha:1.000].CGColor];
-        [button setImage:ImageWithName(buttonNames[i]) forState:UIControlStateNormal];
+        [button setBackgroundImage:ImageWithName(buttonNames[i]) forState:UIControlStateNormal];
         [button setTag:i + 100];
         [button addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:button];

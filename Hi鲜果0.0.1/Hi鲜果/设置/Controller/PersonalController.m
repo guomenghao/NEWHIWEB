@@ -11,7 +11,7 @@
 #import "ChangeHeadImage.h"
 #import "AddrAdminController.h"
 
-@interface PersonalController () <UITableViewDelegate, UITableViewDataSource,UIPickerViewDelegate,UIPickerViewDataSource,UIAlertViewDelegate> {
+@interface PersonalController () <UITableViewDelegate,UITableViewDataSource,UIPickerViewDelegate,UIPickerViewDataSource,UIAlertViewDelegate> {
     BOOL _isTouch;
     BOOL _isChange;
     BOOL _isBirth;
@@ -90,8 +90,8 @@
     UIBarButtonItem *saveItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(isSave)];
     self.navigationItem.rightBarButtonItem = saveItem;
     
-    self.automaticallyAdjustsScrollViewInsets = NO;
     self.view.backgroundColor = [UIColor whiteColor];
+    self.automaticallyAdjustsScrollViewInsets = NO;
     self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, Screen_width, Screen_height - 64) style:UITableViewStylePlain];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
@@ -136,6 +136,7 @@
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
     [User loginUser].tempSex.text = @[@"帅哥", @"美女", @"保密"][row];
+    NSLog(@"%@", [User loginUser].tempSex.text);
 }
 
 #pragma mark - <UITableViewDataSource/UITabelViewDelegate>
@@ -277,6 +278,7 @@
 
 - (void)isBack
 {
+    [self.view endEditing:YES];
     if (_isChange) {
         UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"已修改过信息，确定返回吗" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:@"取消", nil];
         [alert show];
@@ -288,16 +290,26 @@
 - (void)isSave
 {
     /**
-     *  保存临时信息到服务器
+     *  保存所有临时信息到服务器
      */
-    [self popBack];
+    [GlobalMethod serviceWithMothedName:EditUserInfo_Url parmeter:@{@"nikename" : [User loginUser].tempName.text,
+                                                                    @"headId" : [User loginUser].tempHead,
+                                                                    @"sex" : [User loginUser].tempSex.text,
+                                                                    @"birthday" : [User loginUser].tempBirthday.text} success:^(id responseObject) {
+        NSLog(@"%@", responseObject);
+        [GlobalMethod getUserInfoSuccess:^(id responseObject) {
+        }];
+        [self popBack];
+    } fail:^(NSError *error) {
+        
+    }];
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     switch (buttonIndex) {
         case 0:
-            [self popBack];
+            [self performSelector:@selector(popBack) withObject:nil afterDelay:0.25];
             break;
         default:
             break;

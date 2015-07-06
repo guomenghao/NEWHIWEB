@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AddrAdminController : UIViewController
+@interface AddrAdminController : BasicViewController
 
+@property (strong, nonatomic) NSMutableArray * dataSource;
+@property (strong, nonatomic) UITableView * tableView;
 @end

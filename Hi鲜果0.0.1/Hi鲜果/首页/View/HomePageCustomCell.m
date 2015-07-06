@@ -14,10 +14,19 @@
 @interface HomePageCustomCell ()
 
 @property (nonatomic, strong) CarouselView *carouselView;
+@property (nonatomic, strong) ButtonView *buttonView;
 
 @end
 
 @implementation HomePageCustomCell
+
+- (ButtonView *)buttonView
+{
+    if (_buttonView == nil) {
+        _buttonView = [[ButtonView alloc] init];
+    }
+    return _buttonView;
+}
 
 /**
  *  头条，懒加载
@@ -52,8 +61,7 @@
  */
 - (void)getButtonViewCell
 {
-    ButtonView *buttonView = [[ButtonView alloc] init];
-    [self.contentView addSubview:buttonView];
+    [self.contentView addSubview:self.buttonView];
     
 }
 

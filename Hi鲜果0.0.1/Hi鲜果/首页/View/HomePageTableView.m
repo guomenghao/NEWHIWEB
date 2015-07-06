@@ -45,7 +45,7 @@
         return Screen_height * 0.27;
     }
     if (indexPath.row == 1) {
-        return Screen_height * 0.25;
+        return Screen_height * 0.25 + 5;
     }
     if (indexPath.row == 2 || indexPath.row == 4) {
         return Screen_height / 25;

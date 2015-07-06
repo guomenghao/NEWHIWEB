@@ -51,6 +51,34 @@
  */
 #define Settle_Url @"/e/api/getOrderStepOne.php"
 
+
+
+/**
+ *  显示用户信息
+ */
+#define GetUserInfo_Url @"/e/api/getUserInfo.php"
+
+/**
+ *  修改用户信息
+ */
+#define EditUserInfo_Url @"/e/api/editUserInfo.php"
+
+/**
+ *  新增收货地址
+ */
+#define AddAddress_Url @"/e/api/addAddress.php"
+
+/**
+ *  修改收货地址
+ */
+#define EditAddress_Url @"/e/api/editAddress.php"
+
+
+/**
+ *  删除收货地址
+ */
+#define DelAddress_Url @"/e/api/delAddress.php"
+
 #import <Foundation/Foundation.h>
 
 @protocol URLDefine <NSObject>
