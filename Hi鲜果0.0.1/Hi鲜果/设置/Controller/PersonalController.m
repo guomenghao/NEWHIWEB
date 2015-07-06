@@ -84,10 +84,10 @@
 
 - (void)initializeUserInterface {
     
-    UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(isBack)];
+    UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithImage:ImageWithName(@"fanhui.png") style:UIBarButtonItemStylePlain target:self action:@selector(isBack)];
     self.navigationItem.leftBarButtonItem = backItem;
     
-    UIBarButtonItem *saveItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(isSave)];
+    UIBarButtonItem *saveItem = [[UIBarButtonItem alloc] initWithImage:ImageWithName(@"gougou.png") style:UIBarButtonItemStylePlain target:self action:@selector(isSave)];
     self.navigationItem.rightBarButtonItem = saveItem;
     
     self.view.backgroundColor = [UIColor whiteColor];
@@ -292,6 +292,11 @@
     /**
      *  保存所有临时信息到服务器
      */
+    if ([[User loginUser].tempName.text isEqual:@""]) {
+        UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"昵称不能为空" delegate:nil cancelButtonTitle:@"我知道了" otherButtonTitles:nil];
+        [alert show];
+        return;
+    }
     [GlobalMethod serviceWithMothedName:EditUserInfo_Url parmeter:@{@"nikename" : [User loginUser].tempName.text,
                                                                     @"headId" : [User loginUser].tempHead,
                                                                     @"sex" : [User loginUser].tempSex.text,

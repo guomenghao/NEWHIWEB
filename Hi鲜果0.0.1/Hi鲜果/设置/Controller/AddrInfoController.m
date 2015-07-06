@@ -54,10 +54,10 @@
 
 - (void)initializeUserInterface
 {
-    UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(isBack)];
+    UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithImage:ImageWithName(@"fanhui.png") style:UIBarButtonItemStylePlain target:self action:@selector(isBack)];
     self.navigationItem.leftBarButtonItem = backItem;
     
-    UIBarButtonItem *save = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(saveAddrs)];
+    UIBarButtonItem *save = [[UIBarButtonItem alloc] initWithImage:ImageWithName(@"gougou.png") style:UIBarButtonItemStylePlain target:self action:@selector(saveAddrs)];
     self.navigationItem.rightBarButtonItem = save;
     
     

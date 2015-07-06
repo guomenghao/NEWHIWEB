@@ -62,7 +62,7 @@
 - (void)initializeUserInterface {
 
     /**设置背景图片*/
-    //self.view.layer.contents = (__bridge id)ImageWithName(@"bkImage.jpg").CGImage;
+    self.view.layer.contents = (__bridge id)ImageWithName(@"bkImage.jpg").CGImage;
     /**添加控件*/
     self.phoneField = ({
         UITextField * textField = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, 250*[FlexibleFrame ratios].width, 30 * [FlexibleFrame ratios].height)];
@@ -72,7 +72,11 @@
         textField.autocorrectionType = UITextAutocorrectionTypeNo;
         textField.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
         textField.placeholder = @"请输入11位手机号";
-        textField.backgroundColor = [UIColor whiteColor];
+        textField.layer.borderWidth = 1;
+        textField.textColor = [UIColor whiteColor];
+        [textField setValue:[UIColor whiteColor] forKeyPath:@"_placeholderLabel.textColor"];
+        textField.layer.borderColor = [UIColor whiteColor].CGColor;
+        textField.layer.cornerRadius = Screen_height / 80;
         textField.delegate = self;
         textField.tag = TextFieldTagBase;
         //发送验证码按钮
@@ -83,6 +87,8 @@
             [sendCode setTitle:@"获取验证码" forState:UIControlStateNormal];
             [sendCode setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
             [sendCode addTarget:self action:@selector(sendVerificationCode:) forControlEvents:UIControlEventTouchUpInside ];
+            sendCode.layer.cornerRadius = Screen_height / 80;
+            sendCode.backgroundColor = [UIColor orangeColor];
             sendCode;
         });
         [self setSendVerificationCodeButtonWithSelected:NO];
@@ -122,8 +128,12 @@
         textField.autocorrectionType = UITextAutocorrectionTypeNo;
         textField.keyboardType = UIKeyboardTypeASCIICapable;
         textField.placeholder = @"请输入您收到的验证码";
-        textField.backgroundColor = [UIColor whiteColor];
+        textField.layer.borderWidth = 1;
+        textField.textColor = [UIColor whiteColor];
+        [textField setValue:[UIColor whiteColor] forKeyPath:@"_placeholderLabel.textColor"];
+        textField.layer.borderColor = [UIColor whiteColor].CGColor;
         textField.delegate = self;
+        textField.layer.cornerRadius = Screen_height / 80;
         textField.tag = TextFieldTagBase + 1;
         [textField setReturnKeyType:UIReturnKeyDone];
         textField.leftView = verifyIcon;
@@ -140,7 +150,11 @@
         textField.keyboardType = UIKeyboardTypeASCIICapable;
         textField.placeholder = @"请输入邮箱(可选)";
         textField.tag = TextFieldTagBase + 2;
-        textField.backgroundColor = [UIColor whiteColor];
+        textField.layer.cornerRadius = Screen_height / 80;
+        textField.layer.borderWidth = 1;
+        textField.textColor = [UIColor whiteColor];
+        [textField setValue:[UIColor whiteColor] forKeyPath:@"_placeholderLabel.textColor"];
+        textField.layer.borderColor = [UIColor whiteColor].CGColor;
         textField.delegate = self;
         [textField setReturnKeyType:UIReturnKeyDone];
         textField.leftView = emailIcon;
@@ -158,7 +172,11 @@
         textField.secureTextEntry = YES;
         textField.placeholder = @"请输入您的密码";
         textField.tag = TextFieldTagBase + 3;
-        textField.backgroundColor = [UIColor whiteColor];
+        textField.layer.cornerRadius = Screen_height / 80;
+        textField.layer.borderWidth = 1;
+        textField.textColor = [UIColor whiteColor];
+        [textField setValue:[UIColor whiteColor] forKeyPath:@"_placeholderLabel.textColor"];
+        textField.layer.borderColor = [UIColor whiteColor].CGColor;
         textField.delegate = self;
         textField.leftView = passIcon;
         textField.leftViewMode = UITextFieldViewModeAlways;
@@ -176,7 +194,11 @@
         textField.secureTextEntry = YES;
         textField.placeholder = @"请再次输入您的密码";
         textField.tag = TextFieldTagBase + 4;
-        textField.backgroundColor = [UIColor whiteColor];
+        textField.layer.borderWidth = 1;
+        textField.layer.cornerRadius = Screen_height / 80;
+        textField.textColor = [UIColor whiteColor];
+        [textField setValue:[UIColor whiteColor] forKeyPath:@"_placeholderLabel.textColor"];
+        textField.layer.borderColor = [UIColor whiteColor].CGColor;
         textField.delegate = self;
         [textField setReturnKeyType:UIReturnKeyDone];
         textField.leftView = pass2Icon;
@@ -189,13 +211,19 @@
     self.registerButton = ({
         UIButton * button = [[UIButton alloc] initWithFrame:CGRectMake(self.phoneField.frame.origin.x, CGRectGetMaxY(repeatField.frame) + Margin * 2, self.phoneField.bounds.size.width, 30 * [FlexibleFrame ratios].height)];
         [button setTitle:@"注 册" forState:UIControlStateNormal];
-        [button setBackgroundColor:[UIColor whiteColor]];
-        [button setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
+        button.layer.borderWidth = 1;
+        [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        button.layer.borderColor = [UIColor whiteColor].CGColor;
         [button.titleLabel setFont:MiddleFont];
         [button addTarget:self action:@selector(registerButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+        button.layer.cornerRadius = Screen_height / 80;
         button;
     });
     [self.view addSubview:self.registerButton];
+    
+    
+    
+    
 }
 
 - (void)sendVerificationCode:(UIButton *)sender {
@@ -212,7 +240,7 @@
     
     self.sendCode.selected = selected;
     if (self.sendCode.selected == NO) {
-        [self.sendCode setBackgroundColor:[UIColor grayColor]];
+        [self.sendCode setBackgroundColor:[UIColor lightGrayColor]];
     } else {
         [self.sendCode setBackgroundColor:[UIColor orangeColor]];
     }
