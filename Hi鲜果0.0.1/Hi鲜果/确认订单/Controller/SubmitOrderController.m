@@ -67,7 +67,10 @@
                              ];
         [self.tableView reloadData];
         self.toolBar.totalPrice = [self.dataSource[@"buycar"][@"totalmoney"] integerValue];
-    } fail:^(NSError *error) {}];
+    } fail:^(NSError *error) {
+    
+        NSLog(@"error:%@", [error localizedDescription]);
+    }];
 }
 
 - (void)initializeUserInterface {
@@ -117,7 +120,7 @@
 - (OpenHeaderView *)headerView {
     
     if (_headerView == nil) {
-        _headerView = [[OpenHeaderView alloc] initWithFrame:CGRectMake(0, 0, Screen_width, 20)];
+        _headerView = [[OpenHeaderView alloc] initWithFrame:CGRectMake(0, 0, Screen_width, 20*[FlexibleFrame ratios].height)];
         // 添加tap手势
         UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(sectionHeaderViewTapped:)];
         [_headerView addGestureRecognizer:tap];
@@ -181,7 +184,7 @@
     
     NSInteger section = indexPath.section;
     if (section == 0) {
-        return 150;
+        return 150*[FlexibleFrame ratios].height;
     } else if (section == 3) {
         NSDictionary * info = self.dataSource[@"buycar"][@"data"][indexPath.row];
         NSString * title = info[@"title"];
@@ -189,9 +192,9 @@
         CGFloat height = (size.height + 20 + 40 * [FlexibleFrame ratios].height) > 100 * [FlexibleFrame ratios].height ? (size.height + 20 * 3) : 100 * [FlexibleFrame ratios].height;
         return height;
     } else if (section == 6) {
-        return 150;
+        return 150*[FlexibleFrame ratios].height;
     } else {
-        return 40;
+        return 40*[FlexibleFrame ratios].height;
     }
 }
 
@@ -235,6 +238,8 @@
             cell = [[SwitchCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:switchID];
         }
         cell.textLabel.text = self.texts[section][indexPath.row];
+        cell.textLabel.font = MiddleFont;
+        cell.detailTextLabel.font = MiddleFont;
         return cell;
     }
     
@@ -244,6 +249,8 @@
     }
     cell.textLabel.text = self.texts[section][indexPath.row];
     cell.detailTextLabel.text = self.detailTexts[section][indexPath.row];
+    cell.textLabel.font = MiddleFont;
+    cell.detailTextLabel.font = MiddleFont;
     // 处理特殊格式
     if (section == 1 && indexPath.row == 0) {//配送时间
         NSMutableAttributedString * attrString = [[NSMutableAttributedString alloc] initWithString:cell.textLabel.text];
@@ -251,14 +258,13 @@
         cell.textLabel.attributedText = attrString;
     } else if (section == 4) {
         cell.detailTextLabel.textColor = [UIColor orangeColor];
-        cell.detailTextLabel.font = MiddleFont;
     }
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
 
-    return 20;
+    return 20*[FlexibleFrame ratios].height;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
@@ -272,6 +278,14 @@
         return self.headerView;
     }
     return nil;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"111");
+    if (indexPath.section == 0 && indexPath.row == 0) {
+        NSLog(@"agg");
+         [self.navigationController pushViewController:[[AddrAdminController alloc] init] animated:YES];
+    }
 }
 
 #pragma mark - 返回按钮点击
@@ -291,6 +305,11 @@
     } else {
         [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
     }
+}
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    
+    [self.view endEditing:YES];
 }
 
 @end

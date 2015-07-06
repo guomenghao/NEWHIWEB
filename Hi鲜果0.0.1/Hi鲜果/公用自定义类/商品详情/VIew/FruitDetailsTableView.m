@@ -63,7 +63,7 @@
     NSString *identifier = @"Cell";
     FruitDetailsCustomCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     if (!cell) {
-        cell = [[FruitDetailsCustomCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:identifier];
+        cell = [[FruitDetailsCustomCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:nil];
     }
     
     [GlobalMethod removeAllSubViews:cell.contentView];

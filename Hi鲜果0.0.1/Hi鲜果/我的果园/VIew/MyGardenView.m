@@ -163,7 +163,7 @@ static MyGardenView * gardenView;
     
     // 显示用户头像
     self.logoImageView.image = ImageWithName(@"user_button_normal.png");
-    
+    [self.loginButton setTitle:@"退出登录" forState:UIControlStateNormal];
     // 添加“退出登录”按钮
     self.logoutButton = ({
         CGFloat margin = 32 * [FlexibleFrame ratios].width;
@@ -189,7 +189,12 @@ static MyGardenView * gardenView;
     self.logoImageView.image = ImageWithName(@"logo_default.png");
     // 登录按钮
     self.loginButton = ({
-        UIButton * button = [[UIButton alloc] initWithiPhone5Frame:CGRectMake(130, 68, 80, 30)];
+        CGFloat margin = 32 * [FlexibleFrame ratios].width;
+        CGFloat width = 80 * [FlexibleFrame ratios].width;
+        CGFloat height = 30 * [FlexibleFrame ratios].height;
+        CGFloat x = self.tableView.bounds.size.width - margin - width;
+        CGFloat y = self.settingButton.frame.origin.y;
+        UIButton * button = [[UIButton alloc] initWithFrame:CGRectMake(x, y, width, height)];
         [button setTitle:@"登录" forState:UIControlStateNormal];
         [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [button addTarget:self action:@selector(loginButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
@@ -198,7 +203,7 @@ static MyGardenView * gardenView;
         button.layer.cornerRadius = button.bounds.size.width / 8;
         button;
     });
-    [self.headerView addSubview:self.loginButton];
+    [self addSubview:self.loginButton];
 }
 
 #pragma mark - <UITableViewDelegate/UITabelViewDataSource>
@@ -363,7 +368,8 @@ static MyGardenView * gardenView;
 {
     
     if (buttonIndex == 0 && [alertView.title isEqualToString:@"提示"]) {//确认退出登录
-        NSLog(@"即将注销的用户名为：%@", [User loginUser].username);
+//        NSLog(@"即将注销的用户名为：%@", [User loginUser].username);
+//        NSLog(@"ID：%@", [User loginUser].userid);
         [GlobalMethod serviceWithMothedName:Logout_Url
                                    parmeter:@{
                                               @"username":[User loginUser].username,

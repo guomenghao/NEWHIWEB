@@ -43,7 +43,7 @@
     forward.frame = CGRectMake(Screen_width * 0.55, 5, Screen_width * 0.4, 34);
     forward.backgroundColor = [UIColor orangeColor];
     forward.layer.cornerRadius = 17;
-    [forward setTitle:@"立即结账" forState:UIControlStateNormal];
+    [forward setTitle:@"立即结算" forState:UIControlStateNormal];
     forward.titleLabel.font = [UIFont boldSystemFontOfSize:Screen_height / 40];
     [forward addTarget:self action:@selector(forwardButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:forward];
@@ -52,16 +52,25 @@
 
 - (void)addShopCar:(UIButton *)sender
 {
+    // 判断登录状态
+    if ([User loginUser].isLogin == NO) {
+        
+        [[Framework controllers].fruitDetailVC.navigationController pushViewController:[[LoginController alloc] init] animated:YES];
+    }
     sender.enabled = NO;
     [self performSelector:@selector(openButtonEnable:) withObject:sender afterDelay:1.5];
     NSInteger number = (long)[GlobalControl myControl].numPicker.fruitsNum;
+    
     [GlobalMethod serviceWithMothedName:AddCar_Url
                                parmeter:@{
                                           @"classid":self.classInfo[@"classid"],
                                           @"id":self.classInfo[@"id"],
                                           @"pn":[NSString stringWithFormat:@"%ld", (long)number]}
                                 success:^(id responseObject) {
-                                [AutoDismissBox showBoxWithTitle:@"恭喜您" message:@"商品已成功加入购物车"];
+                                
+                                if ([User loginUser].isLogin == YES) {
+                                        [AutoDismissBox showBoxWithTitle:@"恭喜您" message:@"商品已成功加入购物车"];
+                                    }
                                 }
                                    fail:^(NSError *error) {
         
@@ -70,13 +79,13 @@
 }
 // 立即结算按钮点击事件
 - (void)forwardButtonPressed:(UIButton *)sender {
-    
     // 先读取购物车信息，再提交订单,如果购物车为空则提示不进入提交订单页面
     [GlobalMethod serviceWithMothedName:GetCar_Url parmeter:nil success:^(id responseObject) {
         if (![responseObject[@"data"] isKindOfClass:[NSNull class]]) {
             // 注意返回的总价和个数是NSNumber
             NSLog(@"购物车不为空，进入提交订单页面");
             [[Framework controllers].fruitDetailVC.navigationController pushViewController:[[SubmitOrderController alloc] init] animated:YES];
+            
         } else {
             NSLog(@"购物车为空,不进入提交订单页面");
             [AutoDismissBox showBoxWithTitle:@"温馨提示" message:@"购物车为空，赶紧选购吧~"];

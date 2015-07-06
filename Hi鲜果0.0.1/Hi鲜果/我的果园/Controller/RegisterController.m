@@ -12,6 +12,7 @@
 #define Margin 30*[FlexibleFrame ratios].height
 #define NUMBERS @"0123456789"
 #define TextFieldTagBase 110
+#define Tag_Base 500
 @interface RegisterController () <UITextFieldDelegate, UIAlertViewDelegate>
 /**手机号有效性*/
 @property (assign, nonatomic) BOOL phoneValide;
@@ -180,6 +181,7 @@
         [textField setReturnKeyType:UIReturnKeyDone];
         textField.leftView = pass2Icon;
         textField.leftViewMode = UITextFieldViewModeAlways;
+        textField.tag = Tag_Base;
         textField;
     });
     [self.view addSubview:repeatField];
@@ -377,7 +379,7 @@
             break;
         case 4://确认密码
         {
-            if (![textField.text isEqualToString:self.password]) {
+            if (![textField.text isEqualToString:self.password] && self.passwordValide) {
                 textField.text = @"";
                 self.passwordValide = NO;
                 [self showInvalideAnimationViewWithTips:@"两次输入的密码不一致，请重新输入"];
@@ -391,6 +393,24 @@
     }
     return YES;
 }
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
+    
+    if (textField.tag == Tag_Base && Screen_height == 480) {
+        [UIView animateWithDuration:0.25 animations:^{
+            self.view.center = CGPointMake(Screen_width / 2, Screen_height / 2 - 40);
+        }];
+    }
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+    if (textField.tag == Tag_Base && Screen_height == 480) {
+        [UIView animateWithDuration:0.25 animations:^{
+            self.view.center = CGPointMake(Screen_width / 2, Screen_height / 2);
+        }];
+    }
+}
+
 //输入不合法时弹出提示框
 - (void)showInvalideAnimationViewWithTips:(NSString *)tips {
     

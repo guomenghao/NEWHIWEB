@@ -188,8 +188,14 @@
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     
     if (buttonIndex == 0) {
-        
-        [self.navigationController popToRootViewControllerAnimated:YES];
+        if ([self.navigationController.viewControllers[self.navigationController.viewControllers.count - 2] isKindOfClass:[FruitDetailsController class]]) {
+            [self.navigationController popViewControllerAnimated:NO];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"LoginSuccessNotification" object:self];
+            return;
+        }
+        [self.navigationController popViewControllerAnimated:YES];
     }
 }
+
+
 @end

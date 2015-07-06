@@ -33,8 +33,4 @@ static NSString * switchID = @"switchCell";
     [self registerClass:[SwitchCell class] forCellReuseIdentifier:switchID];
 }
 
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    
-    [self endEditing:YES];
-}
 @end
