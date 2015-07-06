@@ -29,6 +29,7 @@
     UINavigationController *shoppingCart = [[UINavigationController alloc] initWithRootViewController:[[ShoppingCartController alloc] init]];
     [Framework controllers].rootViewController = tabBarController;
     tabBarController.viewControllers = @[homePage, category, shoppingCart];
+    tabBarController.delegate = self;
     [self.window setRootViewController:tabBarController];
     [self.window makeKeyAndVisible];
     
@@ -36,20 +37,6 @@
     
     // 短信验证码
     [SMS_SDK registerApp:@"87b657d7705c" withSecret:@"4b33ba53cc26c1dec823ab836cec5f93"];
-    //http://218.6.128.225:8088/e/api/getBuyCarList.php
-    //http://218.6.128.225:8088/e/api/addBuyCar.php?classid=3&id=2&pn=2
-//    [GlobalMethod serviceWithMothedName:@"/e/api/addBuyCar.php" parmeter:@{@"classid":@"3",@"id":@"2",@"pn":@"2"} success:^(id responseObject) {
-//        NSLog(@"%@", responseObject);
-//    } fail:^(NSError *error) {
-//        
-//    }];
-    
-//    [GlobalMethod serviceWithMothedName:@"/e/api/getBuyCarList.php" parmeter:nil success:^(id responseObject) {
-//        NSLog(@"%@", responseObject);
-//    } fail:^(NSError *error) {
-//        
-//    }];
-    
     return YES;
 }
 

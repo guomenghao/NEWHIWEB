@@ -128,6 +128,7 @@
                                    parmeter:@{@"username":self.accountField.text,
                                               @"password":self.passwordField.text}
                                     success:^(id responseObject) {
+                                        NSLog(@"%@", responseObject);
                                         [indicator stopAnimating];
                                         [indicator removeFromSuperview];
                                         NSString * msg = responseObject[@"err_msg"];
@@ -135,13 +136,8 @@
                                             // 验证成功
                                             // 修改loginUser的登录标记
                                             // 保存至单例
-//                                            NSDictionary * info = @{
-//                                                        @"username":responseObject[@"username"],
-//                                                        @"userid":responseObject[@"userid"],
-//                                                        @"nickname":@"昵称",
-//                                                        @"score":@"200"};
-                                            [User loginUser].isLogin = YES;
-//                                            [User loginUser].info = info;
+                                            [GlobalMethod getUserInfoSuccess:^(id responseObject) {
+                                            }];
                                         } else {
                                             [sender setEnabled:YES];
                                         }
@@ -192,8 +188,14 @@
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     
     if (buttonIndex == 0) {
-        
-        [self.navigationController popToRootViewControllerAnimated:YES];
+        if ([self.navigationController.viewControllers[self.navigationController.viewControllers.count - 2] isKindOfClass:[FruitDetailsController class]]) {
+            [self.navigationController popViewControllerAnimated:NO];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"LoginSuccessNotification" object:self];
+            return;
+        }
+        [self.navigationController popViewControllerAnimated:YES];
     }
 }
+
+
 @end

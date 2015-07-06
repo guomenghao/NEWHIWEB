@@ -79,8 +79,32 @@
 //        failBlock(error);
 //    }];
     
+}
+
+/**
+ *  刷新用户数据
+ */
++ (void)getUserInfoSuccess:(void (^)(id responseObject))succeedBlock
+{
+    AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] init];
+    
+    NSString *url = [Base_Url stringByAppendingPathComponent:GetUserInfo_Url];
     
     
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript", @"text/html", nil];
+    
+    [manager GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"%@", responseObject);
+        if ([responseObject[@"err_msg"] isEqual:@"success"]) {
+            [User loginUser].isLogin = YES;
+            [[User loginUser] getUserInfo:responseObject];
+            succeedBlock(responseObject);
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+        UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"服务器连接失败，请稍后再试" delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil];
+        [alert show];
+    }];
 }
 
 #pragma mark - 正则表达式验证

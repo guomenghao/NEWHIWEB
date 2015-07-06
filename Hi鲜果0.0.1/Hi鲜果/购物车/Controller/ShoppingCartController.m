@@ -26,6 +26,8 @@
 {
     self = [super init];
     if (self) {
+        UITabBarItem *item = [[UITabBarItem alloc] initWithTitle:@"购物车" image:ImageWithName(@"gouwu.png") tag:2];
+        [self setTabBarItem:item];
         self.title = @"购物车";
         self.automaticallyAdjustsScrollViewInsets = NO;
         [Framework controllers].shoppingCartVC = self;
@@ -62,10 +64,10 @@
     [_tableView reloadData];
 }
 
-- (CartToolBar *)toolBar {
+- (TotalPriceToolBar *)toolBar {
     
     if (_toolBar == nil) {
-        _toolBar = [[CartToolBar alloc] initWithFrame:CGRectMake(0, Screen_height - 48, Screen_width, 48)];
+        _toolBar = [[TotalPriceToolBar alloc] initWithFrame:CGRectMake(0, Screen_height - 48, Screen_width, 48) submitTitle:@"立即结算"];
     }
     return _toolBar;
 }

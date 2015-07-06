@@ -21,13 +21,14 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         
-        self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+//        self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         self.selectionStyle = UITableViewCellSelectionStyleGray;
         self.icon = [[UIImageView alloc] initWithiPhone5Frame:CGRectMake(32, 5, 32, 32)];
         //self.icon.backgroundColor = [UIColor orangeColor];
         [self.contentView addSubview:self.icon];
         
         self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(20 + CGRectGetMaxX(self.icon.frame), 16, 100, 15)];
+        self.titleLabel.textColor = [UIColor whiteColor];
         [self.titleLabel setFont:[UIFont systemFontOfSize:15 * [FlexibleFrame ratios].height]];
         [self.contentView addSubview:self.titleLabel];
     }

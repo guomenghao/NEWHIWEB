@@ -20,6 +20,8 @@
 #import "MyOrderController.h"
 #import "ShoppingCartController.h"
 #import "SubmitOrderController.h"
+#import "AddrAdminController.h"
+#import "FruitDetailsController.h"
 @interface Framework : NSObject
 /**主页*/
 @property (nonatomic, weak) HomePageController * homePageVC;
@@ -45,6 +47,10 @@
 @property (nonatomic, weak) UIWindow * window;
 /**品类详情*/
 @property (nonatomic, weak) CategoryDetailsController * CategoryDetailsVC;
+/**地址管理*/
+@property (nonatomic, weak) AddrAdminController * addrAdminVC;
+/**商品详情*/
+@property (nonatomic, weak) FruitDetailsController * fruitDetailVC;
 /**单例初始化*/
 + (Framework *)controllers;
 @property (nonatomic, weak) UITabBarController * rootViewController;

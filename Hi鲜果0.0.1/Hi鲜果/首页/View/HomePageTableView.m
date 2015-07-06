@@ -45,7 +45,7 @@
         return Screen_height * 0.27;
     }
     if (indexPath.row == 1) {
-        return Screen_height * 0.25;
+        return Screen_height * 0.25 + 5;
     }
     if (indexPath.row == 2 || indexPath.row == 4) {
         return Screen_height / 25;
@@ -65,7 +65,8 @@
     if (!cell) {
         cell = [[HomePageCustomCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:identifier];
     }
-    
+    cell.textLabel.text = @"";
+    cell.textLabel.textColor = [UIColor orangeColor];
     [GlobalMethod removeAllSubViews:cell.contentView];
     if (indexPath.row == 0) {
         [cell getCarouselCell];
@@ -73,14 +74,17 @@
     if (indexPath.row == 1) {
         [cell getButtonViewCell];
     }
-    if (indexPath.row == 2) {
-        [cell getBoutiquetitle];
-    }
-    if (indexPath.row == 4) {
-        [cell getTodaytitle];
+    if (indexPath.row == 3) {
+//        [cell getBoutiquetitle];
     }
     if (indexPath.row > 4) {
 //        [cell getTodaytitle];
+    }
+    if (indexPath.row == 4) {
+        cell.textLabel.text = @"今日推荐";
+    }
+    if (indexPath.row == 2) {
+        cell.textLabel.text = @"精品推荐";
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
@@ -98,12 +102,14 @@
  *  cell将要出现的动画
  */
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-    //修改cell位移变换矩阵
-    cell.transform = CGAffineTransformMakeTranslation(-100, -110);
-    [UIView animateWithDuration:1 animations:^{
-        //将cell的变换矩阵置为最初状态
-        cell.transform = CGAffineTransformIdentity;
-    }];
+    if (indexPath.row > 4) {
+        //修改cell位移变换矩阵
+        cell.transform = CGAffineTransformMakeTranslation(-100, -110);
+        [UIView animateWithDuration:1 animations:^{
+            //将cell的变换矩阵置为最初状态
+            cell.transform = CGAffineTransformIdentity;
+        }];
+    }
 }
 
 @end

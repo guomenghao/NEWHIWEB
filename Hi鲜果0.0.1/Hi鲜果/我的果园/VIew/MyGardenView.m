@@ -82,10 +82,10 @@ static MyGardenView * gardenView;
                                       @"待评价",
                                       @"我的关注",
                                       @"我的试吃"],
-                        @"imageNames" : @[@"bill_normal.png",
-                                          @"bill_normal.png",
-                                          @"bill_normal.png",
-                                          @"bill_normal.png"]};
+                        @"imageNames" : @[@"dingdan.png",
+                                          @"pinjia.png",
+                                          @"guanzhu.png",
+                                          @"shichi.png"]};
 }
 
 - (void)initializeUserInterface {
@@ -111,7 +111,7 @@ static MyGardenView * gardenView;
 
     // 头像
     self.logoImageView = ({
-        UIImageView * imageView = [[UIImageView alloc] initWithiPhone5Frame:CGRectMake(20, 48, 70, 70)];
+        UIImageView * imageView = [[UIImageView alloc] initWithiPhone5Frame:CGRectMake(20, 48, 90, 90)];
         imageView.contentMode = UIViewContentModeScaleAspectFill;
         imageView.clipsToBounds = YES;
         imageView.layer.cornerRadius = imageView.bounds.size.width / 2;
@@ -137,9 +137,9 @@ static MyGardenView * gardenView;
     self.settingButton = ({
         UIButton * button = [[UIButton alloc] initWithFrame:CGRectMake(32 * [FlexibleFrame ratios].width, CGRectGetMaxY(self.tableView.frame) + 30 * [FlexibleFrame ratios].height, 80 * [FlexibleFrame ratios].width, 30 * [FlexibleFrame ratios].height)];
         [button setTitle:@"设置" forState:UIControlStateNormal];
-        [button setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
         [button addTarget:self action:@selector(settingButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
         [button.titleLabel setFont:[UIFont systemFontOfSize:15 * [FlexibleFrame ratios].height]];
+        [button setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
         button.backgroundColor = [UIColor whiteColor];
         button.layer.cornerRadius = button.bounds.size.width / 8;
         button;
@@ -162,7 +162,8 @@ static MyGardenView * gardenView;
 - (void)showLoginUserInterface {
     
     // 显示用户头像
-    self.logoImageView.image = ImageWithName(@"user_button_normal.png");
+    NSString *headImage = [NSString stringWithFormat:@"T%@.png", [User loginUser].headId];
+    self.logoImageView.image = ImageWithName(headImage);
     
     // 添加“退出登录”按钮
     self.logoutButton = ({
@@ -173,10 +174,10 @@ static MyGardenView * gardenView;
         CGFloat y = self.settingButton.frame.origin.y;
         UIButton * button = [[UIButton alloc] initWithFrame:CGRectMake(x, y, width, height)];
         [button setTitle:@"退出登录" forState:UIControlStateNormal];
-        [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [button addTarget:self action:@selector(logoutButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
         [button.titleLabel setFont:[UIFont systemFontOfSize:15 * [FlexibleFrame ratios].height]];
-        button.backgroundColor = BtnBkColor;
+        [button setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
+        button.backgroundColor = [UIColor whiteColor];
         button.layer.cornerRadius = button.bounds.size.width / 8;
         button;
     });
@@ -186,19 +187,24 @@ static MyGardenView * gardenView;
 - (void)showlogoutUserInterface {
     
     // 显示默认头像
-    self.logoImageView.image = ImageWithName(@"logo_default.png");
+    self.logoImageView.image = ImageWithName(@"");
     // 登录按钮
     self.loginButton = ({
-        UIButton * button = [[UIButton alloc] initWithiPhone5Frame:CGRectMake(130, 68, 80, 30)];
+        CGFloat margin = 32 * [FlexibleFrame ratios].width;
+        CGFloat width = 80 * [FlexibleFrame ratios].width;
+        CGFloat height = 30 * [FlexibleFrame ratios].height;
+        CGFloat x = self.tableView.bounds.size.width - margin - width;
+        CGFloat y = self.settingButton.frame.origin.y;
+        UIButton * button = [[UIButton alloc] initWithFrame:CGRectMake(x, y, width, height)];
         [button setTitle:@"登录" forState:UIControlStateNormal];
-        [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [button addTarget:self action:@selector(loginButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
         [button.titleLabel setFont:[UIFont systemFontOfSize:15 * [FlexibleFrame ratios].height]];
-        button.backgroundColor = BtnBkColor;
+        [button setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
+        button.backgroundColor = [UIColor whiteColor];
         button.layer.cornerRadius = button.bounds.size.width / 8;
         button;
     });
-    [self.headerView addSubview:self.loginButton];
+    [self addSubview:self.loginButton];
 }
 
 #pragma mark - <UITableViewDelegate/UITabelViewDataSource>
@@ -363,7 +369,8 @@ static MyGardenView * gardenView;
 {
     
     if (buttonIndex == 0 && [alertView.title isEqualToString:@"提示"]) {//确认退出登录
-        NSLog(@"即将注销的用户名为：%@", [User loginUser].username);
+//        NSLog(@"即将注销的用户名为：%@", [User loginUser].username);
+//        NSLog(@"ID：%@", [User loginUser].userid);
         [GlobalMethod serviceWithMothedName:Logout_Url
                                    parmeter:@{
                                               @"username":[User loginUser].username,

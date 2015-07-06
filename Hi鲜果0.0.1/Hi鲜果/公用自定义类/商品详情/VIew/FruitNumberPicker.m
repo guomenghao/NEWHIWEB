@@ -106,7 +106,7 @@
     [GlobalMethod serviceWithMothedName:GetCar_Url parmeter:nil success:^(id responseObject) {
         if (![responseObject[@"data"] isKindOfClass:[NSNull class]]) {
             // 注意返回的总价和个数是NSNumber
-            NSLog(@"购物车总价为：%@", responseObject[@"totalmoney"]);
+            NSLog(@"购物车总价为：%@", responseObject);
             // 更新购物车的总价
             [Framework controllers].shoppingCartVC.toolBar.totalPrice = [responseObject[@"totalmoney"] integerValue];
         } else {

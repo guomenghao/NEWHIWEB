@@ -20,7 +20,9 @@
 {
     self = [super init];
     if (self) {
-        self.title = @"品类";
+        UITabBarItem *item = [[UITabBarItem alloc] initWithTitle:@"果类" image:ImageWithName(@"fenlei.png") tag:1];
+        [self setTabBarItem:item];
+        self.title = @"果类";
         self.controllerType = UIViewControllerHaveNavigation;
         [Framework controllers].categoryVC = self;
     }
