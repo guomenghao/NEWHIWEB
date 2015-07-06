@@ -1488,6 +1488,7 @@
 				24BE14621B46A1D7007F7797 /* T5@2x.png in Resources */,
 				24BE14341B46A1D7007F7797 /* fenxiang_0.png in Resources */,
 				0919BF691B4A15B9007BFB99 /* chongzhiyouli.png in Resources */,
+				388FC5D91B47D5CC00291675 /* open.png in Resources */,
 				24BE145A1B46A1D7007F7797 /* T1@2x.png in Resources */,
 				24BE142E1B46A1D7007F7797 /* apple.png in Resources */,
 				24BE14671B46A1D7007F7797 /* T8.png in Resources */,
