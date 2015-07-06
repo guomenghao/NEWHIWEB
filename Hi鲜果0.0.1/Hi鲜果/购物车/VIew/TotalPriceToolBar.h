@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CartToolBar : UIView
+@interface TotalPriceToolBar : UIView
 @property (assign, nonatomic) NSInteger totalPrice;
+- (instancetype)initWithFrame:(CGRect)frame submitTitle:(NSString *)title;
 @end

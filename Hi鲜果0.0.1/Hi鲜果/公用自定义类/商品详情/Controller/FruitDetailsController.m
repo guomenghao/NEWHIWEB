@@ -46,6 +46,7 @@
     self = [super init];
     if (self) {
         self.controllerType = UIViewControllerNotNavigation;
+        [Framework controllers].fruitDetailVC = self;
     }
     return self;
 }
@@ -89,7 +90,6 @@
     }];
 }
 
-
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
@@ -110,6 +110,13 @@
 - (void)backView:(UIButton *)sender
 {
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:NO];
+//    [self.tabBarController.tabBar setHidden:NO];
 }
 
 @end

@@ -110,6 +110,7 @@
 		249956341B43F5BE0075B78A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 249956331B43F5BE0075B78A /* libz.dylib */; };
 		249956361B43F5C70075B78A /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 249956351B43F5C70075B78A /* MessageUI.framework */; };
 		249956381B43F5D20075B78A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 249956371B43F5D20075B78A /* SystemConfiguration.framework */; };
+		24B755A91B4A26A6009D1378 /* SwitchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24B755A81B4A26A6009D1378 /* SwitchCell.m */; };
 		24BE142B1B46A1D7007F7797 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 24BE13E31B46A1D7007F7797 /* 1.png */; };
 		24BE142C1B46A1D7007F7797 /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 24BE13E41B46A1D7007F7797 /* 2.png */; };
 		24BE142D1B46A1D7007F7797 /* 3.png in Resources */ = {isa = PBXBuildFile; fileRef = 24BE13E51B46A1D7007F7797 /* 3.png */; };
@@ -183,13 +184,17 @@
 		24BE14711B46A1D7007F7797 /* V5.png in Resources */ = {isa = PBXBuildFile; fileRef = 24BE14291B46A1D7007F7797 /* V5.png */; };
 		24BE14721B46A1D7007F7797 /* wodedingdan.png in Resources */ = {isa = PBXBuildFile; fileRef = 24BE142A1B46A1D7007F7797 /* wodedingdan.png */; };
 		24BE14741B46A32C007F7797 /* cart-nodata.png in Resources */ = {isa = PBXBuildFile; fileRef = 24BE14731B46A32C007F7797 /* cart-nodata.png */; };
-		24C8CFF71B461D31002F4042 /* CartToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 24C8CFF61B461D31002F4042 /* CartToolBar.m */; };
+		24C8CFF71B461D31002F4042 /* TotalPriceToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 24C8CFF61B461D31002F4042 /* TotalPriceToolBar.m */; };
 		24C8CFFA1B463236002F4042 /* NoDataView.m in Sources */ = {isa = PBXBuildFile; fileRef = 24C8CFF91B463236002F4042 /* NoDataView.m */; };
 		24C8D0001B463955002F4042 /* AutoDismissBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 24C8CFFF1B463955002F4042 /* AutoDismissBox.m */; };
 		24C8D00A1B465E29002F4042 /* SubmitOrderController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24C8D0071B465E29002F4042 /* SubmitOrderController.m */; };
 		24C8D00D1B465FAC002F4042 /* SubmitOrderTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 24C8D00C1B465FAC002F4042 /* SubmitOrderTableView.m */; };
 		388C74801B3EE7830078AE32 /* FlexibleFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 388C747D1B3EE7830078AE32 /* FlexibleFrame.m */; };
 		388C74811B3EE7830078AE32 /* UIView+Flexible.m in Sources */ = {isa = PBXBuildFile; fileRef = 388C747F1B3EE7830078AE32 /* UIView+Flexible.m */; };
+		388FC5D51B47B6A600291675 /* OpenHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 388FC5D41B47B6A600291675 /* OpenHeaderView.m */; };
+		388FC5D81B47D5CC00291675 /* open@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 388FC5D61B47D5CC00291675 /* open@2x.png */; };
+		388FC5D91B47D5CC00291675 /* open.png in Resources */ = {isa = PBXBuildFile; fileRef = 388FC5D71B47D5CC00291675 /* open.png */; };
+		388FC5DC1B48EF6000291675 /* OpenSectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 388FC5DB1B48EF6000291675 /* OpenSectionCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -406,6 +411,8 @@
 		249956331B43F5BE0075B78A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		249956351B43F5C70075B78A /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		249956371B43F5D20075B78A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		24B755A71B4A26A6009D1378 /* SwitchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwitchCell.h; sourceTree = "<group>"; };
+		24B755A81B4A26A6009D1378 /* SwitchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwitchCell.m; sourceTree = "<group>"; };
 		24BE13E31B46A1D7007F7797 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
 		24BE13E41B46A1D7007F7797 /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.png; sourceTree = "<group>"; };
 		24BE13E51B46A1D7007F7797 /* 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3.png; sourceTree = "<group>"; };
@@ -479,8 +486,8 @@
 		24BE14291B46A1D7007F7797 /* V5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = V5.png; sourceTree = "<group>"; };
 		24BE142A1B46A1D7007F7797 /* wodedingdan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wodedingdan.png; sourceTree = "<group>"; };
 		24BE14731B46A32C007F7797 /* cart-nodata.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cart-nodata.png"; sourceTree = "<group>"; };
-		24C8CFF51B461D31002F4042 /* CartToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CartToolBar.h; sourceTree = "<group>"; };
-		24C8CFF61B461D31002F4042 /* CartToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CartToolBar.m; sourceTree = "<group>"; };
+		24C8CFF51B461D31002F4042 /* TotalPriceToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TotalPriceToolBar.h; sourceTree = "<group>"; };
+		24C8CFF61B461D31002F4042 /* TotalPriceToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TotalPriceToolBar.m; sourceTree = "<group>"; };
 		24C8CFF81B463236002F4042 /* NoDataView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoDataView.h; sourceTree = "<group>"; };
 		24C8CFF91B463236002F4042 /* NoDataView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoDataView.m; sourceTree = "<group>"; };
 		24C8CFFE1B463955002F4042 /* AutoDismissBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutoDismissBox.h; sourceTree = "<group>"; };
@@ -493,6 +500,12 @@
 		388C747D1B3EE7830078AE32 /* FlexibleFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlexibleFrame.m; sourceTree = "<group>"; };
 		388C747E1B3EE7830078AE32 /* UIView+Flexible.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Flexible.h"; sourceTree = "<group>"; };
 		388C747F1B3EE7830078AE32 /* UIView+Flexible.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Flexible.m"; sourceTree = "<group>"; };
+		388FC5D31B47B6A600291675 /* OpenHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenHeaderView.h; sourceTree = "<group>"; };
+		388FC5D41B47B6A600291675 /* OpenHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenHeaderView.m; sourceTree = "<group>"; };
+		388FC5D61B47D5CC00291675 /* open@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "open@2x.png"; sourceTree = "<group>"; };
+		388FC5D71B47D5CC00291675 /* open.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = open.png; sourceTree = "<group>"; };
+		388FC5DA1B48EF6000291675 /* OpenSectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenSectionCell.h; sourceTree = "<group>"; };
+		388FC5DB1B48EF6000291675 /* OpenSectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenSectionCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -839,8 +852,8 @@
 				097A0EE81B42251900E860B9 /* CartCell.m */,
 				2456A2861B4298CC00F49906 /* CartTableView.h */,
 				2456A2871B4298CC00F49906 /* CartTableView.m */,
-				24C8CFF51B461D31002F4042 /* CartToolBar.h */,
-				24C8CFF61B461D31002F4042 /* CartToolBar.m */,
+				24C8CFF51B461D31002F4042 /* TotalPriceToolBar.h */,
+				24C8CFF61B461D31002F4042 /* TotalPriceToolBar.m */,
 				24C8CFF81B463236002F4042 /* NoDataView.h */,
 				24C8CFF91B463236002F4042 /* NoDataView.m */,
 			);
@@ -1229,6 +1242,8 @@
 				24BE14731B46A32C007F7797 /* cart-nodata.png */,
 				24BE140F1B46A1D7007F7797 /* star_1.png */,
 				24BE14101B46A1D7007F7797 /* star_2.png */,
+				388FC5D61B47D5CC00291675 /* open@2x.png */,
+				388FC5D71B47D5CC00291675 /* open.png */,
 				24BE14111B46A1D7007F7797 /* T1.png */,
 				24BE14121B46A1D7007F7797 /* T1@2x.png */,
 				24BE14131B46A1D7007F7797 /* T2.png */,
@@ -1299,6 +1314,12 @@
 			children = (
 				24C8D00B1B465FAC002F4042 /* SubmitOrderTableView.h */,
 				24C8D00C1B465FAC002F4042 /* SubmitOrderTableView.m */,
+				388FC5D31B47B6A600291675 /* OpenHeaderView.h */,
+				388FC5D41B47B6A600291675 /* OpenHeaderView.m */,
+				388FC5DA1B48EF6000291675 /* OpenSectionCell.h */,
+				388FC5DB1B48EF6000291675 /* OpenSectionCell.m */,
+				24B755A71B4A26A6009D1378 /* SwitchCell.h */,
+				24B755A81B4A26A6009D1378 /* SwitchCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1457,6 +1478,7 @@
 				24BE14611B46A1D7007F7797 /* T5.png in Resources */,
 				24BE14621B46A1D7007F7797 /* T5@2x.png in Resources */,
 				24BE14341B46A1D7007F7797 /* fenxiang_0.png in Resources */,
+				388FC5D91B47D5CC00291675 /* open.png in Resources */,
 				24BE145A1B46A1D7007F7797 /* T1@2x.png in Resources */,
 				24BE142E1B46A1D7007F7797 /* apple.png in Resources */,
 				24BE14671B46A1D7007F7797 /* T8.png in Resources */,
@@ -1464,6 +1486,7 @@
 				24BE143F1B46A1D7007F7797 /* icon-password2.png in Resources */,
 				24BE14471B46A1D7007F7797 /* icon-verify-wrong@2x.png in Resources */,
 				24BE14631B46A1D7007F7797 /* T6.png in Resources */,
+				388FC5D81B47D5CC00291675 /* open@2x.png in Resources */,
 				24BE14401B46A1D7007F7797 /* icon-password2@2x.png in Resources */,
 				24BE14301B46A1D7007F7797 /* bill_normal.png in Resources */,
 				24BE14311B46A1D7007F7797 /* bill_normal@2x.png in Resources */,
@@ -1511,12 +1534,13 @@
 				2456A2831B427C5000F49906 /* Fruit.m in Sources */,
 				097A0E791B414B5D00E860B9 /* AFURLSessionManager.m in Sources */,
 				097A0ED41B41502B00E860B9 /* CategoryModel.m in Sources */,
-				24C8CFF71B461D31002F4042 /* CartToolBar.m in Sources */,
+				24C8CFF71B461D31002F4042 /* TotalPriceToolBar.m in Sources */,
 				092AA7781B3B918D00B88F23 /* main.m in Sources */,
 				097A0EC91B414B7600E860B9 /* SDWebImageDownloaderOperation.m in Sources */,
 				097FEE1A1B46507A00473EF5 /* ChangeHeadImage.m in Sources */,
 				097A823B1B3BD70600D59370 /* CategoryController.m in Sources */,
 				096F9C5E1B3D2798007CE994 /* FruitDetailsTableView.m in Sources */,
+				388FC5D51B47B6A600291675 /* OpenHeaderView.m in Sources */,
 				096F9C611B3D2CAB007CE994 /* ShopToolbar.m in Sources */,
 				097A81FF1B3BD04A00D59370 /* HomePageController.m in Sources */,
 				388C74801B3EE7830078AE32 /* FlexibleFrame.m in Sources */,
@@ -1569,12 +1593,14 @@
 				09FFE2C21B41230B007066C3 /* CategoryDetailsController.m in Sources */,
 				097A0EFF1B42251900E860B9 /* SettingController.m in Sources */,
 				097A0EC81B414B7600E860B9 /* SDWebImageDownloader.m in Sources */,
+				388FC5DC1B48EF6000291675 /* OpenSectionCell.m in Sources */,
 				09FFE2971B40CD1A007066C3 /* FruitCategoryTableView.m in Sources */,
 				24C8D0001B463955002F4042 /* AutoDismissBox.m in Sources */,
 				097A0EFD1B42251900E860B9 /* CartCell.m in Sources */,
 				097A0EC51B414B7600E860B9 /* SDImageCache.m in Sources */,
 				09FFE2D21B413753007066C3 /* CategoryDetailsCell.m in Sources */,
 				24C8D00D1B465FAC002F4042 /* SubmitOrderTableView.m in Sources */,
+				24B755A91B4A26A6009D1378 /* SwitchCell.m in Sources */,
 				096DA8551B3E2E9600925F62 /* EvaluateView.m in Sources */,
 				097A0EC41B414B7600E860B9 /* NSData+ImageContentType.m in Sources */,
 				097A0E771B414B5D00E860B9 /* AFURLRequestSerialization.m in Sources */,

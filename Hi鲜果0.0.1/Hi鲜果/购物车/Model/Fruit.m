@@ -44,12 +44,12 @@
 
 - (NSString *)originalPrice {
     
-    return _info[@"price"];
+    return _info[@"tprice"];
 }
 
 - (NSString *)discountPrice {
     
-    return _info[@"tprice"];
+    return _info[@"price"];
 }
 
 - (NSNumber *)number {

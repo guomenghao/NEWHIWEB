@@ -16,7 +16,16 @@
 @end
 
 @implementation BasicViewController
-
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        // 修改返回按钮
+        UIBarButtonItem * backItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
+        self.navigationItem.backBarButtonItem = backItem;
+    }
+    return self;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navShadowImage = self.navigationController.navigationBar.shadowImage;
@@ -57,7 +66,10 @@
     self.navigationController.navigationBar.shadowImage = self.navShadowImage;
     self.navigationController.navigationBar.hidden = NO;
     self.navigationController.navigationBar.barStyle = UIBarStyleDefault;
-    self.navigationController.navigationBar.tintColor = [UIColor blueColor];
+    // 修改导航栏颜色
+    self.navigationController.navigationBar.barTintColor = [UIColor orangeColor];
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
     [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
     self.navigationController.tabBarController.tabBar.hidden = NO;
 }

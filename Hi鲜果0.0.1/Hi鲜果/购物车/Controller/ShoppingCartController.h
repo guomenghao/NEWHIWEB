@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "CartToolBar.h"
+#import "TotalPriceToolBar.h"
 @interface ShoppingCartController : BasicViewController
-@property (strong, nonatomic) CartToolBar * toolBar;
+@property (strong, nonatomic) TotalPriceToolBar * toolBar;
 @end
