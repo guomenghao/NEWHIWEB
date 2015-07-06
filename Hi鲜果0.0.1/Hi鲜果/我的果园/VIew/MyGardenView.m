@@ -162,8 +162,9 @@ static MyGardenView * gardenView;
 - (void)showLoginUserInterface {
     
     // 显示用户头像
-    self.logoImageView.image = ImageWithName(@"user_button_normal.png");
-    [self.loginButton setTitle:@"退出登录" forState:UIControlStateNormal];
+    NSString *headImage = [NSString stringWithFormat:@"T%@.png", [User loginUser].headId];
+    self.logoImageView.image = ImageWithName(headImage);
+    
     // 添加“退出登录”按钮
     self.logoutButton = ({
         CGFloat margin = 32 * [FlexibleFrame ratios].width;

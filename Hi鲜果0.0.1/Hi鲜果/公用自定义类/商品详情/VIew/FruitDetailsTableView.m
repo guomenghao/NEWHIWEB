@@ -60,12 +60,7 @@
  */
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *identifier = @"Cell";
-    FruitDetailsCustomCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
-    if (!cell) {
-        cell = [[FruitDetailsCustomCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:nil];
-    }
-    
+    FruitDetailsCustomCell *cell = [[FruitDetailsCustomCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:nil];
     [GlobalMethod removeAllSubViews:cell.contentView];
     
     if (indexPath.row == 0) {
