@@ -24,7 +24,8 @@
     self = [super init];
     if (self) {
         [Framework controllers].homePageVC = self;
-        self.title = @"首页";
+        UITabBarItem *item = [[UITabBarItem alloc] initWithTitle:@"首页" image:ImageWithName(@"shouye.png") tag:0];
+        [self setTabBarItem:item];
         self.controllerType = UIViewControllerHaveNavigation;
     }
     return self;
@@ -47,13 +48,13 @@
     UIBarButtonItem *myGarden = [[UIBarButtonItem alloc] initWithImage:ImageWithName(@"user_button_normal.png") style:UIBarButtonItemStylePlain target:self action:@selector(myGardenPressed:)];
     self.navigationItem.leftBarButtonItem = myGarden;
     
-    UIBarButtonItem *service = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:nil];
+    UIBarButtonItem *service = [[UIBarButtonItem alloc] initWithImage:ImageWithName(@"kefu.png") style:UIBarButtonItemStylePlain target:self action:nil];
     self.navigationItem.rightBarButtonItem = service;
     
     /**
      *  搜索框
      */
-    SearchBox *searchBox = [[SearchBox alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds) * 0.66, 22)];
+    SearchBox *searchBox = [[SearchBox alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds) * 0.66, 28)];
     searchBox.center = CGPointMake(CGRectGetWidth(self.view.bounds) / 2, 44);//修改mark：22->44
     self.navigationItem.titleView = searchBox;//修改mark
     

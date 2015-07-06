@@ -28,7 +28,7 @@
 - (UIBarButtonItem *)backItem
 {
     if (_backItem == nil) {
-        _backItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:self action:@selector(backSearch)];
+        _backItem = [[UIBarButtonItem alloc] initWithImage:ImageWithName(@"fanhui.png") style:UIBarButtonItemStylePlain target:self action:@selector(backSearch)];
     }
     return _backItem;
 }
@@ -44,7 +44,7 @@
 - (UIBarButtonItem *)cancelItem
 {
     if (_cancelItem == nil) {
-        _cancelItem = [[UIBarButtonItem alloc] initWithTitle:@"取消" style:UIBarButtonItemStylePlain target:self action:@selector(backHomePage)];
+        _cancelItem = [[UIBarButtonItem alloc] initWithImage:ImageWithName(@"tuichu.png") style:UIBarButtonItemStylePlain target:self action:@selector(backHomePage)];
     }
     return _cancelItem;
 }
@@ -198,6 +198,7 @@
     if ([self.dataSource count] > 0) {
         if (indexPath.row < [self.dataSource count]) {
             cell.textLabel.text = _dataSource[indexPath.row];
+            cell.textLabel.textColor = [UIColor orangeColor];
             [cell getSearchCell];
         }
         if (indexPath.row == [self.dataSource count]) {

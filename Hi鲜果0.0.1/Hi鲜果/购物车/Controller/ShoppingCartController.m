@@ -26,6 +26,8 @@
 {
     self = [super init];
     if (self) {
+        UITabBarItem *item = [[UITabBarItem alloc] initWithTitle:@"购物车" image:ImageWithName(@"gouwu.png") tag:2];
+        [self setTabBarItem:item];
         self.title = @"购物车";
         self.automaticallyAdjustsScrollViewInsets = NO;
         [Framework controllers].shoppingCartVC = self;

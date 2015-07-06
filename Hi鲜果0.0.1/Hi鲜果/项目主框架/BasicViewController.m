@@ -28,6 +28,7 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.tabBarController.tabBar.tintColor = [UIColor orangeColor];
     self.navShadowImage = self.navigationController.navigationBar.shadowImage;
     if (self.controllerType == UIViewControllerHaveNavigation) {
         self.view.frame = CGRectMake(0, 64, CGRectGetWidth([UIScreen mainScreen].bounds), CGRectGetHeight(Screen_bounds) - 110);

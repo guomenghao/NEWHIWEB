@@ -19,9 +19,9 @@
         self.layer.cornerRadius = 4;
         [self setTitle:@"搜索鲜果" forState:UIControlStateNormal];
         [self setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
-        self.titleLabel.font = [UIFont systemFontOfSize:14];
+        self.titleLabel.font = FontWithWidth(27);
         [self addTarget:self action:@selector(searchFruit:) forControlEvents:UIControlEventTouchUpInside];
-        UIImageView *searcImage = [[UIImageView alloc] initWithFrame:CGRectMake(CGRectGetMidX(self.bounds) - 50, 1, 20, 20)];
+        UIImageView *searcImage = [[UIImageView alloc] initWithFrame:CGRectMake(CGRectGetWidth(self.bounds) / 3 - 20, CGRectGetMidY(self.bounds) - 10, 20, 20)];
         searcImage.image = ImageWithName(@"search_menu.png");
         [self addSubview:searcImage];
         
