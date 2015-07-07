@@ -7,7 +7,7 @@
 //
 
 #import "AddrInfoController.h"
-
+#import "AddrSelectController.h"
 @interface AddrInfoController ()<UITextFieldDelegate,UIAlertViewDelegate> {
     BOOL _isChange;
 }
@@ -286,33 +286,16 @@
 - (void)defaultAddr {
     
     [self.view endEditing:YES];
-    if ([GlobalMethod validateMobile:self.phone.text] && self.name.text.length > 0 && self.addr.text.length > 0) {
-        NSMutableDictionary *data = [@{@"truename" : self.name.text,
-                                       @"phone" : self.phone.text,
-                                       @"addressname" : self.addr.text,
-                                       @"userid" : [User loginUser].userid,
-                                       @"isdefault" : @"0"} mutableCopy];
-        /**
-         *  不同的方式保存到临时信息
-         */
-        if (self.isAmend) {
-            [data setObject:self.data[@"addressid"] forKey:@"addressid"];
-            [User loginUser].tempAddrs[self.index] = data;
-            [GlobalMethod serviceWithMothedName:EditAddress_Url parmeter:data success:^(id responseObject) {
-                if ([responseObject[@"err_msg"] isEqual:@"success"]) {
-                    NSLog(@"编辑地址成功，返回：%@", responseObject);
-                    [GlobalMethod getUserInfoSuccess:^(id responseObject) {
-
-                    }];
-                }
-            } fail:^(NSError *error) {
-                
-            }];
-        }
-    } else {
-        UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"请输入正确的电话号码，且姓名地址不能为空" delegate:nil cancelButtonTitle:@"我知道了" otherButtonTitles:nil];
-        [self.view endEditing:YES];
-        [alert show];
+    if (self.isAmend) {
+        [GlobalMethod serviceWithMothedName:DefaultAddress_Url parmeter:@{@"addressid":self.data[@"addressid"]} success:^(id responseObject) {
+            if ([responseObject[@"err_msg"] isEqual:@"success"]) {
+                NSLog(@"设为默认地址成功，返回：%@", responseObject);
+                [GlobalMethod getUserInfoSuccess:^(id responseObject) {
+                    [self reloadAddrs];
+                    [self popBack];
+                }];
+            }
+        } fail:^(NSError *error) {}];
     }
 }
 

@@ -45,4 +45,7 @@
 
 /**单例便利构造，返回当前已登录用户，在登录成功后第一次创建对象*/
 + (User *)loginUser;
+
+/**获取已登录用户的默认收货地址*/
+- (NSDictionary *)getDefaultAddress;
 @end

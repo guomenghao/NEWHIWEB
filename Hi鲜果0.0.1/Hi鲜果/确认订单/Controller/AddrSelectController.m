@@ -21,12 +21,16 @@
     self = [super init];
     if (self) {
         self.title = @"地址选择";
+        [Framework controllers].addrSelectVC = self;
     }
     return self;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    if (self.tableView != nil) {
+        [self.tableView reloadData];
+    }
     self.navigationController.tabBarController.tabBar.hidden = YES;
 }
 
@@ -54,6 +58,7 @@
         _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, Screen_width, Screen_height - 64) style:UITableViewStylePlain];
         _tableView.delegate = self;
         _tableView.dataSource = self;
+        _tableView.tableFooterView = [[UIView alloc] init];
     }
     return _tableView;
 }
@@ -61,7 +66,10 @@
 #pragma mark - <UITableViewDelegate/UITableViewDataSource>
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return [User loginUser].userAddressList.count;
+    if (![[User loginUser].userAddressList isKindOfClass:[NSNull class]]) {
+        return [User loginUser].userAddressList.count;
+    }
+    return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -70,22 +78,32 @@
     if (!cell) {
         cell = [[AddrSelectCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
     }
-    [cell setCellInfo:[User loginUser].userAddressList[indexPath.row]];
+    if (![[User loginUser].userAddressList isKindOfClass:[NSNull class]]) {
+        [cell setCellInfo:[User loginUser].userAddressList[indexPath.row]];
+    }
+    cell.accessoryType = UITableViewCellAccessoryNone;
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    NSDictionary * info = [User loginUser].userAddressList[indexPath.row];
-    NSString * addr = info[@"addressname"];
-    CGSize size = [GlobalMethod sizeWithString:addr font:MiddleFont maxWidth:280 *[FlexibleFrame ratios].width maxHeight:40 * [FlexibleFrame ratios].height];
-    CGFloat height = 20 + 40*[FlexibleFrame ratios].height + size.height;
-    return height;
+    if (![[User loginUser].userAddressList isKindOfClass:[NSNull class]]) {
+        NSDictionary * info = [User loginUser].userAddressList[indexPath.row];
+        NSString * addr = info[@"addressname"];
+        CGSize size = [GlobalMethod sizeWithString:addr font:MiddleFont maxWidth:280 *[FlexibleFrame ratios].width maxHeight:40 * [FlexibleFrame ratios].height];
+        CGFloat height = 20 + 40*[FlexibleFrame ratios].height + size.height;
+        return height;
+    }
+    return 0;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    [self.navigationController popViewControllerAnimated:YES];
+    if (![[User loginUser].userAddressList isKindOfClass:[NSNull class]]) {
+        
+        [[Framework controllers].submitOrderVC reloadTableViewAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] info:[User loginUser].userAddressList[indexPath.row]];
+        [self.navigationController popViewControllerAnimated:YES];
+    }
 }
 
 #pragma mark - 编辑按钮点击事件

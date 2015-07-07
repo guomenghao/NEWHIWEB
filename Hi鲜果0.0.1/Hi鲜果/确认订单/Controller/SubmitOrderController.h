@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface SubmitOrderController : BasicViewController
-
+- (void)reloadTableViewAtIndexPath:(NSIndexPath *)indexPath info:(NSDictionary *)info;
 @end

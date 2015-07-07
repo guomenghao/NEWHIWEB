@@ -8,7 +8,7 @@
 
 #import "FruitNumberPicker.h"
 
-@interface FruitNumberPicker ()
+@interface FruitNumberPicker () <UIAlertViewDelegate>
 
 - (void)initializeUserInterface;
 
@@ -61,11 +61,19 @@
 
 - (void)numberSub:(UIButton *)sender
 {
+    if (self.fruitsNum == 1) {
+        if (self.classInfo != nil) {
+            UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"温馨提示" message:@"是否删除该商品？" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"删除",nil];
+            alert.tag = 2000;
+            [alert show];
+        }
+    }
+    
     if (self.fruitsNum > 1) {
         self.fruitsNum --;
         self.fruitNum.text = [NSString stringWithFormat:@"%ld", (long)self.fruitsNum];
         if (self.classInfo != nil) {
-            [self changeNumberRequestWithClassInfo:self.classInfo num:-1];
+            [self changeNumberRequestWithClassInfo:self.classInfo isdel:@"0"];
         }
     }
 }
@@ -75,44 +83,46 @@
     self.fruitsNum ++;
     self.fruitNum.text = [NSString stringWithFormat:@"%ld", (long)self.fruitsNum];
     if (self.classInfo != nil) {
-        [self changeNumberRequestWithClassInfo:self.classInfo num:1];
+        [self changeNumberRequestWithClassInfo:self.classInfo isdel:@"0"];
     }
 }
 
 /**
  * 加减操作时，进行网络请求
  */
-- (void)changeNumberRequestWithClassInfo:(NSDictionary *)classInfo num:(NSInteger)num{
+- (void)changeNumberRequestWithClassInfo:(NSDictionary *)classInfo isdel:(NSString *)isdel{
     
-    if (num == 1) {
-        NSLog(@"商品数量为1了");
-    }
-    [GlobalMethod serviceWithMothedName:AddCar_Url
+    [GlobalMethod serviceWithMothedName:EditCar_Url
                                parmeter:@{
                                           @"classid":classInfo[@"classid"],
                                           @"id":classInfo[@"id"],
-                                          @"pn":@(num)}
+                                          @"num":@(self.fruitsNum),
+                                          @"isdel":isdel}
                                 success:^(id responseObject) {
-                                    NSLog(@"---->加购物车成功");
-                                    [self getCartInfo];
+                                    if (![responseObject[@"data"] isKindOfClass:[NSNull class]]) {
+                                        [self getCartInfo];
+                                    }
                                 }
-                                   fail:^(NSError *error) {
-                                       
-                                   }];
+                                   fail:^(NSError *error) {}];
 }
 
 - (void)getCartInfo {
     
-    [GlobalMethod serviceWithMothedName:GetCar_Url parmeter:nil success:^(id responseObject) {
+    [GlobalMethod NotHaveAlertServiceWithMothedName:GetCar_Url parmeter:nil success:^(id responseObject) {
         if (![responseObject[@"data"] isKindOfClass:[NSNull class]]) {
-            // 注意返回的总价和个数是NSNumber
-            NSLog(@"购物车总价为：%@", responseObject);
-            // 更新购物车的总价
             [Framework controllers].shoppingCartVC.toolBar.totalPrice = [responseObject[@"totalmoney"] integerValue];
         } else {
-            NSLog(@"购物车内没有任何商品哦");
+            [[Framework controllers].shoppingCartVC.dataSource removeAllObjects];
+            [[Framework controllers].shoppingCartVC showNoDataView];
         }
     } fail:^(NSError *error) {}];
+}
+
+#pragma mark - <UIAlertViewDelegate>
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (alertView.tag == 2000 && buttonIndex == 1) {//确定删除该商品
+        [self changeNumberRequestWithClassInfo:self.classInfo isdel:@"1"];
+    }
 }
 
 @end
