@@ -133,9 +133,7 @@
                                         [indicator removeFromSuperview];
                                         NSString * msg = responseObject[@"err_msg"];
                                         if ([msg isEqualToString:@"success"]) {
-                                            // 验证成功
-                                            // 修改loginUser的登录标记
-                                            // 保存至单例
+                                            NSLog(@"===>登录成功：返回%@", responseObject);
                                             [GlobalMethod getUserInfoSuccess:^(id responseObject) {
                                             }];
                                         } else {
@@ -188,11 +186,11 @@
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     
     if (buttonIndex == 0) {
-        if ([self.navigationController.viewControllers[self.navigationController.viewControllers.count - 2] isKindOfClass:[FruitDetailsController class]]) {
-            [self.navigationController popViewControllerAnimated:NO];
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"LoginSuccessNotification" object:self];
-            return;
-        }
+//        if ([self.navigationController.viewControllers[self.navigationController.viewControllers.count - 2] isKindOfClass:[FruitDetailsController class]]) {
+//            [self.navigationController popViewControllerAnimated:NO];
+//            [[Framework controllers].fruitDetailVC.navigationController pushViewController:[[SubmitOrderController alloc]init] animated:YES];
+//            return;
+//        }
         [self.navigationController popViewControllerAnimated:YES];
     }
 }

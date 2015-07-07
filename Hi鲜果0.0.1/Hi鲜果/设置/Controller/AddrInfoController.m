@@ -123,9 +123,19 @@
         deleteButton.titleLabel.font = FontWithWidth(22);
         [deleteButton addTarget:self action:@selector(deleteAddr) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:deleteButton];
+        
+        // 添加“设为默认地址”按钮
+        UIButton *defaultButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        defaultButton.frame = CGRectMake(Screen_width / 3, CGRectGetMaxY(deleteButton.frame) + Screen_height / 30, Screen_width / 3, Screen_height / 20);
+        defaultButton.layer.borderColor = [UIColor orangeColor].CGColor;
+        defaultButton.layer.borderWidth = Screen_height / 400;
+        defaultButton.layer.cornerRadius = Screen_height / 40;
+        [defaultButton setTitle:@"设为默认地址" forState:UIControlStateNormal];
+        [defaultButton setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
+        defaultButton.titleLabel.font = FontWithWidth(22);
+        [defaultButton addTarget:self action:@selector(defaultAddr) forControlEvents:UIControlEventTouchUpInside];
+        [self.view addSubview:defaultButton];
     }
-    
-    
 }
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
@@ -264,6 +274,39 @@
     UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"确定删除此地址吗" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:@"取消", nil];
     alert.tag = 311;
     [alert show];
+}
+
+- (void)defaultAddr {
+    
+    [self.view endEditing:YES];
+    if ([GlobalMethod validateMobile:self.phone.text] && self.name.text.length > 0 && self.addr.text.length > 0) {
+        NSMutableDictionary *data = [@{@"truename" : self.name.text,
+                                       @"phone" : self.phone.text,
+                                       @"addressname" : self.addr.text,
+                                       @"userid" : [User loginUser].userid,
+                                       @"isdefault" : @"0"} mutableCopy];
+        /**
+         *  不同的方式保存到临时信息
+         */
+        if (self.isAmend) {
+            [data setObject:self.data[@"addressid"] forKey:@"addressid"];
+            [User loginUser].tempAddrs[self.index] = data;
+            [GlobalMethod serviceWithMothedName:EditAddress_Url parmeter:data success:^(id responseObject) {
+                if ([responseObject[@"err_msg"] isEqual:@"success"]) {
+                    NSLog(@"编辑地址成功，返回：%@", responseObject);
+                    [GlobalMethod getUserInfoSuccess:^(id responseObject) {
+
+                    }];
+                }
+            } fail:^(NSError *error) {
+                
+            }];
+        }
+    } else {
+        UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"请输入正确的电话号码，且姓名地址不能为空" delegate:nil cancelButtonTitle:@"我知道了" otherButtonTitles:nil];
+        [self.view endEditing:YES];
+        [alert show];
+    }
 }
 
 - (void)deleteAddrs

@@ -11,7 +11,7 @@
 #import <SMS_SDK/SMS_SDK.h>
 #define Margin 30*[FlexibleFrame ratios].height
 #define NUMBERS @"0123456789"
-#define TextFieldTagBase 110
+#define TextFieldTagBase 1000
 #define Tag_Base 500
 @interface RegisterController () <UITextFieldDelegate, UIAlertViewDelegate>
 /**手机号有效性*/
@@ -203,7 +203,6 @@
         [textField setReturnKeyType:UIReturnKeyDone];
         textField.leftView = pass2Icon;
         textField.leftViewMode = UITextFieldViewModeAlways;
-        textField.tag = Tag_Base;
         textField;
     });
     [self.view addSubview:repeatField];
@@ -211,19 +210,16 @@
     self.registerButton = ({
         UIButton * button = [[UIButton alloc] initWithFrame:CGRectMake(self.phoneField.frame.origin.x, CGRectGetMaxY(repeatField.frame) + Margin * 2, self.phoneField.bounds.size.width, 30 * [FlexibleFrame ratios].height)];
         [button setTitle:@"注 册" forState:UIControlStateNormal];
-        button.layer.borderWidth = 1;
-        [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        button.layer.borderColor = [UIColor whiteColor].CGColor;
+        [button setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
+        [button setBackgroundColor:[UIColor whiteColor]];
         [button.titleLabel setFont:MiddleFont];
         [button addTarget:self action:@selector(registerButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+        button.layer.borderWidth = 1;
+        button.layer.borderColor = [UIColor whiteColor].CGColor;
         button.layer.cornerRadius = Screen_height / 80;
         button;
     });
     [self.view addSubview:self.registerButton];
-    
-    
-    
-    
 }
 
 - (void)sendVerificationCode:(UIButton *)sender {
@@ -232,7 +228,6 @@
         NSString * message = [NSString stringWithFormat:@"即将发送短信验证码到此手机：%@", self.phoneField.text];
         UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"温馨提示" message:message delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定",nil];
         [alert show];
-        
     }
 }
 
@@ -248,7 +243,13 @@
 #pragma mark - 注册按钮点击
 - (void)registerButtonPressed:(UIButton *)sender {
     
-    if (self.phoneValide && self.verifyValide && (self.emailValide || self.emailField.text.length == 0)&& self.passwordValide) {
+    if ((!self.verifyValide) || (!self.passwordValide)) {
+        
+        UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"温馨提示" message:@"必填信息不完整，注册失败" delegate:nil cancelButtonTitle:@"我知道了" otherButtonTitles:nil];
+        [alert show];
+        return;
+    }
+    if (self.phoneValide && self.verifyValide && self.passwordValide && (self.emailValide || self.emailField.text.length == 0)) {
         [GlobalMethod serviceWithMothedName:Register_Url
                                    parmeter:@{@"username":self.phoneField.text,
                                               @"password":self.password,
@@ -351,7 +352,7 @@
 }
 
 - (BOOL)textFieldShouldEndEditing:(UITextField *)textField {
-
+    
     NSInteger index = textField.tag - TextFieldTagBase;
     switch (index) {
         case 0://11位手机号
@@ -393,11 +394,11 @@
             } else {
                 self.emailValide = YES;
             }
-
         }
             break;
         case 3://密码
         {
+            NSLog(@"结束输入密码");
             if (textField.text.length < 6 && textField.text.length > 0) {
                 [self showInvalideAnimationViewWithTips:@"密码至少为6位"];
             } else {
@@ -407,7 +408,8 @@
             break;
         case 4://确认密码
         {
-            if (![textField.text isEqualToString:self.password] && self.passwordValide) {
+            NSLog(@"确认密码%s", __FUNCTION__);
+            if (![textField.text isEqualToString:self.password] && self.password.length > 0) {
                 textField.text = @"";
                 self.passwordValide = NO;
                 [self showInvalideAnimationViewWithTips:@"两次输入的密码不一致，请重新输入"];
@@ -424,7 +426,7 @@
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
     
-    if (textField.tag == Tag_Base && Screen_height == 480) {
+    if (textField.tag == TextFieldTagBase + 4 && Screen_height == 480) {
         [UIView animateWithDuration:0.25 animations:^{
             self.view.center = CGPointMake(Screen_width / 2, Screen_height / 2 - 40);
         }];
@@ -432,7 +434,7 @@
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField {
-    if (textField.tag == Tag_Base && Screen_height == 480) {
+    if (textField.tag == TextFieldTagBase + 4 && Screen_height == 480) {
         [UIView animateWithDuration:0.25 animations:^{
             self.view.center = CGPointMake(Screen_width / 2, Screen_height / 2);
         }];
@@ -456,6 +458,7 @@
                 NSLog(@"发送失败:%@", [error localizedDescription]);
             }
         }];
+        [self.view endEditing:YES];
         [self setSendVerificationCodeButtonWithSelected:NO];
     }
 }

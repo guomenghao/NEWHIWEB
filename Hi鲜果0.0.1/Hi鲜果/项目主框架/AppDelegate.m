@@ -29,7 +29,6 @@
     UINavigationController *shoppingCart = [[UINavigationController alloc] initWithRootViewController:[[ShoppingCartController alloc] init]];
     [Framework controllers].rootViewController = tabBarController;
     tabBarController.viewControllers = @[homePage, category, shoppingCart];
-    tabBarController.delegate = self;
     [self.window setRootViewController:tabBarController];
     [self.window makeKeyAndVisible];
     

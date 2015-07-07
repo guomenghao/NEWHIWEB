@@ -11,7 +11,8 @@
 #import "Fruit.h"
 #import "CartCell.h"
 #import "NoDataView.h"
-@interface ShoppingCartController () <UITableViewDelegate>
+#import "AutoDismissBox.h"
+@interface ShoppingCartController () <UITableViewDelegate, UIAlertViewDelegate>
 
 @property (strong, nonatomic) CartTableView * tableView;
 @property (strong, nonatomic) NSMutableArray * dataSource;
@@ -33,6 +34,12 @@
         [Framework controllers].shoppingCartVC = self;
     }
     return self;
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    UIBarButtonItem * clearCarItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemTrash target:self action:@selector(clearCarItemPressed:)];
+    self.navigationItem.rightBarButtonItem = clearCarItem;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -122,12 +129,35 @@
 
 - (void)showNoDataView {
 
+    [self.dataSource removeAllObjects];
+    [self.tableView reloadData];
+    [self.tableView removeFromSuperview];
     [self.view addSubview:self.noDataView];
 }
 
 - (void)dealloc {
     
     NSLog(@"%s", __FUNCTION__);
+}
+#pragma mark - 清空购物车
+- (void)clearCarItemPressed:(UIBarButtonItem *)sender {
+    
+    UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"温馨提示" message:@"是否清空购物车" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"清空", nil];
+    [alert show];
+}
+
+#pragma mark - <UIAlertViewDelegate> 
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    
+    if (buttonIndex == 1) {//确定清空购物车
+        NSLog(@"发送请求，清空购物车");
+        [GlobalMethod serviceWithMothedName:ClearCar_Url parmeter:nil success:^(id responseObject) {
+            [AutoDismissBox showBoxWithTitle:@"提示" message:@"购物车已清空"];
+            [self showNoDataView];
+        } fail:^(NSError *error) {
+            
+        }];
+    }
 }
 
 @end

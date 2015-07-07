@@ -54,7 +54,6 @@
     
     [GlobalMethod removeAllSubViews:cell.contentView];
     [cell getCategoryDetailsCelldata:_dataSourceArray[indexPath.row]];
-    
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }

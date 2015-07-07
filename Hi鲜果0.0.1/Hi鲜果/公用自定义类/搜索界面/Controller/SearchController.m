@@ -87,7 +87,6 @@
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         _tableView.delegate = self;
         _tableView.dataSource = self;
-        
     }
     return _tableView;
 }

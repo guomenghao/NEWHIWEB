@@ -145,6 +145,8 @@
 		249956341B43F5BE0075B78A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 249956331B43F5BE0075B78A /* libz.dylib */; };
 		249956361B43F5C70075B78A /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 249956351B43F5C70075B78A /* MessageUI.framework */; };
 		249956381B43F5D20075B78A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 249956371B43F5D20075B78A /* SystemConfiguration.framework */; };
+		24A4AA701B4B64E300274A66 /* AddrSelectController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24A4AA6F1B4B64E300274A66 /* AddrSelectController.m */; };
+		24A4AA731B4B68F500274A66 /* AddrSelectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24A4AA721B4B68F500274A66 /* AddrSelectCell.m */; };
 		24B755A91B4A26A6009D1378 /* SwitchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24B755A81B4A26A6009D1378 /* SwitchCell.m */; };
 		24BE142B1B46A1D7007F7797 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 24BE13E31B46A1D7007F7797 /* 1.png */; };
 		24BE142C1B46A1D7007F7797 /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 24BE13E41B46A1D7007F7797 /* 2.png */; };
@@ -220,6 +222,7 @@
 		388FC5D81B47D5CC00291675 /* open@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 388FC5D61B47D5CC00291675 /* open@2x.png */; };
 		388FC5D91B47D5CC00291675 /* open.png in Resources */ = {isa = PBXBuildFile; fileRef = 388FC5D71B47D5CC00291675 /* open.png */; };
 		388FC5DC1B48EF6000291675 /* OpenSectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 388FC5DB1B48EF6000291675 /* OpenSectionCell.m */; };
+		38F9877F1B4ABC5F00E89913 /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 38F9877E1B4ABC5F00E89913 /* Entitlements.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -475,6 +478,10 @@
 		249956331B43F5BE0075B78A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		249956351B43F5C70075B78A /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		249956371B43F5D20075B78A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		24A4AA6E1B4B64E300274A66 /* AddrSelectController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddrSelectController.h; sourceTree = "<group>"; };
+		24A4AA6F1B4B64E300274A66 /* AddrSelectController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddrSelectController.m; sourceTree = "<group>"; };
+		24A4AA711B4B68F500274A66 /* AddrSelectCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddrSelectCell.h; sourceTree = "<group>"; };
+		24A4AA721B4B68F500274A66 /* AddrSelectCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddrSelectCell.m; sourceTree = "<group>"; };
 		24B755A71B4A26A6009D1378 /* SwitchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwitchCell.h; sourceTree = "<group>"; };
 		24B755A81B4A26A6009D1378 /* SwitchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwitchCell.m; sourceTree = "<group>"; };
 		24BE13E31B46A1D7007F7797 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
@@ -560,6 +567,7 @@
 		388FC5D71B47D5CC00291675 /* open.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = open.png; sourceTree = "<group>"; };
 		388FC5DA1B48EF6000291675 /* OpenSectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenSectionCell.h; sourceTree = "<group>"; };
 		388FC5DB1B48EF6000291675 /* OpenSectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenSectionCell.m; sourceTree = "<group>"; };
+		38F9877E1B4ABC5F00E89913 /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -606,6 +614,7 @@
 		092AA7691B3B918D00B88F23 = {
 			isa = PBXGroup;
 			children = (
+				38F9877E1B4ABC5F00E89913 /* Entitlements.plist */,
 				249956371B43F5D20075B78A /* SystemConfiguration.framework */,
 				249956351B43F5C70075B78A /* MessageUI.framework */,
 				249956331B43F5BE0075B78A /* libz.dylib */,
@@ -1381,6 +1390,8 @@
 			children = (
 				24C8D0061B465E29002F4042 /* SubmitOrderController.h */,
 				24C8D0071B465E29002F4042 /* SubmitOrderController.m */,
+				24A4AA6E1B4B64E300274A66 /* AddrSelectController.h */,
+				24A4AA6F1B4B64E300274A66 /* AddrSelectController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1403,6 +1414,8 @@
 				388FC5DB1B48EF6000291675 /* OpenSectionCell.m */,
 				24B755A71B4A26A6009D1378 /* SwitchCell.h */,
 				24B755A81B4A26A6009D1378 /* SwitchCell.m */,
+				24A4AA711B4B68F500274A66 /* AddrSelectCell.h */,
+				24A4AA721B4B68F500274A66 /* AddrSelectCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1469,12 +1482,12 @@
 		092AA76A1B3B918D00B88F23 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0630;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Hi fruit";
 				TargetAttributes = {
 					092AA7711B3B918D00B88F23 = {
 						CreatedOnToolsVersion = 6.3.1;
-						DevelopmentTeam = Z4T8AEQP3L;
+						DevelopmentTeam = A9FTBWMD98;
 					};
 					092AA78A1B3B918D00B88F23 = {
 						CreatedOnToolsVersion = 6.3.1;
@@ -1600,6 +1613,7 @@
 				092AA7831B3B918D00B88F23 /* Images.xcassets in Resources */,
 				24BE14591B46A1D7007F7797 /* T1.png in Resources */,
 				24BE14741B46A32C007F7797 /* cart-nodata.png in Resources */,
+				38F9877F1B4ABC5F00E89913 /* Entitlements.plist in Resources */,
 				24BE14551B46A1D7007F7797 /* shoucang_1.png in Resources */,
 				24BE146D1B46A1D7007F7797 /* V1.png in Resources */,
 				096DE6171B4A728F0028B54A /* tuichu@2x.png in Resources */,
@@ -1697,6 +1711,7 @@
 				09FFE2BC1B40F5A7007066C3 /* HoverButton.m in Sources */,
 				097A0ED01B414B7600E860B9 /* UIImageView+WebCache.m in Sources */,
 				096DA8851B3E4E6C00925F62 /* EatForFreeController.m in Sources */,
+				24A4AA701B4B64E300274A66 /* AddrSelectController.m in Sources */,
 				24C8CFFA1B463236002F4042 /* NoDataView.m in Sources */,
 				09FFE2C21B41230B007066C3 /* CategoryDetailsController.m in Sources */,
 				097A0EFF1B42251900E860B9 /* SettingController.m in Sources */,
@@ -1725,6 +1740,7 @@
 				09BBED0F1B4507170024A3CE /* SearchView.m in Sources */,
 				094E169F1B43BEB100C05CB2 /* CategoryButton.m in Sources */,
 				096DA88D1B3FA6E700925F62 /* FruitDetailsCustomCell.m in Sources */,
+				24A4AA731B4B68F500274A66 /* AddrSelectCell.m in Sources */,
 				097A82371B3BD70600D59370 /* SearchController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1814,6 +1830,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -1830,7 +1847,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -1868,7 +1885,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -1880,6 +1897,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = Entitlements.plist;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1899,6 +1917,7 @@
 					"$(PROJECT_DIR)/Hi鲜果/第三方库/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
 					"$(PROJECT_DIR)/Hi鲜果/第三方库/UMSocial_Sdk_Extra_Frameworks/Wechat",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.rimi.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -1909,6 +1928,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = Entitlements.plist;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1928,6 +1948,7 @@
 					"$(PROJECT_DIR)/Hi鲜果/第三方库/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
 					"$(PROJECT_DIR)/Hi鲜果/第三方库/UMSocial_Sdk_Extra_Frameworks/Wechat",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.rimi.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -1946,7 +1967,9 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "Hi鲜果Tests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.rimi.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Hi鲜果.app/Hi鲜果";
 			};
@@ -1961,7 +1984,9 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "Hi鲜果Tests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.rimi.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Hi鲜果.app/Hi鲜果";
 			};

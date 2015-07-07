@@ -13,6 +13,7 @@
 #import "OpenSectionCell.h"
 #import "TotalPriceToolBar.h"
 #import "SwitchCell.h"
+#import "AddrSelectController.h"
 #define SectionNumber 8
 
 @interface SubmitOrderController () <UITableViewDelegate, UITableViewDataSource>
@@ -34,7 +35,6 @@
         self.title = @"提交订单";
         self.controllerType = UIViewControllerHaveNavigation;
         [Framework controllers].submitOrderVC = self;
-        [self registerKeyBoardNotification];
     }
     return self;
 }
@@ -87,8 +87,8 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self.navigationItem setHidesBackButton:NO];
-    //[self.navigationController.navigationBar setHidden:NO];
+    [self.tableView setFrame:CGRectMake(0, 64, Screen_width, Screen_height - 48 - 64)];
+    self.tableView.contentOffset = CGPointMake(0, 0);
     self.navigationController.tabBarController.tabBar.hidden = YES;
 }
 
@@ -101,7 +101,7 @@
 - (SubmitOrderTableView *)tableView {
     
     if (_tableView == nil) {
-        _tableView = [[SubmitOrderTableView alloc] initWithFrame:CGRectMake(0, 64, Screen_width, Screen_height - 64 - 48) style:UITableViewStyleGrouped];
+        _tableView = [[SubmitOrderTableView alloc] initWithFrame:CGRectMake(0, 64, Screen_width, Screen_height - 48 - 64) style:UITableViewStyleGrouped];
         _tableView.delegate = self;
         _tableView.dataSource = self;
         [self.view addSubview:_tableView];
@@ -137,29 +137,20 @@
     return _toolBar;
 }
 
-#pragma mark - notification
-- (void)registerKeyBoardNotification {
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleKeyBoardNotification:) name:UIKeyboardWillChangeFrameNotification object:nil];
+#pragma mark - 上下移动动画
+- (void)viewUpAnimation {
+    
+
 }
 
-- (void)handleKeyBoardNotification:(NSNotification *)notification {
+- (void)viewDownAnimation {
     
-    // 得到键盘的frame，从而改变view的center
-    NSDictionary * dic = notification.userInfo;
-    CGRect beginRect = [dic[UIKeyboardFrameBeginUserInfoKey] CGRectValue];
-    CGRect endRect = [dic[UIKeyboardFrameEndUserInfoKey] CGRectValue];
-    CGFloat beginY = beginRect.origin.y;
-    CGFloat endY = endRect.origin.y;
-    CGFloat centerYChanged = endY - beginY;
-    CGFloat duration = [dic[UIKeyboardAnimationDurationUserInfoKey] floatValue];
-    [UIView animateWithDuration:duration animations:^{
-        self.tableView.center = CGPointMake(self.view.center.x, self.tableView.center.y + centerYChanged);
-    }];
+    
 }
 
 - (void)dealloc {
     
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    NSLog(@"%s", __FUNCTION__);
 }
 
 #pragma mark - <UITableViewDataSource>
@@ -247,6 +238,7 @@
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:ordinaryID];
     }
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     cell.textLabel.text = self.texts[section][indexPath.row];
     cell.detailTextLabel.text = self.detailTexts[section][indexPath.row];
     cell.textLabel.font = MiddleFont;
@@ -264,12 +256,12 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
 
-    return 20*[FlexibleFrame ratios].height;
+    return 0.0f;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
     
-    return 0.0;
+    return 0.0f;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
@@ -281,17 +273,11 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"111");
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (indexPath.section == 0 && indexPath.row == 0) {
-        NSLog(@"agg");
-         [self.navigationController pushViewController:[[AddrAdminController alloc] init] animated:YES];
+        
+         [self.navigationController pushViewController:[[AddrSelectController alloc] init] animated:YES];
     }
-}
-
-#pragma mark - 返回按钮点击
-- (void)backItemPressed:(UIBarButtonItem *)backItem {
-    
-    [self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark - section header view tapped

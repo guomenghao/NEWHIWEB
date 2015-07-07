@@ -47,11 +47,19 @@
 #define GetCar_Url @"/e/api/getBuyCarList.php"
 
 /**
+ *  编辑购物车
+ */
+#define EditCar_Url @"/e/api/editBuyCar.php"
+
+/**
+ *  清空购物车
+ */
+#define ClearCar_Url @"/e/api/clearBuyCar.php"
+
+/**
  *  立即结算
  */
 #define Settle_Url @"/e/api/getOrderStepOne.php"
-
-
 
 /**
  *  显示用户信息

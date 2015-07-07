@@ -23,21 +23,11 @@
         self.backgroundColor = [UIColor clearColor];
         [self addSubview:self.titleLabel];
         [self addSubview:self.openButton];
-        [self addSubview:self.separateView];
     }
     return self;
 }
 
 #pragma mark - lazy getter
-- (UIView *)separateView {
-    
-    if (_separateView == nil) {
-        _separateView = [[UIView alloc] initWithFrame:CGRectMake(0, self.bounds.size.height-0.26, Screen_width, 0.25)];
-        _separateView.backgroundColor = RGBAColor(0, 0, 0, 0.2);
-    }
-    return _separateView;
-}
-
 - (UILabel *)titleLabel {
     
     if (_titleLabel == nil) {

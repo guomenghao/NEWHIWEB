@@ -84,7 +84,13 @@
         if (![responseObject[@"data"] isKindOfClass:[NSNull class]]) {
             // 注意返回的总价和个数是NSNumber
             NSLog(@"购物车不为空，进入提交订单页面");
-            [[Framework controllers].fruitDetailVC.navigationController pushViewController:[[SubmitOrderController alloc] init] animated:YES];
+            
+            if ([User loginUser].isLogin == NO) {
+                [[Framework controllers].fruitDetailVC.navigationController pushViewController:[[LoginController alloc]init] animated:YES];
+                
+            } else {
+                [[Framework controllers].fruitDetailVC.navigationController pushViewController:[[SubmitOrderController alloc] init] animated:YES];
+            }
             
         } else {
             NSLog(@"购物车为空,不进入提交订单页面");

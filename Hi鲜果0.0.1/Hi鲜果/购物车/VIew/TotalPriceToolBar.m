@@ -23,7 +23,7 @@
     
     self = [super initWithFrame:frame];
     if (self) {
-        self.backgroundColor = RGBAColor(255, 255, 255, 0.8);
+        self.backgroundColor = RGBAColor(255, 255, 255, 0.7);
         [self addSubview:self.totalPriceLabel];
         self.buttonTitle = title;
         // 添加"立即结算"按钮
