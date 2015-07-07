@@ -72,6 +72,7 @@
     self.name.tag = 301;
     self.name.delegate = self;
     self.name.layer.cornerRadius = Screen_height / 80;
+    [self.name setAutocorrectionType:UITextAutocorrectionTypeNo];
 //    self.name.layer.borderColor = [UIColor orangeColor].CGColor;
     [self.view addSubview:self.name];
     
@@ -88,6 +89,7 @@
     self.phone.delegate = self;
     self.phone.keyboardType = UIKeyboardTypeNumberPad;
     self.phone.layer.cornerRadius = Screen_height / 80;
+    [self.phone setAutocorrectionType:UITextAutocorrectionTypeNo];
 //    self.phone.layer.borderColor = [UIColor orangeColor].CGColor;
     [self.view addSubview:self.phone];
     
@@ -102,6 +104,7 @@
     self.addr.tag = 303;
     self.addr.delegate = self;
     self.addr.layer.cornerRadius = Screen_height / 80;
+    [self.addr setAutocorrectionType:UITextAutocorrectionTypeNo];
 //    self.addr.layer.borderColor = [UIColor orangeColor].CGColor;
     [self.view addSubview:self.addr];
     
@@ -215,14 +218,12 @@
                     }];
                 }
             } fail:^(NSError *error) {
-                
             }];
         } else {
             [GlobalMethod serviceWithMothedName:AddAddress_Url parmeter:data success:^(id responseObject) {
                 if ([responseObject[@"err_msg"] isEqual:@"success"]) {
                     [GlobalMethod getUserInfoSuccess:^(id responseObject) {
-                        [self reloadAddrs]; 
-                        NSLog(@"%@",responseObject);
+                        [self reloadAddrs];
                         [self popBack];
                     }];
                 }

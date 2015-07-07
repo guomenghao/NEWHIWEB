@@ -32,7 +32,6 @@
  */
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    NSLog(@"555%@", self.dataSourceDic);
     return 7;
 }
 
@@ -65,16 +64,24 @@
     [GlobalMethod removeAllSubViews:cell.contentView];
     
     if (indexPath.row == 0) {
-        [cell getScrollViewCellData:self.dataSourceDic];
+        if (self.dataSourceDic != nil) {
+            [cell getScrollViewCellData:self.dataSourceDic];
+        }
     }
     if (indexPath.row == 1) {
-        [cell getFruitInfoCellData:self.dataSourceDic];
+        if (self.dataSourceDic != nil) {
+            [cell getFruitInfoCellData:self.dataSourceDic];
+        }
     }
     if (indexPath.row == 2) {
-        [cell getUnitCellData:self.dataSourceDic];
+        if (self.dataSourceDic != nil) {
+            [cell getUnitCellData:self.dataSourceDic];
+        }
     }
     if (indexPath.row == 3) {
-        [cell getEvaluateCellData:self.dataSourceDic];
+        if (self.dataSourceDic != nil) {
+            [cell getEvaluateCellData:self.dataSourceDic];
+        }
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;

@@ -93,7 +93,7 @@
      *  悬浮按钮
      */
     HoverButton *hoverButton = [[HoverButton alloc] init];
-    [hoverButton initializeUserInterfaceWithLike:NO controller:self];
+    [hoverButton initializeUserInterfaceWithLike:NO controller:self data:nil];
     [self.view addSubview:hoverButton];
 }
 

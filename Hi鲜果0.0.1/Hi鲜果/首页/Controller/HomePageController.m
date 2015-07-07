@@ -35,6 +35,7 @@
     [super viewDidLoad];
     [self initializeDataSource];
     [self initializeUserInterface];
+    [self login];
     
 }
 
@@ -48,7 +49,7 @@
     UIBarButtonItem *myGarden = [[UIBarButtonItem alloc] initWithImage:ImageWithName(@"user_button_normal.png") style:UIBarButtonItemStylePlain target:self action:@selector(myGardenPressed:)];
     self.navigationItem.leftBarButtonItem = myGarden;
     
-    UIBarButtonItem *service = [[UIBarButtonItem alloc] initWithImage:ImageWithName(@"kefu.png") style:UIBarButtonItemStylePlain target:self action:nil];
+    UIBarButtonItem *service = [[UIBarButtonItem alloc] initWithImage:ImageWithName(@"kefu.png") style:UIBarButtonItemStylePlain target:self action:@selector(service)];
     self.navigationItem.rightBarButtonItem = service;
     
     /**
@@ -76,11 +77,36 @@
     [self.navigationController setNavigationBarHidden:YES];
 }
 
+- (void)service
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"开发中..." delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+    [alert show];
+}
+
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:NO];
     [self.tabBarController.tabBar setHidden:NO];
+}
+
+- (void)login
+{
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"username"]) {
+        [GlobalMethod NotHaveAlertServiceWithMothedName:Login_Url
+                                               parmeter:@{@"username":[[NSUserDefaults standardUserDefaults] objectForKey:@"username"],
+                                                          @"password":[[NSUserDefaults standardUserDefaults] objectForKey:@"password"]}
+                                                success:^(id responseObject) {
+                                                    if ([responseObject[@"err_msg"] isEqualToString:@"success"]) {
+                                                        NSLog(@"===>登录成功：返回%@", responseObject);
+                                                        [GlobalMethod getUserInfoSuccess:^(id responseObject) {
+                                                        }];
+                                                    }
+                                                }
+                                                   fail:^(NSError *error) {
+                                                       NSLog(@"error：%@", [error localizedDescription]);
+                                                   }];
+    }
 }
 
 /*

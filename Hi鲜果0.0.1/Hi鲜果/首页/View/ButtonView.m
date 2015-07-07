@@ -8,6 +8,7 @@
 
 #import "ButtonView.h"
 #import "EatForFreeController.h"
+#import "MyAttentionController.h"
 
 @implementation ButtonView
 
@@ -33,14 +34,17 @@
 
 - (void)initializeUserInterface
 {
-    NSArray *buttonNames = @[@"mianfeishichi.png", @"wodedingdan.png", @"wodeguanzhu.png", @"chongzhiyouli.png"];
+//    NSArray *buttonNames = @[@"mianfeishichi.png", @"wodedingdan.png", @"wodeguanzhu.png", @"chongzhiyouli.png"];
+    NSArray *buttonNames = @[@"免费试吃", @"我的订单", @"我的关注", @"充值有礼"];
     for (int i = 0; i < 4; i ++) {
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
         button.frame = CGRectMake((Screen_width * 0.5 - 5) * (i % 2), Screen_height * 0.25 * 0.5 * (i / 2), Screen_width / 2 - 5, Screen_height * 0.25 * 0.5);
         [button.layer setBorderWidth:0.25];
         [button.layer setBorderColor:[UIColor colorWithWhite:0.843 alpha:1.000].CGColor];
-        [button setBackgroundImage:ImageWithName(buttonNames[i]) forState:UIControlStateNormal];
-        [button setBackgroundImage:ImageWithName(buttonNames[i]) forState:UIControlStateHighlighted];
+        [button setTitle:buttonNames[i] forState:UIControlStateNormal];
+        [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+//        [button setBackgroundImage:ImageWithName(buttonNames[i]) forState:UIControlStateNormal];
+//        [button setBackgroundImage:ImageWithName(buttonNames[i]) forState:UIControlStateHighlighted];
         [button setTag:i + 100];
         [button addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:button];
@@ -58,6 +62,17 @@
         } else {
             [[Framework controllers].homePageVC.navigationController pushViewController:[[MyOrderController alloc] init] animated:YES];
         }
+    }
+    if (sender.tag == 102) {
+        if ([User loginUser].isLogin == NO) {
+            [[Framework controllers].homePageVC.navigationController pushViewController:[[LoginController alloc] init] animated:YES];
+        } else {
+            [[Framework controllers].homePageVC.navigationController pushViewController:[[MyAttentionController alloc] init] animated:YES];
+        }
+    }
+    if (sender.tag == 103) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"开发中..." delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+        [alert show];
     }
 }
 

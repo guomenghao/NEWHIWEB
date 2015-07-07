@@ -53,6 +53,7 @@
                 _dataSource = responseObject[@"data"];
             }
             self.tableView.dataSourceArray = _dataSource;
+            NSLog(@"%@", _dataSource);
             [self.tableView reloadData];
         }
     } fail:^(NSError *error) {

@@ -56,6 +56,7 @@
     if ([User loginUser].isLogin == NO) {
         
         [[Framework controllers].fruitDetailVC.navigationController pushViewController:[[LoginController alloc] init] animated:YES];
+        return;
     }
     sender.enabled = NO;
     [self performSelector:@selector(openButtonEnable:) withObject:sender afterDelay:1.5];

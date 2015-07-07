@@ -24,13 +24,12 @@
         CGFloat width = CGRectGetWidth(self.bounds);
         CGFloat heigth = CGRectGetHeight(self.bounds);
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(x, y, width, heigth)];
-        NSString *imageName = array[i];
         imageView.contentMode = UIViewContentModeScaleAspectFill;
-        imageView.image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForAuxiliaryExecutable:imageName]];
+        [imageView sd_setImageWithURL:array[i]];
         imageView.clipsToBounds = YES;
         [self addSubview:imageView];
     }
-    self.contentSize = CGSizeMake(CGRectGetWidth(self.bounds) * 3, CGRectGetHeight(self.bounds));
+    self.contentSize = CGSizeMake(CGRectGetWidth(self.bounds) * [array count], CGRectGetHeight(self.bounds));
     return self;
 }
 

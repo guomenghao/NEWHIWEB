@@ -69,6 +69,7 @@
         [alert dismissWithClickedButtonIndex:0 animated:YES];
         succeedBlock(responseObject);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"%@", error.localizedDescription);
         [alert dismissWithClickedButtonIndex:0 animated:YES];
         alert = nil;
         alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"网络连接失败，请稍后再试" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];

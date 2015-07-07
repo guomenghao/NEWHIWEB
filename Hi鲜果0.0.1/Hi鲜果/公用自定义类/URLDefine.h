@@ -81,11 +81,20 @@
  */
 #define EditAddress_Url @"/e/api/editAddress.php"
 
-
 /**
  *  删除收货地址
  */
 #define DelAddress_Url @"/e/api/delAddress.php"
+
+/**
+ *  添加收藏
+ */
+#define AddFavFun_Url @"/e/api/addFavFun.php"
+
+/**
+ *  商品收索
+ */
+#define GetSearch_Url @"/e/api/getSearch.php"
 
 #import <Foundation/Foundation.h>
 

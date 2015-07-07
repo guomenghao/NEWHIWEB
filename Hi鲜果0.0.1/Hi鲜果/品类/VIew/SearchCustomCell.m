@@ -40,7 +40,7 @@
 {
     if (_separator == nil) {
         _separator = [[UIView alloc] initWithFrame:CGRectMake(Screen_height / 66.7, Screen_height / 13 - 0.5, Screen_width - Screen_height / 66.7 * 2, 0.5)];
-        _separator.backgroundColor = [UIColor orangeColor];
+        _separator.backgroundColor = [UIColor blackColor];
     }
     return _separator;
 }

@@ -42,7 +42,7 @@
             }
         } fail:^(NSError *error) {
         }];
-        [GlobalMethod NotHaveAlertServiceWithMothedName:GetNewsList_Url parmeter:@{@"classid" : @"3,4"} success:^(id responseObject) {
+        [GlobalMethod NotHaveAlertServiceWithMothedName:GetNewsList_Url parmeter:@{@"classid" : @"2", @"query" : @"isgood"} success:^(id responseObject) {
             if ([responseObject[@"err_msg"] isEqual:@"success"]) {
                 _todayData = responseObject[@"data"];
                 [self reloadData];
