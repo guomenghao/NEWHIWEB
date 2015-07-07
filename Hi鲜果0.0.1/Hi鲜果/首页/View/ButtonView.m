@@ -40,6 +40,7 @@
         [button.layer setBorderWidth:0.25];
         [button.layer setBorderColor:[UIColor colorWithWhite:0.843 alpha:1.000].CGColor];
         [button setBackgroundImage:ImageWithName(buttonNames[i]) forState:UIControlStateNormal];
+        [button setBackgroundImage:ImageWithName(buttonNames[i]) forState:UIControlStateHighlighted];
         [button setTag:i + 100];
         [button addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:button];

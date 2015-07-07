@@ -71,6 +71,8 @@
     self.name.font = FontWithWidth(22);
     self.name.tag = 301;
     self.name.delegate = self;
+    self.name.layer.cornerRadius = Screen_height / 80;
+//    self.name.layer.borderColor = [UIColor orangeColor].CGColor;
     [self.view addSubview:self.name];
     
     UILabel *phoneLabel = [[UILabel alloc] initWithFrame:CGRectMake(Screen_height / 30, CGRectGetMaxY(self.name.frame) + Screen_height / 30 / 2, Screen_width - Screen_height / 30 * 2, Screen_height / 30)];
@@ -85,6 +87,8 @@
     self.phone.tag = 302;
     self.phone.delegate = self;
     self.phone.keyboardType = UIKeyboardTypeNumberPad;
+    self.phone.layer.cornerRadius = Screen_height / 80;
+//    self.phone.layer.borderColor = [UIColor orangeColor].CGColor;
     [self.view addSubview:self.phone];
     
     UILabel *addrLabel = [[UILabel alloc] initWithFrame:CGRectMake(Screen_height / 30, CGRectGetMaxY(self.phone.frame) + Screen_height / 30 / 2, Screen_width - Screen_height / 30 * 2, Screen_height / 30)];
@@ -97,18 +101,20 @@
     self.addr.font = FontWithWidth(22);
     self.addr.tag = 303;
     self.addr.delegate = self;
+    self.addr.layer.cornerRadius = Screen_height / 80;
+//    self.addr.layer.borderColor = [UIColor orangeColor].CGColor;
     [self.view addSubview:self.addr];
     
     UILabel *label1 = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 8, Screen_height / 23)];
     UILabel *label2 = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 8, Screen_height / 23)];
     UILabel *label3 = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 8, Screen_height / 23)];
-    self.name.layer.borderWidth = 0.5;
+    self.name.layer.borderWidth = Screen_height / 600;
     self.name.leftViewMode = UITextFieldViewModeAlways;
     self.name.leftView = label1;
-    self.phone.layer.borderWidth = 0.5;
+    self.phone.layer.borderWidth = Screen_height / 600;
     self.phone.leftViewMode = UITextFieldViewModeAlways;
     self.phone.leftView = label2;
-    self.addr.layer.borderWidth = 0.5;
+    self.addr.layer.borderWidth = Screen_height / 600;
     self.addr.leftViewMode = UITextFieldViewModeAlways;
     self.addr.leftView = label3;
     

@@ -47,7 +47,11 @@
 {
     [GlobalMethod serviceWithMothedName:GetNewsList_Url parmeter:@{@"classid" : classId} success:^(id responseObject) {
         if ([responseObject[@"err_msg"] isEqual:@"success"]) {
-            _dataSource = responseObject[@"data"][0];
+            if ([responseObject[@"data"] isEqual:[NSNull null]]) {
+                _dataSource = [NSArray array];
+            } else {
+                _dataSource = responseObject[@"data"];
+            }
             self.tableView.dataSourceArray = _dataSource;
             [self.tableView reloadData];
         }
@@ -65,12 +69,12 @@
     self.automaticallyAdjustsScrollViewInsets = NO;
     
     CategoryButton *hotSale = [CategoryButton buttonWithType:UIButtonTypeCustom];
-    hotSale.frame = CGRectMake(CGRectGetWidth(self.view.bounds) / 2, 64 + Screen_height / 19 / 3.5, CGRectGetWidth(self.view.bounds) / 2 * 0.8, Screen_height / 19);
+    hotSale.frame = CGRectMake(CGRectGetWidth(self.view.bounds) / 2, 64 + Screen_height / 19 / 3.5, CGRectGetWidth(self.view.bounds) / 2 * 0.8, Screen_height / 21);
     [hotSale setTitle:@"热卖" forState:UIControlStateNormal];
     hotSale.titleLabel.font = [UIFont systemFontOfSize:Screen_height / 35];
     [hotSale setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
     [hotSale setTag:121];
-    [hotSale setType:@"1"];
+    [hotSale setType:@"onclick"];
     [hotSale addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:hotSale];
     
@@ -78,14 +82,14 @@
     
     
     CategoryButton *newProduct = [CategoryButton buttonWithType:UIButtonTypeCustom];
-    newProduct.frame = CGRectMake(CGRectGetWidth(self.view.bounds) / 2 - CGRectGetWidth(self.view.bounds) / 2 * 0.8, 64 + Screen_height / 19 / 3.5, CGRectGetWidth(self.view.bounds) / 2 * 0.8, Screen_height / 19);
+    newProduct.frame = CGRectMake(CGRectGetWidth(self.view.bounds) / 2 - CGRectGetWidth(self.view.bounds) / 2 * 0.8, 64 + Screen_height / 19 / 3.5, CGRectGetWidth(self.view.bounds) / 2 * 0.8, Screen_height / 21);
     [newProduct setTitle:@"新品" forState:UIControlStateNormal];
     newProduct.titleLabel.font = [UIFont systemFontOfSize:Screen_height / 35];
     [newProduct setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [newProduct setTag:120];
     [newProduct addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
     [newProduct setSelected:YES];
-    [newProduct setType:@"0"];
+    [newProduct setType:@"newstime"];
     [self.view addSubview:newProduct];
     
     [GlobalMethod rectWithView:newProduct corners1:UIRectCornerTopLeft corners2:UIRectCornerBottomLeft radius:Screen_height / 67 lineWidth:Screen_height / 335 lineColor:[UIColor orangeColor] fillColor:[UIColor orangeColor]];
@@ -109,16 +113,19 @@
     [sender setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [GlobalMethod view:sender lineWidth:Screen_height / 335 lineColor:[UIColor orangeColor] fillColor:[UIColor orangeColor]];
     sender.selected = YES;
-    [GlobalMethod serviceWithMothedName:GetNewsList_Url parmeter:@{@"classid" : self.classid} success:^(id responseObject) {
+    [GlobalMethod serviceWithMothedName:GetNewsList_Url parmeter:@{@"classid" : self.classid, @"query" : sender.type} success:^(id responseObject) {
         if ([responseObject[@"err_msg"] isEqual:@"success"]) {
-            _dataSource = responseObject[@"data"][0];
+            if ([responseObject[@"data"] isEqual:[NSNull null]]) {
+                _dataSource = [NSArray array];
+            } else {
+                _dataSource = responseObject[@"data"];
+            }
             self.tableView.dataSourceArray = _dataSource;
             [self.tableView reloadData];
         }
     } fail:^(NSError *error) {
         
     }];
-    NSLog(@"%@", sender.type);
 }
 
 - (void)viewWillAppear:(BOOL)animated

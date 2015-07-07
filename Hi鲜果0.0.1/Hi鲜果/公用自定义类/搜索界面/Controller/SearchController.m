@@ -63,6 +63,7 @@
         _searchBar = [[UISearchBar alloc] init];
         _searchBar.delegate = self;
         _searchBar.showsCancelButton = YES;
+        _searchBar.tintColor = [UIColor grayColor];
     }
     return _searchBar;
 }

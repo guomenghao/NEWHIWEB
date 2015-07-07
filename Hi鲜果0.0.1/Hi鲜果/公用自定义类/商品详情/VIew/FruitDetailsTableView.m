@@ -32,6 +32,7 @@
  */
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    NSLog(@"555%@", self.dataSourceDic);
     return 7;
 }
 

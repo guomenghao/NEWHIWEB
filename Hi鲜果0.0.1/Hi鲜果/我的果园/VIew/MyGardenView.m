@@ -202,6 +202,7 @@ static MyGardenView * gardenView;
         [button setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
         button.backgroundColor = [UIColor whiteColor];
         button.layer.cornerRadius = button.bounds.size.width / 8;
+        button.tag = 600;
         button;
     });
     [self addSubview:self.loginButton];
@@ -342,7 +343,7 @@ static MyGardenView * gardenView;
 - (void)logoutButtonPressed:(UIButton *)sender
 {
     
-    UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"是否注销当前账号" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil];
+    UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"是否注销当前账号" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:@"取消", nil];
     [alert show];
 }
 

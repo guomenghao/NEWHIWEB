@@ -11,14 +11,38 @@
 #import "CarouselView.h"
 #import "GlobalControl.h"
 
-@interface HomePageCustomCell ()
+@interface HomePageCustomCell () {
+    NSArray *_carouselData;
+}
 
 @property (nonatomic, strong) CarouselView *carouselView;
 @property (nonatomic, strong) ButtonView *buttonView;
+@property (nonatomic, strong) UIImageView *boutiImageView;
+@property (nonatomic, strong) UIImageView *todayImageView;
 
 @end
 
 @implementation HomePageCustomCell
+
+- (UIImageView *)boutiImageView
+{
+    if (_boutiImageView == nil) {
+        _boutiImageView = [[UIImageView alloc] initWithFrame:CGRectMake(5, 2.5, Screen_width - 10, Screen_width / 3.37 - 5)];
+        _boutiImageView.layer.borderWidth = 1;
+        _boutiImageView.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    }
+    return _boutiImageView;
+}
+
+- (UIImageView *)todayImageView
+{
+    if (_todayImageView == nil) {
+        _todayImageView = [[UIImageView alloc] initWithFrame:CGRectMake(5, 2.5, Screen_width - 10, Screen_width / 3.37 - 5)];
+        _todayImageView.layer.borderWidth = 1;
+        _todayImageView.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    }
+    return _todayImageView;
+}
 
 - (ButtonView *)buttonView
 {
@@ -43,7 +67,7 @@
 - (CarouselView *)carouselView
 {
     if (_carouselView == nil) {
-        _carouselView = [[CarouselView alloc] init];
+        _carouselView = [[CarouselView alloc] initWithData:_carouselData];
     }
     return _carouselView;
 }
@@ -51,8 +75,9 @@
 /**
  *  轮播图cell
  */
-- (void)getCarouselCell
+- (void)getCarouselCellData:(NSArray *)data
 {
+    _carouselData = data;
     [self.contentView addSubview:self.carouselView];
 }
 
@@ -65,7 +90,7 @@
     
 }
 
-/**44
+/**
  *  精品推荐title
  */
 - (void)getBoutiquetitle
@@ -77,9 +102,10 @@
 /**
  *  精品推荐cell
  */
-- (void)boutiqueCell
+- (void)boutiqueCellData:(NSDictionary *)data
 {
-    
+    [self.boutiImageView sd_setImageWithURL:[NSURL URLWithString:data[@"titlepic"]]];
+    [self.contentView addSubview:self.boutiImageView];
 }
 
 /**
@@ -94,9 +120,10 @@
 /**
  *  今日cell
  */
-- (void)todayCell
+- (void)todayCellData:(NSDictionary *)data
 {
-    
+    [self.todayImageView sd_setImageWithURL:[NSURL URLWithString:data[@"titlepic"]]];
+    [self.contentView addSubview:self.todayImageView];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

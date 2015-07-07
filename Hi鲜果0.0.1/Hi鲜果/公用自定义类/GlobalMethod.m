@@ -56,7 +56,30 @@
 + (void)serviceWithMothedName:(NSString *)mothedName parmeter:(id)parmeter success:(void (^)(id responseObject))succeedBlock fail:(void (^)(NSError *error))failBlock
 {
     
+    __block UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Loading..." message:nil delegate:nil cancelButtonTitle:nil otherButtonTitles:nil];
+    [alert show];
+    AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] init];
     
+    NSString *url = [Base_Url stringByAppendingPathComponent:mothedName];
+    
+    
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript", @"text/html", nil];
+    
+    [manager GET:url parameters:parmeter success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [alert dismissWithClickedButtonIndex:0 animated:YES];
+        succeedBlock(responseObject);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [alert dismissWithClickedButtonIndex:0 animated:YES];
+        alert = nil;
+        alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"网络连接失败，请稍后再试" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+        [alert show];
+        
+        failBlock(error);
+    }];
+}
+
++ (void)NotHaveAlertServiceWithMothedName:(NSString *)mothedName parmeter:(id)parmeter success:(void (^)(id responseObject))succeedBlock fail:(void (^)(NSError *error))failBlock
+{
     AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] init];
     
     NSString *url = [Base_Url stringByAppendingPathComponent:mothedName];
@@ -67,18 +90,10 @@
     [manager GET:url parameters:parmeter success:^(AFHTTPRequestOperation *operation, id responseObject) {
         succeedBlock(responseObject);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        
-        UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"服务器连接失败，请稍后再试" delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil];
+        UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"网络连接失败，请稍后再试" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
         [alert show];
         failBlock(error);
     }];
-    
-//    [manager POST:url parameters:parmeter success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//        succeedBlock(responseObject);
-//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-//        failBlock(error);
-//    }];
-    
 }
 
 /**
