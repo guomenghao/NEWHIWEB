@@ -370,7 +370,8 @@ static MyGardenView * gardenView;
 {
     
     if (buttonIndex == 0 && [alertView.title isEqualToString:@"提示"]) {//确认退出登录
-        NSLog(@"即将注销的用户名为：%@", [User loginUser].username);
+//        NSLog(@"即将注销的用户名为：%@", [User loginUser].username);
+//        NSLog(@"ID：%@", [User loginUser].userid);
         [GlobalMethod serviceWithMothedName:Logout_Url
                                    parmeter:@{
                                               @"username":[User loginUser].username,

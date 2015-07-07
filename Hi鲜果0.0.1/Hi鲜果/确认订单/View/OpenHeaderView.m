@@ -32,7 +32,7 @@
 - (UIView *)separateView {
     
     if (_separateView == nil) {
-        _separateView = [[UIView alloc] initWithFrame:CGRectMake(0, self.bounds.size.height-0.25, Screen_width, 0.25)];
+        _separateView = [[UIView alloc] initWithFrame:CGRectMake(0, self.bounds.size.height-0.26, Screen_width, 0.25)];
         _separateView.backgroundColor = RGBAColor(0, 0, 0, 0.2);
     }
     return _separateView;
@@ -51,7 +51,7 @@
 - (UIButton *)openButton {
     
     if (_openButton == nil) {
-        _openButton = [[UIButton alloc] initWithFrame:CGRectMake(self.bounds.size.width - 40, 0, 20, 20)];
+        _openButton = [[UIButton alloc] initWithFrame:CGRectMake(self.bounds.size.width - 16 - 10 * [FlexibleFrame ratios].height, 0, 20*[FlexibleFrame ratios].height, 20*[FlexibleFrame ratios].height)];
         [_openButton setImage:ImageWithName(@"open.png") forState:UIControlStateNormal];
         _openButton.userInteractionEnabled = NO;
     }
