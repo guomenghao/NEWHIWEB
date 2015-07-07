@@ -87,9 +87,16 @@
 #define DelAddress_Url @"/e/api/delAddress.php"
 
 /**
- *  添加收藏
+ *  默认收货地址
  */
 #define AddFavFun_Url @"/e/api/addFavFun.php"
+
+/**
+ *  默认收货地址
+ */
+#define DefaultAddress_Url @"/e/api/defAddress.php"
+
+
 
 /**
  *  商品收索
