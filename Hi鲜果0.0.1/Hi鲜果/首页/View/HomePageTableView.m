@@ -10,7 +10,11 @@
 #import "HomePageCustomCell.h"
 #import "FruitDetailsController.h"
 
-@interface HomePageTableView () <UITableViewDelegate,UITableViewDataSource>
+@interface HomePageTableView () <UITableViewDelegate,UITableViewDataSource> {
+    NSArray *_carouslData;
+    NSArray *_boutiData;
+    NSArray *_todayData;
+}
 
 @end
 
@@ -24,6 +28,27 @@
         self.separatorStyle = UITableViewCellSeparatorStyleNone;
         self.delegate = self;
         self.dataSource = self;
+        [GlobalMethod NotHaveAlertServiceWithMothedName:GetNewsList_Url parmeter:@{@"classid" : @"1"} success:^(id responseObject) {
+            if ([responseObject[@"err_msg"] isEqual:@"success"]) {
+                _carouslData = responseObject[@"data"];
+                [self reloadData];
+            }
+        } fail:^(NSError *error) {
+        }];
+        [GlobalMethod NotHaveAlertServiceWithMothedName:GetNewsList_Url parmeter:@{@"classid" : @"6"} success:^(id responseObject) {
+            if ([responseObject[@"err_msg"] isEqual:@"success"]) {
+                _boutiData = responseObject[@"data"];
+                [self reloadData];
+            }
+        } fail:^(NSError *error) {
+        }];
+        [GlobalMethod NotHaveAlertServiceWithMothedName:GetNewsList_Url parmeter:@{@"classid" : @"3,4"} success:^(id responseObject) {
+            if ([responseObject[@"err_msg"] isEqual:@"success"]) {
+                _todayData = responseObject[@"data"];
+                [self reloadData];
+            }
+        } fail:^(NSError *error) {
+        }];
     }
     return self;
 }
@@ -33,7 +58,7 @@
  */
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 11;
+    return 5 + [_todayData count];
 }
 
 /**
@@ -50,7 +75,7 @@
     if (indexPath.row == 2 || indexPath.row == 4) {
         return Screen_height / 25;
     }
-    return 100;
+    return Screen_width / 3.37;
 }
 
 /**
@@ -69,16 +94,25 @@
     cell.textLabel.textColor = [UIColor orangeColor];
     [GlobalMethod removeAllSubViews:cell.contentView];
     if (indexPath.row == 0) {
-        [cell getCarouselCell];
+        if (_carouslData == nil) {
+        } else {
+            [cell getCarouselCellData:_carouslData];
+        }
     }
     if (indexPath.row == 1) {
         [cell getButtonViewCell];
     }
     if (indexPath.row == 3) {
-//        [cell getBoutiquetitle];
+        if (_boutiData == nil) {
+        } else {
+            [cell boutiqueCellData:[_boutiData firstObject]];
+        }
     }
     if (indexPath.row > 4) {
-//        [cell getTodaytitle];
+        if (_todayData == nil) {
+        } else {
+            [cell todayCellData:_todayData[indexPath.row - 5]];
+        }
     }
     if (indexPath.row == 4) {
         cell.textLabel.text = @"今日推荐";
@@ -95,7 +129,14 @@
  */
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [[[UIApplication sharedApplication].keyWindow.rootViewController.childViewControllers firstObject] pushViewController:[[FruitDetailsController alloc] init] animated:YES];
+    FruitDetailsController *fdVC = [[FruitDetailsController alloc] init];
+    if (indexPath.row == 3) {
+        [fdVC getNetWork:[_boutiData firstObject]];
+    }
+    if (indexPath.row > 4) {
+        [fdVC getNetWork:_todayData[indexPath.row - 5]];
+    }
+    [[Framework controllers].homePageVC.navigationController pushViewController:fdVC animated:YES];
 }
 
 /**
@@ -104,8 +145,8 @@
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row > 4) {
         //修改cell位移变换矩阵
-        cell.transform = CGAffineTransformMakeTranslation(-100, -110);
-        [UIView animateWithDuration:1 animations:^{
+        cell.transform = CGAffineTransformMakeScale(1.05, 1.05);
+        [UIView animateWithDuration:0.7 animations:^{
             //将cell的变换矩阵置为最初状态
             cell.transform = CGAffineTransformIdentity;
         }];

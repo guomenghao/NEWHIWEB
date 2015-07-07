@@ -13,6 +13,7 @@
 
 @interface FruitCategoryTableView () <UITableViewDelegate,UITableViewDataSource> {
     NSArray *_dataSource;
+    NSArray *_fruitId;
 }
 
 @end
@@ -27,6 +28,7 @@
         self.separatorStyle = UITableViewCellSeparatorStyleNone;
         self.delegate = self;
         self.dataSource = self;
+        _fruitId = @[@"3,4", @"4", @"3"];
         _dataSource = @[@{@"fruitname" : @"全部蔬果",
                           @"title" : @"各国美味享不停",
                           @"pic" : @"quanbu.png"}, @{@"fruitname" : @"国外蔬果",
@@ -77,10 +79,11 @@
  */
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+   
     CategoryDetailsController *cdVC = [[CategoryDetailsController alloc] init];
     cdVC.title = _dataSource[indexPath.row][@"fruitname"];
-    cdVC.classid = [NSString stringWithFormat:@"%ld", (long)indexPath.row + 1];
-    [cdVC getNetWork:[NSString stringWithFormat:@"%ld", (long)indexPath.row + 1]];
+    cdVC.classid = _fruitId[indexPath.row];
+    [cdVC getNetWork:_fruitId[indexPath.row]];
     
     [[Framework controllers].categoryVC.navigationController pushViewController:cdVC animated:YES];
 }

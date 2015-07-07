@@ -18,6 +18,7 @@
 #import "UIImageView+WebCache.h"
 #import "UMSocial.h"
 #import "GlobalControl.h"
+#import "UIButton+WebCache.h"
 #ifndef Hi___PrefixHeader_pch
 #define Hi___PrefixHeader_pch
 

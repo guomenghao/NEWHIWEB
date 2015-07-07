@@ -55,7 +55,7 @@
     sender.enabled = NO;
     [self performSelector:@selector(openButtonEnable:) withObject:sender afterDelay:1.5];
     NSInteger number = (long)[GlobalControl myControl].numPicker.fruitsNum;
-    [GlobalMethod serviceWithMothedName:AddCar_Url
+    [GlobalMethod NotHaveAlertServiceWithMothedName:AddCar_Url
                                parmeter:@{
                                           @"classid":self.classInfo[@"classid"],
                                           @"id":self.classInfo[@"id"],

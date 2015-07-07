@@ -12,7 +12,7 @@
 #import "GlobalControl.h"
 
 @interface CarouselView () <UIScrollViewDelegate> {
-    
+    NSArray *_dataSource;
     NSMutableArray *_imageArray;
     NSMutableArray *_contentViews;//存放滚动视图子视图
     NSInteger _currentIndex;//记录当前中间图片的下标
@@ -29,18 +29,17 @@
 
 @implementation CarouselView
 
-- (instancetype)init
+- (instancetype)initWithData:(NSArray *)data
 {
-    self = [super init];
-    if (self) {
-        self.frame = CGRectMake(0, 0, Screen_width, Screen_height * 0.27);
-        self.bounces = NO;
-        self.pagingEnabled = YES;
-        self.showsVerticalScrollIndicator = FALSE;
-        self.showsHorizontalScrollIndicator = FALSE;
-        self.delegate = self;
-        [self initializeUserInterface];
-    }
+    self = [self init];
+    self.frame = CGRectMake(0, 0, Screen_width, Screen_height * 0.27);
+    self.bounces = NO;
+    self.pagingEnabled = YES;
+    self.showsVerticalScrollIndicator = FALSE;
+    self.showsHorizontalScrollIndicator = FALSE;
+    self.delegate = self;
+    _dataSource = data;
+    [self initializeUserInterface];
     return self;
 }
 
@@ -54,9 +53,9 @@
     
     _contentViews = [[NSMutableArray alloc] init];
     
-    for (int i = 0; i < 3; i ++) {
-        NSString *imageName = [NSString stringWithFormat:@"%d.png", i + 1];
-        [_imageArray addObject:imageName];
+    for (int i = 0; i < [_dataSource count]; i ++) {
+        NSURL *URL = [NSURL URLWithString:_dataSource[i][@"titlepic"]];
+        [_imageArray addObject:URL];
     }
     
     for (int i = 0; i < 3; i++) {
@@ -64,13 +63,10 @@
         CGFloat y = 0;
         CarouselButton *imageButton = [CarouselButton buttonWithType:UIButtonTypeCustom];
         imageButton.frame = CGRectMake(x, y, CGRectGetMaxX(self.bounds), CGRectGetHeight(self.bounds));
-        NSString *imageName = [NSString stringWithFormat:@"%d.png", i + 1];
-        [imageButton setImage:ImageWithName(imageName) forState:UIControlStateNormal];
-        [imageButton setImage:ImageWithName(imageName) forState:UIControlStateHighlighted];
         imageButton.clipsToBounds = NO;
         NSInteger index = [self correctIndex: - 1 + i maxCount:_imageArray.count];
-        [imageButton setImage:ImageWithName(_imageArray[index]) forState:UIControlStateNormal];
-        [imageButton setImage:ImageWithName(_imageArray[index]) forState:UIControlStateHighlighted];
+        [imageButton sd_setBackgroundImageWithURL:_imageArray[index] forState:UIControlStateNormal];
+        [imageButton sd_setBackgroundImageWithURL:_imageArray[index] forState:UIControlStateHighlighted];
         [imageButton addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:imageButton];
         [_contentViews addObject:imageButton];
@@ -132,9 +128,9 @@
     } else {
         for (NSInteger i = 0; i < 3; i++) {
             CarouselButton *imageButton = _contentViews[i];
-            NSString *imageName = _imageArray[[self correctIndex:_currentIndex - 1 + i maxCount:_imageArray.count]];
-            [imageButton setImage:ImageWithName(imageName) forState:UIControlStateNormal];
-            [imageButton setImage:ImageWithName(imageName) forState:UIControlStateHighlighted];
+            NSURL *URL = _imageArray[[self correctIndex:_currentIndex - 1 + i maxCount:_imageArray.count]];
+            [imageButton sd_setBackgroundImageWithURL:URL forState:UIControlStateNormal];
+            [imageButton sd_setBackgroundImageWithURL:URL forState:UIControlStateHighlighted];
             imageButton.index = [self correctIndex:_currentIndex - 1 + i maxCount:_imageArray.count];
         }
         
@@ -146,7 +142,9 @@
 
 - (void)buttonPressed:(CarouselButton *)sender
 {
-    NSLog(@"%ld", (long)sender.index);
+    FruitDetailsController *fdVC = [[FruitDetailsController alloc] init];
+    [fdVC getNetWork:_dataSource[sender.index]];
+    [[Framework controllers].homePageVC.navigationController pushViewController:fdVC animated:YES];
 }
 
 - (void)updateCarousel

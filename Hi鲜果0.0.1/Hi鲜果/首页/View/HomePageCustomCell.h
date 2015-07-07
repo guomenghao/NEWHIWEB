@@ -20,7 +20,7 @@
 /**
  *  轮播图
  */
-- (void)getCarouselCell;
+- (void)getCarouselCellData:(NSArray *)data;
 
 /**
  *  菜单按钮
@@ -31,12 +31,12 @@
  *  精品推荐
  */
 - (void)getBoutiquetitle;
-- (void)boutiqueCell;
+- (void)boutiqueCellData:(NSDictionary *)data;
 
 /**
  *  今日推荐
  */
 - (void)getTodaytitle;
-- (void)todayCell;
+- (void)todayCellData:(NSDictionary *)data;
 
 @end

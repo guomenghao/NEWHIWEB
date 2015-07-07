@@ -11,5 +11,6 @@
 @interface CarouselView : UIScrollView
 
 - (void)initializeUserInterface;
+- (instancetype)initWithData:(NSArray *)data;
 
 @end

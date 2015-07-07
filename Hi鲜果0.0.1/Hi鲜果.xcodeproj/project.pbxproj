@@ -39,6 +39,7 @@
 		094E16661B4298DC00C05CB2 /* libSocialWechat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 094E16531B4298DC00C05CB2 /* libSocialWechat.a */; };
 		094E16671B4298DD00C05CB2 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 094E16541B4298DC00C05CB2 /* libWeChatSDK.a */; };
 		094E169F1B43BEB100C05CB2 /* CategoryButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 094E169E1B43BEB100C05CB2 /* CategoryButton.m */; };
+		096B4BA41B4B78E2000CD76A /* 4.png in Resources */ = {isa = PBXBuildFile; fileRef = 096B4BA31B4B78E2000CD76A /* 4.png */; };
 		096DA8551B3E2E9600925F62 /* EvaluateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 096DA8541B3E2E9600925F62 /* EvaluateView.m */; };
 		096DA8851B3E4E6C00925F62 /* EatForFreeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 096DA8821B3E4E6C00925F62 /* EatForFreeController.m */; };
 		096DA8881B3F9FA300925F62 /* FruitNameAndPrice.m in Sources */ = {isa = PBXBuildFile; fileRef = 096DA8871B3F9FA300925F62 /* FruitNameAndPrice.m */; };
@@ -293,6 +294,7 @@
 		094E16571B4298DC00C05CB2 /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
 		094E169D1B43BEB100C05CB2 /* CategoryButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryButton.h; sourceTree = "<group>"; };
 		094E169E1B43BEB100C05CB2 /* CategoryButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryButton.m; sourceTree = "<group>"; };
+		096B4BA31B4B78E2000CD76A /* 4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 4.png; sourceTree = "<group>"; };
 		096DA8531B3E2E9600925F62 /* EvaluateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EvaluateView.h; sourceTree = "<group>"; };
 		096DA8541B3E2E9600925F62 /* EvaluateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EvaluateView.m; sourceTree = "<group>"; };
 		096DA8811B3E4E6C00925F62 /* EatForFreeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EatForFreeController.h; sourceTree = "<group>"; };
@@ -1267,6 +1269,7 @@
 				24BE13E31B46A1D7007F7797 /* 1.png */,
 				24BE13E41B46A1D7007F7797 /* 2.png */,
 				24BE13E51B46A1D7007F7797 /* 3.png */,
+				096B4BA31B4B78E2000CD76A /* 4.png */,
 				24BE13E61B46A1D7007F7797 /* apple.png */,
 				096DE5F61B4A6DD00028B54A /* back_0.png */,
 				24BE13EA1B46A1D7007F7797 /* bkImage.jpg */,
@@ -1525,6 +1528,7 @@
 				249956271B43F50C0075B78A /* SMS_SDKLocalizable.strings in Resources */,
 				24BE14491B46A1D7007F7797 /* icon-verify@2x.png in Resources */,
 				096DE6341B4A852A0028B54A /* shichi.png in Resources */,
+				096B4BA41B4B78E2000CD76A /* 4.png in Resources */,
 				24BE145E1B46A1D7007F7797 /* T3@2x.png in Resources */,
 				096DE5F01B4A6BBB0028B54A /* gouwu.png in Resources */,
 				094E165A1B4298DC00C05CB2 /* UMSCommentDetailController.xib in Resources */,
