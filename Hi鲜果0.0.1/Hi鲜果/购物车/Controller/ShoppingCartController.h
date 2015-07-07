@@ -10,4 +10,8 @@
 #import "TotalPriceToolBar.h"
 @interface ShoppingCartController : BasicViewController
 @property (strong, nonatomic) TotalPriceToolBar * toolBar;
+/**编辑购物车信息时修改dataSource*/
+@property (strong, nonatomic) NSMutableArray * dataSource;
+- (void)requestData;
+- (void)showNoDataView;
 @end

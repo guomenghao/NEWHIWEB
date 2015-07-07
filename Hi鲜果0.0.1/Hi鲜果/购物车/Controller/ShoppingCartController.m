@@ -15,8 +15,8 @@
 @interface ShoppingCartController () <UITableViewDelegate, UIAlertViewDelegate>
 
 @property (strong, nonatomic) CartTableView * tableView;
-@property (strong, nonatomic) NSMutableArray * dataSource;
 @property (strong, nonatomic) NoDataView * noDataView;
+
 - (void)showCustomToolBar;
 - (void)showNoDataView;
 @end
@@ -37,21 +37,20 @@
 }
 
 - (void)viewDidLoad {
+    NSLog(@"%s", __FUNCTION__);
     [super viewDidLoad];
     UIBarButtonItem * clearCarItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemTrash target:self action:@selector(clearCarItemPressed:)];
     self.navigationItem.rightBarButtonItem = clearCarItem;
+    [self requestData];
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    
-    [super viewWillAppear:animated];
-    
-    [GlobalMethod serviceWithMothedName:GetCar_Url parmeter:nil success:^(id responseObject) {
+- (void)requestData {
+
+    [GlobalMethod NotHaveAlertServiceWithMothedName:GetCar_Url parmeter:nil success:^(id responseObject) {
         if (![responseObject[@"data"] isKindOfClass:[NSNull class]]) {
             // 注意返回的总价和个数是NSNumber
             self.dataSource = [[NSMutableArray alloc] initWithArray:responseObject[@"data"]];
             NSLog(@"购物车信息：%@", self.dataSource);
-            NSLog(@"购物车总价为:%@", responseObject[@"totalmoney"]);
             self.toolBar.totalPrice = [responseObject[@"totalmoney"] integerValue];
             [self reloadDataSource];
             [self showCustomToolBar];
@@ -85,7 +84,6 @@
     if (_tableView == nil) {
         _tableView = [[CartTableView alloc] initWithFrame:CGRectMake(0, 64, Screen_width, Screen_height - 110) style:UITableViewStylePlain];
         _tableView.delegate = self;
-        [self.view addSubview:_tableView];
     }
     return _tableView;
 }
@@ -111,18 +109,13 @@
     }
 }
 
-- (void)viewWillDisappear:(BOOL)animated {
-    
-    [super viewWillDisappear:animated];
-    self.dataSource = nil;
-    self.toolBar.transform = CGAffineTransformIdentity;
-    [self.noDataView removeFromSuperview];
-    [self.toolBar removeFromSuperview];
-}
-
 - (void)showCustomToolBar {
     
+    self.navigationItem.rightBarButtonItem.enabled = YES;
+    self.toolBar.transform = CGAffineTransformIdentity;
+    [self.view addSubview:self.tableView];
     [self.view addSubview:self.toolBar];
+    [self.noDataView removeFromSuperview];
     [UIView animateWithDuration:0.25 animations:^{
         self.toolBar.transform = CGAffineTransformMakeTranslation(0, -self.toolBar.bounds.size.height);
     }];
@@ -130,10 +123,10 @@
 
 - (void)showNoDataView {
 
-    [self.dataSource removeAllObjects];
-    [self.tableView reloadData];
-    [self.tableView removeFromSuperview];
+    self.navigationItem.rightBarButtonItem.enabled = NO;
     [self.view addSubview:self.noDataView];
+    [self.tableView removeFromSuperview];
+    [self.toolBar removeFromSuperview];
 }
 
 - (void)dealloc {
@@ -143,6 +136,11 @@
 #pragma mark - 清空购物车
 - (void)clearCarItemPressed:(UIBarButtonItem *)sender {
     
+    if ([[self.view.subviews lastObject] isKindOfClass:[NoDataView class]]) {
+        UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"温馨提示" message:@"购物车内没有商品，快去选购吧~" delegate:nil cancelButtonTitle:@"我知道了" otherButtonTitles:nil];
+        [alert show];
+        return;
+    }
     UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"温馨提示" message:@"是否清空购物车" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"清空", nil];
     [alert show];
 }
@@ -152,7 +150,7 @@
     
     if (buttonIndex == 1) {//确定清空购物车
         NSLog(@"发送请求，清空购物车");
-        [GlobalMethod serviceWithMothedName:ClearCar_Url parmeter:nil success:^(id responseObject) {
+        [GlobalMethod NotHaveAlertServiceWithMothedName:ClearCar_Url parmeter:nil success:^(id responseObject) {
             [AutoDismissBox showBoxWithTitle:@"提示" message:@"购物车已清空"];
             [self showNoDataView];
         } fail:^(NSError *error) {

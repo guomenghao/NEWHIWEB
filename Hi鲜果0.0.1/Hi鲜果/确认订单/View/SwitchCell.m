@@ -18,7 +18,6 @@
         // 添加开关按钮(51, 31)大小固定
         UISwitch * switchButton = [[UISwitch alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
         switchButton.center = CGPointMake(Screen_width - 16*[FlexibleFrame ratios].width - CGRectGetWidth(switchButton.bounds)*[FlexibleFrame ratios].height*0.5, 20 *[FlexibleFrame ratios].height);
-        NSLog(@"开关frame:%@", NSStringFromCGRect(switchButton.frame));
         
         switchButton.transform = CGAffineTransformMakeScale([FlexibleFrame ratios].height, [FlexibleFrame ratios].height);
         [switchButton addTarget:self action:@selector(switchValueChanged:) forControlEvents:UIControlEventValueChanged];
@@ -31,7 +30,6 @@
 - (void)switchValueChanged:(UISwitch *)sender {
     
     self.switchOn = sender.on;
-    NSLog(@"切换开关状态：%d", self.switchOn);
 }
 
 @end

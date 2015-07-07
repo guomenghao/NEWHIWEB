@@ -32,4 +32,16 @@
     self.userMoney = data[@"userMoney"];
 }
 
+- (NSDictionary *)getDefaultAddress {
+    
+    if (![self.userAddressList isKindOfClass:[NSNull class]]) {
+        for (NSDictionary * addrs in self.userAddressList) {
+            if ([addrs[@"isdefault"] intValue] == 1) {
+                return addrs;
+            }
+        }
+    }
+    return nil;
+}
+
 @end

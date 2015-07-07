@@ -14,6 +14,7 @@
 #import "TotalPriceToolBar.h"
 #import "SwitchCell.h"
 #import "AddrSelectController.h"
+#import "AddrSelectCell.h"
 #define SectionNumber 8
 
 @interface SubmitOrderController () <UITableViewDelegate, UITableViewDataSource>
@@ -78,6 +79,7 @@
     self.view.backgroundColor = [UIColor whiteColor];
     self.automaticallyAdjustsScrollViewInsets = NO;
 }
+
 #pragma mark - 生命周期
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -89,6 +91,7 @@
     [super viewWillAppear:animated];
     [self.tableView setFrame:CGRectMake(0, 64, Screen_width, Screen_height - 48 - 64)];
     self.tableView.contentOffset = CGPointMake(0, 0);
+    [self.tableView reloadData];
     self.navigationController.tabBarController.tabBar.hidden = YES;
 }
 
@@ -175,7 +178,13 @@
     
     NSInteger section = indexPath.section;
     if (section == 0) {
-        return 150*[FlexibleFrame ratios].height;
+        if ([[User loginUser] getDefaultAddress] != nil) {
+            NSString * addr = [[User loginUser] getDefaultAddress][@"addressname"];
+            CGSize size = [GlobalMethod sizeWithString:addr font:MiddleFont maxWidth:280 *[FlexibleFrame ratios].width maxHeight:40 * [FlexibleFrame ratios].height];
+            CGFloat height = 20 + 40*[FlexibleFrame ratios].height + size.height;
+            return height;
+        }
+        return 80*[FlexibleFrame ratios].height;
     } else if (section == 3) {
         NSDictionary * info = self.dataSource[@"buycar"][@"data"][indexPath.row];
         NSString * title = info[@"title"];
@@ -195,6 +204,7 @@
     static NSString * ordinaryID = @"ordinaryCell";
     static NSString * openID = @"openCell";
     static NSString * switchID = @"switchCell";
+    static NSString * addrID = @"addressCell";
     
     NSInteger section = indexPath.section;
     
@@ -234,6 +244,20 @@
         return cell;
     }
     
+    // 判断是否有默认地址
+    NSDictionary * defaultAddr = [[User loginUser] getDefaultAddress];
+    if (defaultAddr != nil) {
+        // 默认地址不为空,则第一行显示默认收货地址
+        if (section == 0 && indexPath.row == 0) {
+            AddrSelectCell * cell = [tableView dequeueReusableCellWithIdentifier:addrID];
+            if (!cell) {
+                cell = [[AddrSelectCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:addrID];
+            }
+            [cell setCellInfo:defaultAddr];
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+            return cell;
+        }
+    }
     UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:ordinaryID];
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:ordinaryID];
@@ -296,6 +320,15 @@
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     
     [self.view endEditing:YES];
+}
+
+#pragma mark - 重载tableView的某些数据
+- (void)reloadTableViewAtIndexPath:(NSIndexPath *)indexPath info:(NSDictionary *)info{
+    
+    if ([[self.tableView cellForRowAtIndexPath:indexPath] isKindOfClass:[AddrSelectCell class]]) {
+        AddrSelectCell * cell = (AddrSelectCell *)[self.tableView cellForRowAtIndexPath:indexPath];
+        [cell setCellInfo:info];
+    }
 }
 
 @end

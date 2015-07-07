@@ -124,7 +124,7 @@
         indicator.center = CGPointMake(self.view.center.x, self.view.center.y);
         [indicator startAnimating];
         
-        [GlobalMethod serviceWithMothedName:Login_Url
+        [GlobalMethod NotHaveAlertServiceWithMothedName:Login_Url
                                    parmeter:@{@"username":self.accountField.text,
                                               @"password":self.passwordField.text}
                                     success:^(id responseObject) {

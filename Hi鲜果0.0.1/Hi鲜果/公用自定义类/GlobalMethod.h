@@ -34,4 +34,5 @@
  */
 + (void)getUserInfoSuccess:(void (^)(id responseObject))succeedBlock;
 
+
 @end

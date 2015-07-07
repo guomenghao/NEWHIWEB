@@ -39,7 +39,7 @@
 - (NSString *)unit {
     
     //return _info[@"unit"];
-    return @"一个";
+    return @"一颗";
 }
 
 - (NSString *)originalPrice {

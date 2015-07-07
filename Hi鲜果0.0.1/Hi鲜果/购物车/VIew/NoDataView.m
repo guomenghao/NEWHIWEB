@@ -15,6 +15,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         
+        self.backgroundColor = [UIColor whiteColor];
         // 添加"去首页逛逛"按钮
         UIButton * goHomePageButton = ({
             UIButton * button = [UIButton buttonWithType:UIButtonTypeCustom];

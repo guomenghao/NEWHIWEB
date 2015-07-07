@@ -74,6 +74,7 @@
     if ([self.buttonTitle isEqualToString:@"立即结算"]) {
         [[Framework controllers].shoppingCartVC.navigationController pushViewController:[[SubmitOrderController alloc] init] animated:YES];
     } else {
+        
         NSLog(@"提交订单按钮点击");
     }
 }

@@ -22,6 +22,7 @@
 #import "SubmitOrderController.h"
 #import "AddrAdminController.h"
 #import "FruitDetailsController.h"
+#import "AddrSelectController.h"
 @interface Framework : NSObject
 /**主页*/
 @property (nonatomic, weak) HomePageController * homePageVC;
@@ -49,6 +50,8 @@
 @property (nonatomic, weak) CategoryDetailsController * CategoryDetailsVC;
 /**地址管理*/
 @property (nonatomic, weak) AddrAdminController * addrAdminVC;
+/**地址选择*/
+@property (nonatomic, weak) AddrSelectController * addrSelectVC;
 /**商品详情*/
 @property (nonatomic, weak) FruitDetailsController * fruitDetailVC;
 /**单例初始化*/

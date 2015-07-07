@@ -81,11 +81,15 @@
  */
 #define EditAddress_Url @"/e/api/editAddress.php"
 
-
 /**
  *  删除收货地址
  */
 #define DelAddress_Url @"/e/api/delAddress.php"
+
+/**
+ *  默认收货地址
+ */
+#define DefaultAddress_Url @"/e/api/defAddress.php"
 
 #import <Foundation/Foundation.h>
 
