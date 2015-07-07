@@ -90,7 +90,7 @@
     
 }
 
-/**44
+/**
  *  精品推荐title
  */
 - (void)getBoutiquetitle
