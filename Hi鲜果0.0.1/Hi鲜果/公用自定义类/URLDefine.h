@@ -96,12 +96,27 @@
  */
 #define DefaultAddress_Url @"/e/api/defAddress.php"
 
-
-
 /**
  *  商品收索
  */
 #define GetSearch_Url @"/e/api/getSearch.php"
+
+/**
+ *  我的关注
+ */
+#define GetFavaList_Url @"/e/api/getFavaList.php"
+
+/**
+ *  删除收藏
+ */
+#define DelFavaFun_Url @"/e/api//delFavaFun.php"
+
+/**
+ *  试吃
+ */
+#define GetTriedList_Url @"/e/api//getTriedList.php"
+
+
 
 #import <Foundation/Foundation.h>
 
