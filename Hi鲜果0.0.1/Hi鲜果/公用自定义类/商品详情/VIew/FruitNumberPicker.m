@@ -112,8 +112,7 @@
         if (![responseObject[@"data"] isKindOfClass:[NSNull class]]) {
             [Framework controllers].shoppingCartVC.toolBar.totalPrice = [responseObject[@"totalmoney"] integerValue];
         } else {
-            [[Framework controllers].shoppingCartVC.dataSource removeAllObjects];
-            [[Framework controllers].shoppingCartVC showNoDataView];
+            [[Framework controllers].shoppingCartVC requestData];
         }
     } fail:^(NSError *error) {}];
 }
