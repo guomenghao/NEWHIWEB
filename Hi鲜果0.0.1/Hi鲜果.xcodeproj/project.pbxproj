@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		090313421B4BBF70008B8B07 /* SettingDetailsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 090313411B4BBF70008B8B07 /* SettingDetailsController.m */; };
+		090313481B4BCB51008B8B07 /* MyAttentionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 090313471B4BCB51008B8B07 /* MyAttentionController.m */; };
 		0919BF4C1B4827E7007BFB99 /* ChangeHeadImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 0919BF491B4827E7007BFB99 /* ChangeHeadImage.m */; };
 		0919BF4D1B4827E7007BFB99 /* PersonalCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0919BF4B1B4827E7007BFB99 /* PersonalCustomCell.m */; };
 		0919BF531B482811007BFB99 /* AddrAdminCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0919BF521B482811007BFB99 /* AddrAdminCell.m */; };
@@ -236,6 +238,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		090313401B4BBF70008B8B07 /* SettingDetailsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingDetailsController.h; sourceTree = "<group>"; };
+		090313411B4BBF70008B8B07 /* SettingDetailsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingDetailsController.m; sourceTree = "<group>"; };
+		090313461B4BCB51008B8B07 /* MyAttentionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAttentionController.h; sourceTree = "<group>"; };
+		090313471B4BCB51008B8B07 /* MyAttentionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAttentionController.m; sourceTree = "<group>"; };
 		0919BF481B4827E7007BFB99 /* ChangeHeadImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangeHeadImage.h; sourceTree = "<group>"; };
 		0919BF491B4827E7007BFB99 /* ChangeHeadImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangeHeadImage.m; sourceTree = "<group>"; };
 		0919BF4A1B4827E7007BFB99 /* PersonalCustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalCustomCell.h; sourceTree = "<group>"; };
@@ -598,6 +604,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		090313431B4BCB37008B8B07 /* 我的关注 */ = {
+			isa = PBXGroup;
+			children = (
+				090313441B4BCB37008B8B07 /* Controller */,
+				090313451B4BCB37008B8B07 /* VIew */,
+			);
+			path = "我的关注";
+			sourceTree = "<group>";
+		};
+		090313441B4BCB37008B8B07 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				090313461B4BCB51008B8B07 /* MyAttentionController.h */,
+				090313471B4BCB51008B8B07 /* MyAttentionController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		090313451B4BCB37008B8B07 /* VIew */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = VIew;
+			sourceTree = "<group>";
+		};
 		0919BF471B4827E7007BFB99 /* VIew */ = {
 			isa = PBXGroup;
 			children = (
@@ -956,6 +987,8 @@
 				097FEE301B467D2100473EF5 /* AddrAdminController.m */,
 				0919BF541B48F826007BFB99 /* AddrInfoController.h */,
 				0919BF551B48F826007BFB99 /* AddrInfoController.m */,
+				090313401B4BBF70008B8B07 /* SettingDetailsController.h */,
+				090313411B4BBF70008B8B07 /* SettingDetailsController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1055,6 +1088,7 @@
 				09FFE2B51B40F50E007066C3 /* GlobalMethod.m */,
 				09FFE2BA1B40F5A7007066C3 /* HoverButton.h */,
 				09FFE2BB1B40F5A7007066C3 /* HoverButton.m */,
+				090313431B4BCB37008B8B07 /* 我的关注 */,
 				096DA87C1B3E4BDE00925F62 /* 免费试吃 */,
 				097A820A1B3BD70600D59370 /* 商品详情 */,
 				097A82111B3BD70600D59370 /* 搜索界面 */,
@@ -1487,7 +1521,7 @@
 				TargetAttributes = {
 					092AA7711B3B918D00B88F23 = {
 						CreatedOnToolsVersion = 6.3.1;
-						DevelopmentTeam = A9FTBWMD98;
+						DevelopmentTeam = Z4T8AEQP3L;
 					};
 					092AA78A1B3B918D00B88F23 = {
 						CreatedOnToolsVersion = 6.3.1;
@@ -1654,6 +1688,7 @@
 			files = (
 				2456A2831B427C5000F49906 /* Fruit.m in Sources */,
 				097A0E791B414B5D00E860B9 /* AFURLSessionManager.m in Sources */,
+				090313481B4BCB51008B8B07 /* MyAttentionController.m in Sources */,
 				097A0ED41B41502B00E860B9 /* CategoryModel.m in Sources */,
 				24C8CFF71B461D31002F4042 /* TotalPriceToolBar.m in Sources */,
 				092AA7781B3B918D00B88F23 /* main.m in Sources */,
@@ -1693,6 +1728,7 @@
 				09BBED201B4536FA0024A3CE /* MyOrderCustomCell.m in Sources */,
 				097FEE311B467D2100473EF5 /* AddrAdminController.m in Sources */,
 				09FFE2B11B40F4C4007066C3 /* Framework.m in Sources */,
+				090313421B4BBF70008B8B07 /* SettingDetailsController.m in Sources */,
 				24C8D00A1B465E29002F4042 /* SubmitOrderController.m in Sources */,
 				092AA7C71B3B9BE500B88F23 /* BasicViewController.m in Sources */,
 				097A0EC71B414B7600E860B9 /* SDWebImageDecoder.m in Sources */,
@@ -1917,7 +1953,7 @@
 					"$(PROJECT_DIR)/Hi鲜果/第三方库/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
 					"$(PROJECT_DIR)/Hi鲜果/第三方库/UMSocial_Sdk_Extra_Frameworks/Wechat",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.rimi.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = ecom.rimi.Hi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -1948,7 +1984,7 @@
 					"$(PROJECT_DIR)/Hi鲜果/第三方库/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
 					"$(PROJECT_DIR)/Hi鲜果/第三方库/UMSocial_Sdk_Extra_Frameworks/Wechat",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.rimi.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = ecom.rimi.Hi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};

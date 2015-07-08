@@ -7,6 +7,7 @@
 //
 
 #import "SettingController.h"
+#import "SettingDetailsController.h"
 
 @interface SettingController () <UITableViewDataSource, UITableViewDelegate, UIAlertViewDelegate>
 
@@ -40,8 +41,8 @@
     
     self.dataSource = @[
                           @[@"清理图片缓存"],
-                          @[@"当前版本", @"分享APP", @"关于我们"],
-                          @[@"配送说明", @"48小时退换货"],
+                          @[@"当前版本", @"分享APP"],
+                          @[@"关于我们", @"用户协议"],
                           @[@"联系客服"]
                           ];
     self.telephone = @"10086";
@@ -108,6 +109,10 @@
         } else {
             cell.detailTextLabel.text = [NSString stringWithFormat:@"共%.2lfMB", self.cacheSize / 1024.0/ 1024.0];
         }
+    } else if (indexPath.section == 1) {
+        if (indexPath.row == 0) {
+            cell.detailTextLabel.text = @"1.0";
+        }
     }
 }
 
@@ -124,6 +129,19 @@
         self.totlaSize = [[SDImageCache sharedImageCache] getSize];
         [[SDImageCache sharedImageCache] clearDisk];//clearDisk:清除;cleanDisk:删除
         [self decreaseCacheWithLabel:detailLabel];
+    } else if (indexPath.section == 1) {
+        if (indexPath.row == 1) {
+            [UMSocialSnsService presentSnsIconSheetView:[Framework controllers].homePageVC
+                                                 appKey:@"559261b267e58e6cda001819"
+                                              shareText:ShareWord
+                                             shareImage:ImageWithName(@"icon.png")
+                                        shareToSnsNames:[NSArray arrayWithObjects:UMShareToSina,UMShareToRenren,UMShareToDouban,UMShareToSms,UMShareToEmail,nil]
+                                               delegate:nil];
+        }
+    } else if (indexPath.section == 2) {
+        SettingDetailsController *settingDVC = [[SettingDetailsController alloc] init];
+        settingDVC.title = self.dataSource[indexPath.section][indexPath.row];
+        [self.navigationController pushViewController:settingDVC animated:YES];
     }
 }
 

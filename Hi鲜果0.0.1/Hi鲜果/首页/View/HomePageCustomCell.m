@@ -30,6 +30,8 @@
         _boutiImageView = [[UIImageView alloc] initWithFrame:CGRectMake(5, 2.5, Screen_width - 10, Screen_width / 3.37 - 5)];
         _boutiImageView.layer.borderWidth = 1;
         _boutiImageView.layer.borderColor = [UIColor lightGrayColor].CGColor;
+        _boutiImageView.contentMode = UIViewContentModeScaleAspectFill;
+        _boutiImageView.clipsToBounds = YES;
     }
     return _boutiImageView;
 }
@@ -40,6 +42,8 @@
         _todayImageView = [[UIImageView alloc] initWithFrame:CGRectMake(5, 2.5, Screen_width - 10, Screen_width / 3.37 - 5)];
         _todayImageView.layer.borderWidth = 1;
         _todayImageView.layer.borderColor = [UIColor lightGrayColor].CGColor;
+        _todayImageView.contentMode = UIViewContentModeScaleAspectFill;
+        _todayImageView.clipsToBounds = YES;
     }
     return _todayImageView;
 }

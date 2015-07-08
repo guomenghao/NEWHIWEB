@@ -9,7 +9,7 @@
 #import "HoverButton.h"
 
 @interface HoverButton () {
-    BOOL _isLike;
+    NSDictionary *_data;
 }
 
 @property (nonatomic, weak) UIViewController *viewController;
@@ -27,8 +27,11 @@
     return self;
 }
 
-- (void)initializeUserInterfaceWithLike:(BOOL)like controller:(UIViewController *)controller
+- (void)initializeUserInterfaceWithLike:(BOOL)like controller:(UIViewController *)controller data:(NSDictionary *)data
 {
+    
+    [GlobalMethod removeAllSubViews:self];
+    _data = data;
     UIButton *backButton = [UIButton buttonWithType:UIButtonTypeCustom];
     backButton.frame = CGRectMake(0, 0, Screen_height / 19, Screen_height / 19);
     [backButton setImage:ImageWithName(@"back_0.png") forState:UIControlStateNormal];
@@ -47,9 +50,6 @@
         UIButton *likeButton = [UIButton buttonWithType:UIButtonTypeCustom];
         likeButton.frame = CGRectMake(CGRectGetWidth(self.bounds) - Screen_height / 8, 1.5, Screen_height / 21, Screen_height / 21);
         [likeButton addTarget:self action:@selector(buttonLike:) forControlEvents:UIControlEventTouchUpInside];
-        /**
-         *  如果账号中当前商品是喜欢状态
-         */
         [likeButton setImage:ImageWithName(@"shoucang_0.png") forState:UIControlStateNormal];
         [likeButton setImage:ImageWithName(@"shoucang_1.png") forState:UIControlStateHighlighted];
         [self addSubview:likeButton];
@@ -63,23 +63,23 @@
 
 - (void)buttonLike:(UIButton *)sender
 {
-    if (_isLike) {
-        [sender setImage:ImageWithName(@"shoucang_0.png") forState:UIControlStateNormal];
-        [sender setImage:ImageWithName(@"shoucang_0.png") forState:UIControlStateHighlighted];
-        _isLike = NO;   
-    } else {
-        [sender setImage:ImageWithName(@"shoucang_1.png") forState:UIControlStateNormal];
-        [sender setImage:ImageWithName(@"shoucang_1.png") forState:UIControlStateHighlighted];
-        _isLike = YES;
+    if ([User loginUser].isLogin == NO) {
+        [[Framework controllers].fruitDetailVC.navigationController pushViewController:[[LoginController alloc] init] animated:YES];
+        return;
     }
+    [GlobalMethod NotHaveAlertServiceWithMothedName:AddFavFun_Url parmeter:@{@"classid" : _data[@"classid"], @"id" : _data[@"id"]} success:^(id responseObject) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:responseObject[@"info"] delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+        [alert show];
+    } fail:^(NSError *error) {
+    }];
 }
 
 - (void)buttonShare:(UIButton *)sender
 {
     [UMSocialSnsService presentSnsIconSheetView:[Framework controllers].homePageVC
                                          appKey:@"559261b267e58e6cda001819"
-                                      shareText:@"你要分享的文字"
-                                     shareImage:[UIImage imageNamed:@"icon.png"]
+                                      shareText:ShareWord
+                                     shareImage:ImageWithName(@"icon.png")
                                 shareToSnsNames:[NSArray arrayWithObjects:UMShareToSina,UMShareToRenren,UMShareToDouban,UMShareToSms,UMShareToEmail,nil]
                                        delegate:nil];
 }

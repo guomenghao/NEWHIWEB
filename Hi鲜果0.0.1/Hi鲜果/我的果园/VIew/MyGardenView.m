@@ -11,6 +11,7 @@
 #import "MyGardenCell.h"
 #import "SettingController.h"
 #import "PersonalController.h"
+#import "MyAttentionController.h"
 
 @interface MyGardenView () <UITableViewDelegate, UITableViewDataSource, UIAlertViewDelegate>
 /**记录自身视图动画状态，是否是打开*/
@@ -202,7 +203,6 @@ static MyGardenView * gardenView;
         [button setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
         button.backgroundColor = [UIColor whiteColor];
         button.layer.cornerRadius = button.bounds.size.width / 8;
-        button.tag = 600;
         button;
     });
     [self addSubview:self.loginButton];
@@ -223,6 +223,7 @@ static MyGardenView * gardenView;
     if (!cell) {
         cell = [[MyGardenCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
     }
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 
@@ -246,7 +247,7 @@ static MyGardenView * gardenView;
                 NSLog(@"待评价");
                 break;
             case 2://我的关注
-                NSLog(@"我的关注");
+                [self pushOtherViewController:[[MyAttentionController alloc] init]];
                 break;
             case 3://我的试吃
                 NSLog(@"我的试吃");

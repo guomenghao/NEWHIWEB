@@ -153,7 +153,6 @@
      *  网络请求
      */
     [self getNetWorkingString:searchBar.text success:^(id responseObject) {
-        NSLog(@"%@", responseObject);
         for (NSString *string in self.dataSource) {
             if ([string isEqual:searchBar.text]) {
                 return;
@@ -198,7 +197,7 @@
     if ([self.dataSource count] > 0) {
         if (indexPath.row < [self.dataSource count]) {
             cell.textLabel.text = _dataSource[indexPath.row];
-            cell.textLabel.textColor = [UIColor orangeColor];
+            cell.textLabel.textColor = [UIColor blackColor];
             [cell getSearchCell];
         }
         if (indexPath.row == [self.dataSource count]) {
@@ -276,14 +275,19 @@
     if (!_isSearch) {
         [self beganSearch];
     }
-    succeedBlock(@"搜索成功");
-    [GlobalMethod serviceWithMothedName:nil parmeter:nil success:^(id responseObject) {
-//        succeedBlock(responseObject);
+    [GlobalMethod serviceWithMothedName:GetSearch_Url parmeter:@{@"keyboard" : string} success:^(id responseObject) {
+        succeedBlock(@"搜索成功");
+        if ([responseObject[@"err_msg"] isEqual:@"success"]) {
+            self.searchView.dataSource = [responseObject[@"data"] mutableCopy];
+            [self.searchView.tableView reloadData];
+            NSLog(@"%@",self.searchView.dataSource);
+        } else {
+            self.searchView.dataSource = [NSMutableArray array];
+            [self.searchView.tableView reloadData];
+        }
     } fail:^(NSError *error) {
         failBlock(error);
     }];
-    self.searchView.dataSource = [@[@{@"price" : @"13.00", @"title" : @"芒果", @"tprice" : @"19.00", @"titlepic" : @"http://218.6.128.225:8088//d/file/shangpin/guoneixianguo/2015-06-28/ebe81c7165f7517693fd50a22dcddcd8.jpg", @"classid" : @"3", @"id" : @"1", @"pn" : @"4"}] mutableCopy];
-    [self.searchView.tableView reloadData];
     
 }
 

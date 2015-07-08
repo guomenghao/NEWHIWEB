@@ -89,7 +89,19 @@
 /**
  *  默认收货地址
  */
+#define AddFavFun_Url @"/e/api/addFavFun.php"
+
+/**
+ *  默认收货地址
+ */
 #define DefaultAddress_Url @"/e/api/defAddress.php"
+
+
+
+/**
+ *  商品收索
+ */
+#define GetSearch_Url @"/e/api/getSearch.php"
 
 #import <Foundation/Foundation.h>
 

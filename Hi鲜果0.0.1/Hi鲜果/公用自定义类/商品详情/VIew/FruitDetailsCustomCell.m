@@ -12,7 +12,9 @@
 #import "EvaluateView.h"
 #import "FruitNameAndPrice.h"
 
-@interface FruitDetailsCustomCell ()
+@interface FruitDetailsCustomCell () {
+    NSArray *_scrollData;
+}
 
 @property (nonatomic, strong) UIView *separator;
 @property (nonatomic, strong) EvaluateView *evaluateView;
@@ -60,7 +62,7 @@
 - (DetailsScrollView *)detailsScrollView
 {
     if (_detailsScrollView == nil) {
-        _detailsScrollView = [[DetailsScrollView alloc] initWithArray:@[@"1.png", @"2.png", @"3.png"]];
+        _detailsScrollView = [[DetailsScrollView alloc] initWithArray:_scrollData];
 
     }
     return _detailsScrollView;
@@ -68,6 +70,7 @@
 
 - (void)getScrollViewCellData:(NSDictionary *)data
 {
+    _scrollData = @[data[@"titlepic"]];
     [self.contentView addSubview:self.detailsScrollView];
 }
 
@@ -85,7 +88,7 @@
 
 - (void)getUnitCellData:(NSDictionary *)data
 {
-    self.fruitUnit.text = [NSString stringWithFormat:@"规格：%@", @"个"];
+    self.fruitUnit.text = [NSString stringWithFormat:@"规格：%@", data[@"unit"]];
     [self.contentView addSubview:self.fruitUnit];
     self.separator.frame = CGRectMake(0, Screen_height / 20 - 0.5, Screen_width, 0.5);
     [self.contentView addSubview:self.separator];
@@ -94,8 +97,9 @@
 
 - (void)getEvaluateCellData:(NSDictionary *)data
 {
+    NSLog(@"%@", data);
     [self.contentView addSubview:self.evaluateView];
-    [self.evaluateView getStarLevel:99];
+    [self.evaluateView getStarLevel:[data[@"infopfen"] intValue]];
 }
 
 

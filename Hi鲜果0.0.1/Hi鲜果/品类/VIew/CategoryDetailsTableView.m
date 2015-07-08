@@ -51,7 +51,6 @@
     if (!cell) {
         cell = [[CategoryDetailsCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:identifier];
     }
-    
     [GlobalMethod removeAllSubViews:cell.contentView];
     [cell getCategoryDetailsCelldata:_dataSourceArray[indexPath.row]];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;

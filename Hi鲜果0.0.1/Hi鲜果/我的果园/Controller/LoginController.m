@@ -120,22 +120,17 @@
     
     if ([sender.currentTitle isEqualToString:@"登 录"]) {
         [sender setEnabled:NO];//禁用按钮
-        UIActivityIndicatorView * indicator = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
-        indicator.center = CGPointMake(self.view.center.x, self.view.center.y);
-        [indicator startAnimating];
-        
-        [GlobalMethod NotHaveAlertServiceWithMothedName:Login_Url
+        [GlobalMethod serviceWithMothedName:Login_Url
                                    parmeter:@{@"username":self.accountField.text,
                                               @"password":self.passwordField.text}
                                     success:^(id responseObject) {
-                                        NSLog(@"%@", responseObject);
-                                        [indicator stopAnimating];
-                                        [indicator removeFromSuperview];
                                         NSString * msg = responseObject[@"err_msg"];
                                         if ([msg isEqualToString:@"success"]) {
                                             NSLog(@"===>登录成功：返回%@", responseObject);
                                             [GlobalMethod getUserInfoSuccess:^(id responseObject) {
                                             }];
+                                            [[NSUserDefaults standardUserDefaults] setObject:self.accountField.text forKey:@"username"];
+                                            [[NSUserDefaults standardUserDefaults] setObject:self.passwordField.text forKey:@"password"];
                                         } else {
                                             [sender setEnabled:YES];
                                         }

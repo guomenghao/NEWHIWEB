@@ -15,10 +15,19 @@
 
 @property (nonatomic, strong) ShopToolbar *toolbar;
 @property (nonatomic, strong) FruitDetailsTableView *tableView;
+@property (nonatomic, strong) HoverButton *hoverButton;
 
 @end
 
 @implementation FruitDetailsController
+
+- (HoverButton *)hoverButton
+{
+    if (_hoverButton == nil) {
+        _hoverButton = [[HoverButton alloc] init];
+    }
+    return _hoverButton;
+}
 
 - (void)dealloc
 {
@@ -71,9 +80,8 @@
     /**
      *  悬浮按钮
      */
-    HoverButton *hoverButton = [[HoverButton alloc] init];
-    [hoverButton initializeUserInterfaceWithLike:YES controller:self];
-    [self.view addSubview:hoverButton];
+    [self.hoverButton initializeUserInterfaceWithLike:YES controller:self data:nil];
+    [self.view addSubview:self.hoverButton];
     
 }
 
@@ -84,6 +92,7 @@
     self.toolbar.classInfo = classInfo;
     [GlobalMethod serviceWithMothedName:GetNewsContent_Url parmeter:@{@"classid" : classInfo[@"classid"], @"id" : classInfo[@"id"]} success:^(id responseObject) {
         self.tableView.dataSourceDic = responseObject[@"data"][@"content"];
+        [self.hoverButton initializeUserInterfaceWithLike:YES controller:self data:responseObject[@"data"][@"content"]];
         [self.tableView reloadData];
     } fail:^(NSError *error) {
         

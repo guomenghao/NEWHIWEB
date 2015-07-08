@@ -51,7 +51,7 @@
 - (void)getCategoryDetailsCelldata:(NSDictionary *)data
 {
     UIImageView *categoryImageView = [[UIImageView alloc] initWithFrame:CGRectMake(5, 5, Screen_height / 5 - 10, Screen_height / 5 - 10)];
-    [categoryImageView sd_setImageWithURL:[NSURL URLWithString:data[@"titlepic"]] placeholderImage:nil];
+    [categoryImageView sd_setImageWithURL:[NSURL URLWithString:data[@"titlepic"]]];
     [self.contentView addSubview:categoryImageView];
     
     UILabel *category = [[UILabel alloc] initWithFrame:CGRectMake(Screen_height / 5, Screen_height / 5 / 15, Screen_width - Screen_height / 5 - 10, Screen_height / 5 / 5)];
@@ -75,10 +75,12 @@
     /**
      *  如果info中有打折状态
      */
-    if (![data[@"price"] isEqual:data[@"tprice"]]) {
-        NSAttributedString *attstr = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"￥%@", data[@"tprice"]] attributes:@{NSStrikethroughStyleAttributeName : @1}];
-        self.original.attributedText = attstr;
-        [self addSubview:self.original];
+    if (![data[@"tprice"] isEqual:[NSNull null]]) {
+        if (![data[@"price"] isEqual:data[@"tprice"]]) {
+            NSAttributedString *attstr = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"￥%@", data[@"tprice"]] attributes:@{NSStrikethroughStyleAttributeName : @1}];
+            self.original.attributedText = attstr;
+            [self addSubview:self.original];
+        }
     }
     
     CustomSeparator *separator = [[CustomSeparator alloc] initWithFrame:CGRectMake(0, Screen_height / 5 - 0.5, Screen_width, 0.5)];

@@ -30,10 +30,15 @@
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     button.frame = CGRectMake(0, 0, CGRectGetHeight(self.bounds) / 1.5, CGRectGetHeight(self.bounds) / 1.5);
     button.center = CGPointMake(CGRectGetWidth(self.bounds) / 2, CGRectGetHeight(self.bounds) / 2);
-    button.backgroundColor = [UIColor orangeColor];
+    button.backgroundColor = [UIColor whiteColor];
+    button.layer.borderWidth = 5;
+    button.layer.borderColor = [UIColor orangeColor].CGColor;
     button.layer.cornerRadius = CGRectGetHeight(button.bounds) / 2;
     [button setTitle:@"申请试吃" forState:UIControlStateNormal];
-    button.titleLabel.font = [UIFont systemFontOfSize:Screen_height / 35];
+    [button setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
+    [button setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
+    button.titleLabel.font = [UIFont boldSystemFontOfSize:Screen_height / 35];
+    [button addTarget:self action:@selector(askFor:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:button];
     
     /**
@@ -42,7 +47,8 @@
     UILabel *eatNumber = [[UILabel alloc] initWithFrame:button.frame];
     eatNumber.center = CGPointMake(CGRectGetWidth(self.bounds) / 5, CGRectGetHeight(self.bounds) / 2);
     eatNumber.textAlignment = NSTextAlignmentCenter;
-    eatNumber.text = @"试吃人数";
+    eatNumber.text = @"试吃人数\n12";
+    eatNumber.numberOfLines = 0;
     eatNumber.font = [UIFont systemFontOfSize:Screen_height / 40];
     [self addSubview:eatNumber];
     
@@ -52,9 +58,15 @@
     UILabel *eatTime = [[UILabel alloc] initWithFrame:button.frame];
     eatTime.center = CGPointMake(CGRectGetWidth(self.bounds) / 5 * 4, CGRectGetHeight(self.bounds) / 2);
     eatTime.textAlignment = NSTextAlignmentCenter;
-    eatTime.text = @"截止时间";
+    eatTime.text = @"截止时间\n122";
+    eatTime.numberOfLines = 0;
     eatTime.font = [UIFont systemFontOfSize:Screen_height / 40];
     [self addSubview:eatTime];
+}
+
+- (void)askFor:(UIButton *)sender
+{
+    NSLog(@"申请试吃");
 }
 
 @end
