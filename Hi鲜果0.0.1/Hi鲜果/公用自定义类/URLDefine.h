@@ -115,7 +115,6 @@
  *  确认收货,参数ddno=订单编号
  */
 #define ConfirmOrder_Url @"/e/api/ShopDdToConform.php"
-
 /**
  *  我的关注
  */
