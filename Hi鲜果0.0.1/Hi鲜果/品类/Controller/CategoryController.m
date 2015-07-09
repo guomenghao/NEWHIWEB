@@ -37,7 +37,6 @@
 
 - (void)initializeDataSource
 {
-    
 }
 
 - (void)initializeUserInterface

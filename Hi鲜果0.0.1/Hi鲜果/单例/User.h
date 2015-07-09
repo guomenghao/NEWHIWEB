@@ -42,6 +42,7 @@
 @property (weak, nonatomic) UITextField *tempName;
 @property (weak, nonatomic) UILabel *tempSex;
 @property (weak, nonatomic) UILabel *tempBirthday;
+@property (weak, nonatomic) UILabel *tempScore;
 @property (weak, nonatomic) NSMutableArray *tempAddrs;
 
 

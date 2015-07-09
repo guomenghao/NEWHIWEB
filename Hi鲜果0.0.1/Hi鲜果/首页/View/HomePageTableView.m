@@ -28,6 +28,9 @@
         self.separatorStyle = UITableViewCellSeparatorStyleNone;
         self.delegate = self;
         self.dataSource = self;
+        self.backgroundColor = [UIColor clearColor];
+        
+        
         [GlobalMethod NotHaveAlertServiceWithMothedName:GetNewsList_Url parmeter:@{@"classid" : @"1"} success:^(id responseObject) {
             if ([responseObject[@"err_msg"] isEqual:@"success"]) {
                 _carouslData = responseObject[@"data"];

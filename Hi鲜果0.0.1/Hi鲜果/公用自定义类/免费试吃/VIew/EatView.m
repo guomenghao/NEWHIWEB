@@ -8,7 +8,9 @@
 
 #import "EatView.h"
 
-@interface EatView ()
+@interface EatView () {
+    NSDictionary *_data;
+}
 
 - (void)initializeUserInterfaceData:(NSDictionary *)data;
 
@@ -24,6 +26,7 @@
 
 - (void)initializeUserInterfaceData:(NSDictionary *)data
 {
+    _data = data;
     /**
      *  申请按钮
      */
@@ -47,10 +50,11 @@
     UILabel *eatNumber = [[UILabel alloc] initWithFrame:button.frame];
     eatNumber.center = CGPointMake(CGRectGetWidth(self.bounds) / 5, CGRectGetHeight(self.bounds) / 2);
     eatNumber.textAlignment = NSTextAlignmentCenter;
-    eatNumber.text = @"试吃人数\n12";
+    eatNumber.text = [NSString stringWithFormat:@"申请人数\n%@", data[@"eatnum"]];
     eatNumber.numberOfLines = 0;
     eatNumber.font = [UIFont systemFontOfSize:Screen_height / 45];
     [self addSubview:eatNumber];
+    NSLog(@"%@", data);
     
     /**
      *  截止时间
@@ -66,7 +70,13 @@
 
 - (void)askFor:(UIButton *)sender
 {
-    NSLog(@"申请试吃");
+    [GlobalMethod serviceWithMothedName:AddTriedNum_Url parmeter:@{@"classid" : _data[@"classid"], @"id" : _data[@"id"], @"userid" : [User loginUser].userid} success:^(id responseObject) {
+        if ([responseObject[@"info"] length] > 0) {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:responseObject[@"info"] delegate:nil cancelButtonTitle:@"好的" otherButtonTitles:nil];
+            [alert show];
+        }
+    } fail:^(NSError *error) {
+    }];
 }
 
 @end

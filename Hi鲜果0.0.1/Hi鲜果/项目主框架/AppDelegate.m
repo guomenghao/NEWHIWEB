@@ -18,6 +18,20 @@
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    [NSThread sleepForTimeInterval:1];
+    
+    UIView *splashScreen = [[UIView alloc] initWithFrame:CGRectMake(0, 0, Screen_width, Screen_height)];
+    [self.window addSubview:splashScreen];
+    
+    [UIView animateWithDuration:0.8 animations:^{
+        CATransform3D transform = CATransform3DMakeScale(1.05, 1.05, 1.0);
+        splashScreen.layer.transform = transform;
+        splashScreen.alpha = 0.0;
+    } completion:^(BOOL finished) {
+        [splashScreen removeFromSuperview];
+    }];
+    
 
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];

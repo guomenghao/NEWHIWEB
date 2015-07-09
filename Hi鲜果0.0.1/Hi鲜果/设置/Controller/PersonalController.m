@@ -79,7 +79,7 @@
 
 - (void)initializeDataSource {
     
-    self.dataSource = @[@"头像", @"昵称", @"会员等级", @"性别", @"生日", @"地址管理"];
+    self.dataSource = @[@"头像", @"昵称", @"会员等级", @"性别", @"生日", @"积分", @"地址管理"];
 }
 
 - (void)initializeUserInterface {
@@ -179,6 +179,10 @@
         [cell getBirthday];
     }
     if (indexPath.row == 5) {
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        [cell getScore];
+    }
+    if (indexPath.row == 6) {
         [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
     }
     
@@ -222,10 +226,10 @@
         self.birthPicker.datePickerMode = UIDatePickerModeDate;
         [self pickerTpo];
     }
-    if (indexPath.row == 5) {
+    if (indexPath.row == 6) {
         [self.navigationController pushViewController:[[AddrAdminController alloc] init] animated:YES];
     }
-    if (indexPath.row != 2) {
+    if (indexPath.row != 2 && indexPath.row != 5) {
         _isChange = YES;
     }
 }

@@ -39,5 +39,10 @@
 @property (nonatomic, strong) UILabel *birthday;
 - (void)getBirthday;
 
+/**
+ *  积分
+ */
+@property (nonatomic, strong) UILabel *score;
+- (void)getScore;
 
 @end

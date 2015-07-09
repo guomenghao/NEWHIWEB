@@ -31,6 +31,7 @@
 
 - (void)dealloc
 {
+    [GlobalMethod removeAllSubViews:self.view];
     NSLog(@"%s", __FUNCTION__);
 }
 

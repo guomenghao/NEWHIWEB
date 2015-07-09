@@ -70,6 +70,18 @@
     return _birthday;
 }
 
+- (UILabel *)score
+{
+    if (_score == nil) {
+        _score = [[UILabel alloc] initWithFrame:CGRectMake(Screen_width - Screen_width * 0.7 - 10, Screen_height * 0.1 / 4, Screen_width * 0.7, Screen_height * 0.1 / 2)];
+        _score.textAlignment = NSTextAlignmentRight;
+        _score.font = [UIFont systemFontOfSize:Screen_width / 22];
+        _score.textColor = [UIColor lightGrayColor];
+        [User loginUser].tempScore = _score;
+    }
+    return _score;
+}
+
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
     if (range.location > 8 ) {
@@ -122,6 +134,13 @@
     self.birthday.text = [User loginUser].birthday;
     [self.contentView addSubview:self.birthday];
 }
+
+- (void)getScore
+{
+    self.score.text = [User loginUser].score;
+    [self.contentView addSubview:self.score];
+}
+
 
 
 @end

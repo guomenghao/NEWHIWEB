@@ -56,7 +56,7 @@
 {
     self.frame = CGRectMake(0, 0, Screen_width, Screen_height * 0.15);
     
-    self.fruitName.text = info[@"title"];
+    self.fruitName.text = @"老成都盖碗茶";//info[@"title"];
     self.RMB.text = @"￥";
     self.fruitPrice.text = info[@"price"];
     [self addSubview:self.RMB];
