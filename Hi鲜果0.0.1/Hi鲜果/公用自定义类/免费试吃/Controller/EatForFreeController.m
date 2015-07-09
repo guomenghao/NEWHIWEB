@@ -61,7 +61,7 @@
     /**
      *  水果信息
      */
-    [GlobalMethod NotHaveAlertServiceWithMothedName:GetTriedList_Url parmeter:@{@"classid" : @"7"} success:^(id responseObject) {
+    [GlobalMethod serviceWithMothedName:GetTriedList_Url parmeter:@{@"classid" : @"7"} success:^(id responseObject) {
         if ([responseObject[@"err_msg"] isEqual:@"success"]) {
             NSLog(@"%@", responseObject);
             DetailsScrollView *scrollView = [[DetailsScrollView alloc] initWithArray:@[responseObject[@"data"][0][@"titlepic"]]];
@@ -75,8 +75,6 @@
             CustomSeparator *customSeparator = [[CustomSeparator alloc] initWithView:fruitInfo];
             [fruitInfo addSubview:customSeparator];
             [self.view addSubview:fruitInfo];
-            
-            
             /**
              *  试吃规则
              */
@@ -97,7 +95,6 @@
             [self.view addSubview:hoverButton];
         }
     } fail:^(NSError *error) {
-        
     }];
     
     

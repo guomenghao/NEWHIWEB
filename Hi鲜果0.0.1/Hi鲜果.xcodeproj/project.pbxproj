@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		090313421B4BBF70008B8B07 /* SettingDetailsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 090313411B4BBF70008B8B07 /* SettingDetailsController.m */; };
 		090313481B4BCB51008B8B07 /* MyAttentionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 090313471B4BCB51008B8B07 /* MyAttentionController.m */; };
+		0918D6EE1B4D61FF00E3206A /* launch.png in Resources */ = {isa = PBXBuildFile; fileRef = 0918D6ED1B4D61FF00E3206A /* launch.png */; };
 		0919BF4C1B4827E7007BFB99 /* ChangeHeadImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 0919BF491B4827E7007BFB99 /* ChangeHeadImage.m */; };
 		0919BF4D1B4827E7007BFB99 /* PersonalCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0919BF4B1B4827E7007BFB99 /* PersonalCustomCell.m */; };
 		0919BF531B482811007BFB99 /* AddrAdminCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0919BF521B482811007BFB99 /* AddrAdminCell.m */; };
@@ -244,6 +245,7 @@
 		090313411B4BBF70008B8B07 /* SettingDetailsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingDetailsController.m; sourceTree = "<group>"; };
 		090313461B4BCB51008B8B07 /* MyAttentionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAttentionController.h; sourceTree = "<group>"; };
 		090313471B4BCB51008B8B07 /* MyAttentionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAttentionController.m; sourceTree = "<group>"; };
+		0918D6ED1B4D61FF00E3206A /* launch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launch.png; sourceTree = "<group>"; };
 		0919BF481B4827E7007BFB99 /* ChangeHeadImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangeHeadImage.h; sourceTree = "<group>"; };
 		0919BF491B4827E7007BFB99 /* ChangeHeadImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangeHeadImage.m; sourceTree = "<group>"; };
 		0919BF4A1B4827E7007BFB99 /* PersonalCustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalCustomCell.h; sourceTree = "<group>"; };
@@ -1302,6 +1304,7 @@
 		24BE13E21B46A1D7007F7797 /* Resoure */ = {
 			isa = PBXGroup;
 			children = (
+				0918D6ED1B4D61FF00E3206A /* launch.png */,
 				096DE6261B4A852A0028B54A /* dingdan.png */,
 				096DE6271B4A852A0028B54A /* dingdan@2x.png */,
 				096DE6281B4A852A0028B54A /* guanzhu.png */,
@@ -1611,6 +1614,7 @@
 				24BE14651B46A1D7007F7797 /* T7.png in Resources */,
 				24BE143C1B46A1D7007F7797 /* icon-email.png in Resources */,
 				24BE14351B46A1D7007F7797 /* fenxiang_1.png in Resources */,
+				0918D6EE1B4D61FF00E3206A /* launch.png in Resources */,
 				249956301B43F5520075B78A /* SMS_SDKLocalizable.strings in Resources */,
 				24BE14711B46A1D7007F7797 /* V5.png in Resources */,
 				24BE144B1B46A1D7007F7797 /* jiuzhuan.jpg in Resources */,

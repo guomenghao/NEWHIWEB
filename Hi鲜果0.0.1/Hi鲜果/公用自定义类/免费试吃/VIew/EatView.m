@@ -8,7 +8,9 @@
 
 #import "EatView.h"
 
-@interface EatView ()
+@interface EatView () {
+    NSDictionary *_data;
+}
 
 - (void)initializeUserInterfaceData:(NSDictionary *)data;
 
@@ -24,6 +26,7 @@
 
 - (void)initializeUserInterfaceData:(NSDictionary *)data
 {
+    _data = data;
     /**
      *  申请按钮
      */
