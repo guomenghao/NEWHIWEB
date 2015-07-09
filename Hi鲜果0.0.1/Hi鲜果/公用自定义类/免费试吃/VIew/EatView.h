@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface EatView : UIView
-- (instancetype)initWithView:(UIView *)view;
+- (instancetype)initWithView:(UIView *)view data:(NSDictionary *)data;
 
 @end

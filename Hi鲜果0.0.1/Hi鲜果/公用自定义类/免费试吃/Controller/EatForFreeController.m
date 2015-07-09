@@ -56,45 +56,54 @@
      */
     self.automaticallyAdjustsScrollViewInsets = NO;
     
-    DetailsScrollView *scrollView = [[DetailsScrollView alloc] initWithArray:@[@"1.png", @"2.png", @"3.png"]];
-    [self.view addSubview:scrollView];
     
     
     /**
      *  水果信息
      */
-    UIView *fruitInfo = [[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(scrollView.bounds), CGRectGetWidth(self.view.bounds), Screen_height * 0.15)];
-    [self.fruitNameAndPrice getFruitInfo:nil];
-    [fruitInfo addSubview:self.fruitNameAndPrice];
+    [GlobalMethod NotHaveAlertServiceWithMothedName:GetTriedList_Url parmeter:@{@"classid" : @"7"} success:^(id responseObject) {
+        if ([responseObject[@"err_msg"] isEqual:@"success"]) {
+            NSLog(@"%@", responseObject);
+            DetailsScrollView *scrollView = [[DetailsScrollView alloc] initWithArray:@[responseObject[@"data"][0][@"titlepic"]]];
+            [self.fruitNameAndPrice getFruitInfo:responseObject[@"data"][0]];
+            UIView *fruitInfo = [[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(scrollView.bounds), CGRectGetWidth(self.view.bounds), Screen_height * 0.15)];
+            [fruitInfo addSubview:self.fruitNameAndPrice];
+            [self.view addSubview:scrollView];
+            /**
+             *  自定义下划线
+             */
+            CustomSeparator *customSeparator = [[CustomSeparator alloc] initWithView:fruitInfo];
+            [fruitInfo addSubview:customSeparator];
+            [self.view addSubview:fruitInfo];
+            
+            
+            /**
+             *  试吃规则
+             */
+            EatRules *eatRules = [[EatRules alloc] initWithView:fruitInfo];
+            [self.view addSubview:eatRules];
+            CustomSeparator *customSepar = [[CustomSeparator alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(eatRules.frame) - 1, CGRectGetWidth(self.view.bounds), 1)];
+            [self.view addSubview:customSepar];
+            /**
+             *  试吃申请按钮
+             */
+            EatView *eatView = [[EatView alloc] initWithView:eatRules data:responseObject[@"data"][0]];
+            [self.view addSubview:eatView];
+            /**
+             *  悬浮按钮
+             */
+            HoverButton *hoverButton = [[HoverButton alloc] init];
+            [hoverButton initializeUserInterfaceWithLike:NO controller:self data:nil];
+            [self.view addSubview:hoverButton];
+        }
+    } fail:^(NSError *error) {
+        
+    }];
     
-    /**
-     *  自定义下划线
-     */
-    CustomSeparator *customSeparator = [[CustomSeparator alloc] initWithView:fruitInfo];
-    [fruitInfo addSubview:customSeparator];
-    [self.view addSubview:fruitInfo];
     
     
-    /**
-     *  试吃规则
-     */
-    EatRules *eatRules = [[EatRules alloc] initWithView:fruitInfo];
-    [self.view addSubview:eatRules];
-    CustomSeparator *customSepar = [[CustomSeparator alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(eatRules.frame) - 1, CGRectGetWidth(self.view.bounds), 1)];
-    [self.view addSubview:customSepar];
     
-    /**
-     *  试吃申请按钮
-     */
-    EatView *eatView = [[EatView alloc] initWithView:eatRules];
-    [self.view addSubview:eatView];
     
-    /**
-     *  悬浮按钮
-     */
-    HoverButton *hoverButton = [[HoverButton alloc] init];
-    [hoverButton initializeUserInterfaceWithLike:NO controller:self data:nil];
-    [self.view addSubview:hoverButton];
 }
 
 - (void)viewWillAppear:(BOOL)animated

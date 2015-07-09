@@ -10,19 +10,19 @@
 
 @interface EatView ()
 
-- (void)initializeUserInterface;
+- (void)initializeUserInterfaceData:(NSDictionary *)data;
 
 @end
 
 @implementation EatView
-- (instancetype)initWithView:(UIView *)view
+- (instancetype)initWithView:(UIView *)view data:(NSDictionary *)data
 {
     self = [self initWithFrame:CGRectMake(0, CGRectGetMaxY(view.frame), CGRectGetWidth(view.bounds) + 20, Screen_height - CGRectGetMaxY(view.frame))];
-    [self initializeUserInterface];
+    [self initializeUserInterfaceData:data];
     return self;
 }
 
-- (void)initializeUserInterface
+- (void)initializeUserInterfaceData:(NSDictionary *)data
 {
     /**
      *  申请按钮
@@ -49,7 +49,7 @@
     eatNumber.textAlignment = NSTextAlignmentCenter;
     eatNumber.text = @"试吃人数\n12";
     eatNumber.numberOfLines = 0;
-    eatNumber.font = [UIFont systemFontOfSize:Screen_height / 40];
+    eatNumber.font = [UIFont systemFontOfSize:Screen_height / 45];
     [self addSubview:eatNumber];
     
     /**
@@ -58,9 +58,9 @@
     UILabel *eatTime = [[UILabel alloc] initWithFrame:button.frame];
     eatTime.center = CGPointMake(CGRectGetWidth(self.bounds) / 5 * 4, CGRectGetHeight(self.bounds) / 2);
     eatTime.textAlignment = NSTextAlignmentCenter;
-    eatTime.text = @"截止时间\n122";
+    eatTime.text = [NSString stringWithFormat:@"截止时间\n%@", data[@"endstime"]];
     eatTime.numberOfLines = 0;
-    eatTime.font = [UIFont systemFontOfSize:Screen_height / 40];
+    eatTime.font = [UIFont systemFontOfSize:Screen_height / 45];
     [self addSubview:eatTime];
 }
 

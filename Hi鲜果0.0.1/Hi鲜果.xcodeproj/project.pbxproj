@@ -24,6 +24,9 @@
 		092AA7921B3B918D00B88F23 /* Hi__Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 092AA7911B3B918D00B88F23 /* Hi__Tests.m */; };
 		092AA7C21B3B99D100B88F23 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 092AA7C11B3B99D100B88F23 /* AppDelegate.m */; };
 		092AA7C71B3B9BE500B88F23 /* BasicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 092AA7C61B3B9BE500B88F23 /* BasicViewController.m */; };
+		093A31E31B4D044400A81D0F /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 093A31E11B4D044400A81D0F /* icon@2x.png */; };
+		093A31E41B4D044400A81D0F /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 093A31E21B4D044400A81D0F /* icon.png */; };
+		093A31E71B4D20D900A81D0F /* MyAttentionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 093A31E61B4D20D900A81D0F /* MyAttentionCell.m */; };
 		094E16581B4298DC00C05CB2 /* UMSocialLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 094E16321B4298DC00C05CB2 /* UMSocialLocalizable.strings */; };
 		094E16591B4298DC00C05CB2 /* libUMSocial_Sdk_4.2.3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 094E16401B4298DC00C05CB2 /* libUMSocial_Sdk_4.2.3.a */; };
 		094E165A1B4298DC00C05CB2 /* UMSCommentDetailController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 094E16421B4298DC00C05CB2 /* UMSCommentDetailController.xib */; };
@@ -126,7 +129,6 @@
 		09BBED0F1B4507170024A3CE /* SearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 09BBED0E1B4507170024A3CE /* SearchView.m */; };
 		09BBED151B45212D0024A3CE /* MyOrderController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09BBED141B45212D0024A3CE /* MyOrderController.m */; };
 		09BBED201B4536FA0024A3CE /* MyOrderCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 09BBED1F1B4536FA0024A3CE /* MyOrderCustomCell.m */; };
-		09EACC7B1B4A5481002A17B0 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 09EACC7A1B4A5481002A17B0 /* icon.png */; };
 		09FFE2971B40CD1A007066C3 /* FruitCategoryTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 09FFE2961B40CD1A007066C3 /* FruitCategoryTableView.m */; };
 		09FFE29A1B40DA81007066C3 /* FruitCategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 09FFE2991B40DA81007066C3 /* FruitCategoryCell.m */; };
 		09FFE2B11B40F4C4007066C3 /* Framework.m in Sources */ = {isa = PBXBuildFile; fileRef = 09FFE2AC1B40F4C4007066C3 /* Framework.m */; };
@@ -269,6 +271,10 @@
 		092AA7C11B3B99D100B88F23 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		092AA7C51B3B9BE500B88F23 /* BasicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasicViewController.h; sourceTree = "<group>"; };
 		092AA7C61B3B9BE500B88F23 /* BasicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasicViewController.m; sourceTree = "<group>"; };
+		093A31E11B4D044400A81D0F /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
+		093A31E21B4D044400A81D0F /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		093A31E51B4D20D900A81D0F /* MyAttentionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAttentionCell.h; sourceTree = "<group>"; };
+		093A31E61B4D20D900A81D0F /* MyAttentionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAttentionCell.m; sourceTree = "<group>"; };
 		094E16331B4298DC00C05CB2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/UMSocialLocalizable.strings; sourceTree = "<group>"; };
 		094E16351B4298DC00C05CB2 /* UMSocial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocial.h; sourceTree = "<group>"; };
 		094E16361B4298DC00C05CB2 /* UMSocialAccountManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocialAccountManager.h; sourceTree = "<group>"; };
@@ -450,7 +456,6 @@
 		09BBED141B45212D0024A3CE /* MyOrderController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyOrderController.m; sourceTree = "<group>"; };
 		09BBED1E1B4536FA0024A3CE /* MyOrderCustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyOrderCustomCell.h; sourceTree = "<group>"; };
 		09BBED1F1B4536FA0024A3CE /* MyOrderCustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyOrderCustomCell.m; sourceTree = "<group>"; };
-		09EACC7A1B4A5481002A17B0 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		09FFE2951B40CD1A007066C3 /* FruitCategoryTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FruitCategoryTableView.h; sourceTree = "<group>"; };
 		09FFE2961B40CD1A007066C3 /* FruitCategoryTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FruitCategoryTableView.m; sourceTree = "<group>"; };
 		09FFE2981B40DA81007066C3 /* FruitCategoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FruitCategoryCell.h; sourceTree = "<group>"; };
@@ -628,6 +633,8 @@
 		090313451B4BCB37008B8B07 /* VIew */ = {
 			isa = PBXGroup;
 			children = (
+				093A31E51B4D20D900A81D0F /* MyAttentionCell.h */,
+				093A31E61B4D20D900A81D0F /* MyAttentionCell.m */,
 			);
 			path = VIew;
 			sourceTree = "<group>";
@@ -1306,9 +1313,10 @@
 				096DE62B1B4A852A0028B54A /* pinjia@2x.png */,
 				096DE62C1B4A852A0028B54A /* shichi.png */,
 				096DE62D1B4A852A0028B54A /* shichi@2x.png */,
+				093A31E11B4D044400A81D0F /* icon@2x.png */,
+				093A31E21B4D044400A81D0F /* icon.png */,
 				096DE6041B4A72160028B54A /* kefu.png */,
 				096DE6051B4A72160028B54A /* kefu@2x.png */,
-				09EACC7A1B4A5481002A17B0 /* icon.png */,
 				24BE13E31B46A1D7007F7797 /* 1.png */,
 				24BE13E41B46A1D7007F7797 /* 2.png */,
 				24BE13E51B46A1D7007F7797 /* 3.png */,
@@ -1568,6 +1576,7 @@
 				24BE14641B46A1D7007F7797 /* T6@2x.png in Resources */,
 				24BE142B1B46A1D7007F7797 /* 1.png in Resources */,
 				096DE6211B4A73810028B54A /* logo_default.png in Resources */,
+				093A31E31B4D044400A81D0F /* icon@2x.png in Resources */,
 				094E165D1B4298DC00C05CB2 /* UMShareEditViewController.xib in Resources */,
 				096DE6151B4A728F0028B54A /* gougou@2x.png in Resources */,
 				096DE6301B4A852A0028B54A /* guanzhu.png in Resources */,
@@ -1586,6 +1595,7 @@
 				24BE14561B46A1D7007F7797 /* star_0.png in Resources */,
 				24BE143E1B46A1D7007F7797 /* icon-password.png in Resources */,
 				096DE62E1B4A852A0028B54A /* dingdan.png in Resources */,
+				093A31E41B4D044400A81D0F /* icon.png in Resources */,
 				2499562C1B43F5450075B78A /* SMS_SDKLocalizable.strings in Resources */,
 				24BE143A1B46A1D7007F7797 /* guowai.png in Resources */,
 				24BE14501B46A1D7007F7797 /* orange.png in Resources */,
@@ -1609,7 +1619,6 @@
 				249956301B43F5520075B78A /* SMS_SDKLocalizable.strings in Resources */,
 				24BE14711B46A1D7007F7797 /* V5.png in Resources */,
 				24BE144B1B46A1D7007F7797 /* jiuzhuan.jpg in Resources */,
-				09EACC7B1B4A5481002A17B0 /* icon.png in Resources */,
 				24BE146A1B46A1D7007F7797 /* T9@2x.png in Resources */,
 				096DE5E51B4A69D30028B54A /* shouye@2x.png in Resources */,
 				094E165B1B4298DC00C05CB2 /* UMSCommentInputController.xib in Resources */,
@@ -1704,6 +1713,7 @@
 				388FC5D51B47B6A600291675 /* OpenHeaderView.m in Sources */,
 				096F9C611B3D2CAB007CE994 /* ShopToolbar.m in Sources */,
 				097A81FF1B3BD04A00D59370 /* HomePageController.m in Sources */,
+				093A31E71B4D20D900A81D0F /* MyAttentionCell.m in Sources */,
 				388C74801B3EE7830078AE32 /* FlexibleFrame.m in Sources */,
 				09FFE2B21B40F4C4007066C3 /* GlobalControl.m in Sources */,
 				092AA7C21B3B99D100B88F23 /* AppDelegate.m in Sources */,

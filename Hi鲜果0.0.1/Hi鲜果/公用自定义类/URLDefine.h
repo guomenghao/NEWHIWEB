@@ -116,6 +116,23 @@
  */
 #define ConfirmOrder_Url @"/e/api/ShopDdToConform.php"
 
+/**
+ *  我的关注
+ */
+#define GetFavaList_Url @"/e/api/getFavaList.php"
+
+/**
+ *  删除收藏
+ */
+#define DelFavaFun_Url @"/e/api//delFavaFun.php"
+
+/**
+ *  试吃
+ */
+#define GetTriedList_Url @"/e/api//getTriedList.php"
+
+
+
 #import <Foundation/Foundation.h>
 
 @protocol URLDefine <NSObject>

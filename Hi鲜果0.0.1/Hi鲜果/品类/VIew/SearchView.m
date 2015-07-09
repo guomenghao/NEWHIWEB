@@ -52,11 +52,17 @@
  */
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return Screen_height / 5;;
+    if ([self.dataSource count] == 0) {
+        return self.frame.size.height;
+    }
+    return Screen_height / 5;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    if ([self.dataSource count] == 0) {
+        return 1;
+    }
     return [self.dataSource count];
 }
 
@@ -68,7 +74,17 @@
         cell = [[CategoryDetailsCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:identifier];
     }
     [GlobalMethod removeAllSubViews:cell.contentView];
-    [cell getCategoryDetailsCelldata:self.dataSource[indexPath.row]];
+    if ([self.dataSource count] == 0) {
+        UILabel *nothing = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, Screen_width, 30)];
+        nothing.center = CGPointMake(Screen_width / 2, self.frame.size.height / 3 - 15);
+        nothing.textAlignment = NSTextAlignmentCenter;
+        nothing.font = [UIFont boldSystemFontOfSize:Screen_height / 35];
+        nothing.textColor = [UIColor lightGrayColor];
+        nothing.text = @"什么都没搜到";
+        [cell.contentView addSubview:nothing];
+    } else {
+        [cell getCategoryDetailsCelldata:self.dataSource[indexPath.row]];
+    }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }

@@ -1,21 +1,15 @@
 //
-//  CategoryDetailsCell.m
+//  MyAttentionCell.m
 //  Hi鲜果
 //
-//  Created by 李波 on 15/6/29.
+//  Created by 李波 on 15/7/8.
 //  Copyright (c) 2015年 Hi fruit. All rights reserved.
 //
 
-#import "CategoryDetailsCell.h"
+#import "MyAttentionCell.h"
 #import "CustomSeparator.h"
 
-@interface CategoryDetailsCell ()
-
-
-@end
-
-@implementation CategoryDetailsCell
-
+@implementation MyAttentionCell
 - (UILabel *)RMB
 {
     if (_RMB == nil) {
@@ -50,8 +44,9 @@
 }
 - (void)getCategoryDetailsCelldata:(NSDictionary *)data
 {
+    NSString *url = [Base_Url stringByAppendingPathComponent:data[@"titlepic"]];
     UIImageView *categoryImageView = [[UIImageView alloc] initWithFrame:CGRectMake(5, 5, Screen_height / 5 - 10, Screen_height / 5 - 10)];
-    [categoryImageView sd_setImageWithURL:[NSURL URLWithString:data[@"titlepic"]]];
+    [categoryImageView sd_setImageWithURL:[NSURL URLWithString:url]];
     [self.contentView addSubview:categoryImageView];
     
     UILabel *category = [[UILabel alloc] initWithFrame:CGRectMake(Screen_height / 5, Screen_height / 5 / 15, Screen_width - Screen_height / 5 - 10, Screen_height / 5 / 5)];
@@ -72,18 +67,9 @@
     [self.contentView addSubview:self.fruitPrice];
     
     
-    /**
-     *  如果info中有打折状态
-     */
-    if (![data[@"tprice"] isEqual:[NSNull null]]) {
-        if (![data[@"price"] isEqual:data[@"tprice"]]) {
-            NSAttributedString *attstr = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"￥%@", data[@"tprice"]] attributes:@{NSStrikethroughStyleAttributeName : @1}];
-            self.original.attributedText = attstr;
-            [self.contentView addSubview:self.original];
-        }
-    }
-    
+  
     CustomSeparator *separator = [[CustomSeparator alloc] initWithFrame:CGRectMake(0, Screen_height / 5 - 0.5, Screen_width, 0.5)];
     [self.contentView addSubview:separator];
 }
+
 @end

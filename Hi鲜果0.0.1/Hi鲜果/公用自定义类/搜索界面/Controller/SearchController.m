@@ -171,6 +171,9 @@
  */
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if ([self.dataSource count] == 0) {
+        return tableView.frame.size.height;
+    }
     if (indexPath.row == [self.dataSource count]) {
         return Screen_height / 10;
     }
@@ -180,7 +183,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if ([self.dataSource count] == 0) {
-        return 0;
+        return 1;
     }
     return [self.dataSource count] + 1;
 }
@@ -204,6 +207,16 @@
             cell.textLabel.text = nil;
             [cell getsearchClearCell];
         }
+    }
+    if ([self.dataSource count] == 0) {
+        cell.textLabel.text = nil;
+        UILabel *nothing = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, Screen_width, 30)];
+        nothing.center = CGPointMake(Screen_width / 2, tableView.frame.size.height / 3 - 15);
+        nothing.textAlignment = NSTextAlignmentCenter;
+        nothing.font = [UIFont boldSystemFontOfSize:Screen_height / 35];
+        nothing.textColor = [UIColor lightGrayColor];
+        nothing.text = @"搜点什么吧";
+        [cell.contentView addSubview:nothing];
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;

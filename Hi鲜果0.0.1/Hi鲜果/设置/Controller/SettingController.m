@@ -41,7 +41,7 @@
     
     self.dataSource = @[
                           @[@"清理图片缓存"],
-                          @[@"当前版本", @"分享APP"],
+                          @[@"当前版本", @"分享APP", @"评价APP"],
                           @[@"关于我们", @"用户协议"],
                           @[@"联系客服"]
                           ];
@@ -112,6 +112,7 @@
     } else if (indexPath.section == 1) {
         if (indexPath.row == 0) {
             cell.detailTextLabel.text = @"1.0";
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
         }
     }
 }
@@ -138,7 +139,21 @@
                                         shareToSnsNames:[NSArray arrayWithObjects:UMShareToSina,UMShareToRenren,UMShareToDouban,UMShareToSms,UMShareToEmail,nil]
                                                delegate:nil];
         }
-    } else if (indexPath.section == 2) {
+        if (indexPath.row == 2) {
+//            NSString * appstoreUrlString = @"itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?mt=8&onlyLatestVersion=true&pageNumber=0&sortOrdering=1&type=Purple+Software&id=APP_ID";
+//            
+//            NSURL * url = [NSURL URLWithString:appstoreUrlString];
+//            
+//            if ([[UIApplication sharedApplication] canOpenURL:url])
+//            {
+//                [[UIApplication sharedApplication] openURL:url];
+//            }
+//            else
+//            {
+//                NSLog(@"can not open");
+//            }
+        }
+    } else if (indexPath.section == 2 && indexPath.row != 2) {
         SettingDetailsController *settingDVC = [[SettingDetailsController alloc] init];
         settingDVC.title = self.dataSource[indexPath.section][indexPath.row];
         [self.navigationController pushViewController:settingDVC animated:YES];
