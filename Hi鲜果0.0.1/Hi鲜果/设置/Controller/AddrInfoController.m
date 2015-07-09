@@ -307,7 +307,7 @@
     NSLog(@"%@", self.data[@"addressid"]);
     [GlobalMethod serviceWithMothedName:DelAddress_Url parmeter:@{@"addressid" : self.data[@"addressid"]} success:^(id responseObject) {
         if ([responseObject[@"err_msg"] isEqual:@"success"]) {
-            [GlobalMethod getUserInfoSuccess:^(id responseObject) {
+            [GlobalMethod getUserInfoSuccess:^(id responseObject) {     
                 [self reloadAddrs];
                 [self popBack];
             }];

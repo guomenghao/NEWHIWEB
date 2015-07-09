@@ -79,11 +79,16 @@
     [self.fruitImageView sd_setImageWithURL:nil placeholderImage:nil];
     [self.contentView addSubview:self.fruitImageView];
     
-    self.time.text = [NSString stringWithFormat:@"下单时间：%@", @"2015-12-12 19:00:00"];
+    self.time.text = [NSString stringWithFormat:@"下单时间：%@", data[@"ddtime"]];
     [self.contentView addSubview:self.time];
-    self.number.text = [NSString stringWithFormat:@"订单编号：%@", @"312312212131232"];
+    self.number.text = [NSString stringWithFormat:@"订单编号：%@", data[@"ddno"]];
     [self.contentView addSubview:self.number];
-    self.status.text = [NSString stringWithFormat:@"订单状态：%@", @"已支付"];
+    if ([data[@"haveprice"] integerValue] == 1) {
+        self.status.text = [NSString stringWithFormat:@"订单状态：%@", @"已收货"];
+    } else {
+        self.status.text = [NSString stringWithFormat:@"订单状态：%@", @"待收货"];
+    }
+    
     [self.contentView addSubview:self.status];
 }
 @end

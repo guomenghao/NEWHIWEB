@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol OpenSectionCellDelegate <NSObject>
+
+- (void)openSectionCellLeaveMessage:(NSString *)content;
+
+@end
+
 @interface OpenSectionCell : UITableViewCell
-@property (strong, nonatomic, readonly) NSString * text;
+
+@property (weak, nonatomic) id<OpenSectionCellDelegate> delegate;
+
 @end

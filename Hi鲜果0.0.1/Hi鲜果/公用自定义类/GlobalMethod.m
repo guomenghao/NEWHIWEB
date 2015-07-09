@@ -175,4 +175,9 @@
     return rect.size;
 }
 
++ (float)getIOSVersion
+{
+    return [[[UIDevice currentDevice] systemVersion] floatValue];
+}
+
 @end

@@ -34,5 +34,6 @@
  */
 + (void)getUserInfoSuccess:(void (^)(id responseObject))succeedBlock;
 
-
+/**获得系统版本号*/
++ (float)getIOSVersion;
 @end

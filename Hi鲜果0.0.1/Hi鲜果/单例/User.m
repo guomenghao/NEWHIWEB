@@ -30,6 +30,7 @@
     self.birthday = data[@"birthday"];
     self.userAddressList = data[@"addressList"];
     self.userMoney = data[@"userMoney"];
+    self.score = @"2360";//data[@"buyfen"];
 }
 
 - (NSDictionary *)getDefaultAddress {

@@ -87,7 +87,7 @@
 #define DelAddress_Url @"/e/api/delAddress.php"
 
 /**
- *  默认收货地址
+ *  增加收藏
  */
 #define AddFavFun_Url @"/e/api/addFavFun.php"
 
@@ -96,12 +96,25 @@
  */
 #define DefaultAddress_Url @"/e/api/defAddress.php"
 
-
-
 /**
- *  商品收索
+ *  商品搜索
  */
 #define GetSearch_Url @"/e/api/getSearch.php"
+
+/**
+ *  提交订单
+ */
+#define SubmitOrder_Url @"/e/api/getSubmitOrder.php"
+
+/**
+ *  订单列表
+ */
+#define GetOrderList_Url @"/e/api/getDdList.php"
+
+/**
+ *  确认收货,参数ddno=订单编号
+ */
+#define ConfirmOrder_Url @"/e/api/ShopDdToConform.php"
 
 #import <Foundation/Foundation.h>
 

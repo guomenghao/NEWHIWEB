@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface SubmitOrderController : BasicViewController
-- (void)reloadTableViewAtIndexPath:(NSIndexPath *)indexPath info:(NSDictionary *)info;
+@property (strong, nonatomic) NSDictionary * address;
+@property (assign, nonatomic, readonly) NSInteger orderTotalPrice;
+- (void)switchValueChanged:(UISwitch *)sender;
 @end

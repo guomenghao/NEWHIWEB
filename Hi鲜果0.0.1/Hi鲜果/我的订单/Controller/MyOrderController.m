@@ -13,7 +13,8 @@
 
 @property (nonatomic, strong) UISegmentedControl *segmentedControl;
 @property (nonatomic, strong) UITableView *tableView;
-@property (nonatomic, strong) NSMutableArray *dataSource;
+@property (nonatomic, strong) NSArray * allDatas;//所有订单
+@property (nonatomic, strong) NSMutableArray *dataSource;//用于显示在表视图上的订单
 
 @end
 
@@ -22,8 +23,9 @@
 - (UISegmentedControl *)segmentedControl
 {
     if (_segmentedControl == nil) {
-        _segmentedControl = [[UISegmentedControl alloc] initWithItems:@[@"全部订单", @"待支付", @"待收货"]];
+        _segmentedControl = [[UISegmentedControl alloc] initWithItems:@[@"全部订单", @"已收货", @"待收货"]];
         _segmentedControl.frame = CGRectMake(Screen_width / 37.5, 64 + Screen_width / 37.5, Screen_width - Screen_width / 37.5 / 0.5, Screen_height / 19);
+        [_segmentedControl addTarget:self action:@selector(segmentedControlValueChanged:) forControlEvents:UIControlEventValueChanged];
         _segmentedControl.selectedSegmentIndex = 0;
         _segmentedControl.tintColor = [UIColor orangeColor];
     }
@@ -61,7 +63,17 @@
 
 - (void)initializeDataSource
 {
+    self.dataSource = nil;
+    [GlobalMethod serviceWithMothedName:GetOrderList_Url parmeter:nil success:^(id responseObject) {
     
+        if (![responseObject isKindOfClass:[NSNull class]]) {
+            self.allDatas = responseObject;
+            //第一次展示所有订单
+            self.dataSource = [self.allDatas mutableCopy];
+            [self.tableView reloadData];
+        }
+
+    } fail:^(NSError *error) {}];
 }
 
 - (void)initializeUserInterface
@@ -76,7 +88,10 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 6;
+    if (self.dataSource != nil) {
+        return self.dataSource.count;
+    }
+    return 0;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -92,9 +107,43 @@
         cell = [[MyOrderCustomCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:identifier];
     }
     [GlobalMethod removeAllSubViews:cell.contentView];
-    [cell getOrderCellData:nil];
+    if (self.dataSource != nil) {
+        [cell getOrderCellData:self.dataSource[indexPath.row]];
+    }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
+}
+
+#pragma mark - segmentedControlValueChanged event
+- (void)segmentedControlValueChanged:(UISegmentedControl *)sender {
+    
+    [self.dataSource removeAllObjects];
+    switch (sender.selectedSegmentIndex) {
+        case 0://全部
+            [self.dataSource addObjectsFromArray:self.allDatas];
+            break;
+        case 1://已收货
+        {
+            for (NSDictionary * orderInfo in self.allDatas) {
+                if ([orderInfo[@"haveprice"] integerValue] == 1) {//订单状态
+                    [self.dataSource addObject:orderInfo];
+                }
+            }
+        }
+            break;
+        case 2://待收货
+        {
+            for (NSDictionary * orderInfo in self.allDatas) {
+                if ([orderInfo[@"haveprice"] integerValue] == 0) {//订单状态
+                    [self.dataSource addObject:orderInfo];
+                }
+            }
+        }
+            break;
+        default:
+            break;
+    }
+    [self.tableView reloadData];
 }
 
 @end
