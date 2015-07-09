@@ -10,6 +10,13 @@
 		090313421B4BBF70008B8B07 /* SettingDetailsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 090313411B4BBF70008B8B07 /* SettingDetailsController.m */; };
 		090313481B4BCB51008B8B07 /* MyAttentionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 090313471B4BCB51008B8B07 /* MyAttentionController.m */; };
 		0918D6EE1B4D61FF00E3206A /* launch.png in Resources */ = {isa = PBXBuildFile; fileRef = 0918D6ED1B4D61FF00E3206A /* launch.png */; };
+		0918D7091B4E5FF600E3206A /* MyEatController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0918D7081B4E5FF600E3206A /* MyEatController.m */; };
+		0918D70B1B4E6C3100E3206A /* kangepi.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0918D70A1B4E6C3100E3206A /* kangepi.jpg */; };
+		0918D70D1B4E6D4400E3206A /* goulemei.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0918D70C1B4E6D4400E3206A /* goulemei.jpg */; };
+		0918D7101B4E718900E3206A /* gerenzhongxin.png in Resources */ = {isa = PBXBuildFile; fileRef = 0918D70E1B4E718900E3206A /* gerenzhongxin.png */; };
+		0918D7111B4E718900E3206A /* gerenzhongxin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0918D70F1B4E718900E3206A /* gerenzhongxin@2x.png */; };
+		0918D71F1B4E815400E3206A /* top@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0918D71E1B4E815400E3206A /* top@2x.png */; };
+		0918D7211B4E816300E3206A /* top.png in Resources */ = {isa = PBXBuildFile; fileRef = 0918D7201B4E816300E3206A /* top.png */; };
 		0919BF4C1B4827E7007BFB99 /* ChangeHeadImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 0919BF491B4827E7007BFB99 /* ChangeHeadImage.m */; };
 		0919BF4D1B4827E7007BFB99 /* PersonalCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0919BF4B1B4827E7007BFB99 /* PersonalCustomCell.m */; };
 		0919BF531B482811007BFB99 /* AddrAdminCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0919BF521B482811007BFB99 /* AddrAdminCell.m */; };
@@ -247,6 +254,14 @@
 		090313461B4BCB51008B8B07 /* MyAttentionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAttentionController.h; sourceTree = "<group>"; };
 		090313471B4BCB51008B8B07 /* MyAttentionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAttentionController.m; sourceTree = "<group>"; };
 		0918D6ED1B4D61FF00E3206A /* launch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launch.png; sourceTree = "<group>"; };
+		0918D7071B4E5FF600E3206A /* MyEatController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyEatController.h; sourceTree = "<group>"; };
+		0918D7081B4E5FF600E3206A /* MyEatController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyEatController.m; sourceTree = "<group>"; };
+		0918D70A1B4E6C3100E3206A /* kangepi.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = kangepi.jpg; sourceTree = "<group>"; };
+		0918D70C1B4E6D4400E3206A /* goulemei.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = goulemei.jpg; sourceTree = "<group>"; };
+		0918D70E1B4E718900E3206A /* gerenzhongxin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gerenzhongxin.png; sourceTree = "<group>"; };
+		0918D70F1B4E718900E3206A /* gerenzhongxin@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gerenzhongxin@2x.png"; sourceTree = "<group>"; };
+		0918D71E1B4E815400E3206A /* top@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "top@2x.png"; sourceTree = "<group>"; };
+		0918D7201B4E816300E3206A /* top.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = top.png; sourceTree = "<group>"; };
 		0919BF481B4827E7007BFB99 /* ChangeHeadImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangeHeadImage.h; sourceTree = "<group>"; };
 		0919BF491B4827E7007BFB99 /* ChangeHeadImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangeHeadImage.m; sourceTree = "<group>"; };
 		0919BF4A1B4827E7007BFB99 /* PersonalCustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalCustomCell.h; sourceTree = "<group>"; };
@@ -641,6 +656,23 @@
 			path = VIew;
 			sourceTree = "<group>";
 		};
+		0918D7051B4E5FE000E3206A /* 我的试吃 */ = {
+			isa = PBXGroup;
+			children = (
+				0918D7061B4E5FE000E3206A /* Controller */,
+			);
+			path = "我的试吃";
+			sourceTree = "<group>";
+		};
+		0918D7061B4E5FE000E3206A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				0918D7071B4E5FF600E3206A /* MyEatController.h */,
+				0918D7081B4E5FF600E3206A /* MyEatController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		0919BF471B4827E7007BFB99 /* VIew */ = {
 			isa = PBXGroup;
 			children = (
@@ -685,6 +717,7 @@
 				388C747B1B3EE7830078AE32 /* 屏幕适配工具 */,
 				09FFE2AA1B40F4C4007066C3 /* 单例 */,
 				097A82071B3BD70600D59370 /* 公用自定义类 */,
+				0918D7051B4E5FE000E3206A /* 我的试吃 */,
 				092AA7B51B3B999900B88F23 /* 首页 */,
 				09BBED101B4520CC0024A3CE /* 我的订单 */,
 				097A821F1B3BD70600D59370 /* 品类 */,
@@ -1307,6 +1340,12 @@
 		24BE13E21B46A1D7007F7797 /* Resoure */ = {
 			isa = PBXGroup;
 			children = (
+				0918D7201B4E816300E3206A /* top.png */,
+				0918D71E1B4E815400E3206A /* top@2x.png */,
+				0918D70E1B4E718900E3206A /* gerenzhongxin.png */,
+				0918D70F1B4E718900E3206A /* gerenzhongxin@2x.png */,
+				0918D70C1B4E6D4400E3206A /* goulemei.jpg */,
+				0918D70A1B4E6C3100E3206A /* kangepi.jpg */,
 				0918D6ED1B4D61FF00E3206A /* launch.png */,
 				096DE6261B4A852A0028B54A /* dingdan.png */,
 				096DE6271B4A852A0028B54A /* dingdan@2x.png */,
@@ -1588,6 +1627,7 @@
 				24BE14441B46A1D7007F7797 /* icon-verify-right.png in Resources */,
 				249956271B43F50C0075B78A /* SMS_SDKLocalizable.strings in Resources */,
 				24BE14491B46A1D7007F7797 /* icon-verify@2x.png in Resources */,
+				0918D71F1B4E815400E3206A /* top@2x.png in Resources */,
 				096DE6341B4A852A0028B54A /* shichi.png in Resources */,
 				096B4BA41B4B78E2000CD76A /* 4.png in Resources */,
 				24BE145E1B46A1D7007F7797 /* T3@2x.png in Resources */,
@@ -1611,6 +1651,7 @@
 				0919BF6C1B4A15B9007BFB99 /* wodeguanzhu.png in Resources */,
 				096DE61E1B4A73010028B54A /* kefu.png in Resources */,
 				24BE14321B46A1D7007F7797 /* bkImage.jpg in Resources */,
+				0918D70D1B4E6D4400E3206A /* goulemei.jpg in Resources */,
 				24BE14421B46A1D7007F7797 /* icon-phone.png in Resources */,
 				096DE6331B4A852A0028B54A /* pinjia@2x.png in Resources */,
 				096DE6121B4A728F0028B54A /* fanhui.png in Resources */,
@@ -1628,7 +1669,9 @@
 				094E165B1B4298DC00C05CB2 /* UMSCommentInputController.xib in Resources */,
 				096DE6241B4A79B10028B54A /* fruit_jia.png in Resources */,
 				096DE6141B4A728F0028B54A /* gougou.png in Resources */,
+				0918D7211B4E816300E3206A /* top.png in Resources */,
 				096DE5E41B4A69D30028B54A /* shouye.png in Resources */,
+				0918D70B1B4E6C3100E3206A /* kangepi.jpg in Resources */,
 				24BE14531B46A1D7007F7797 /* search_menu.png in Resources */,
 				24BE14581B46A1D7007F7797 /* star_2.png in Resources */,
 				24BE143D1B46A1D7007F7797 /* icon-email@2x.png in Resources */,
@@ -1672,8 +1715,10 @@
 				096DE5EC1B4A6ABE0028B54A /* fenlei.png in Resources */,
 				096DE62F1B4A852A0028B54A /* dingdan@2x.png in Resources */,
 				24BE145D1B46A1D7007F7797 /* T3.png in Resources */,
+				0918D7111B4E718900E3206A /* gerenzhongxin@2x.png in Resources */,
 				24BE14701B46A1D7007F7797 /* V4.png in Resources */,
 				094E165E1B4298DC00C05CB2 /* UMShareEditViewControlleriPad.xib in Resources */,
+				0918D7101B4E718900E3206A /* gerenzhongxin.png in Resources */,
 				24BE145F1B46A1D7007F7797 /* T4.png in Resources */,
 				24BE14571B46A1D7007F7797 /* star_1.png in Resources */,
 				24BE144D1B46A1D7007F7797 /* lychee.png in Resources */,
@@ -1718,6 +1763,7 @@
 				096F9C611B3D2CAB007CE994 /* ShopToolbar.m in Sources */,
 				097A81FF1B3BD04A00D59370 /* HomePageController.m in Sources */,
 				093A31E71B4D20D900A81D0F /* MyAttentionCell.m in Sources */,
+				0918D7091B4E5FF600E3206A /* MyEatController.m in Sources */,
 				388C74801B3EE7830078AE32 /* FlexibleFrame.m in Sources */,
 				09FFE2B21B40F4C4007066C3 /* GlobalControl.m in Sources */,
 				092AA7C21B3B99D100B88F23 /* AppDelegate.m in Sources */,

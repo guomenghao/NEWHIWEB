@@ -130,6 +130,16 @@
  */
 #define GetTriedList_Url @"/e/api//getTriedList.php"
 
+/**
+ *  申请试吃
+ */
+#define AddTriedNum_Url @"/e/api/addTriedNum.php"
+
+/**
+ *  我的试吃
+ */
+#define GetMyTriedList_Url @"/e/api/getMyTriedList.php"
+
 
 
 #import <Foundation/Foundation.h>

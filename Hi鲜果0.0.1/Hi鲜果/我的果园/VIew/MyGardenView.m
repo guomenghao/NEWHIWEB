@@ -12,6 +12,7 @@
 #import "SettingController.h"
 #import "PersonalController.h"
 #import "MyAttentionController.h"
+#import "MyEatController.h"
 
 @interface MyGardenView () <UITableViewDelegate, UITableViewDataSource, UIAlertViewDelegate>
 /**记录自身视图动画状态，是否是打开*/
@@ -79,12 +80,12 @@ static MyGardenView * gardenView;
 
 - (void)initializeDataSource {
     
-    self.dataSource = @{@"titles" : @[@"我的订单",
-                                      @"待评价",
+    self.dataSource = @{@"titles" : @[@"个人中心",
+                                      @"我的订单",
                                       @"我的关注",
                                       @"我的试吃"],
-                        @"imageNames" : @[@"dingdan.png",
-                                          @"pinjia.png",
+                        @"imageNames" : @[@"gerenzhongxin.png",
+                                          @"dingdan.png",
                                           @"guanzhu.png",
                                           @"shichi.png"]};
 }
@@ -240,17 +241,18 @@ static MyGardenView * gardenView;
         [self pushLoginViewController];
     } else {
         switch (indexPath.row) {
-            case 0://我的订单
-                [self pushOtherViewController:[[MyOrderController alloc] init]];
+            case 0://个人中心
+                [[Framework controllers].homePageVC.navigationController pushViewController:[[PersonalController alloc] init] animated:NO];
+                [self closeGardenAnimation];
                 break;
             case 1://待评价
-                NSLog(@"待评价");
+                [self pushOtherViewController:[[MyOrderController alloc] init]];
                 break;
             case 2://我的关注
                 [self pushOtherViewController:[[MyAttentionController alloc] init]];
                 break;
             case 3://我的试吃
-                NSLog(@"我的试吃");
+                [self pushOtherViewController:[[MyEatController alloc] init]];
                 break;
             default:
                 break;
@@ -359,9 +361,8 @@ static MyGardenView * gardenView;
     
     if ([User loginUser].isLogin == YES) {
         
-        PersonalController * personalVC = [[PersonalController alloc] init];
         // 由主页控制器推送
-        [[Framework controllers].homePageVC.navigationController pushViewController:personalVC animated:NO];
+        [[Framework controllers].homePageVC.navigationController pushViewController:[[PersonalController alloc] init] animated:NO];
         [self closeGardenAnimation];
     }
 }

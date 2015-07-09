@@ -1,20 +1,19 @@
 //
-//  MyAttentionController.m
+//  MyEatController.m
 //  Hi鲜果
 //
-//  Created by 李波 on 15/7/7.
+//  Created by 李波 on 15/7/9.
 //  Copyright (c) 2015年 Hi fruit. All rights reserved.
 //
 
-#import "MyAttentionController.h"
-#import "CategoryDetailsCell.h"
+#import "MyEatController.h"
 #import "MyAttentionCell.h"
 
-@interface MyAttentionController ()<UITableViewDataSource,UITableViewDelegate>
+@interface MyEatController ()<UITableViewDataSource,UITableViewDelegate>
 
 @end
 
-@implementation MyAttentionController
+@implementation MyEatController
 - (void)dealloc
 {
     NSLog(@"%s", __FUNCTION__);
@@ -22,10 +21,10 @@
 
 
 - (instancetype)init
-{ 
+{
     self = [super init];
     if (self) {
-        self.title = @"我的关注";
+        self.title = @"我的试吃";
     }
     return self;
 }
@@ -50,7 +49,7 @@
 
 - (void)initializeDataSource
 {
-    [GlobalMethod NotHaveAlertServiceWithMothedName:GetFavaList_Url parmeter:nil success:^(id responseObject) {
+    [GlobalMethod NotHaveAlertServiceWithMothedName:GetMyTriedList_Url parmeter:nil success:^(id responseObject) {
         NSLog(@"%@",responseObject);
         if ([responseObject[@"err_msg"] isEqual:@"success"]) {
             self.dataSource = [responseObject[@"data"] mutableCopy];
@@ -60,27 +59,11 @@
     }];
 }
 
-
 - (void)initializeUserInterface
 {
-    UIBarButtonItem *editItem = [[UIBarButtonItem alloc] initWithTitle:@"编辑" style:UIBarButtonItemStylePlain target:self action:@selector(changeTableViewState:)];
-    self.navigationItem.rightBarButtonItem = editItem;
-    
-    
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self.view addSubview:self.tableView];
 }
-
-- (void)changeTableViewState:(UIBarButtonItem *)sender
-{
-    // 修改tableView的编辑状态
-    BOOL isEditing = !_tableView.isEditing;
-    [_tableView setEditing:isEditing animated:YES];
-    
-    // 修改barButtonItem标题
-    sender.title = isEditing ? @"完成" : @"编辑";
-}
-
 
 /**
  *  cell行高
@@ -101,34 +84,6 @@
     return YES;
 }
 
-
-- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    return UITableViewCellEditingStyleDelete;
-}
-
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    // 判断当前是否是删除按钮
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        
-        // 先修改数据
-        [GlobalMethod NotHaveAlertServiceWithMothedName:DelFavaFun_Url parmeter:@{@"favaid" : self.dataSource[indexPath.row][@"favaid"]} success:^(id responseObject) {
-            NSLog(@"%@", responseObject);
-            if ([responseObject[@"err_msg"] isEqual:@"success"]) {
-                [self.dataSource removeObjectAtIndex:indexPath.row];
-                
-                // 再进行表视图的刷新:删除表视图中的一行
-                if ([self.dataSource count] == 0) {
-                    [self.tableView reloadData];
-                    return;
-                }
-                [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-            }
-        } fail:^(NSError *error) {
-        }];
-    }
-}
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -158,7 +113,7 @@
         nothing.textAlignment = NSTextAlignmentCenter;
         nothing.font = [UIFont boldSystemFontOfSize:Screen_height / 35];
         nothing.textColor = [UIColor lightGrayColor];
-        nothing.text = @"您还没有关注哦";
+        nothing.text = @"还没有申请试吃";
         [cell.contentView addSubview:nothing];
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -175,7 +130,8 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-//    [self.navigationController setNavigationBarHidden:NO];
+    //    [self.navigationController setNavigationBarHidden:NO];
     [self.tabBarController.tabBar setHidden:YES];
 }
+
 @end
