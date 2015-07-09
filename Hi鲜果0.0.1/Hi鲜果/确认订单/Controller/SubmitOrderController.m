@@ -36,7 +36,7 @@ OpenSectionCellDelegate>
 @property (strong, nonatomic) NSMutableArray * detailTexts;
 @property (assign, nonatomic) NSInteger currentSwitchSection;//当前开关所在分区
 @property (strong, nonatomic) NSString * currentDispatchDate;//送货时间
-@property (assign, nonatomic) int currentDiscountScore;//积分抵扣
+@property (assign, nonatomic) NSInteger currentDiscountScore;//积分抵扣
 @property (strong, nonatomic) NSString * currentInvoiceHead;//发票抬头
 @property (strong, nonatomic) NSString * leaveMessage;//订单留言
 - (void)sectionHeaderViewTapped:(UITapGestureRecognizer *)sender;
@@ -83,9 +83,9 @@ OpenSectionCellDelegate>
                              @[@"请选择"],
                              @[@"货到付款",@""],
                              @[],
-                             @[[NSString stringWithFormat:@"￥%@", self.dataSource[@"buycar"][@"totalmoney"]],
+                             [@[[NSString stringWithFormat:@"￥%@", self.dataSource[@"buycar"][@"totalmoney"]],
                                @"￥0.00",
-                               @"￥0.00"],
+                               [NSString stringWithFormat:@"￥%ld.00", (long)self.currentDiscountScore]] mutableCopy],
                              @[@""]
                              ] mutableCopy];
         [self.tableView reloadData];
@@ -145,7 +145,7 @@ OpenSectionCellDelegate>
 - (OpenHeaderView *)headerView {
     
     if (_headerView == nil) {
-        _headerView = [[OpenHeaderView alloc] initWithFrame:CGRectMake(0, 0, Screen_width, 20*[FlexibleFrame ratios].height)];
+        _headerView = [[OpenHeaderView alloc] initWithFrame:CGRectMake(0, 0, Screen_width, 40*[FlexibleFrame ratios].height)];
         // 添加tap手势
         UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(sectionHeaderViewTapped:)];
         [_headerView addGestureRecognizer:tap];
@@ -389,8 +389,12 @@ OpenSectionCellDelegate>
     switch (type) {
         case InputCellTypeScore://积分
         {
-            self.currentDiscountScore = [content intValue];
+            self.currentDiscountScore = [content integerValue];
             self.toolBar.totalPrice = [self.dataSource[@"buycar"][@"totalmoney"] integerValue] - self.currentDiscountScore;
+            // 修改积分抵扣cell的内容
+            self.detailTexts[4][2] = [NSString stringWithFormat:@"￥%ld.00", (long)self.currentDiscountScore];
+            NSIndexPath * indexPath = [NSIndexPath indexPathForRow:2 inSection:4];
+            [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
         }
             break;
         case InputCellTypeInvoice://发票
@@ -436,6 +440,14 @@ OpenSectionCellDelegate>
                               };
     [GlobalMethod NotHaveAlertServiceWithMothedName:SubmitOrder_Url parmeter:params success:^(id responseObject) {
         [AutoDismissBox showBoxWithTitle:@"恭喜您" message:@"订单提交成功！"];
+        [self.navigationController popViewControllerAnimated:YES];
+//        // test 是否清空购物车
+//        [GlobalMethod NotHaveAlertServiceWithMothedName:GetCar_Url parmeter:nil success:^(id responseObject) {
+//            if (![responseObject[@"data"] isKindOfClass:[NSNull class]]) {
+//                // 注意返回的总价和个数是NSNumber
+//                NSLog(@"购物车信息：%@", responseObject);
+//            }
+//        } fail:^(NSError *error) {}];
     } fail:^(NSError *error) {}];
 }
 

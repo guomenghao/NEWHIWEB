@@ -203,7 +203,8 @@
         NSMutableDictionary *data = [@{@"truename" : self.name.text,
                                @"phone" : self.phone.text,
                                @"addressname" : self.addr.text,
-                               @"userid" : [User loginUser].userid} mutableCopy];
+                               @"userid" : [User loginUser].userid,
+                               @"isdefault" : @"1"} mutableCopy];
         /**
          *  不同的方式保存到临时信息
          */

@@ -29,7 +29,7 @@
     
     if (_textView == nil) {
         _textView = ({
-            UITextView * textView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, Screen_width, 150)];
+            UITextView * textView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, Screen_width, 150*[FlexibleFrame ratios].height)];
             textView.autocorrectionType = UITextAutocorrectionTypeNo;
             textView.autocapitalizationType = UITextAutocapitalizationTypeNone;
             textView.font = MiddleFont;
@@ -62,7 +62,8 @@
         [button setTitle:@"完成" forState:UIControlStateNormal];
         button.titleLabel.textAlignment = NSTextAlignmentRight;
         [button addTarget:self action:@selector(endButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-        [button setTitleColor:[UIColor colorWithRed:0 green:200/255.0 blue:25/255.0 alpha:0.8]forState:UIControlStateNormal];
+        [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [button setBackgroundColor:RGBAColor(0, 200, 25, 0.8)];
         button;
     });
     textView.inputAccessoryView = endButton;

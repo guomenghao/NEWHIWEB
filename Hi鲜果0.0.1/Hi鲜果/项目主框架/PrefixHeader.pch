@@ -29,7 +29,7 @@
 /**
  *  定义RGB颜色
  */
-#define RGBAColor(Red,Green,Blue,Alpha) [UIColor colorWithRed:Red/255.0 green:Green/255.0 blue:Blue/255.0 alpha:Alpha];
+#define RGBAColor(Red,Green,Blue,Alpha) [UIColor colorWithRed:Red/255.0 green:Green/255.0 blue:Blue/255.0 alpha:Alpha]
 /**
  *  按钮的主题背景色
  */

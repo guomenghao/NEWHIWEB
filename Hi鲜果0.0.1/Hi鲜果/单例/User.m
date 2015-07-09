@@ -30,14 +30,14 @@
     self.birthday = data[@"birthday"];
     self.userAddressList = data[@"addressList"];
     self.userMoney = data[@"userMoney"];
-    self.score = @"2360";//data[@"buyfen"];
+    self.score = data[@"userfen"];
 }
 
 - (NSDictionary *)getDefaultAddress {
     
     if (![self.userAddressList isKindOfClass:[NSNull class]]) {
         for (NSDictionary * addrs in self.userAddressList) {
-            if ([addrs[@"isdefault"] intValue] == 1) {
+            if ([addrs[@"isdefault"] intValue] == 0) {
                 return addrs;
             }
         }

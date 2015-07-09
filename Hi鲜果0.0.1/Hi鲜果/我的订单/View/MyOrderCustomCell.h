@@ -9,7 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface MyOrderCustomCell : UITableViewCell
-
+/**标记cell的行数*/
+@property (assign, nonatomic) NSInteger row;
 - (void)getOrderCellData:(NSDictionary *)data;
 
 @end

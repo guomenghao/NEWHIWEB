@@ -44,7 +44,7 @@
     phoneLabel.text = [NSString stringWithFormat:@"电话：%@", info[@"phone"]];
     addrLabel.text = [NSString stringWithFormat:@"收货地址：%@", info[@"addressname"]];
     //判断是否是默认地址
-    if ([info[@"isdefault"] integerValue] == 1) {
+    if ([info[@"addressid"] isEqualToString:[[User loginUser] getDefaultAddress][@"addressid"]]) {
         [self.contentView addSubview:self.defaultLabel];
     } else {
         [self.defaultLabel removeFromSuperview];

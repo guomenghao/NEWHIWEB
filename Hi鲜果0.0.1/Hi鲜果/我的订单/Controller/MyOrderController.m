@@ -8,18 +8,17 @@
 
 #import "MyOrderController.h"
 #import "MyOrderCustomCell.h"
-
+#import "AutoDismissBox.h"
 @interface MyOrderController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic, strong) UISegmentedControl *segmentedControl;
 @property (nonatomic, strong) UITableView *tableView;
-@property (nonatomic, strong) NSArray * allDatas;//所有订单
+@property (nonatomic, strong) NSMutableArray * allDatas;//所有订单
 @property (nonatomic, strong) NSMutableArray *dataSource;//用于显示在表视图上的订单
 
 @end
 
 @implementation MyOrderController
-
 - (UISegmentedControl *)segmentedControl
 {
     if (_segmentedControl == nil) {
@@ -35,7 +34,7 @@
 - (UITableView *)tableView
 {
     if (_tableView == nil) {
-        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, Screen_width / 37.5 + CGRectGetMaxY(self.segmentedControl.frame), Screen_width, Screen_height - 44 - Screen_width / 37.5 - CGRectGetMaxY(self.segmentedControl.frame))];
+        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, Screen_width / 37.5 + CGRectGetMaxY(self.segmentedControl.frame), Screen_width, Screen_height - Screen_width / 37.5 - CGRectGetMaxY(self.segmentedControl.frame))];
         _tableView.delegate = self;
         _tableView.showsVerticalScrollIndicator = NO;
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -50,6 +49,7 @@
     if (self) {
         self.title = @"我的订单";
         self.view.backgroundColor = [UIColor whiteColor];
+        [Framework controllers].myOrderVC = self;
         self.controllerType = UIViewControllerHaveNavigation;
     }
     return self;
@@ -61,13 +61,19 @@
     [self initializeUserInterface];
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.tabBarController.tabBar setHidden:YES];
+}
+
 - (void)initializeDataSource
 {
     self.dataSource = nil;
     [GlobalMethod serviceWithMothedName:GetOrderList_Url parmeter:nil success:^(id responseObject) {
     
         if (![responseObject isKindOfClass:[NSNull class]]) {
-            self.allDatas = responseObject;
+            self.allDatas = [responseObject mutableCopy];
             //第一次展示所有订单
             self.dataSource = [self.allDatas mutableCopy];
             [self.tableView reloadData];
@@ -106,6 +112,7 @@
     if (!cell) {
         cell = [[MyOrderCustomCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:identifier];
     }
+    cell.row = indexPath.row;
     [GlobalMethod removeAllSubViews:cell.contentView];
     if (self.dataSource != nil) {
         [cell getOrderCellData:self.dataSource[indexPath.row]];
@@ -144,6 +151,30 @@
             break;
     }
     [self.tableView reloadData];
+}
+
+#pragma mark - 处理cell中确认收货
+- (void)cellAtIndex:(NSInteger)index confirmOrder:(NSString *)orderID {
+    
+    [GlobalMethod NotHaveAlertServiceWithMothedName:ConfirmOrder_Url parmeter:@{@"ddno":orderID} success:^(id responseObject) {
+        [AutoDismissBox showBoxWithTitle:@"温馨提示" message:@"确认收货成功"];
+        [self refreshCellAtIndex:index confirmOrder:orderID];
+    } fail:^(NSError *error) {}];
+}
+
+- (void)refreshCellAtIndex:(NSInteger)index confirmOrder:(NSString *)orderID {
+    // 修改数据源
+    NSMutableDictionary * confirmOrder = nil;
+    for (NSDictionary * orderInfo in self.allDatas) {
+        if ([orderInfo[@"ddno"] isEqualToString:orderID]) {//订单状态
+            confirmOrder = [orderInfo mutableCopy];
+            break;
+        }
+    }
+    [confirmOrder setValue:@"1" forKey:@"haveprice"];
+    [self.allDatas replaceObjectAtIndex:index withObject:confirmOrder];
+    // 刷新tableView
+    [self segmentedControlValueChanged:self.segmentedControl];
 }
 
 @end

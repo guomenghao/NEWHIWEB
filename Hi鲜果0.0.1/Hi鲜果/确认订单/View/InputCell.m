@@ -13,6 +13,8 @@
 @property (strong, nonatomic) UILabel * leftLabel;
 @property (strong, nonatomic) UILabel * rightLabel;
 @property (strong, nonatomic) UITextField * textField;
+@property (strong, nonatomic) NSString * discountString;
+@property (strong, nonatomic) NSString * invoiceString;
 
 @end
 
@@ -84,18 +86,21 @@
 - (void)setType:(InputCellType)type {
     
     _type = type;
+    
     if (_type == InputCellTypeInvoice) {
         [self.leftLabel removeFromSuperview];
         [self.rightLabel removeFromSuperview];
         [self.textField setFrame:CGRectMake(Screen_width / 2, 10 * [FlexibleFrame ratios].height, Screen_width / 2 - 16 * [FlexibleFrame ratios].width, self.textField.bounds.size.height)];
         self.textField.keyboardType = UIKeyboardTypeDefault;
         self.textField.placeholder = @"请输入发票抬头";
+        self.textField.text = self.invoiceString;
     } else {
         [self.contentView addSubview:self.leftLabel];
         [self.contentView addSubview:self.rightLabel];
         [self.textField setFrame:CGRectMake(CGRectGetMaxX(self.leftLabel.frame), self.leftLabel.frame.origin.y, CGRectGetMinX(self.rightLabel.frame) - CGRectGetMaxX(self.leftLabel.frame), 20*[FlexibleFrame ratios].height)];
         self.textField.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
         self.textField.placeholder = @"100的整数倍";
+        self.textField.text = self.discountString;
     }
 }
 
@@ -157,7 +162,7 @@
                 UIAlertView * alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:msg delegate:nil cancelButtonTitle:@"我知道了" otherButtonTitles:nil];
                 [alertView show];
             }
-            
+            self.discountString = textField.text;//记录积分值，避免textfield被重用的内容出错
             // 减少总价
             if (_delegate && [_delegate respondsToSelector:@selector(inputCellType:content:)]) {
                 [_delegate inputCellType:self.type content:[NSString stringWithFormat:@"%d", [textField.text intValue] / 100]];
@@ -167,6 +172,7 @@
             textField.text = @"0";
         }
     } else {
+        self.invoiceString = textField.text;
         if (_delegate && [_delegate respondsToSelector:@selector(inputCellType:content:)]) {
             [_delegate inputCellType:self.type content:textField.text];
         }

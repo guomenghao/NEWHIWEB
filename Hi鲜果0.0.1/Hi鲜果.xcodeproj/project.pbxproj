@@ -142,6 +142,7 @@
 		2456A2831B427C5000F49906 /* Fruit.m in Sources */ = {isa = PBXBuildFile; fileRef = 2456A2821B427C5000F49906 /* Fruit.m */; };
 		2456A2881B4298CC00F49906 /* CartTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2456A2871B4298CC00F49906 /* CartTableView.m */; };
 		2456A28B1B42AE9400F49906 /* RegisterController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2456A28A1B42AE9400F49906 /* RegisterController.m */; };
+		2479AA781B4E6B610026B410 /* OrderDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2479AA771B4E6B610026B410 /* OrderDetailController.m */; };
 		249956271B43F50C0075B78A /* SMS_SDKLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 249956231B43F50C0075B78A /* SMS_SDKLocalizable.strings */; };
 		249956281B43F50C0075B78A /* SMS_SDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 249956251B43F50C0075B78A /* SMS_SDK.framework */; };
 		2499562C1B43F5450075B78A /* SMS_SDKLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2499562A1B43F5450075B78A /* SMS_SDKLocalizable.strings */; };
@@ -482,6 +483,8 @@
 		2456A2871B4298CC00F49906 /* CartTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CartTableView.m; sourceTree = "<group>"; };
 		2456A2891B42AE9400F49906 /* RegisterController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterController.h; sourceTree = "<group>"; };
 		2456A28A1B42AE9400F49906 /* RegisterController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterController.m; sourceTree = "<group>"; };
+		2479AA761B4E6B610026B410 /* OrderDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderDetailController.h; sourceTree = "<group>"; };
+		2479AA771B4E6B610026B410 /* OrderDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderDetailController.m; sourceTree = "<group>"; };
 		249956241B43F50C0075B78A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/SMS_SDKLocalizable.strings; sourceTree = "<group>"; };
 		249956251B43F50C0075B78A /* SMS_SDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SMS_SDK.framework; sourceTree = "<group>"; };
 		249956261B43F50C0075B78A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/SMS_SDKLocalizable.strings"; sourceTree = "<group>"; };
@@ -1102,6 +1105,7 @@
 				096DA87C1B3E4BDE00925F62 /* 免费试吃 */,
 				097A820A1B3BD70600D59370 /* 商品详情 */,
 				097A82111B3BD70600D59370 /* 搜索界面 */,
+				2479AA751B4E6B140026B410 /* 订单详情 */,
 			);
 			path = "公用自定义类";
 			sourceTree = "<group>";
@@ -1273,6 +1277,15 @@
 				09FFE2B81B40F52A007066C3 /* User.m */,
 			);
 			path = "单例";
+			sourceTree = "<group>";
+		};
+		2479AA751B4E6B140026B410 /* 订单详情 */ = {
+			isa = PBXGroup;
+			children = (
+				2479AA761B4E6B610026B410 /* OrderDetailController.h */,
+				2479AA771B4E6B610026B410 /* OrderDetailController.m */,
+			);
+			path = "订单详情";
 			sourceTree = "<group>";
 		};
 		249956221B43F50C0075B78A /* SMS_SDK */ = {
@@ -1767,6 +1780,7 @@
 				24C8CFFA1B463236002F4042 /* NoDataView.m in Sources */,
 				09FFE2C21B41230B007066C3 /* CategoryDetailsController.m in Sources */,
 				097A0EFF1B42251900E860B9 /* SettingController.m in Sources */,
+				2479AA781B4E6B610026B410 /* OrderDetailController.m in Sources */,
 				097A0EC81B414B7600E860B9 /* SDWebImageDownloader.m in Sources */,
 				388FC5DC1B48EF6000291675 /* OpenSectionCell.m in Sources */,
 				09FFE2971B40CD1A007066C3 /* FruitCategoryTableView.m in Sources */,

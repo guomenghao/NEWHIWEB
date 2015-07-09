@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface MyOrderController : BasicViewController
+/**确认订单*/
+- (void)cellAtIndex:(NSInteger)index confirmOrder:(NSString *)orderID;
 
 @end
