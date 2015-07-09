@@ -53,10 +53,11 @@
     
     _type = type;
     if (_type == CartCellTypeCart) {
+        [self.numberLabel removeFromSuperview];
         [self.contentView addSubview:self.numberPicker];
     } else {
+        [self.numberPicker removeFromSuperview];
         [self.contentView addSubview:self.numberLabel];
-        self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
 }
 

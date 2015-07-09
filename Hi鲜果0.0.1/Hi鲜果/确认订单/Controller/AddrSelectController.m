@@ -89,8 +89,8 @@
     
     if (![[User loginUser].userAddressList isKindOfClass:[NSNull class]]) {
         NSDictionary * info = [User loginUser].userAddressList[indexPath.row];
-        NSString * addr = info[@"addressname"];
-        CGSize size = [GlobalMethod sizeWithString:addr font:MiddleFont maxWidth:280 *[FlexibleFrame ratios].width maxHeight:40 * [FlexibleFrame ratios].height];
+        NSString * addr = [NSString stringWithFormat:@"收货地址：%@", info[@"addressname"]];
+        CGSize size = [GlobalMethod sizeWithString:addr font:MiddleFont maxWidth:250 *[FlexibleFrame ratios].width maxHeight:60 * [FlexibleFrame ratios].height];
         CGFloat height = 20 + 40*[FlexibleFrame ratios].height + size.height;
         return height;
     }
@@ -100,8 +100,8 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     if (![[User loginUser].userAddressList isKindOfClass:[NSNull class]]) {
-        
-        [[Framework controllers].submitOrderVC reloadTableViewAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] info:[User loginUser].userAddressList[indexPath.row]];
+
+        [Framework controllers].submitOrderVC.address = [User loginUser].userAddressList[indexPath.row];
         [self.navigationController popViewControllerAnimated:YES];
     }
 }

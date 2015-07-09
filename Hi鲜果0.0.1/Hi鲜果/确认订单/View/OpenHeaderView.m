@@ -31,7 +31,7 @@
 - (UILabel *)titleLabel {
     
     if (_titleLabel == nil) {
-        _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(16, 0, self.bounds.size.width - 20 - 10, self.bounds.size.height)];
+        _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(16, -10, self.bounds.size.width - 20 - 10, self.bounds.size.height)];
         _titleLabel.textColor = [UIColor lightGrayColor];
         _titleLabel.font = SmallFont;
     }
@@ -41,7 +41,7 @@
 - (UIButton *)openButton {
     
     if (_openButton == nil) {
-        _openButton = [[UIButton alloc] initWithFrame:CGRectMake(self.bounds.size.width - 16 - 10 * [FlexibleFrame ratios].height, 0, 20*[FlexibleFrame ratios].height, 20*[FlexibleFrame ratios].height)];
+        _openButton = [[UIButton alloc] initWithFrame:CGRectMake(self.bounds.size.width - 16 - 10 * [FlexibleFrame ratios].height, -10, 20*[FlexibleFrame ratios].height, 20*[FlexibleFrame ratios].height)];
         [_openButton setImage:ImageWithName(@"open.png") forState:UIControlStateNormal];
         _openButton.userInteractionEnabled = NO;
     }

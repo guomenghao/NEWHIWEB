@@ -9,6 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface SwitchCell : UITableViewCell
-/**右侧开关的打开状态*/
-@property (assign, nonatomic) BOOL switchOn;
+
 @end

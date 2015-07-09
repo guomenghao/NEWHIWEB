@@ -75,7 +75,9 @@
         [[Framework controllers].shoppingCartVC.navigationController pushViewController:[[SubmitOrderController alloc] init] animated:YES];
     } else {
         
-        NSLog(@"提交订单按钮点击");
+        if (_delegate && [_delegate respondsToSelector:@selector(shouldSubmitOrder)]) {
+            [_delegate shouldSubmitOrder];
+        }
     }
 }
 

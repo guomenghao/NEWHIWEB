@@ -153,6 +153,7 @@
 		249956381B43F5D20075B78A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 249956371B43F5D20075B78A /* SystemConfiguration.framework */; };
 		24A4AA701B4B64E300274A66 /* AddrSelectController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24A4AA6F1B4B64E300274A66 /* AddrSelectController.m */; };
 		24A4AA731B4B68F500274A66 /* AddrSelectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24A4AA721B4B68F500274A66 /* AddrSelectCell.m */; };
+		24A626B71B4D24320044E672 /* InputCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24A626B61B4D24320044E672 /* InputCell.m */; };
 		24B755A91B4A26A6009D1378 /* SwitchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24B755A81B4A26A6009D1378 /* SwitchCell.m */; };
 		24BE142B1B46A1D7007F7797 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 24BE13E31B46A1D7007F7797 /* 1.png */; };
 		24BE142C1B46A1D7007F7797 /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 24BE13E41B46A1D7007F7797 /* 2.png */; };
@@ -496,6 +497,8 @@
 		24A4AA6F1B4B64E300274A66 /* AddrSelectController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddrSelectController.m; sourceTree = "<group>"; };
 		24A4AA711B4B68F500274A66 /* AddrSelectCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddrSelectCell.h; sourceTree = "<group>"; };
 		24A4AA721B4B68F500274A66 /* AddrSelectCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddrSelectCell.m; sourceTree = "<group>"; };
+		24A626B51B4D24320044E672 /* InputCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputCell.h; sourceTree = "<group>"; };
+		24A626B61B4D24320044E672 /* InputCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputCell.m; sourceTree = "<group>"; };
 		24B755A71B4A26A6009D1378 /* SwitchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwitchCell.h; sourceTree = "<group>"; };
 		24B755A81B4A26A6009D1378 /* SwitchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwitchCell.m; sourceTree = "<group>"; };
 		24BE13E31B46A1D7007F7797 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
@@ -1461,6 +1464,8 @@
 				24B755A81B4A26A6009D1378 /* SwitchCell.m */,
 				24A4AA711B4B68F500274A66 /* AddrSelectCell.h */,
 				24A4AA721B4B68F500274A66 /* AddrSelectCell.m */,
+				24A626B51B4D24320044E672 /* InputCell.h */,
+				24A626B61B4D24320044E672 /* InputCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1745,6 +1750,7 @@
 				090313421B4BBF70008B8B07 /* SettingDetailsController.m in Sources */,
 				24C8D00A1B465E29002F4042 /* SubmitOrderController.m in Sources */,
 				092AA7C71B3B9BE500B88F23 /* BasicViewController.m in Sources */,
+				24A626B71B4D24320044E672 /* InputCell.m in Sources */,
 				097A0EC71B414B7600E860B9 /* SDWebImageDecoder.m in Sources */,
 				09FFE29A1B40DA81007066C3 /* FruitCategoryCell.m in Sources */,
 				097A82031B3BD15E00D59370 /* ButtonView.m in Sources */,

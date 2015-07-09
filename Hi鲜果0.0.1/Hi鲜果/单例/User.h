@@ -29,6 +29,8 @@
 @property (strong, nonatomic) NSArray * userAddressList;
 /**标记登录状态*/
 @property (assign, nonatomic) BOOL isLogin;
+/**用户积分*/
+@property (strong, nonatomic) NSString * score;
 
 - (void)getUserInfo:(NSDictionary *)data;
 

@@ -15,5 +15,7 @@
 
 @property (nonatomic, weak) FruitNumberPicker *numPicker;
 @property (nonatomic, weak) UITableView *tableView;
+//记录当前弹出键盘的第一响应者
+@property (nonatomic, weak) UIView * firstResponder;
 
 @end
