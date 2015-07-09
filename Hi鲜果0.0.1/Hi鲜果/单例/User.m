@@ -37,7 +37,7 @@
     
     if (![self.userAddressList isKindOfClass:[NSNull class]]) {
         for (NSDictionary * addrs in self.userAddressList) {
-            if ([addrs[@"isdefault"] intValue] == 1) {
+            if ([addrs[@"isdefault"] intValue] == 0) {
                 return addrs;
             }
         }
