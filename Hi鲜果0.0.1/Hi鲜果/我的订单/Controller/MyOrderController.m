@@ -131,26 +131,29 @@
             break;
         case 1://已收货
         {
-            for (NSDictionary * orderInfo in self.allDatas) {
-                if ([orderInfo[@"haveprice"] integerValue] == 1) {//订单状态
-                    [self.dataSource addObject:orderInfo];
-                }
-            }
+            [self.dataSource addObjectsFromArray:[self filterOrderWithStatus:YES]];
         }
             break;
         case 2://待收货
         {
-            for (NSDictionary * orderInfo in self.allDatas) {
-                if ([orderInfo[@"haveprice"] integerValue] == 0) {//订单状态
-                    [self.dataSource addObject:orderInfo];
-                }
-            }
+            [self.dataSource addObjectsFromArray:[self filterOrderWithStatus:NO]];
         }
             break;
         default:
             break;
     }
     [self.tableView reloadData];
+}
+
+- (NSArray *)filterOrderWithStatus:(BOOL)isConfirm {
+    
+    NSMutableArray * array = [[NSMutableArray alloc] init];
+    for (NSDictionary * orderInfo in self.allDatas) {
+        if ([orderInfo[@"haveprice"] boolValue] == isConfirm) {//订单状态
+            [array addObject:orderInfo];
+        }
+    }
+    return array;
 }
 
 #pragma mark - 处理cell中确认收货
