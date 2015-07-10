@@ -31,6 +31,7 @@
 
 - (instancetype)initWithData:(NSArray *)data
 {
+    [GlobalControl myControl].carouselView = self;
     self = [self init];
     self.frame = CGRectMake(0, 0, Screen_width, Screen_height * 0.27);
     self.bounces = NO;
