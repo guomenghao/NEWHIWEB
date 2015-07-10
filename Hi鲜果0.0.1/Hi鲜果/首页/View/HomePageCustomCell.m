@@ -14,7 +14,7 @@
 @interface HomePageCustomCell () {
     NSArray *_carouselData;
 }
-
+@property (nonatomic, strong) UIView *separator;
 @property (nonatomic, strong) CarouselView *carouselView;
 @property (nonatomic, strong) ButtonView *buttonView;
 @property (nonatomic, strong) UIImageView *boutiImageView;
@@ -23,6 +23,16 @@
 @end
 
 @implementation HomePageCustomCell
+
+- (UIView *)separator
+{
+    if (_separator == nil) {
+        _separator = [[UIView alloc] init];
+        _separator.backgroundColor = [UIColor lightGrayColor];
+    }
+    return _separator;
+}
+
 
 - (UIImageView *)boutiImageView
 {
@@ -63,7 +73,7 @@
 {
     if (_headLine == nil) {
         _headLine = [[UILabel alloc] initWithFrame:CGRectMake(5, 0, Screen_width - 10, Screen_height / 25)];
-        _headLine.font = [UIFont systemFontOfSize:Screen_height / 40];
+        _headLine.font = [UIFont systemFontOfSize:Screen_height / 50];
     }
     return _headLine;
 }
@@ -91,6 +101,8 @@
 - (void)getButtonViewCell
 {
     [self.contentView addSubview:self.buttonView];
+    self.separator.frame = CGRectMake(0, Screen_height * 0.16 - 0.5, Screen_width, 0.5);
+    [self.contentView addSubview:self.separator];
     
 }
 

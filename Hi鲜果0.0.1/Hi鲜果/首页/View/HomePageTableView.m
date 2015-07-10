@@ -73,7 +73,7 @@
         return Screen_height * 0.27;
     }
     if (indexPath.row == 1) {
-        return Screen_height * 0.25 + 5;
+        return Screen_height * 0.16;
     }
     if (indexPath.row == 2 || indexPath.row == 4) {
         return Screen_height / 25;
@@ -100,6 +100,7 @@
         if (_carouslData == nil) {
         } else {
             [cell getCarouselCellData:_carouslData];
+            [GlobalControl myControl].cell = cell;
         }
     }
     if (indexPath.row == 1) {
@@ -132,6 +133,10 @@
  */
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
+    if (indexPath.row == 4 || indexPath.row == 2) {
+        return;
+    }
     FruitDetailsController *fdVC = [[FruitDetailsController alloc] init];
     if (indexPath.row == 3) {
         [fdVC getNetWork:[_boutiData firstObject]];
@@ -155,5 +160,20 @@
         }];
     }
 }
+
+
+
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    if (scrollView.contentOffset.y < 0 && scrollView.contentOffset.y > -Screen_height / 4) {
+        [GlobalControl myControl].cell.transform = CGAffineTransformMakeScale(-scrollView.contentOffset.y / 100 + 1, -scrollView.contentOffset.y / 100 + 1);
+        [GlobalControl myControl].cell.center = CGPointMake(Screen_width / 2, Screen_height * 0.27 / 2 + scrollView.contentOffset.y * (Screen_width / 800 / (Screen_width / Screen_height)));
+    }
+    if (- scrollView.contentOffset.y > Screen_height / 4) {
+        scrollView.contentOffset = CGPointMake(0,  - Screen_height / 4);
+    }
+}
+
 
 @end
