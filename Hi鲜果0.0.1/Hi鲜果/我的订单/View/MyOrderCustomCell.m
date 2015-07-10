@@ -8,6 +8,7 @@
 
 #import "MyOrderCustomCell.h"
 
+#define TagBase 6000
 @interface MyOrderCustomCell ()
 
 @property (nonatomic, strong) UIImageView *fruitImageView;
@@ -16,6 +17,9 @@
 @property (nonatomic, strong) UILabel *status;
 @property (nonatomic, strong) UIView *background;
 @property (nonatomic, strong) NSString * ddno;
+/**以下属性用于多选删除功能*/
+@property (nonatomic, strong) UIImageView * checkImageView;
+@property (nonatomic, assign) BOOL checked;
 @end
 
 @implementation MyOrderCustomCell
@@ -71,20 +75,19 @@
     return _status;
 }
 
-
-- (void)getOrderCellData:(NSDictionary *)data
+- (void)getOrderCellData:(OrderItem *)item
 {
-    self.ddno = data[@"ddno"];
+    self.ddno = item.ddno;
     [self.contentView addSubview:self.background];
     
     [self.fruitImageView sd_setImageWithURL:nil placeholderImage:nil];
     [self.contentView addSubview:self.fruitImageView];
     
-    self.time.text = [NSString stringWithFormat:@"下单时间：%@", data[@"ddtime"]];
+    self.time.text = [NSString stringWithFormat:@"下单时间：%@", item.ddtime];
     [self.contentView addSubview:self.time];
-    self.number.text = [NSString stringWithFormat:@"订单编号：%@", data[@"ddno"]];
+    self.number.text = [NSString stringWithFormat:@"订单编号：%@", item.ddno];
     [self.contentView addSubview:self.number];
-    if ([data[@"haveprice"] integerValue] == 1) {
+    if ([item.havePrice integerValue] == 1) {
         self.status.text = [NSString stringWithFormat:@"订单状态：%@", @"已收货"];
     } else {
         self.status.text = [NSString stringWithFormat:@"订单状态：%@", @"待收货"];
@@ -110,5 +113,89 @@
 - (void)confirmOrder:(UIButton *)sender {
     
    [[Framework controllers].myOrderVC cellAtIndex:self.row confirmOrder:self.ddno];
+}
+
+- (void)setChecked:(BOOL)checked {
+    
+    if (checked)
+    {
+        self.checkImageView.image = ImageWithName(@"cell-selected.png");
+        //self.backgroundView.backgroundColor = [UIColor colorWithRed:223.0/255.0 green:230.0/255.0 blue:250.0/255.0 alpha:1.0];
+    }
+    else
+    {
+        self.checkImageView.image = nil;
+        //self.backgroundView.backgroundColor = [UIColor whiteColor];
+    }
+    _checked = checked;
+}
+
+- (void)setCheckImageViewCenter:(CGPoint)pt alpha:(CGFloat)alpha animated:(BOOL)animated
+{
+    if (animated)
+    {
+        [UIView beginAnimations:nil context:nil];
+        [UIView setAnimationBeginsFromCurrentState:YES];
+        [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+        [UIView setAnimationDuration:0.3];
+        
+        _checkImageView.center = pt;
+        _checkImageView.alpha = alpha;
+        
+        [UIView commitAnimations];
+    }
+    else
+    {
+        _checkImageView.center = pt;
+        _checkImageView.alpha = alpha;
+    }
+}
+
+
+- (void)setEditing:(BOOL)editting animated:(BOOL)animated
+{
+    if (self.editing == editting)
+    {
+        return;
+    }
+    
+    [super setEditing:editting animated:animated];
+    
+    if (editting)
+    {
+        
+        if (_checkImageView == nil)
+        {
+            _checkImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 22, 22)];
+            if (Screen_height == 480) {
+                [_checkImageView setFrame:CGRectMake(0, 0, 21.5, 21.5)];
+            }
+            _checkImageView.contentMode = UIViewContentModeScaleToFill;
+            [self addSubview:_checkImageView];
+        }
+        
+        [self setChecked:_checked];
+        _checkImageView.center = CGPointMake(-CGRectGetWidth(_checkImageView.frame) * 0.5,
+                                              CGRectGetHeight(self.bounds) * 0.5);
+        _checkImageView.alpha = 0.0;
+        if (Screen_height == 480) {
+            [self setCheckImageViewCenter:CGPointMake(23.25, CGRectGetHeight(self.bounds) * 0.5)
+                                    alpha:1.0 animated:animated];
+        } else {
+            [self setCheckImageViewCenter:CGPointMake(22.5, CGRectGetHeight(self.bounds) * 0.5)
+                                alpha:1.0 animated:animated];
+        }
+    }
+    else
+    {
+        _checked = NO;
+        if (_checkImageView)
+        {
+            [self setCheckImageViewCenter:CGPointMake(-CGRectGetWidth(_checkImageView.frame) * 0.5, 
+                                                      CGRectGetHeight(self.bounds) * 0.5)
+                                    alpha:0.0 
+                                 animated:animated];
+        }
+    }
 }
 @end

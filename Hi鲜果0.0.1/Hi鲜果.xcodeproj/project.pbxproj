@@ -144,6 +144,8 @@
 		09FFE2C21B41230B007066C3 /* CategoryDetailsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09FFE2C11B41230B007066C3 /* CategoryDetailsController.m */; };
 		09FFE2CF1B413450007066C3 /* CategoryDetailsTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 09FFE2CE1B413450007066C3 /* CategoryDetailsTableView.m */; };
 		09FFE2D21B413753007066C3 /* CategoryDetailsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 09FFE2D11B413753007066C3 /* CategoryDetailsCell.m */; };
+		240C8D471B4FA6D5005D6985 /* cell-selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 240C8D461B4FA6D5005D6985 /* cell-selected.png */; };
+		240C8D4B1B4FA816005D6985 /* OrderItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 240C8D4A1B4FA816005D6985 /* OrderItem.m */; };
 		2456A2831B427C5000F49906 /* Fruit.m in Sources */ = {isa = PBXBuildFile; fileRef = 2456A2821B427C5000F49906 /* Fruit.m */; };
 		2456A2881B4298CC00F49906 /* CartTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2456A2871B4298CC00F49906 /* CartTableView.m */; };
 		2456A28B1B42AE9400F49906 /* RegisterController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2456A28A1B42AE9400F49906 /* RegisterController.m */; };
@@ -480,6 +482,9 @@
 		09FFE2CE1B413450007066C3 /* CategoryDetailsTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryDetailsTableView.m; sourceTree = "<group>"; };
 		09FFE2D01B413753007066C3 /* CategoryDetailsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryDetailsCell.h; sourceTree = "<group>"; };
 		09FFE2D11B413753007066C3 /* CategoryDetailsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryDetailsCell.m; sourceTree = "<group>"; };
+		240C8D461B4FA6D5005D6985 /* cell-selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cell-selected.png"; sourceTree = "<group>"; };
+		240C8D491B4FA816005D6985 /* OrderItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderItem.h; sourceTree = "<group>"; };
+		240C8D4A1B4FA816005D6985 /* OrderItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderItem.m; sourceTree = "<group>"; };
 		2456A2811B427C5000F49906 /* Fruit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Fruit.h; sourceTree = "<group>"; };
 		2456A2821B427C5000F49906 /* Fruit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Fruit.m; sourceTree = "<group>"; };
 		2456A2861B4298CC00F49906 /* CartTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CartTableView.h; sourceTree = "<group>"; };
@@ -1256,6 +1261,7 @@
 			isa = PBXGroup;
 			children = (
 				09BBED111B4520F10024A3CE /* Controller */,
+				240C8D481B4FA7F8005D6985 /* Model */,
 				09BBED121B4520F10024A3CE /* View */,
 			);
 			path = "我的订单";
@@ -1290,6 +1296,15 @@
 				09FFE2B81B40F52A007066C3 /* User.m */,
 			);
 			path = "单例";
+			sourceTree = "<group>";
+		};
+		240C8D481B4FA7F8005D6985 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				240C8D491B4FA816005D6985 /* OrderItem.h */,
+				240C8D4A1B4FA816005D6985 /* OrderItem.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		2479AA751B4E6B140026B410 /* 订单详情 */ = {
@@ -1331,6 +1346,7 @@
 		24BE13E21B46A1D7007F7797 /* Resoure */ = {
 			isa = PBXGroup;
 			children = (
+				240C8D461B4FA6D5005D6985 /* cell-selected.png */,
 				0918D7201B4E816300E3206A /* top.png */,
 				0918D71E1B4E815400E3206A /* top@2x.png */,
 				0918D70E1B4E718900E3206A /* gerenzhongxin.png */,
@@ -1615,6 +1631,7 @@
 				24BE14561B46A1D7007F7797 /* star_0.png in Resources */,
 				24BE143E1B46A1D7007F7797 /* icon-password.png in Resources */,
 				096DE62E1B4A852A0028B54A /* dingdan.png in Resources */,
+				240C8D471B4FA6D5005D6985 /* cell-selected.png in Resources */,
 				093A31E41B4D044400A81D0F /* icon.png in Resources */,
 				2499562C1B43F5450075B78A /* SMS_SDKLocalizable.strings in Resources */,
 				24BE143A1B46A1D7007F7797 /* guowai.png in Resources */,
@@ -1787,6 +1804,7 @@
 				09FFE2C21B41230B007066C3 /* CategoryDetailsController.m in Sources */,
 				097A0EFF1B42251900E860B9 /* SettingController.m in Sources */,
 				2479AA781B4E6B610026B410 /* OrderDetailController.m in Sources */,
+				240C8D4B1B4FA816005D6985 /* OrderItem.m in Sources */,
 				097A0EC81B414B7600E860B9 /* SDWebImageDownloader.m in Sources */,
 				388FC5DC1B48EF6000291675 /* OpenSectionCell.m in Sources */,
 				09FFE2971B40CD1A007066C3 /* FruitCategoryTableView.m in Sources */,

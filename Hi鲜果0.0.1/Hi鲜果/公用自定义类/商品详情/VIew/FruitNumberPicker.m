@@ -99,7 +99,7 @@
                                           @"num":@(self.fruitsNum),
                                           @"isdel":isdel}
                                 success:^(id responseObject) {
-                                    if (![responseObject[@"data"] isKindOfClass:[NSNull class]]) {
+                                    if (![responseObject[@"data"] isKindOfClass:[NSNull class]] && [responseObject[@"err_msg"] isEqualToString:@"success"]) {
                                         [self getCartInfo];
                                     }
                                 }
@@ -111,9 +111,8 @@
     [GlobalMethod NotHaveAlertServiceWithMothedName:GetCar_Url parmeter:nil success:^(id responseObject) {
         if (![responseObject[@"data"] isKindOfClass:[NSNull class]]) {
             [Framework controllers].shoppingCartVC.toolBar.totalPrice = [responseObject[@"totalmoney"] integerValue];
-        } else {
-            [[Framework controllers].shoppingCartVC requestData];
         }
+        [[Framework controllers].shoppingCartVC requestData];
     } fail:^(NSError *error) {}];
 }
 

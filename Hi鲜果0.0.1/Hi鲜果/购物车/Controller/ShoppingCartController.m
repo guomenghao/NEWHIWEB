@@ -48,6 +48,7 @@
 
     [GlobalMethod NotHaveAlertServiceWithMothedName:GetCar_Url parmeter:nil success:^(id responseObject) {
         if (![responseObject[@"data"] isKindOfClass:[NSNull class]]) {
+            NSLog(@"%@", responseObject);
             // 注意返回的总价和个数是NSNumber
             self.dataSource = [[NSMutableArray alloc] initWithArray:responseObject[@"data"]];
             NSLog(@"购物车信息：%@", self.dataSource);

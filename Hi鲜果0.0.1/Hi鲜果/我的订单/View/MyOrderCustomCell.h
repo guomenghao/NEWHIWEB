@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "OrderItem.h"
 @interface MyOrderCustomCell : UITableViewCell
 /**标记cell的行数*/
 @property (assign, nonatomic) NSInteger row;
-- (void)getOrderCellData:(NSDictionary *)data;
-
+- (void)getOrderCellData:(OrderItem *)item;
+/**设置选中状态*/
+- (void)setChecked:(BOOL)checked;
 @end
