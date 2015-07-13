@@ -81,8 +81,9 @@
     if (buttonIndex == 0 && alertView.tag == 900) {
         [User loginUser].isLogin = NO;
         [Framework controllers].rootViewController.selectedIndex = 0;
-        [[Framework controllers].homePageVC.navigationController pushViewController:[[LoginController alloc] init] animated:YES];
-//        [[GlobalControl myControl].myGardenView pushLoginViewController];
+//        [[Framework controllers].homePageVC myGardenPressed];
+        [[GlobalControl myControl].myGardenView closeGardenAnimation];
+        [[[MyGardenView alloc] init] pushLoginViewController];
     }
 }
 

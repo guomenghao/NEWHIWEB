@@ -50,7 +50,7 @@
      */
     self.automaticallyAdjustsScrollViewInsets = NO;
     
-    UIBarButtonItem *myGarden = [[UIBarButtonItem alloc] initWithImage:ImageWithName(@"user_button_normal.png") style:UIBarButtonItemStylePlain target:self action:@selector(myGardenPressed:)];
+    UIBarButtonItem *myGarden = [[UIBarButtonItem alloc] initWithImage:ImageWithName(@"user_button_normal.png") style:UIBarButtonItemStylePlain target:self action:@selector(myGardenPressed)];
     self.navigationItem.leftBarButtonItem = myGarden;
     
     UIBarButtonItem *service = [[UIBarButtonItem alloc] initWithImage:ImageWithName(@"kefu.png") style:UIBarButtonItemStylePlain target:self action:@selector(service)];
@@ -75,7 +75,7 @@
 /**
  *点击我的果园事件
  */
-- (void)myGardenPressed:(UIBarButtonItem *)sender
+- (void)myGardenPressed
 {
     MyGardenView * gardenView = [[MyGardenView alloc] initWithFrame:Screen_bounds];
     [gardenView openGardenAnimation];

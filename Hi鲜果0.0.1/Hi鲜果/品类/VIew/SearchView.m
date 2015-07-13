@@ -8,7 +8,7 @@
 
 #import "SearchView.h"
 #import "CategoryDetailsCell.h"
-#import "FruitDetailsController.h"
+#import "MyAttentionCell.h"
 
 @interface SearchView ()<UITableViewDataSource,UITableViewDelegate>
 
@@ -69,9 +69,9 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSString *identifier = @"Cell";
-    CategoryDetailsCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    MyAttentionCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     if (!cell) {
-        cell = [[CategoryDetailsCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:identifier];
+        cell = [[MyAttentionCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:identifier];
     }
     [GlobalMethod removeAllSubViews:cell.contentView];
     if ([self.dataSource count] == 0) {

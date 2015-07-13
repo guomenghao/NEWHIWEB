@@ -72,13 +72,12 @@
     
     [manager GET:url parameters:parmeter success:^(AFHTTPRequestOperation *operation, id responseObject) {
         [alert dismissWithClickedButtonIndex:0 animated:YES];
-        succeedBlock(responseObject);
-        NSLog(@"%@", responseObject);
-        if ( [responseObject[@"info"] isEqual:@"用户未登录！"]) {
+        if ([responseObject isKindOfClass:[NSDictionary class]] && [responseObject[@"info"] isEqual:@"用户未登录！"]) {
             UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"警告" message:@"登录失效，请重新登陆" delegate:[UIApplication sharedApplication].delegate cancelButtonTitle:@"确定" otherButtonTitles:nil];
             alert.tag = 900;
             [alert show];
-            
+        } else {
+            succeedBlock(responseObject);
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"%@", error.localizedDescription);
@@ -101,7 +100,13 @@
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript", @"text/html", nil];
     
     [manager GET:url parameters:parmeter success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        succeedBlock(responseObject);
+        if ([responseObject isKindOfClass:[NSDictionary class]] && [responseObject[@"info"] isEqual:@"用户未登录！"]) {
+            UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"警告" message:@"登录失效，请重新登陆" delegate:[UIApplication sharedApplication].delegate cancelButtonTitle:@"确定" otherButtonTitles:nil];
+            alert.tag = 900;
+            [alert show];
+        } else {
+            succeedBlock(responseObject);
+        }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"网络连接失败，请稍后再试" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
         [alert show];
