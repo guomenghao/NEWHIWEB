@@ -44,6 +44,13 @@
     [self requestData];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    if ([User loginUser].isLogin == NO) {
+        [self showNoDataView];
+    }
+}
+
 - (void)requestData {
 
     [GlobalMethod NotHaveAlertServiceWithMothedName:GetCar_Url parmeter:nil success:^(id responseObject) {
