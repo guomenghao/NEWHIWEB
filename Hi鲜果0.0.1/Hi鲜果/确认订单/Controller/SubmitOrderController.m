@@ -110,21 +110,21 @@ OpenSectionCellDelegate>
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    if ([User loginUser].isLogin == NO) {
-        [self.navigationController popViewControllerAnimated:YES];
-        return;
-    }
     
     [self.tableView setFrame:CGRectMake(0, 64, Screen_width, Screen_height - 48 - 64)];
     self.tableView.contentOffset = CGPointMake(0, 0);
     [self refreshAddress];
     self.navigationController.tabBarController.tabBar.hidden = YES;
+    [super viewWillAppear:animated];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
+    if ([User loginUser].isLogin == NO) {
+        [self.navigationController popViewControllerAnimated:YES];
+        return;
+    }
     self.navigationController.tabBarController.tabBar.hidden = NO;
+    [super viewWillDisappear:animated];
 }
 
 #pragma mark - lazy getter

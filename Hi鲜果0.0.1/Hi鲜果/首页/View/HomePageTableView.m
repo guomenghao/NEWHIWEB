@@ -49,15 +49,6 @@
             if ([responseObject[@"err_msg"] isEqual:@"success"]) {
                 _todayData = responseObject[@"data"];
                 [self reloadData];
-                UIImageView *viewT = [[UIImageView alloc] initWithFrame:CGRectMake(0, Screen_height / 5.5, Screen_width, Screen_height / 5)];
-                viewT.image = ImageWithName(@"kangepi.jpg");
-                viewT.contentMode = UIViewContentModeScaleAspectFit;
-                [self.superview insertSubview:viewT atIndex:0];
-                
-                UIImageView *viewD = [[UIImageView alloc] initWithFrame:CGRectMake(0, Screen_height / 5 * 3.1, Screen_width, Screen_height / 5)];
-                viewD.image = ImageWithName(@"goulemei.jpg");
-                viewD.contentMode = UIViewContentModeScaleAspectFit;
-                [self.superview insertSubview:viewD atIndex:0];
             }
         } fail:^(NSError *error) {
         }];
@@ -162,8 +153,8 @@
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row > 4) {
         //修改cell位移变换矩阵
-        cell.transform = CGAffineTransformMakeScale(1.05, 1.05);
-        [UIView animateWithDuration:0.7 animations:^{
+        cell.transform = CGAffineTransformMakeScale(1.07, 1.07);
+        [UIView animateWithDuration:1.5 animations:^{
             //将cell的变换矩阵置为最初状态
             cell.transform = CGAffineTransformIdentity;
         }];

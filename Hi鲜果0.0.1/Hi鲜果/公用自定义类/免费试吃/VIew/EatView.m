@@ -70,7 +70,7 @@
 
 - (void)askFor:(UIButton *)sender
 {
-    [GlobalMethod serviceWithMothedName:AddTriedNum_Url parmeter:@{@"classid" : _data[@"classid"], @"id" : _data[@"id"], @"userid" : [User loginUser].userid} success:^(id responseObject) {
+    [GlobalMethod NotHaveAlertServiceWithMothedName:AddTriedNum_Url parmeter:@{@"classid" : _data[@"classid"], @"id" : _data[@"id"], @"userid" : [User loginUser].userid} success:^(id responseObject) {
         if ([responseObject[@"info"] length] > 0) {
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:responseObject[@"info"] delegate:nil cancelButtonTitle:@"好的" otherButtonTitles:nil];
             [alert show];

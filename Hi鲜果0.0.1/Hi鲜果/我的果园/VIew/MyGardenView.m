@@ -42,7 +42,7 @@
 /**初始化界面*/
 - (void)initializeUserInterface;
 /**登录按钮点击事件*/
-- (void)loginButtonPressed:(UIButton *)sender;
+- (void)loginButtonPressed;
 /**设置按钮点击事件*/
 - (void)settingButtonPressed:(UIButton *)sender;
 /**退出登录按钮点击事件*/
@@ -78,6 +78,8 @@ static MyGardenView * gardenView;
     }
     return self;
 }
+
+
 
 - (void)initializeDataSource {
     
@@ -188,7 +190,6 @@ static MyGardenView * gardenView;
 }
 
 - (void)showlogoutUserInterface {
-    
     // 显示默认头像
     self.logoImageView.image = ImageWithName(@"");
     // 登录按钮
@@ -200,7 +201,7 @@ static MyGardenView * gardenView;
         CGFloat y = self.settingButton.frame.origin.y;
         UIButton * button = [[UIButton alloc] initWithFrame:CGRectMake(x, y, width, height)];
         [button setTitle:@"登录" forState:UIControlStateNormal];
-        [button addTarget:self action:@selector(loginButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+        [button addTarget:self action:@selector(loginButtonPressed) forControlEvents:UIControlEventTouchUpInside];
         [button.titleLabel setFont:[UIFont systemFontOfSize:15 * [FlexibleFrame ratios].height]];
         [button setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
         button.backgroundColor = [UIColor whiteColor];
@@ -329,7 +330,7 @@ static MyGardenView * gardenView;
     [self closeGardenAnimation];
 }
 
-- (void)loginButtonPressed:(UIButton *)sender
+- (void)loginButtonPressed
 {
     
     [self pushLoginViewController];
@@ -375,7 +376,7 @@ static MyGardenView * gardenView;
     if (buttonIndex == 0 && [alertView.title isEqualToString:@"提示"]) {//确认退出登录
 //        NSLog(@"即将注销的用户名为：%@", [User loginUser].username);
 //        NSLog(@"ID：%@", [User loginUser].userid);
-        [GlobalMethod serviceWithMothedName:Logout_Url
+        [GlobalMethod NotHaveAlertServiceWithMothedName:Logout_Url
                                    parmeter:@{
                                               @"username":[User loginUser].username,
                                               @"userid":[User loginUser].userid}
@@ -394,7 +395,6 @@ static MyGardenView * gardenView;
     
     if (buttonIndex == 0 && [alertView.title isEqualToString:@"注销成功"])
     {
-        NSLog(@"2");
         [self closeGardenAnimation];
     }
 }

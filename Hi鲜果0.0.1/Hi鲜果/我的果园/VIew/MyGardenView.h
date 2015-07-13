@@ -15,4 +15,6 @@
 /**关闭“我的果园”动画*/
 - (void)closeGardenAnimation;
 - (void)pushLoginViewController;
+- (void)loginButtonPressed;
+- (void)showlogoutUserInterface;
 @end

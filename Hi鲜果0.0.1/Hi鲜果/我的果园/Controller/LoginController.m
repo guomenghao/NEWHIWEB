@@ -120,7 +120,7 @@
     
     if ([sender.currentTitle isEqualToString:@"登 录"]) {
         [sender setEnabled:NO];//禁用按钮
-        [GlobalMethod serviceWithMothedName:Login_Url
+        [GlobalMethod NotHaveAlertServiceWithMothedName:Login_Url
                                    parmeter:@{@"username":self.accountField.text,
                                               @"password":self.passwordField.text}
                                     success:^(id responseObject) {
