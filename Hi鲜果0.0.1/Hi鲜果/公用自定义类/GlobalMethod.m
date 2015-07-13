@@ -44,7 +44,6 @@
     }
 }
 
-
 /**
  *  移除所有子视图
  */
@@ -72,7 +71,7 @@
     
     [manager GET:url parameters:parmeter success:^(AFHTTPRequestOperation *operation, id responseObject) {
         [alert dismissWithClickedButtonIndex:0 animated:YES];
-        succeedBlock(responseObject);
+
         NSLog(@"%@", responseObject);
         if ([responseObject isKindOfClass:[NSDictionary class]] && [responseObject[@"info"] isEqual:@"用户未登录！"]) {
             UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"警告" message:@"登录失效，请重新登陆" delegate:[UIApplication sharedApplication].delegate cancelButtonTitle:@"确定" otherButtonTitles:nil];

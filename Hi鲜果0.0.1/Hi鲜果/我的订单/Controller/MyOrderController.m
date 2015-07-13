@@ -86,6 +86,7 @@
 }
 
 - (void)packageDataWithArray:(NSArray *)temp{
+    NSLog(@"%s", __FUNCTION__);
     // 封装数据
     for (int i = 0; i < temp.count; i ++) {
         OrderItem * item = [[OrderItem alloc] initWithInfo:temp[i]];
@@ -138,7 +139,7 @@
 
 #pragma mark - segmentedControlValueChanged event
 - (void)segmentedControlValueChanged:(UISegmentedControl *)sender {
-    
+
     [self.dataSource removeAllObjects];
     switch (sender.selectedSegmentIndex) {
         case 0://全部
@@ -213,8 +214,7 @@
 #pragma mark - 删除cell，网络请求
 - (void)deleteTableViewCell {
 
-    UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"正在删除...请稍后" delegate:nil cancelButtonTitle:nil otherButtonTitles:nil];
-    [alert show];
+
     NSInteger count = 0;
     for (__block int i = 0; i < self.dataSource.count; i ++) {
         OrderItem * item = self.dataSource[i];
@@ -227,7 +227,8 @@
                 [self.allDatas removeObject:item];
                 i --;
                 if ([responseObject[@"err_msg"] isEqual:@"success"] && count == self.delCount) {
-                    [alert dismissWithClickedButtonIndex:0 animated:YES];
+                    UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"删除完成" delegate:nil cancelButtonTitle:@"我知道了" otherButtonTitles:nil];
+                    [alert show];
                     [self.tableView reloadData];
                 }
             } fail:^(NSError *error) {}];

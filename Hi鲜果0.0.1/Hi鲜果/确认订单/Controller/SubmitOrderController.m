@@ -114,8 +114,8 @@ OpenSectionCellDelegate>
     [self.tableView setFrame:CGRectMake(0, 64, Screen_width, Screen_height - 48 - 64)];
     self.tableView.contentOffset = CGPointMake(0, 0);
     [self refreshAddress];
-    self.navigationController.tabBarController.tabBar.hidden = YES;
     [super viewWillAppear:animated];
+    self.navigationController.tabBarController.tabBar.hidden = YES;
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
