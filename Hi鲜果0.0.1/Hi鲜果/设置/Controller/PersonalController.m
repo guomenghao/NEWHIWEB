@@ -301,6 +301,10 @@
         [alert show];
         return;
     }
+    NSLog(@"%@", [User loginUser].tempName.text);
+    NSLog(@"%@", [User loginUser].tempHead);
+    NSLog(@"%@", [User loginUser].tempSex.text);
+    NSLog(@"%@", [User loginUser].tempBirthday.text);
     [GlobalMethod serviceWithMothedName:EditUserInfo_Url parmeter:@{@"nikename" : [User loginUser].tempName.text,
                                                                     @"headId" : [User loginUser].tempHead,
                                                                     @"sex" : [User loginUser].tempSex.text,
