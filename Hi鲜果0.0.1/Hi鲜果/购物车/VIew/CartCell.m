@@ -132,7 +132,8 @@
 
     NSURL * url = [NSURL URLWithString:[Base_Url stringByAppendingPathComponent:self.fruit.pic]];
     [self.picView sd_setImageWithURL:url
-                           completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {}];
+                           completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+                           }];
     self.titleLabel.text = self.fruit.name;
     self.unitLable.text = self.fruit.unit;
     if (self.type == CartCellTypeCart) {
@@ -149,10 +150,6 @@
     
     [self adjustLabelFrame];
     // 现价富文本属性
-//    NSDictionary * attrs1 = @{
-//                             NSFontAttributeName:LargeFont,
-//                             NSForegroundColorAttributeName:[UIColor orangeColor]
-//                             };
     NSMutableAttributedString * attrString = nil;
     if (self.fruit.discountPrice.length > 0) {//有打折信息
         attrString = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"￥%@", self.fruit.discountPrice]];
@@ -161,7 +158,7 @@
         attrString = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"￥%@", self.fruit.originalPrice]];
     }
     [attrString addAttribute:NSFontAttributeName value:SmallFont range:NSMakeRange(0, 1)];
-//    [attrString addAttributes:attrs1 range:NSMakeRange(1, self.fruit.originalPrice.length)];
+
     self.priceLabel.attributedText = attrString;
 }
 
