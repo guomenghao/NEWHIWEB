@@ -10,6 +10,7 @@
 #import "FruitNumberPicker.h"
 #import "CarouselView.h"
 #import "HomePageCustomCell.h"
+#import "MyGardenView.h"
 
 @interface GlobalControl : NSObject
 
@@ -21,5 +22,6 @@
 @property (nonatomic, weak) CarouselView *carouselView;
 //记录当前弹出键盘的第一响应者
 @property (nonatomic, weak) UIView * firstResponder;
+@property (nonatomic, weak) MyGardenView * myGardenView;
 
 @end

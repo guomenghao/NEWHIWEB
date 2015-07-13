@@ -24,7 +24,7 @@
         CGFloat width = CGRectGetWidth(self.bounds);
         CGFloat heigth = CGRectGetHeight(self.bounds);
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(x, y, width, heigth)];
-        imageView.contentMode = UIViewContentModeScaleAspectFill;
+        imageView.contentMode = UIViewContentModeScaleAspectFit;
         [imageView sd_setImageWithURL:array[i]];
         imageView.clipsToBounds = YES;
         [self addSubview:imageView];

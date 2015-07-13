@@ -74,6 +74,7 @@ static MyGardenView * gardenView;
         
         [self initializeDataSource];
         [self initializeUserInterface];
+        [GlobalControl myControl].myGardenView = self;
     }
     return self;
 }
@@ -387,9 +388,7 @@ static MyGardenView * gardenView;
                                             [User loginUser].isLogin = NO;
                                         }
                                     }
-                                       fail:^(NSError *error) {
-                                           
-                                       }];
+                                       fail:^(NSError *error) {}];
         return;
     }
     

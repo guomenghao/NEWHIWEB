@@ -143,6 +143,7 @@
 
 - (void)buttonPressed:(CarouselButton *)sender
 {
+    NSLog(@"%@",_dataSource);
     FruitDetailsController *fdVC = [[FruitDetailsController alloc] init];
     [fdVC getNetWork:_dataSource[sender.index]];
     [[Framework controllers].homePageVC.navigationController pushViewController:fdVC animated:YES];
