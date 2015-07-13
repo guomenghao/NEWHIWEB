@@ -49,6 +49,15 @@
             if ([responseObject[@"err_msg"] isEqual:@"success"]) {
                 _todayData = responseObject[@"data"];
                 [self reloadData];
+                UIImageView *viewT = [[UIImageView alloc] initWithFrame:CGRectMake(0, Screen_height / 5.5, Screen_width, Screen_height / 5)];
+                viewT.image = ImageWithName(@"kangepi.jpg");
+                viewT.contentMode = UIViewContentModeScaleAspectFit;
+                [self.superview insertSubview:viewT atIndex:0];
+                
+                UIImageView *viewD = [[UIImageView alloc] initWithFrame:CGRectMake(0, Screen_height / 5 * 3.1, Screen_width, Screen_height / 5)];
+                viewD.image = ImageWithName(@"goulemei.jpg");
+                viewD.contentMode = UIViewContentModeScaleAspectFit;
+                [self.superview insertSubview:viewD atIndex:0];
             }
         } fail:^(NSError *error) {
         }];
