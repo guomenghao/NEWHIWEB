@@ -25,6 +25,7 @@
     self.username = data[@"username"];
     self.nickName = data[@"nikename"];
     self.headId = data[@"headId"];
+    self.tempHead = data[@"headId"];
     self.sex = data[@"sex"];
     self.level = data[@"level"];
     self.birthday = data[@"birthday"];

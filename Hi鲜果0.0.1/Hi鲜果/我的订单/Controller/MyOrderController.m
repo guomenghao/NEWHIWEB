@@ -107,7 +107,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (self.dataSource != nil) {
+    if ([self.dataSource count] > 0) {
         return self.dataSource.count;
     }
     return 0;
@@ -127,7 +127,7 @@
     }
     cell.row = indexPath.row;
     [GlobalMethod removeAllSubViews:cell.contentView];
-    if (self.dataSource != nil) {
+    if ([self.dataSource count] > 0) {
         OrderItem * item = self.dataSource[indexPath.row];
         [cell getOrderCellData:item];
         [cell setChecked:item.isChecked];

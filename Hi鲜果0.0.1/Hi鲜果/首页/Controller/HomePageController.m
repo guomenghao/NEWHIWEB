@@ -85,7 +85,7 @@
 
 - (void)service
 {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"开发中..." delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"温馨提示" message:@"功能开发中..." delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
     [alert show];
 }
 
