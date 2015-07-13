@@ -43,15 +43,7 @@
 {
     
     
-    UIImageView *viewT = [[UIImageView alloc] initWithFrame:CGRectMake(0, Screen_height / 5.5, Screen_width, Screen_height / 5)];
-    viewT.image = ImageWithName(@"kangepi.jpg");
-    viewT.contentMode = UIViewContentModeScaleAspectFit;
-    [self.view addSubview:viewT];
     
-    UIImageView *viewD = [[UIImageView alloc] initWithFrame:CGRectMake(0, Screen_height / 5 * 3.1, Screen_width, Screen_height / 5)];
-    viewD.image = ImageWithName(@"goulemei.jpg");
-    viewD.contentMode = UIViewContentModeScaleAspectFit;
-    [self.view addSubview:viewD];
     
     /**
      *  自动适应边距
