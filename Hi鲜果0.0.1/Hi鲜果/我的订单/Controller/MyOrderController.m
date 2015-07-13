@@ -80,7 +80,8 @@
     self.delCount = 0;
     [GlobalMethod serviceWithMothedName:GetOrderList_Url parmeter:nil success:^(id responseObject) {
 
-        if (![responseObject isKindOfClass:[NSNull class]]) {
+        
+        if ([responseObject isKindOfClass:[NSArray class]]) {
             [self packageDataWithArray:responseObject];
         }
 

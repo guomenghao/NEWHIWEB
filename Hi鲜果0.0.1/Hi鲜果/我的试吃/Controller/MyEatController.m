@@ -122,6 +122,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if ([self.dataSource count] == 0) {
+        return;
+    }
     FruitDetailsController *fdVC = [[FruitDetailsController alloc] init];
     [fdVC getNetWork:self.dataSource[indexPath.row]];
     [[Framework controllers].homePageVC.navigationController pushViewController:fdVC animated:YES];

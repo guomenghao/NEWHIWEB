@@ -99,7 +99,7 @@
 {
     NSLog(@"%@", data);
     [self.contentView addSubview:self.evaluateView];
-    [self.evaluateView getStarLevel:[data[@"infopfen"] intValue]];
+    [self.evaluateView getStarLevel:5];
     self.separator.frame = CGRectMake(0, Screen_height / 10 - 0.5, Screen_width, 0.5);
     [self.contentView addSubview:self.separator];
 }

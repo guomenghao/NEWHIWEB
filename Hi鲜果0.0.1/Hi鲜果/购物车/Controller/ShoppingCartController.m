@@ -168,11 +168,4 @@
     }
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    if ([User loginUser].isLogin == NO) {
-        [self showNoDataView];
-    }
-}
-
 @end

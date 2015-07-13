@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface GlobalMethod : NSObject
-
+@property (nonatomic, strong) UIAlertView *alert;
 
 /**
  *  用来移除所有子视图

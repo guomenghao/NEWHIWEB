@@ -30,11 +30,11 @@
         self.dataSource = self;
         _fruitId = @[@"2", @"4", @"3"];
         _dataSource = @[@{@"fruitname" : @"全部蔬果",
-                          @"title" : @"各国美味享不停",
+                          @"title" : @"世界各地美味鲜果",
                           @"pic" : @"quanbu.png"}, @{@"fruitname" : @"国外蔬果",
                                            @"title" : @"不出门就能品尝到异域风情的鲜果",
                                            @"pic" : @"guowai.png"}, @{@"fruitname" : @"国内蔬果",
-                                                            @"title" : @"中国好蔬果",
+                                                            @"title" : @"为您挑选国内最新鲜蔬果",
                                                             @"pic" : @"guonei.png"}];
     }
     return self;

@@ -11,7 +11,7 @@
 #import "CategoryController.h"
 #import "ShoppingCartController.h"
 #import <SMS_SDK/SMS_SDK.h>
-@interface AppDelegate ()
+@interface AppDelegate ()<UIAlertViewDelegate>
 
 @end
 
@@ -73,6 +73,17 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 0 && alertView.tag == 900) {
+        [User loginUser].isLogin = NO;
+        [Framework controllers].rootViewController.selectedIndex = 0;
+        [[Framework controllers].homePageVC.navigationController pushViewController:[[LoginController alloc] init] animated:YES];
+//        [[GlobalControl myControl].myGardenView pushLoginViewController];
+    }
 }
 
 @end

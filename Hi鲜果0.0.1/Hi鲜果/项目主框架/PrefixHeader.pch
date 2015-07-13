@@ -19,6 +19,7 @@
 #import "UMSocial.h"
 #import "GlobalControl.h"
 #import "UIButton+WebCache.h"
+#import "LoginController.h"
 #ifndef Hi___PrefixHeader_pch
 #define Hi___PrefixHeader_pch
 
