@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface OrderDetailController : BasicViewController
-
+- (instancetype)initWithOrderID:(NSString *)orderID;
 @end

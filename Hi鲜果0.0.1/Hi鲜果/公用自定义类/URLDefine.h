@@ -121,6 +121,10 @@
  */
 #define DelOrder_Url @"/e/api/ShopSysDelDd.php"
 /**
+ *  查看订单详情,参数ddno=订单编号
+ */
+#define GetOrderDetail_Url @"/e/api/ShopSysShowDd.php"
+/**
  *  我的关注
  */
 #define GetFavaList_Url @"/e/api/getFavaList.php"

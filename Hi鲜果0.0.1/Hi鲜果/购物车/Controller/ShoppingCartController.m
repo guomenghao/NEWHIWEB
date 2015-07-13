@@ -125,6 +125,7 @@
 - (void)showNoDataView {
 
     self.navigationItem.rightBarButtonItem.enabled = NO;
+    [self.dataSource removeAllObjects];
     [self.view addSubview:self.noDataView];
     [self.tableView removeFromSuperview];
     [self.toolBar removeFromSuperview];
@@ -159,6 +160,5 @@
         }];
     }
 }
-
 
 @end

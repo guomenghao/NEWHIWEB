@@ -149,7 +149,6 @@
 		2456A2831B427C5000F49906 /* Fruit.m in Sources */ = {isa = PBXBuildFile; fileRef = 2456A2821B427C5000F49906 /* Fruit.m */; };
 		2456A2881B4298CC00F49906 /* CartTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2456A2871B4298CC00F49906 /* CartTableView.m */; };
 		2456A28B1B42AE9400F49906 /* RegisterController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2456A28A1B42AE9400F49906 /* RegisterController.m */; };
-		2479AA781B4E6B610026B410 /* OrderDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2479AA771B4E6B610026B410 /* OrderDetailController.m */; };
 		249956271B43F50C0075B78A /* SMS_SDKLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 249956231B43F50C0075B78A /* SMS_SDKLocalizable.strings */; };
 		249956281B43F50C0075B78A /* SMS_SDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 249956251B43F50C0075B78A /* SMS_SDK.framework */; };
 		2499562C1B43F5450075B78A /* SMS_SDKLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2499562A1B43F5450075B78A /* SMS_SDKLocalizable.strings */; };
@@ -228,6 +227,8 @@
 		388FC5D81B47D5CC00291675 /* open@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 388FC5D61B47D5CC00291675 /* open@2x.png */; };
 		388FC5D91B47D5CC00291675 /* open.png in Resources */ = {isa = PBXBuildFile; fileRef = 388FC5D71B47D5CC00291675 /* open.png */; };
 		388FC5DC1B48EF6000291675 /* OpenSectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 388FC5DB1B48EF6000291675 /* OpenSectionCell.m */; };
+		38D0B7731B529FAF0029D1BB /* OrderDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D0B7711B529FAF0029D1BB /* OrderDetailController.m */; };
+		38D0B7761B52A0100029D1BB /* OrderDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D0B7751B52A0100029D1BB /* OrderDetailModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -491,8 +492,6 @@
 		2456A2871B4298CC00F49906 /* CartTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CartTableView.m; sourceTree = "<group>"; };
 		2456A2891B42AE9400F49906 /* RegisterController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterController.h; sourceTree = "<group>"; };
 		2456A28A1B42AE9400F49906 /* RegisterController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterController.m; sourceTree = "<group>"; };
-		2479AA761B4E6B610026B410 /* OrderDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderDetailController.h; sourceTree = "<group>"; };
-		2479AA771B4E6B610026B410 /* OrderDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderDetailController.m; sourceTree = "<group>"; };
 		249956241B43F50C0075B78A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/SMS_SDKLocalizable.strings; sourceTree = "<group>"; };
 		249956251B43F50C0075B78A /* SMS_SDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SMS_SDK.framework; sourceTree = "<group>"; };
 		249956261B43F50C0075B78A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/SMS_SDKLocalizable.strings"; sourceTree = "<group>"; };
@@ -585,6 +584,10 @@
 		388FC5D71B47D5CC00291675 /* open.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = open.png; sourceTree = "<group>"; };
 		388FC5DA1B48EF6000291675 /* OpenSectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenSectionCell.h; sourceTree = "<group>"; };
 		388FC5DB1B48EF6000291675 /* OpenSectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenSectionCell.m; sourceTree = "<group>"; };
+		38D0B7701B529FAF0029D1BB /* OrderDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderDetailController.h; sourceTree = "<group>"; };
+		38D0B7711B529FAF0029D1BB /* OrderDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderDetailController.m; sourceTree = "<group>"; };
+		38D0B7741B52A0100029D1BB /* OrderDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderDetailModel.h; sourceTree = "<group>"; };
+		38D0B7751B52A0100029D1BB /* OrderDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderDetailModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1310,8 +1313,9 @@
 		2479AA751B4E6B140026B410 /* 订单详情 */ = {
 			isa = PBXGroup;
 			children = (
-				2479AA761B4E6B610026B410 /* OrderDetailController.h */,
-				2479AA771B4E6B610026B410 /* OrderDetailController.m */,
+				38D0B7781B52B3090029D1BB /* View */,
+				38D0B76F1B529FAF0029D1BB /* Controller */,
+				38D0B7721B529FAF0029D1BB /* Model */,
 			);
 			path = "订单详情";
 			sourceTree = "<group>";
@@ -1521,6 +1525,31 @@
 			children = (
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		38D0B76F1B529FAF0029D1BB /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				38D0B7701B529FAF0029D1BB /* OrderDetailController.h */,
+				38D0B7711B529FAF0029D1BB /* OrderDetailController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		38D0B7721B529FAF0029D1BB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				38D0B7741B52A0100029D1BB /* OrderDetailModel.h */,
+				38D0B7751B52A0100029D1BB /* OrderDetailModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		38D0B7781B52B3090029D1BB /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1802,14 +1831,15 @@
 				24A4AA701B4B64E300274A66 /* AddrSelectController.m in Sources */,
 				24C8CFFA1B463236002F4042 /* NoDataView.m in Sources */,
 				09FFE2C21B41230B007066C3 /* CategoryDetailsController.m in Sources */,
+				38D0B7761B52A0100029D1BB /* OrderDetailModel.m in Sources */,
 				097A0EFF1B42251900E860B9 /* SettingController.m in Sources */,
-				2479AA781B4E6B610026B410 /* OrderDetailController.m in Sources */,
 				240C8D4B1B4FA816005D6985 /* OrderItem.m in Sources */,
 				097A0EC81B414B7600E860B9 /* SDWebImageDownloader.m in Sources */,
 				388FC5DC1B48EF6000291675 /* OpenSectionCell.m in Sources */,
 				09FFE2971B40CD1A007066C3 /* FruitCategoryTableView.m in Sources */,
 				24C8D0001B463955002F4042 /* AutoDismissBox.m in Sources */,
 				097A0EFD1B42251900E860B9 /* CartCell.m in Sources */,
+				38D0B7731B529FAF0029D1BB /* OrderDetailController.m in Sources */,
 				097A0EC51B414B7600E860B9 /* SDImageCache.m in Sources */,
 				09FFE2D21B413753007066C3 /* CategoryDetailsCell.m in Sources */,
 				24C8D00D1B465FAC002F4042 /* SubmitOrderTableView.m in Sources */,

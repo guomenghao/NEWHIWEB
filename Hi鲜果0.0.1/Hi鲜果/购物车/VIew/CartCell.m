@@ -44,7 +44,6 @@
         [self.contentView addSubview:self.unitLable];
         [self.contentView addSubview:self.priceLabel];
         self.selectionStyle = UITableViewCellSelectionStyleNone;
-        NSLog(@"%s", __FUNCTION__);
     }
     return self;
 }

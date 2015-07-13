@@ -8,6 +8,7 @@
 
 #import "MyOrderController.h"
 #import "MyOrderCustomCell.h"
+#import "OrderDetailController.h"
 #import "AutoDismissBox.h"
 #import "OrderItem.h"
 @interface MyOrderController ()<UITableViewDelegate,UITableViewDataSource>
@@ -214,23 +215,25 @@
 #pragma mark - 删除cell，网络请求
 - (void)deleteTableViewCell {
 
-    UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"正在删除...请稍后" delegate:nil cancelButtonTitle:nil otherButtonTitles:nil];
-    [alert show];
+//    UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"正在删除...请稍后" delegate:nil cancelButtonTitle:nil otherButtonTitles:nil];
+//    [alert show];
     NSInteger count = 0;
-    for (int i = 0; i < self.dataSource.count; i ++) {
+    for (__block int i = 0; i < self.dataSource.count; i ++) {
         OrderItem * item = self.dataSource[i];
         if (item.isChecked == YES) {
             count ++;
             NSLog(@"%@", item.ddno);
             [GlobalMethod NotHaveAlertServiceWithMothedName:DelOrder_Url parmeter:@{@"ddno":item.ddno} success:^(id responseObject) {
                 NSLog(@"%@", responseObject);
+                [self.dataSource removeObject:item];
+                i --;
                 if ([responseObject[@"err_msg"] isEqual:@"success"] && count == self.delCount) {
-                    [alert dismissWithClickedButtonIndex:0 animated:YES];
+//                    [alert dismissWithClickedButtonIndex:0 animated:YES];
                 }
             
             } fail:^(NSError *error) {}];
-            [self.dataSource removeObject:item];
-            i --;
+            
+            
         }
     }
     
@@ -249,9 +252,9 @@
 // 选中cell
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-        OrderItem * item = [self.dataSource objectAtIndex:indexPath.row];
+    OrderItem * item = [self.dataSource objectAtIndex:indexPath.row];
     
-    if (tableView.editing)
+    if (tableView.editing)//编辑状态
     {
         MyOrderCustomCell * cell = (MyOrderCustomCell *)[tableView cellForRowAtIndexPath:indexPath];
         item.isChecked = !item.isChecked;
@@ -265,6 +268,9 @@
         [cell setChecked:item.isChecked];
         [cell setSelected:!cell.selected animated:YES];
         [cell setEditing:tableView.editing animated:YES];
+    } else {//非编辑状态
+        OrderDetailController * detailVC = [[OrderDetailController alloc] initWithOrderID:item.ddno];
+        [self.navigationController pushViewController:detailVC animated:YES];
     }
 }
 

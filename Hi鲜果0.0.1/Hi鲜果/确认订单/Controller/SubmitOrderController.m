@@ -441,13 +441,9 @@ OpenSectionCellDelegate>
     [GlobalMethod NotHaveAlertServiceWithMothedName:SubmitOrder_Url parmeter:params success:^(id responseObject) {
         [AutoDismissBox showBoxWithTitle:@"恭喜您" message:@"订单提交成功！"];
         [self.navigationController popViewControllerAnimated:YES];
-//        // test 是否清空购物车
-//        [GlobalMethod NotHaveAlertServiceWithMothedName:GetCar_Url parmeter:nil success:^(id responseObject) {
-//            if (![responseObject[@"data"] isKindOfClass:[NSNull class]]) {
-//                // 注意返回的总价和个数是NSNumber
-//                NSLog(@"购物车信息：%@", responseObject);
-//            }
-//        } fail:^(NSError *error) {}];
+        if ([Framework controllers].shoppingCartVC) {
+            [[Framework controllers].shoppingCartVC showNoDataView];
+        }
     } fail:^(NSError *error) {}];
 }
 
