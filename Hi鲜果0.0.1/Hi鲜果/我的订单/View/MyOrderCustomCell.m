@@ -93,7 +93,8 @@
         self.status.text = [NSString stringWithFormat:@"订单状态：%@", @"待收货"];
         // 添加确认收货按钮
         UIButton * sureButton = ({
-            UIButton * button = [[UIButton alloc] initWithFrame:CGRectMake(Screen_width - 60*[FlexibleFrame ratios].width - 16, self.status.frame.origin.y, 60*[FlexibleFrame ratios].width, 20*[FlexibleFrame ratios].height)];
+            UIButton * button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 70*[FlexibleFrame ratios].width, 20*[FlexibleFrame ratios].height)];
+            button.center = CGPointMake(Screen_width - 16 - button.bounds.size.width / 2, self.status.center.y);
             [button setTitle:@"确认收货" forState:UIControlStateNormal];
             [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
             [button addTarget:self action:@selector(confirmOrder:) forControlEvents:UIControlEventTouchUpInside];

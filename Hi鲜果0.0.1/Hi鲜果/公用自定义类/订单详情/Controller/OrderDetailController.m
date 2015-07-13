@@ -99,8 +99,10 @@
         }
         NSDictionary * info = self.dataSource[indexPath.section][indexPath.row];
         cell.textLabel.text = info[@"title"];
+        cell.textLabel.font = MiddleFont;
         cell.detailTextLabel.text = info[@"detail"];
         cell.detailTextLabel.numberOfLines = 0;
+        cell.detailTextLabel.textAlignment = NSTextAlignmentJustified;
         cell.detailTextLabel.font = MiddleFont;
         return cell;
     }
