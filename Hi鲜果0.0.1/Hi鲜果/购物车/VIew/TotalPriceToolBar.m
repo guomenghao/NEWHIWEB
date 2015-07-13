@@ -43,13 +43,13 @@
     return self;
 }
 
-- (void)setTotalPrice:(NSInteger)totalPrice {
+- (void)setTotalPrice:(float)totalPrice {
     
     _totalPrice = totalPrice;
     [self updatePriceLabel];
 }
 - (void)updatePriceLabel {
-    NSMutableAttributedString * attrString = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"￥%ld", (long)_totalPrice]];
+    NSMutableAttributedString * attrString = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"￥%.2f", _totalPrice]];
     // 现价富文本属性
     NSDictionary * attrs1 = @{
                               NSFontAttributeName:LargeFont,

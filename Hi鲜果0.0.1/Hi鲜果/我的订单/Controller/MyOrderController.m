@@ -79,11 +79,9 @@
     self.allDatas = [[NSMutableArray alloc] init];
     self.delCount = 0;
     [GlobalMethod serviceWithMothedName:GetOrderList_Url parmeter:nil success:^(id responseObject) {
-
         if ([responseObject isKindOfClass:[NSArray class]]) {
             [self packageDataWithArray:responseObject];
         }
-
     } fail:^(NSError *error) {}];
 }
 
@@ -226,6 +224,7 @@
             [GlobalMethod NotHaveAlertServiceWithMothedName:DelOrder_Url parmeter:@{@"ddno":item.ddno} success:^(id responseObject) {
                 NSLog(@"%@", responseObject);
                 [self.dataSource removeObject:item];
+                [self.allDatas removeObject:item];
                 i --;
                 if ([responseObject[@"err_msg"] isEqual:@"success"] && count == self.delCount) {
                     [alert dismissWithClickedButtonIndex:0 animated:YES];

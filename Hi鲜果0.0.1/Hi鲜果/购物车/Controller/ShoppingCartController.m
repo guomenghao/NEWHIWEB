@@ -54,12 +54,12 @@
 - (void)requestData {
 
     [GlobalMethod NotHaveAlertServiceWithMothedName:GetCar_Url parmeter:nil success:^(id responseObject) {
-        if (![responseObject[@"data"] isKindOfClass:[NSNull class]]) {
+        if ([responseObject[@"data"] isKindOfClass:[NSArray class]]) {
             NSLog(@"%@", responseObject);
             // 注意返回的总价和个数是NSNumber
             self.dataSource = [[NSMutableArray alloc] initWithArray:responseObject[@"data"]];
             NSLog(@"购物车信息：%@", self.dataSource);
-            self.toolBar.totalPrice = [responseObject[@"totalmoney"] integerValue];
+            self.toolBar.totalPrice = [responseObject[@"totalmoney"] floatValue];
             [self reloadDataSource];
             [self showCustomToolBar];
         } else {

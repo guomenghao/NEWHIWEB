@@ -52,6 +52,7 @@
 {
     UIImageView *categoryImageView = [[UIImageView alloc] initWithFrame:CGRectMake(5, 5, Screen_height / 5 - 10, Screen_height / 5 - 10)];
     [categoryImageView sd_setImageWithURL:[NSURL URLWithString:data[@"titlepic"]]];
+    categoryImageView.contentMode = UIViewContentModeScaleToFill;
     [self.contentView addSubview:categoryImageView];
     
     UILabel *category = [[UILabel alloc] initWithFrame:CGRectMake(Screen_height / 5, Screen_height / 5 / 15, Screen_width - Screen_height / 5 - 10, Screen_height / 5 / 5)];

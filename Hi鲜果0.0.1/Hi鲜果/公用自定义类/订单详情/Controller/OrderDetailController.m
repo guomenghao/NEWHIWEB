@@ -9,7 +9,7 @@
 #import "OrderDetailController.h"
 #import "OrderDetailModel.h"
 #import "CartCell.h"
-@interface OrderDetailController () <UITableViewDataSource, UITableViewDelegate>
+@interface OrderDetailController () <UITableViewDataSource, UITableViewDelegate, UIAlertViewDelegate>
 @property (strong, nonatomic) UITableView * tableView;
 @property (strong, nonatomic) NSMutableArray * dataSource;
 @property (strong, nonatomic) NSString * orderID;
@@ -131,8 +131,12 @@
     
     if ([keyPath isEqualToString:@"info"]) {
         NSDictionary * info = [change valueForKey:NSKeyValueChangeNewKey];
-        NSLog(@"订单信息更新：new info = %@", info);
-        
+        if ([info[@"info"] isEqual:@"用户未登录！"]) {//用户未登录
+            UIAlertView * alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"您还没有登录哦~" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"马上登录", nil];
+            alertView.tag = 8000;
+            [alertView show];
+            return;
+        }
         self.dataSource = [@[
                               @[//section = 0
                                   @{
@@ -165,8 +169,17 @@
     [self.model removeObserver:self forKeyPath:@"info" context:nil];
 }
 
-
-
+#pragma mark - <UIAlertViewDelegate>
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    
+    if (alertView.tag == 8000) {
+        if (buttonIndex == 0) {//取消
+            [self.navigationController popToRootViewControllerAnimated:YES];
+        } else {//马上登录
+            [self.navigationController pushViewController:[[LoginController alloc] init] animated:YES];
+        }
+    }
+}
 
 
 

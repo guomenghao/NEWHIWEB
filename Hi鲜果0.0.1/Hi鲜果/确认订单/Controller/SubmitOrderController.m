@@ -83,13 +83,13 @@ OpenSectionCellDelegate>
                              @[@"请选择"],
                              @[@"货到付款",@""],
                              @[],
-                             [@[[NSString stringWithFormat:@"￥%@", self.dataSource[@"buycar"][@"totalmoney"]],
+                             [@[[NSString stringWithFormat:@"￥%.2f", [self.dataSource[@"buycar"][@"totalmoney"] floatValue]],
                                @"￥0.00",
                                [NSString stringWithFormat:@"￥%ld.00", (long)self.currentDiscountScore]] mutableCopy],
                              @[@""]
                              ] mutableCopy];
         [self.tableView reloadData];
-        self.toolBar.totalPrice = [self.dataSource[@"buycar"][@"totalmoney"] integerValue];
+        self.toolBar.totalPrice = [self.dataSource[@"buycar"][@"totalmoney"] floatValue];
     } fail:^(NSError *error) {
         NSLog(@"error:%@", [error localizedDescription]);
     }];
@@ -445,6 +445,10 @@ OpenSectionCellDelegate>
                               };
     [GlobalMethod NotHaveAlertServiceWithMothedName:SubmitOrder_Url parmeter:params success:^(id responseObject) {
         [AutoDismissBox showBoxWithTitle:@"恭喜您" message:@"订单提交成功！"];
+        // 如果使用了积分，需要刷新用户信息
+        if (self.currentDiscountScore > 0) {
+            [GlobalMethod getUserInfoSuccess:^(id responseObject) {}];
+        }
         [self.navigationController popViewControllerAnimated:YES];
         if ([Framework controllers].shoppingCartVC) {
             [[Framework controllers].shoppingCartVC showNoDataView];

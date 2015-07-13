@@ -53,6 +53,9 @@
 - (void)addShopCar:(UIButton *)sender
 {
     // 判断登录状态
+    [GlobalMethod getUserInfoSuccess:^(id responseObject) {
+        
+    }];
     if ([User loginUser].isLogin == NO) {
         
         [[Framework controllers].fruitDetailVC.navigationController pushViewController:[[LoginController alloc] init] animated:YES];

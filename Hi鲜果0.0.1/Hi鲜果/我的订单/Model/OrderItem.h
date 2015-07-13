@@ -16,6 +16,8 @@
 
 @property (strong, nonatomic) NSString * havePrice;
 
+@property (strong, nonatomic) NSString * picture;
+
 @property (assign, nonatomic) BOOL isChecked;
 
 - (instancetype)initWithInfo:(NSDictionary *)info;

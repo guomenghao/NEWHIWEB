@@ -15,7 +15,7 @@
 @end
 
 @interface TotalPriceToolBar : UIView
-@property (assign, nonatomic) NSInteger totalPrice;
+@property (assign, nonatomic) float totalPrice;
 @property (weak, nonatomic) id<TotalPriceToolBarDelegate> delegate;
 - (instancetype)initWithFrame:(CGRect)frame submitTitle:(NSString *)title;
 

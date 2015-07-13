@@ -7,7 +7,6 @@
 //
 
 #import "OrderItem.h"
-
 @implementation OrderItem
 - (instancetype)initWithInfo:(NSDictionary *)info
 {
@@ -17,6 +16,9 @@
         self.ddno = info[@"ddno"];
         self.ddtime = info[@"ddtime"];
         self.havePrice = info[@"haveprice"];
+        if (![info[@"buycarlist"] isKindOfClass:[NSNull class]]) {
+            self.picture = [info[@"buycarlist"] firstObject][@"titlepic"];
+        }
     }
     return self;
 }

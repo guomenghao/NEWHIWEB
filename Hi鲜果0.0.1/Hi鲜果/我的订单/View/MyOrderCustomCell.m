@@ -39,8 +39,8 @@
 {
     if (_fruitImageView == nil) {
         _fruitImageView = [[UIImageView alloc] initWithFrame:CGRectMake(Screen_width / 43 * 2, Screen_width / 40.5 * 2, CGRectGetHeight(self.background.bounds) - Screen_width / 44 * 2, CGRectGetHeight(self.background.bounds) - Screen_width / 44 * 2)];
-        _fruitImageView.backgroundColor = [UIColor orangeColor];
         _fruitImageView.layer.cornerRadius = Screen_height / 100;
+        _fruitImageView.layer.masksToBounds = YES;
     }
     return _fruitImageView;
 }
@@ -79,8 +79,8 @@
 {
     self.ddno = item.ddno;
     [self.contentView addSubview:self.background];
-    
-    [self.fruitImageView sd_setImageWithURL:nil placeholderImage:nil];
+    NSURL * url = [NSURL URLWithString:[Base_Url stringByAppendingPathComponent:item.picture]];
+    [self.fruitImageView sd_setImageWithURL:url placeholderImage:nil];
     [self.contentView addSubview:self.fruitImageView];
     
     self.time.text = [NSString stringWithFormat:@"下单时间：%@", item.ddtime];
