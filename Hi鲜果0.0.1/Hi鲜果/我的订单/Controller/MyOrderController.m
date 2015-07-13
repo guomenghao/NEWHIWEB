@@ -80,7 +80,7 @@
     self.delCount = 0;
     [GlobalMethod serviceWithMothedName:GetOrderList_Url parmeter:nil success:^(id responseObject) {
 
-        if (![responseObject isKindOfClass:[NSNull class]]) {
+        if ([responseObject isKindOfClass:[NSArray class]]) {
             [self packageDataWithArray:responseObject];
         }
 
@@ -215,8 +215,8 @@
 #pragma mark - 删除cell，网络请求
 - (void)deleteTableViewCell {
 
-//    UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"正在删除...请稍后" delegate:nil cancelButtonTitle:nil otherButtonTitles:nil];
-//    [alert show];
+    UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"正在删除...请稍后" delegate:nil cancelButtonTitle:nil otherButtonTitles:nil];
+    [alert show];
     NSInteger count = 0;
     for (__block int i = 0; i < self.dataSource.count; i ++) {
         OrderItem * item = self.dataSource[i];
@@ -228,16 +228,12 @@
                 [self.dataSource removeObject:item];
                 i --;
                 if ([responseObject[@"err_msg"] isEqual:@"success"] && count == self.delCount) {
-//                    [alert dismissWithClickedButtonIndex:0 animated:YES];
+                    [alert dismissWithClickedButtonIndex:0 animated:YES];
+                    [self.tableView reloadData];
                 }
-            
             } fail:^(NSError *error) {}];
-            
-            
         }
     }
-    
-    [self.tableView reloadData];
 }
 
 // 是否可编辑

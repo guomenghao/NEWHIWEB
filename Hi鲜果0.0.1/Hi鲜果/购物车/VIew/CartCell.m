@@ -94,6 +94,7 @@
     
     if (_priceLabel == nil) {
         _priceLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.titleLabel.frame.origin.x, CGRectGetMaxY(self.unitLabel.frame), 100 * [FlexibleFrame ratios].width, 20 * [FlexibleFrame ratios].height)];
+        _priceLabel.font = LargeFont;
         _priceLabel.textColor = [UIColor orangeColor];
     }
     return _priceLabel;
@@ -131,9 +132,7 @@
 
     NSURL * url = [NSURL URLWithString:[Base_Url stringByAppendingPathComponent:self.fruit.pic]];
     [self.picView sd_setImageWithURL:url
-                    placeholderImage:ImageWithName(@"placeholder.jpg")
-                           completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-                           }];
+                           completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {}];
     self.titleLabel.text = self.fruit.name;
     self.unitLable.text = self.fruit.unit;
     if (self.type == CartCellTypeCart) {
@@ -150,10 +149,10 @@
     
     [self adjustLabelFrame];
     // 现价富文本属性
-    NSDictionary * attrs1 = @{
-                             NSFontAttributeName:LargeFont,
-                             NSForegroundColorAttributeName:[UIColor orangeColor]
-                             };
+//    NSDictionary * attrs1 = @{
+//                             NSFontAttributeName:LargeFont,
+//                             NSForegroundColorAttributeName:[UIColor orangeColor]
+//                             };
     NSMutableAttributedString * attrString = nil;
     if (self.fruit.discountPrice.length > 0) {//有打折信息
         attrString = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"￥%@", self.fruit.discountPrice]];
@@ -162,7 +161,7 @@
         attrString = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"￥%@", self.fruit.originalPrice]];
     }
     [attrString addAttribute:NSFontAttributeName value:SmallFont range:NSMakeRange(0, 1)];
-    [attrString addAttributes:attrs1 range:NSMakeRange(1, self.fruit.originalPrice.length)];
+//    [attrString addAttributes:attrs1 range:NSMakeRange(1, self.fruit.originalPrice.length)];
     self.priceLabel.attributedText = attrString;
 }
 
