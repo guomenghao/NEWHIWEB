@@ -249,12 +249,14 @@
         return;
     }
     if (self.phoneValide && self.verifyValide && self.passwordValide && (self.emailValide || self.emailField.text.length == 0)) {
-        [GlobalMethod serviceWithMothedName:Register_Url
+        sender.enabled = NO;
+        [GlobalMethod NotHaveAlertServiceWithMothedName:Register_Url
                                    parmeter:@{@"username":self.phoneField.text,
                                               @"password":self.password,
                                               @"email":self.emailField.text,
                                               @"groupid":@"1"}
                                     success:^(id responseObject) {
+                                        sender.enabled = YES;
                                         // 判断已被注册
                                         if ([responseObject[@"err_msg"] isEqualToString:@"error"] && [responseObject[@"info"] isEqualToString:@"用户名已存在"]) {
                                             [self showInvalideAnimationViewWithTips:@"用户名已存在"];
@@ -264,6 +266,7 @@
                                         }
                                     }
                                        fail:^(NSError *error) {
+                                           sender.enabled = YES;
                                            NSLog(@"%@", [error localizedDescription]);
                                        }];
     }

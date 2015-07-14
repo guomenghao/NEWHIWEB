@@ -140,18 +140,18 @@
                                                delegate:nil];
         }
         if (indexPath.row == 2) {
-//            NSString * appstoreUrlString = @"itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?mt=8&onlyLatestVersion=true&pageNumber=0&sortOrdering=1&type=Purple+Software&id=APP_ID";
-//            
-//            NSURL * url = [NSURL URLWithString:appstoreUrlString];
-//            
-//            if ([[UIApplication sharedApplication] canOpenURL:url])
-//            {
-//                [[UIApplication sharedApplication] openURL:url];
-//            }
-//            else
-//            {
-//                NSLog(@"can not open");
-//            }
+            NSString * appstoreUrlString = @"itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?mt=8&onlyLatestVersion=true&pageNumber=0&sortOrdering=1&type=Purple+Software&id=APP_ID";
+            
+            NSURL * url = [NSURL URLWithString:appstoreUrlString];
+            
+            if ([[UIApplication sharedApplication] canOpenURL:url])
+            {
+                [[UIApplication sharedApplication] openURL:url];
+            }
+            else
+            {
+                NSLog(@"can not open");
+            }
         }
     } else if (indexPath.section == 2 && indexPath.row != 2) {
         SettingDetailsController *settingDVC = [[SettingDetailsController alloc] init];
