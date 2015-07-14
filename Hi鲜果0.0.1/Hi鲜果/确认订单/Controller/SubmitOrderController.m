@@ -443,7 +443,7 @@ OpenSectionCellDelegate>
                               @"besttime":self.currentDispatchDate,//送货时间
                               @"userbuyfen":@(self.currentDiscountScore*100)//抵扣积分
                               };
-    [GlobalMethod NotHaveAlertServiceWithMothedName:SubmitOrder_Url parmeter:params success:^(id responseObject) {
+    [GlobalMethod serviceWithMothedName:SubmitOrder_Url parmeter:params success:^(id responseObject) {
         [AutoDismissBox showBoxWithTitle:@"恭喜您" message:@"订单提交成功！"];
         // 如果使用了积分，需要刷新用户信息
         if (self.currentDiscountScore > 0) {

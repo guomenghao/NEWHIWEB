@@ -23,6 +23,7 @@
     if (self) {
         self.title = @"订单详情";
         self.orderID = orderID;
+        self.view.backgroundColor = [UIColor whiteColor];
     }
     return self;
 }

@@ -85,7 +85,7 @@
 // 立即结算按钮点击事件
 - (void)forwardButtonPressed:(UIButton *)sender {
     // 先读取购物车信息，再提交订单,如果购物车为空则提示不进入提交订单页面
-    [GlobalMethod NotHaveAlertServiceWithMothedName:GetCar_Url parmeter:nil success:^(id responseObject) {
+    [GlobalMethod serviceWithMothedName:GetCar_Url parmeter:nil success:^(id responseObject) {
         if (![responseObject[@"data"] isKindOfClass:[NSNull class]]) {
             // 注意返回的总价和个数是NSNumber
             NSLog(@"购物车不为空，进入提交订单页面");

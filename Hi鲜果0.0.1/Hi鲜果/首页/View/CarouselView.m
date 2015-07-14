@@ -86,7 +86,7 @@
     /**
      *  自动轮播
      */
-    _timer = [NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(updateCarousel) userInfo:nil repeats:YES];
+    _timer = [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(updateCarousel) userInfo:nil repeats:YES];
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
@@ -99,7 +99,7 @@
 }
 
 - (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView {
-    [_timer setFireDate:[NSDate date]];
+    [self performSelector:@selector(timer) withObject:nil afterDelay:2];
 }
 
 - (NSInteger)correctIndex:(NSInteger)currectIndex maxCount:(NSInteger)maxCount {
@@ -110,6 +110,11 @@
         return 0;
     }
     return currectIndex;
+}
+
+- (void)timer
+{
+    [_timer setFireDate:[NSDate date]];
 }
 
 //刷新滚动视图，更改偏移量

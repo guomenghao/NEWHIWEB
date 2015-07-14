@@ -173,6 +173,9 @@
     if (- scrollView.contentOffset.y > Screen_height / 4) {
         scrollView.contentOffset = CGPointMake(0,  - Screen_height / 4);
     }
+    if (scrollView.contentOffset.y > 0) {
+        [GlobalControl myControl].cell.transform = CGAffineTransformIdentity;
+    }
 }
 
 
