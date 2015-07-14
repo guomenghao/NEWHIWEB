@@ -121,4 +121,8 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleDefault;
+}
+
 @end

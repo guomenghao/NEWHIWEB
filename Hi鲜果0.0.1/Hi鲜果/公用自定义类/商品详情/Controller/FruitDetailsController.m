@@ -129,4 +129,8 @@
     [self.tabBarController.tabBar setHidden:YES];
 }
 
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleDefault;
+}
+
 @end
