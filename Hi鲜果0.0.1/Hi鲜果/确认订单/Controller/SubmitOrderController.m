@@ -207,7 +207,17 @@ OpenSectionCellDelegate>
         }
 
     } else if (section == 3) {
-        NSDictionary * info = self.dataSource[@"buycar"][@"data"][indexPath.row];
+        NSDictionary * info = nil;
+        // 异常处理，如果返回是字典
+        if ([self.dataSource[@"buycar"][@"data"] isKindOfClass:[NSDictionary class]]) {
+            NSDictionary * dataSource = self.dataSource[@"buycar"][@"data"];
+            NSArray * allKeys = [[dataSource allKeys] sortedArrayUsingSelector:@selector(compare:)];
+            NSLog(@"%@", allKeys);
+            info = dataSource[allKeys[indexPath.row]];
+        } else if ([self.dataSource[@"buycar"][@"data"] isKindOfClass:[NSArray class]]) {
+            info = self.dataSource[@"buycar"][@"data"][indexPath.row];
+        }
+        
         NSString * title = info[@"title"];
         CGSize size = [GlobalMethod sizeWithString:title font:MiddleFont maxWidth:220 *[FlexibleFrame ratios].width maxHeight:40 * [FlexibleFrame ratios].height];
         CGFloat height = (size.height + 20 + 40 * [FlexibleFrame ratios].height) > 100 * [FlexibleFrame ratios].height ? (size.height + 20 * 3) : 100 * [FlexibleFrame ratios].height;
@@ -239,8 +249,17 @@ OpenSectionCellDelegate>
         }
         cell.type = CartCellTypeSubmit;
         if (self.dataSource.count > 0) {
-            NSArray * info = self.dataSource[@"buycar"][@"data"];
-            Fruit * fruit = [[Fruit alloc] initWithInfo:info[indexPath.row]];
+            NSDictionary * info = nil;
+            // 异常处理，如果返回是字典
+            if ([self.dataSource[@"buycar"][@"data"] isKindOfClass:[NSDictionary class]]) {
+                NSDictionary * dataSource = self.dataSource[@"buycar"][@"data"];
+                NSArray * allKeys = [[dataSource allKeys] sortedArrayUsingSelector:@selector(compare:)];
+                NSLog(@"%@", allKeys);
+                info = dataSource[allKeys[indexPath.row]];
+            } else if ([self.dataSource[@"buycar"][@"data"] isKindOfClass:[NSArray class]]) {
+                info = self.dataSource[@"buycar"][@"data"][indexPath.row];
+            }
+            Fruit * fruit = [[Fruit alloc] initWithInfo:info];
             cell.fruit = fruit;
         }
         return cell;
