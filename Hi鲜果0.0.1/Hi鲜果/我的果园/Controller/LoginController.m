@@ -36,7 +36,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     /**设置背景图片*/
-    self.view.layer.contents = (__bridge id)ImageWithName(@"bkImage.jpg").CGImage;
+    self.view.layer.contents = (__bridge id)ImageWithName(@"注册背景.png").CGImage;
     /**添加控件*/
     self.accountField = ({
         UITextField * textField = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, 250 * [FlexibleFrame ratios].width, 30 * [FlexibleFrame ratios].height)];

@@ -305,7 +305,6 @@ OpenSectionCellDelegate>
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:ordinaryID];
     }
-    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     cell.textLabel.text = self.texts[section][indexPath.row];
     cell.textLabel.font = MiddleFont;
     cell.detailTextLabel.text = self.detailTexts[section][indexPath.row];
