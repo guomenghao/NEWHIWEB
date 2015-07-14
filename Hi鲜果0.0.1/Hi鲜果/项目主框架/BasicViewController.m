@@ -67,10 +67,10 @@
     
     self.navigationController.navigationBar.shadowImage = self.navShadowImage;
     self.navigationController.navigationBar.hidden = NO;
-    self.navigationController.navigationBar.barStyle = UIBarStyleDefault;
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
     // 修改导航栏颜色
     self.navigationController.navigationBar.barTintColor = [UIColor orangeColor];
-    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
     [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
     self.navigationController.tabBarController.tabBar.hidden = NO;
@@ -83,7 +83,7 @@
         [self resetBar];
         return;
     }
-    
+
     self.navShadowImage = self.navigationController.navigationBar.shadowImage;
     if (self.controllerType == UIViewControllerHaveNavigation) {
         self.view.frame = CGRectMake(0, 64, CGRectGetWidth([UIScreen mainScreen].bounds), CGRectGetHeight(Screen_bounds) - 110);
@@ -100,6 +100,10 @@
             [self.navigationController.navigationBar setShadowImage:[[UIImage alloc] init]];
         }
     }
+}
+
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
 }
 
 @end

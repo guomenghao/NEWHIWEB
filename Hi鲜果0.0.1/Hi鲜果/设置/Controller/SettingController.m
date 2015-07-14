@@ -183,7 +183,7 @@
             [alert show];
             return ;
         }
-        self.cacheSize -= 1000;
+        self.cacheSize -= self.totlaSize/5;
         if (self.cacheSize < 0) {
             self.cacheSize = 0;
         }

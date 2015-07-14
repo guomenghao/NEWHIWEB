@@ -48,7 +48,7 @@
 }
 
 - (void)initializeUserInterface {
-    
+    self.view.backgroundColor = [UIColor whiteColor];
 }
 
 - (UITableView *)tableView {
