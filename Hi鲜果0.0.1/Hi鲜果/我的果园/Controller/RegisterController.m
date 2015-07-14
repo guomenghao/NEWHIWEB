@@ -8,6 +8,7 @@
 
 #import "RegisterController.h"
 #import "GlobalMethod.h"
+#import "AutoDismissBox.h"
 #import <SMS_SDK/SMS_SDK.h>
 #define Margin 30*[FlexibleFrame ratios].height
 #define NUMBERS @"0123456789"
@@ -214,8 +215,6 @@
         [button setBackgroundColor:[UIColor whiteColor]];
         [button.titleLabel setFont:MiddleFont];
         [button addTarget:self action:@selector(registerButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-        button.layer.borderWidth = 1;
-        button.layer.borderColor = [UIColor whiteColor].CGColor;
         button.layer.cornerRadius = Screen_height / 80;
         button;
     });
@@ -245,7 +244,7 @@
     
     if ((!self.verifyValide) || (!self.passwordValide)) {
         
-        UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"温馨提示" message:@"必填信息不完整，注册失败" delegate:nil cancelButtonTitle:@"我知道了" otherButtonTitles:nil];
+        UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"温馨提示" message:@"必填信息不完整，还不能进行注册哦" delegate:nil cancelButtonTitle:@"我知道了" otherButtonTitles:nil];
         [alert show];
         return;
     }
@@ -256,8 +255,13 @@
                                               @"email":self.emailField.text,
                                               @"groupid":@"1"}
                                     success:^(id responseObject) {
-                                        
-                                        NSLog(@"注册成功：%@", responseObject);
+                                        // 判断已被注册
+                                        if ([responseObject[@"err_msg"] isEqualToString:@"error"] && [responseObject[@"info"] isEqualToString:@"用户名已存在"]) {
+                                            [self showInvalideAnimationViewWithTips:@"用户名已存在"];
+                                        } else if ([responseObject[@"err_msg"] isEqualToString:@"success"]) {
+                                            [AutoDismissBox showBoxWithTitle:@"恭喜您" message:@"注册成功！"];
+                                            [self.navigationController popToRootViewControllerAnimated:YES];
+                                        }
                                     }
                                        fail:^(NSError *error) {
                                            NSLog(@"%@", [error localizedDescription]);
@@ -314,7 +318,7 @@
 
     } else if (index == 1) {//验证码
         
-        if (range.location == 6) {
+        if (range.location == 4) {
             return NO;
         }
     } else if (index == 3 || index == 4) {
@@ -455,9 +459,10 @@
 
         [SMS_SDK getVerificationCodeBySMSWithPhone:self.phoneField.text zone:@"86" customIdentifier:@"打堆水果" result:^(SMS_SDKError *error) {
             if (error) {
-                NSLog(@"发送失败:%@", [error localizedDescription]);
+                [self showInvalideAnimationViewWithTips:@"验证码发送失败"];
             }
         }];
+        [AutoDismissBox showBoxWithTitle:@"温馨提示" message:@"验证码已发送，请查收~"];
         [self.view endEditing:YES];
         [self setSendVerificationCodeButtonWithSelected:NO];
     }

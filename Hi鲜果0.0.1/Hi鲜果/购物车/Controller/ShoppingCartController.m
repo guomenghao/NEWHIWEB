@@ -171,9 +171,7 @@
         [GlobalMethod NotHaveAlertServiceWithMothedName:ClearCar_Url parmeter:nil success:^(id responseObject) {
             [AutoDismissBox showBoxWithTitle:@"提示" message:@"购物车已清空"];
             [self showNoDataView];
-        } fail:^(NSError *error) {
-            
-        }];
+        } fail:^(NSError *error) {}];
     }
 }
 
